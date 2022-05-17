@@ -1,0 +1,18 @@
+{
+    "SubjectName" : "Hindi",
+    "Grade" : "Grade 5",
+    "AddSectionTitle" : "Add New Section",
+    "Section" : "A",
+    "GradeCreatedPopup":"Section created successfully!",
+    "ChapterNum" : "4",
+    "ChapterName" : "Basics",
+    "ValidTotalSessionsNum" : "03",
+    "InvalidTotalSessionsNum" : "23456",
+    "AlertForTotalSessionField" : "Total session must be two digits",
+    "Alert" : "This field is required",
+    "Title" : "Curriculum builder",
+    "ChapterDescription" : "The 'dog' is a pet animal. It is a four-footed animal.",
+    "SuccessPopup" :"successfully_added"
+
+
+}

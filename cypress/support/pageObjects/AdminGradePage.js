@@ -4,8 +4,20 @@ class AdminGradePage {
         return cy.get('.title');
     }
 
-    getGradeFiveAddBtn() {
-        return cy.get('.sectionAddBtn').eq(4);
+    getGradeLst(){
+        return cy.get('tbody tr.MuiTableRow-root  td.grade-name div')
+    }
+
+    getEditableGradeLst(){
+        return cy.get('tbody tr.MuiTableRow-root  td.grade-name input')
+    }
+
+    getSectionsLst(){
+        return cy.get('button.sectionsBtn')
+    }
+
+    getSectionAddBtn(){
+        return cy.get('button.sectionAddBtn')
     }
 
     getSectionNameTxtFld() {
@@ -26,6 +38,18 @@ class AdminGradePage {
 
     getCreateSectionSuccessPopup() {
         return cy.get('.MuiAlert-message');
+    }
+
+    getClassDetailBtnInAddSectionPopup(){
+        return cy.get('button.class-details')
+    }
+
+    getClassDetailsTitle(){
+        return cy.get('div.header-container-out div')
+    }
+
+    getAddSectionCloseBtn(){
+        return cy.get('button.closeModal')
     }
     
   }

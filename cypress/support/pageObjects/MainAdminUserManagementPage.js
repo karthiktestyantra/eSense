@@ -163,7 +163,52 @@ class MainAdminUserManagementPage {
     getAlertMsg(){
         return cy.get('span[role="alert"]')
     }
-
+    getELADomainMappingCreateCheckBx(){
+        return cy.get('div.form-check input[name="13.isCreatable"]')
+    }
+    getELADomainMappingUpdateCheckBx(){
+        return cy.get('div.form-check input[name="13.isUpdatable"]')
+    }
+    getELADomainMappingReadCheckBx(){
+        return cy.get('div.form-check input[name="13.isReadable"]')
+    }
+    getELADomainMappingDeleteCheckBx(){
+        return cy.get('div.form-check input[name="13.isDeletable"]')
+    }
+    getELACompetencyCreateCheckBx(){
+        return cy.get('div.form-check input[name="14.isCreatable"]')
+    }
+    getELACompetencyReadCheckBx(){
+        return cy.get('div.form-check input[name="14.isReadable"]')
+    }
+    getUsersAndRolesCreateCheckBx(){
+        return cy.get('div.form-check input[name="9.isCreatable"]')
+    }
+    getUsersAndRolesReadCheckBx(){
+        return cy.get('div.form-check input[name="9.isReadable"]')
+    }
+    getUsersAndRolesUpdateCheckBx(){
+        return cy.get('div.form-check input[name="9.isUpdatable"]')
+    }
+    getContentTypeCreateCheckBx(){
+        return cy.get('div.form-check input[name="12.isCreatable"]')
+    }
+    getContentTypeUpdateCheckBx(){
+        return cy.get('div.form-check input[name="12.isUpdatable"]')
+    }
+    getContentTypeReadCheckBx(){
+        return cy.get('div.form-check input[name="12.isReadable"]')
+    }
+    getProfileImg(){
+        return cy.get('.cursor-pointer > img')
+    }
+    getSignOutBtn(){
+        return cy.get('div a.px-5')
+    }
+    getDomainMappingMainSkillLst(){
+        return cy.get('div.d-flex a[data-kt-ecommerce-product-filter="product_name"]')
+    }
+    
 
 }
 export default MainAdminUserManagementPage;

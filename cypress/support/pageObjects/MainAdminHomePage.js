@@ -24,5 +24,17 @@ class MainAdminHomePage {
       return cy.get('div span.menu-title').contains("Curriculum Plan");
     }
 
+    getGradeManagementLnk(){
+      return cy.get('div span.menu-title').contains("Grades");
+    }
+
+    getCourseLnk(){
+      return cy.get('div span.menu-title').contains('Courses')
+    }
+
+    getGradebookTemplateLnk(){
+      return cy.get('div span.menu-title').contains("Gradebook Template")
+    }
+
 }
 export default MainAdminHomePage;

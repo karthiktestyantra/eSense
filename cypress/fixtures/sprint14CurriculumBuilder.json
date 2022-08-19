@@ -1,18 +1,21 @@
 {
-    "SubjectName" : "Hindi",
-    "Grade" : "Grade 5",
+    "SubjectName" : "Tamil",
+    "Grade" : "Grade 3",
+    "SubAdminGrade" : "Grade 3",
     "AddSectionTitle" : "Add New Section",
     "Section" : "A",
     "GradeCreatedPopup":"Section created successfully!",
     "ChapterNum" : "4",
     "ChapterName" : "Basics",
+    "EditedChapterName":"Basics2",
     "ValidTotalSessionsNum" : "03",
     "InvalidTotalSessionsNum" : "23456",
     "AlertForTotalSessionField" : "Total session must be two digits",
     "Alert" : "This field is required",
-    "Title" : "Curriculum builder",
+    "Title" : "Curriculum",
     "ChapterDescription" : "The 'dog' is a pet animal. It is a four-footed animal.",
-    "SuccessPopup" :"successfully_added"
-
-
+    "SuccessPopup" :"successfully_added",
+    "ClassDetailTitle":"Class Dashboard",
+    "SubAdminName":"kaka",
+    "AddChapterTitle":"Add New Chapter"
 }

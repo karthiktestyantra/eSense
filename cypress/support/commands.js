@@ -10,7 +10,7 @@
 //
 //
 // -- This is a parent command --
-
+import 'cypress-file-upload';
 import MainAdminIndexPage from "./pageObjects/MainAdminIndexPage";
 
 const login = new MainAdminIndexPage();
@@ -32,21 +32,21 @@ import AdminIndexPage from "./pageObjects/AdminIndexPage";
 
 const Adminlogin = new AdminIndexPage();
 
- Cypress.Commands.add('AdminPreSetup', (email, password) => { 
+ Cypress.Commands.add('AdminPostSetup', (email, password) => { 
   Adminlogin.getAdminBtn().click()
   Adminlogin.getTitle().should('be.visible')
-  Adminlogin.getUserName().type(email);
-  Adminlogin.getPassword().type(password);
+  Adminlogin.getUserName().clear().type(email);
+  Adminlogin.getPassword().clear().type(password);
   Adminlogin.getLoginBtn().click({force:true});
-  cy.url().should('contain','basic-information');
+  cy.url().should('contain','dashboard');
   cy.wait(1000);
 })
 
  Cypress.Commands.add('TeacherPostSetupLogin', (email, password) => { 
   Adminlogin.getTeacherBtn().click()
   Adminlogin.getTitle().should('be.visible')
-  Adminlogin.getUserName().type(email);
-  Adminlogin.getPassword().type(password);
+  Adminlogin.getUserName().clear().type(email);
+  Adminlogin.getPassword().clear().type(password);
   Adminlogin.getLoginBtn().click({force:true});
   cy.url().should('contain','dashboard');
   cy.wait(1000);

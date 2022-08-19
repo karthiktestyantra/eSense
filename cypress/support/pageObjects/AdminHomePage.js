@@ -12,6 +12,10 @@ class AdminHomePage {
         return cy.get('button[type="button"]').contains("Continue");
     }
 
+    getReportLnk(){
+        return cy.get('div.menu-txt').contains("Reports")
+    }
+
     
   }
   export default AdminHomePage;

@@ -19,7 +19,7 @@ describe("Verify Master Management Page functionalities", function () {
       this.masterManagementCredentials = masterManagementCredentials;
     })
   })
- //pre-condition
+ //pre-condition before execution
   it("Navigate to Master Management page",function(){
     home.getSystemConfigDrpDwn().click()
     home.getMasterManagementLnk().click()

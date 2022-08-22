@@ -3,7 +3,7 @@
 import EsenseAdminCurriculumPlanPage from "../../support/PageObjects/EsenseAdminCurriculumPlanPage";
 
 const esenseAdminCurriculamPlanPage = new EsenseAdminCurriculumPlanPage();
-
+// end to end
 describe("Verify Curriculum Plan Page functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("url"))

@@ -107,7 +107,7 @@ it("To validate school sub-admin is able to delete the curriculum/EL-4870/ES4870
 //post - Condition
 it("To delete the created theme",function(){
   cy.clearLocalStorage()
-  cy.visit("https://liverpool.topschool.co.in/")
+  cy.visit("https://liverpool.staging.topschool.co.in/")
   cy.fixture("AdminLoginCredentials").then(function (validAdminLoginData) {
     cy.AdminPostSetup(validAdminLoginData.fNew,validAdminLoginData.password)
     })

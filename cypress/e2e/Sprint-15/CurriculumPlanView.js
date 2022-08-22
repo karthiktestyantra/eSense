@@ -34,7 +34,7 @@ describe("Verify Esense Admin Main Login Page functionalities", function () {
 
 //    it("To validate that when user clicks on Add curriculum” button it's navigating to Create Curriculum page/EL-4157/ES4157_05",function () {
     esenseAdminCurriculumPlanPage.getCurriculamPreviousPagePagination().click()
-    esenseAdminCurriculumPlanPage.getAddCurriculamPlanBtn().eq(13).click()
+    esenseAdminCurriculumPlanPage.getAddCurriculamPlanBtn().eq(11).click()
     cy.url().should('include','add-curriculum')
 
 //    })

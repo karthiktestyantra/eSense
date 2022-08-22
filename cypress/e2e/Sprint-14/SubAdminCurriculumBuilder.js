@@ -188,9 +188,10 @@ it("To validate school sub-admin with no edit and approval access is unable to v
     account.getCurriculumEditCheckbox().uncheck()
     account.getAddRoleBtn().click()
     cy.contains("Role details updated successfully!").should('be.visible')
-    cy.wait(1000)
+    cy.wait(2000)
     cy.clearLocalStorage()
-    cy.visit("https://liverpool.topschool.co.in/")
+    cy.clearCookies()
+    cy.visit("https://liverpool.staging.topschool.co.in/")
     cy.fixture("AdminLoginCredentials").then(function (validAdminLoginData) {
     cy.AdminPostSetup(validAdminLoginData.subAdminUsername,validAdminLoginData.subAdminPassword)
     })
@@ -217,7 +218,7 @@ it("To validate school sub-admin with no edit and approval access is unable to v
 //Post-Condition
 it("click on all checkbox for back to default",function(){
   cy.clearLocalStorage()
-  cy.visit("https://liverpool.topschool.co.in/")
+  cy.visit("https://liverpool.staging.topschool.co.in/")
   cy.fixture("AdminLoginCredentials").then(function (validAdminLoginData) {
     cy.AdminPostSetup(validAdminLoginData.fNew,validAdminLoginData.password)
     })

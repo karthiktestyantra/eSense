@@ -153,7 +153,7 @@ class AdminQuickLinksPage{
     }
 
     getGeneratedTimetableBreakNmaeTxtField(){
-        return cy.get('#mui-16')
+        return cy.get('input.MuiOutlinedInput-input').eq(2)
     }
 
     getGeneratedTimetableZeroPeriodDays(){

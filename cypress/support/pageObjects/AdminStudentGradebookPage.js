@@ -73,7 +73,7 @@ class AdminStudentGradebookPage{
     //****************************************************************************
 
         getHarSideMenuAdminReportImg(){
-            return  cy.get('div.side-nav-icon img[src="/static/media/chats.d729598c.svg"]')
+            return  cy.get('div.side-nav-icon img[src="/static/media/report.d1121fb6.svg"]')
         }
     
         getHarStudentGradeBookBtn(){

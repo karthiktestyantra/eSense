@@ -163,11 +163,9 @@ cy.get('a > :nth-child(1) > .side-nav-dashboard > .side-nav-icon > img').click()
 cy.get('#simple-tab-1').click()
 cy.get(':nth-child(7) > :nth-child(5) > .UserDashBoard_EditIcons__opRHW > [aria-label="Edit Student"] > img').click()
 cy.wait(2000)
-const name= cy.get('#firstname').invoke('val').then(sometext =>{
+const name= cy.get('#fullName').invoke('val').then(sometext =>{
  cy.log(sometext)
 
- const name= cy.get('input[name="fathersName"]').invoke('val').then(fathertext =>{
-    cy.log(fathertext)
 
     adminStudentGradeBookPage.getHarSideMenuAdminReportImg().click()
     cy.wait(1000)
@@ -185,7 +183,6 @@ const name= cy.get('#firstname').invoke('val').then(sometext =>{
 
  })
  
-})
 
 })
 

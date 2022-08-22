@@ -443,7 +443,7 @@ describe("Verify Esense Teacher Login Page functionalities", function () {
 
    it("Validate whether bulk delete option is enabled when multiple items are selected in the timetable list screen/EL-5361/ES5361_02",function () {
    adminQuickLinksPage.getGeneratedTimetableGoBackBtn().click()
-   adminQuickLinksPage.getTimeTableBulkClassCheckBox().check()
+   adminQuickLinksPage.getTimeTableBulkClassCheckBox().eq(0).check()
    adminQuickLinksPage.getTimeTableBulkDeleteBtn().scrollIntoView().should('be.visible')
 
    })

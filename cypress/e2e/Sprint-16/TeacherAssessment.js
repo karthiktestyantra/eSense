@@ -9,7 +9,7 @@ const teacherELA = new TeacherELAPage();
 describe("Verify Domain Mapping functionalities", function () {
   before(function () {
     //cy.visit(Cypress.env("urlStaging"))
-    cy.visit("https://srilanka.topschool.co.in")
+    cy.visit("https://srilanka.staging.topschool.co.in")
     cy.fixture("TeacherLoginCredentials").then(function (validAdminLoginData) {
     cy.TeacherPostSetupLogin(validAdminLoginData.user,validAdminLoginData.password)
     })

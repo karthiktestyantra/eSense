@@ -138,5 +138,11 @@ class MainAdminGradebookPage{
     getSiEditGradeTestTypeDrpDwns(){
         return cy.get('div#demo-simple-select-helper').eq(5)
     }
+    getSiEditGradeTestTypeDrpDwns2(){
+        return cy.get('div#demo-simple-select-helper').eq(4)
+    }
+    getSiMaxMarksDrpDwn2(){
+        return cy.get('div.MuiInputBase-formControl #demo-simple-select-helper')
+    }
 }
 export default MainAdminGradebookPage;

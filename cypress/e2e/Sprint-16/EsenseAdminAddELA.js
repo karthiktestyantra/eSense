@@ -186,7 +186,7 @@ describe("Verify Esense Admin Main Login Page functionalities", function () {
             esenseAdminAddELAPage.getSaveChangesBtn().click({force:true})
 
             cy.go('back')
-            esenseAdminAddELAPage.getMenuProfileImg().click()
+            esenseAdminAddELAPage.getMenuProfileImg().click({force:true})
             esenseAdminAddELAPage.getMenuProfileLogoutBtn().click()
             cy.fixture('TeacherLoginCredentials').then(function(validTeacherLoginData){
                 cy.TeacherPostSetupLogin(validTeacherLoginData.updUsername,validTeacherLoginData.password)  

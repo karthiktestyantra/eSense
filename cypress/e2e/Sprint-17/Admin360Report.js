@@ -27,7 +27,7 @@ describe("Verify Domain Mapping functionalities", function () {
  //pre-condition
  it("To Create New Assigned ELA",function(){
     home.getMyclassLnk().click({force:true})
-    teacherELA.getMyClassSubName().contains(this.report.newGrade).click({force:true})
+    teacherELA.getMyClassSubName().contains(this.report.Grade).click({force:true})
     teacherELA.getAssessmentTab().click()
     teacherELA.getAssignmentBtn().click({force:true})
     teacherELA.getAddELABtn().click()

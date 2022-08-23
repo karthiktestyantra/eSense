@@ -247,6 +247,7 @@ describe("Verify Master Management Page functionalities", function () {
 
 //it("To validate theory and practical are added to the template with 1 & 2 terms selected then the following table  displayed, as Screen/EL-5592/ES5592-06",function(){
     grade.getSiCancelBtn().click()
+    cy.wait(4000)
     grade.getSiGradeLstInTemplatePage().each(($e1,index,$list)=>{
         const txt = $e1.text()
         if(txt === this.gradebook.NonPublishedGrade){
@@ -254,18 +255,21 @@ describe("Verify Master Management Page functionalities", function () {
             return false;
         }
     })
-    // grade.getSiEditGradeNoOfTermsDrpDwn().click()
-    // grade.getSiSectionsLst().contains('2').click()
-    // grade.getSiEditGradeAddTestTypeBtn().click({force:true})
-    // grade.getSiEditGradeAddTestTermLastDrpDwn().click({froce:true})
-    // grade.getSiSectionsLst().contains('2').last().click({force:true})
-    // grade.getSiEditGradeTestTypeDrpDwns().click({force:true})
-    // grade.getSiSectionsLst().contains('Annual examination').click({force:true})
-    // grade.getSiMaxMarksDrpDwn().click({force:true})
-    // grade.getSiSectionsLst().contains('20').click({force:true})
+    grade.getSiEditGradeNoOfTermsDrpDwn().click()
+    grade.getSiSectionsLst().contains('2').click()
+    grade.getSiEditGradeAddTestTypeBtn().click({force:true})
+    grade.getSiEditGradeAddTestTermLastDrpDwn().click({froce:true})
+    grade.getSiSectionsLst().contains('2').last().click({force:true})
+    grade.getSiEditGradeTestTypeDrpDwns().click({force:true})
+    grade.getSiEditGradeTestTypeDrpDwns2().click({force:true})
+    grade.getSiSectionsLst().contains('Annual examination').click({force:true})
+    grade.getSiMaxMarksDrpDwn2().eq(5).click({force:true})
+    grade.getSiSectionsLst().contains('20').click({force:true})
+    //cy.get(':nth-child(5) > .MuiButtonBase-root > img').click({force:true})
     cy.wait(2000)
     grade.getSiSaveAsDraftInEditGradebook().click({force:true})
-    grade.getSiGradeLstInTemplatePage().each(($e1,index,$list)=>{
+    cy.wait(4000)
+    grade.getSiGradeLstInTemplatePage().each(($e1,index,$list)=>{   
         const txt = $e1.text()
         if(txt === this.gradebook.NonPublishedGrade){
             grade.getSiActionToggleLstCheckBx().eq(index).click()

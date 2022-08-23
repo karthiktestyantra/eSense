@@ -178,7 +178,7 @@ describe("Verify Domain Mapping functionalities", function () {
 //post-condition
 it("Delete the assigned ELA Card",function(){
   home.getMyclassLnk().click({force:true})
-  teacherELA.getMyClassSubName().contains(this.report.newGrade).click({force:true})
+  teacherELA.getMyClassSubName().contains(this.report.Grade).click({force:true})
   teacherELA.getAssessmentTab().click()
   teacherELA.getAssignmentBtn().click({force:true})
   teacherELA.getELACardLst().each(($e1,index,$list)=>{

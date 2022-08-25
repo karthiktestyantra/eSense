@@ -26,7 +26,7 @@ module.exports = defineConfig({
   },
   video: false,
   retries: {
-    runMode: 1,
+    runMode: 0,
     openMode: 1,
   },
   e2e: {

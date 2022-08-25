@@ -21,4 +21,4 @@ phases:
   build:
     commands:
       - npm run start:ci &
-      - npx cypress run --record
+      - npx cypress run 

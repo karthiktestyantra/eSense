@@ -8,8 +8,6 @@ phases:
       - npm install
       - npm install cypress
       - .\node_modules\.bin\cypress.cmd install --force
-      # Set COMMIT_INFO variables to send Git specifics to Cypress Dashboard when recording
-      # https://docs.cypress.io/guides/continuous-integration/introduction#Git-information
       - export COMMIT_INFO_BRANCH="$(git rev-parse HEAD | xargs git name-rev | cut -d' ' -f2 | sed 's/remotes\/origin\///g')"
       - export COMMIT_INFO_MESSAGE="$(git log -1 --pretty=%B)"
       - export COMMIT_INFO_EMAIL="$(git log -1 --pretty=%ae)"
@@ -24,4 +22,4 @@ phases:
   build:
     commands:
         - npm run start &
-        - npx cypress run --record
+        - npx cypress run --spec cypress\e2e\Sprint-14\AdminAccounts.js

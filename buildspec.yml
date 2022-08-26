@@ -2,17 +2,17 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: latest
     commands:
-      - echo Installing Node 14...
-      - curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
-      - apt install -y nodejs
-      - echo Installing Yarn...
-      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-      - apt install --no-install-recommends yarn
-      - apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
-      - npm install cypress
-      - .\node_modules\.bin\cypress.cmd install --force
+      # Set COMMIT_INFO variables to send Git specifics to Cypress Dashboard when recording
+      # https://docs.cypress.io/guides/continuous-integration/introduction#Git-information
+      - export COMMIT_INFO_BRANCH="$(git rev-parse HEAD | xargs git name-rev | cut -d' ' -f2 | sed 's/remotes\/origin\///g')"
+      - export COMMIT_INFO_MESSAGE="$(git log -1 --pretty=%B)"
+      - export COMMIT_INFO_EMAIL="$(git log -1 --pretty=%ae)"
+      - export COMMIT_INFO_AUTHOR="$(git log -1 --pretty=%an)"
+      - export COMMIT_INFO_SHA="$(git log -1 --pretty=%H)"
+      - export COMMIT_INFO_REMOTE="$(git config --get remote.origin.url)"
       - npm ci
   pre_build:
     commands:
@@ -20,5 +20,5 @@ phases:
       - npm run cy:info
   build:
     commands:
-      - npm run start:ci &
-      - npx cypress run 
+        - npm run start &
+        - npx cypress run --record

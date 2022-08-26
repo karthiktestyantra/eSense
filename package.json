@@ -5,11 +5,10 @@
   "description": "esense-project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "allFiles": "npx cypress run --spec cypress\\integration\\**\\*.js --reporter mochawesome --headed chrome",
+    "allFiles": "npx cypress run --spec cypress\\e2e\\**\\*.js --reporter mochawesome --headed chrome",
     "reportName": "npx mochawesome-merge .\\cypress\\reports\\*.json | out-file -encoding ascii cypress/htmlReports/report1.json",
     "htmlReport": "npx marge cypress/htmlReports/report1.json --reportDir ./ --inline",
-    "failedTest": "npx cypress run --spec cypress\\e2e\\Sprint-17\\AdminQuickLinkTimeTable.js,cypress\\e2e\\Sprint-17\\Admin360Report.js",
-    "failedTestHeaded": "npx cypress run --spec cypress\\e2e\\Sprint-17\\AdminQuickLinkTimeTable.js,cypress\\e2e\\Sprint-17\\Admin360Report.js --headed --browser chrome "
+    "failedTest": "npx cypress run --spec cypress\\e2e\\Sprint-17\\AdminQuickLinkTimeTable.js"
 
   },
   "author": "",

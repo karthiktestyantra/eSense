@@ -111,15 +111,18 @@ describe("Verify Esense Teacher Login Page functionalities", function () {
       adminQuickLinksPage.getGeneratedTimetableDropdownValue().contains('6').click()
       adminQuickLinksPage.getGeneratedTimetablePeriodsDropdown().eq(1).click()
       adminQuickLinksPage.getGeneratedTimetableDropdownValue().contains('5').click()
+      cy.wait(2000)
       adminQuickLinksPage.getViewTimeTableStartTime().eq(0).click({force:true})
       adminQuickLinksPage.getViewTimeTableAMBtn().contains("AM").click({force:true})
       adminQuickLinksPage.getViewTimeTableRightArrow().click()
+      cy.wait(2000)
       adminQuickLinksPage.getViewTimeTableStartTime().eq(0).click({force:true})
       cy.wait(1000)
       adminQuickLinksPage.getViewTimeTableEndTime().eq(1).click({force:true})
       adminQuickLinksPage.getViewTimeTablePMBtn().contains('PM').click({force:true})
       adminQuickLinksPage.getViewTimeTableRightArrow().click()
       adminQuickLinksPage.getViewTimeTablePMBtn().contains('PM').click({force:true})
+      cy.wait(2000)
       adminQuickLinksPage.getViewTimeTableEndTime().eq(1).click({force:true})
 
        cy.wait(1000)
@@ -343,9 +346,11 @@ describe("Verify Esense Teacher Login Page functionalities", function () {
    }) 
 
    it("To validate that user is able to select the school Start Time from School Start Time clockz/EL-5163/ES5163_10",function () {
+    cy.wait(2000)
     cy.get('[placeholder="h:mm (a|p)m"]').eq(0).should('be.visible').click({force:true})
       cy.get('.MuiTypography-root').contains("AM").click({force:true})
       cy.get('[data-testid="ArrowRightIcon"]').click()
+      cy.wait(2000)
       cy.get('[placeholder="h:mm (a|p)m"]').eq(0).should('be.visible').click({force:true})
 
    }) 
@@ -356,6 +361,7 @@ describe("Verify Esense Teacher Login Page functionalities", function () {
       cy.get('.MuiTypography-root').contains('PM').click({force:true})
       cy.get('[data-testid="ArrowRightIcon"]').click()
       cy.get('.MuiTypography-root').contains('PM').click({force:true})
+      cy.wait(2000)
       cy.get('[placeholder="h:mm (a|p)m"]').eq(1).should('be.visible').click({force:true})
 
    }) 

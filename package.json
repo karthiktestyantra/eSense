@@ -9,7 +9,8 @@
     "reportName": "npx mochawesome-merge .\\cypress\\reports\\*.json | out-file -encoding ascii cypress/htmlReports/report1.json",
     "htmlReport": "npx marge cypress/htmlReports/report1.json --reportDir ./ --inline",
     "allTests" : "npx cypress run",
-    "failedTest": "npx cypress run --spec cypress\\e2e\\Sprint-17\\AdminQuickLinkTimeTable.js"
+    "failedTest": "npx cypress run --spec cypress\\e2e\\Sprint-17\\AdminQuickLinkTimeTable.js",
+    "failedTestHeaded": "npx cypress run --spec cypress\\e2e\\Sprint-17\\AdminQuickLinkTimeTable.js --headed"
   },
   "author": "",
   "license": "ISC",

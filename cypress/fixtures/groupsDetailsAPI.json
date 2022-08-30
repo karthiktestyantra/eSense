@@ -1,0 +1,25 @@
+{
+  "groupsDetails": [
+    {
+      "teacherId": 1,
+      "classId": 1,
+      "courseId": 5,
+      "statusCode": "200",
+      "message": "Data fetched"
+    },
+    {
+        "teacherId": 0,
+        "classId": 0,
+        "courseId": 0,
+        "statusCode": "200",
+        "message": "Data fetched"
+    },
+    {
+        "teacherId": "",
+        "classId": "",
+        "courseId": "",
+        "statusCode": "404",
+        "message": "validation_failed"
+    }
+  ]
+}

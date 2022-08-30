@@ -1,0 +1,19 @@
+{
+  "studentByGroupsDetails": [
+    {
+      "groupId": 11,
+      "statusCode": "200",
+      "message": "data_fetched"
+    },
+    {
+      "groupId": -1,
+      "statusCode": "200",
+      "message": "data_fetched"
+    },
+    {
+      "groupId": "",
+      "statusCode": 400,
+      "message": "validation_failed"
+    }
+  ]
+}

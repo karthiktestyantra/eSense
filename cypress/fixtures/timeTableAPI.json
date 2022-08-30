@@ -1,0 +1,14 @@
+{
+  "timeTableDetails": [
+    {
+      "classId": 1,
+      "statusCode": "200",
+      "message": "timetable_fetched_success"
+    },
+    {
+      "classId": 0,
+      "statusCode": "200",
+      "message": "data_not_found"
+    }
+  ]
+}

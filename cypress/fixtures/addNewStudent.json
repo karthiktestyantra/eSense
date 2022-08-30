@@ -1,0 +1,22 @@
+{
+    "firstName": "Dinesh",
+    "lastName": "Yuvaraj",
+    "email":"dineshkumar.yuvaraj@impigertech.com",
+    "dob": "01/04/2005",
+    "contactNumber": 9876543210,
+    "fathersName": "Ravi",
+    "mothersName":"Rama",
+    "fathersEmail": "ravi2@gmail.com",
+    "mothersEmail": "rama2@gmail.com",
+    "fathersOccupation": "Manager",
+    "mothersOccupation":"Teacher",
+    "fathersContact": 9988776655,
+    "mothersContact": 9988776654,
+    "addressLine1": "ABC Street",
+    "addressLine2": "K K Nagar",
+    "pincode":"639001",
+    "state": "Tamil Nadu",
+    "city": "Karur",
+    "admissionNumber":"123",
+    "RollNumber":"10"
+  }

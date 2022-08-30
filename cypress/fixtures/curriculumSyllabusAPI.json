@@ -1,0 +1,18 @@
+{
+  "curriculumSyllabus": [
+    {
+      "courseId": 5,
+      "gradeId": 14,
+      "syllabusId": 146,
+      "statusCode": 200,
+      "message": "data_fetched"
+    },
+    {
+      "courseId": 0,
+      "gradeId": 0,
+      "syllabusId": 0,
+      "statusCode": 200,
+      "message": "data_not_found"
+    }
+  ]
+}

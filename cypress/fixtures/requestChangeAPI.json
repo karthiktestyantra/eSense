@@ -1,0 +1,27 @@
+{
+  "requestChangeDetails": [
+    {
+      "id": 2,
+      "comment": "test",
+      "staffId": 2,
+      "statusCode": "201",
+      "message": "requested_successfully"
+    },
+
+    {
+      "id": 0,
+      "comment": "!",
+      "staffId": 0,
+      "statusCode": 500,
+      "message": "Internal server error"
+    },
+
+    {
+      "id": null,
+      "comment": "",
+      "staffId": null,
+      "statusCode": 400,
+      "message": "validation_failed"
+    }
+  ]
+}

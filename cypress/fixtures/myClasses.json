@@ -1,0 +1,39 @@
+{
+  "classDetails": [
+    {
+      "classSection": "Grade 10 XI A",
+      "coursename": "Economics"
+      
+    },
+    {
+      "classSection": "Grade 10 XI A",
+      "coursename": "English"
+      
+    },
+    {
+      "classSection": "Grade 10 XI A",
+      "coursename": "Geography"
+     
+    },
+    {
+      "classSection": "Grade 10 XI A",
+      "coursename": "History"
+      
+    },
+    {
+      "classSection": "Grade 10 XI A",
+      "coursename": "MatheMatics"
+    
+    },
+    {
+      "classSection": "Grade 10 XI A",
+      "coursename": "Political Science"
+      
+    },
+    {
+    "classSection": "XII XI-B",
+    "coursename": "Science"
+    
+    }
+  ]
+}

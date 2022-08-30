@@ -1,0 +1,127 @@
+{
+  "curriculumEnglishData": {
+    "subjectName": "X  English",
+    "ChapterData": [
+      {
+        "chapterName": "Chapter-1: The Living World",
+        "topicDetails": [
+          { "topicNumber": 11, "topicData": "What is living? Biodiversity;" },
+          { "topicNumber": 12, "topicData": "Need for classification;" },
+          { "topicNumber": 13, "topicData": "three domains of life; " },
+          {
+            "topicNumber": 14,
+            "topicData": "concept of species and taxonomical hierarchy;"
+          },
+          { "topicNumber": 15, "topicData": "binomial nomenclature" }
+        ]
+      },
+      {
+        "chapterName": "Chapter-2: Biological Classification",
+        "topicDetails": [
+          { "topicNumber": 16, "topicData": "Five kingdom classification;" },
+          { "topicNumber": 17, 
+            "topicData": "Salient features and classification of Monera, Protista and Fungi into major groups;" },
+          { "topicNumber": 18, "topicData": "Lichens, Viruses and Viroids" }
+          
+        ]
+
+      },
+      {
+        "chapterName": "Chapter-3: Plant Kingdom",
+        "topicDetails": [
+          { "topicNumber": 19,
+             "topicData": "Salient features and classification of plants into major groups - Algae, Bryophyta, Pteridophyta and..." 
+            }
+        ]
+
+      },
+      {
+        "chapterName": "Chapter-4: Animal Kingdom",
+        "topicDetails": [
+          { "topicNumber": 20,
+             "topicData": "Salient features and classification of animals, non-chordates up to phyla level and chordates up to ..." 
+            }
+        ]
+
+      },
+      {
+        "chapterName": "Chapter-5: MORPHOLOGY OF FLOWERING PLANTS",
+        "topicDetails": [
+          { "topicNumber": 21,
+             "topicData": "Modification of Root, Stem and Leaf" 
+            },
+            {
+              "topicNumber": 22,
+             "topicData": "Parts of the Flowering Plants : Flower, Fruits and Seed" 
+            }
+        ]
+
+      },
+      {
+        "chapterName": "Chapter-6: ANATOMY OF FLOWERING PLANTS",
+        "topicDetails": [
+          { "topicNumber": 23,
+             "topicData": "Plant Tissues, Type of Plant Tissues, Epidermal Tissues System,Vascular Tissues System" 
+            },
+            {
+              "topicNumber": 24,
+             "topicData": "Anatomy of Root, Stem and Leaf; Secondary Growth" 
+            }
+        ]
+
+      },
+      {
+        "chapterName": "Chapter-7: STRUCTURAL ORGANISATION IN ANIMALS",
+        "topicDetails": [
+          { "topicNumber": 25,
+             "topicData": "Tissue, Types of Animal Tissue : Epithelial, Connective, Muscular and Nervous Tissue" 
+            },
+            {
+              "topicNumber": 26,
+             "topicData": "Morphology of Animals : Earthworm, Cockroach and Frog" 
+            }
+        ]
+
+      },
+      {
+        "chapterName": "Chapter-8: CELL : THE UNIT OF LIFE",
+        "topicDetails": [
+          { "topicNumber": 27,
+             "topicData": "Cell as Basic Unit of Life" 
+            },
+            {
+              "topicNumber": 28,
+             "topicData": "Structure and Functions of Cell" 
+            }
+        ]
+
+      },
+      {
+        "chapterName": "Chapter-9: BIOMOLECULES",
+        "topicDetails": [
+          { "topicNumber": 29,
+             "topicData": "Chemical Constituents of Living Cells : Biomolecules; Structure and Function of Proteins, Carbohydra..." 
+            },
+            {
+              "topicNumber": 30,
+             "topicData": "Enzymes : Types and Properties, Enzyme action" 
+            }
+        ]
+
+      },
+      {
+        "chapterName": "Chapter-10: CELL CYCLE AND CELL DIVISION",
+        "topicDetails": [
+          { "topicNumber": 31,
+             "topicData": "Cell Cycle, Mitosis and its Significance" 
+            },
+            {
+              "topicNumber": 32,
+             "topicData": "Meiosis and its Significance" 
+            }
+        ]
+
+      }
+    ]
+  }
+}

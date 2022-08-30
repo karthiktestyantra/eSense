@@ -52,6 +52,35 @@ const Adminlogin = new AdminIndexPage();
   cy.wait(1000);
 })
 
+Cypress.Commands.add("requestAPI", (url, body, aliasName, methodType) => {
+  //cy.log(Cypress.env("apiURL")+url)
+  cy.request({
+    method: methodType,
+    url: Cypress.env("apiURL")+url,
+    body: body,
+    failOnStatusCode: false
+  }).as(aliasName)
+  //.then((response) =>{cy.wrap(response).as(aliasName)})
+})
+
+//For Cypress drag and drop plugin
+require('@4tw/cypress-drag-drop')
+
+require('cypress-downloadfile/lib/downloadFileCommand')
+
+
+// -- This is a parent command --
+import LoginPage from "../support/pageObjects2/LoginPage";
+import WalkthroughPage from "../support/pageObjects2/WalkthroughPage";
+const lp = new LoginPage();
+const wp = new WalkthroughPage();
+ Cypress.Commands.add('login', (email, password) => { 
+  lp.getUserName().type(email);
+  lp.getPassword().type(password);
+  lp.getLogin().click({force:true});
+  wp.getLoginSuccessfulMsg().should("have.text", "Logged in successfully"); 
+})
+
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
 //

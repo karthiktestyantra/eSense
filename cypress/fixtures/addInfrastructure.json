@@ -1,0 +1,11 @@
+{
+    "addInfrastructureName" :"Auditorium Block",
+    "addNoOfFloor" :"1",
+    "addInfrastructureDescription":"Auditorium Hall",
+    "addRoomName":"Office Room",
+    "addRoomFloor" :"1",
+    "addRoomDescription":"Admin office",
+    "addRoomNameWithExactRange":"LoremIpsumissimplydummytextoftheprintingandtypeset",
+    "addRoomFloorWithExactRange":"LoremIpsumissimplydummytextoftheprintingandtypeset",  
+    "addRoomDescriptionWithExactRange":"LoremIpsumissimplydummytextoftheprintingandtypesetLoremIpsumissimplydummytextoftheprintingandtypeset"
+}

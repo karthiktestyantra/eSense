@@ -1,0 +1,20 @@
+{
+    "studentByGroupsDetails": [
+      {
+        "groupID": 94,
+        "statusCode": "200",
+        "message": "Group Deleted Successfully"
+      },
+      {
+        "groupID": -1,
+        "statusCode": "200",
+        "message": "Group Deleted Successfully"
+      },
+      {
+        "groupID": "",
+        "statusCode": 404,
+        "message": "validation_failed"
+      }
+    ]
+  }
+  

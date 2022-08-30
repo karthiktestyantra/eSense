@@ -1,0 +1,60 @@
+{
+  "topPerformers": [
+    {
+      "serialNo": "1",
+      "studentName": "Riddhi Chawla",
+      "rollNo": "Roll No. 27",
+      "scorePercentage": "95%"
+    },
+
+    {
+      "serialNo": "2",
+      "studentName": "Aparna Mehta",
+      "rollNo": "Roll No. 4",
+      "scorePercentage": "91%"
+    },
+
+    {
+      "serialNo": "3",
+      "studentName": "Manan Batra",
+      "rollNo": "Roll No. 22",
+      "scorePercentage": "88%"
+    }
+  ],
+
+  "needsAttention": [
+    {
+      "serialNo": "1",
+      "studentName": "Riddhi Chawla",
+      "rollNo": "Roll No. 27",
+      "scorePercentage": "95%"
+    },
+
+    {
+      "serialNo": "2",
+      "studentName": "Aparna Mehta",
+      "rollNo": "Roll No. 4",
+      "scorePercentage": "91%"
+    },
+
+    {
+      "serialNo": "3",
+      "studentName": "Manan Batra",
+      "rollNo": "Roll No. 22",
+      "scorePercentage": "88%"
+    }
+  ],
+
+  "sessionCompleted": 5,
+  "pendingTasks": 2,
+  "averageAttendance": "68 %",
+  "upcomingSessionTime": "02 PM",
+  "upcomingSessionChapter": "Chapter 1 • Algebra",
+  "upcomingSessionTitle": "Quadratic Equations in Two Variables",
+  "upcomingSessionDate": "29 Oct",
+  "upcomingSessionFromToTime": "2:00pm - 2:45pm",
+  "AverageClassScoreText": "Your average class score is 65%",
+  "classScoreAboveEighty": "Above 80%",
+  "classScorePassed": "Passed",
+  "ClassScoreFailed": "Failed"
+}

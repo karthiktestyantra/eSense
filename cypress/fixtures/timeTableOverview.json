@@ -1,0 +1,289 @@
+{
+  "timetable": [
+    {
+      "day": "MON",
+      "startTime": "9:31 AM",
+      "endTime": "10:00 AM",
+      "className": "",
+      "courseName": "0 Period"
+    },
+    {
+      "day": "MON",
+      "startTime": "10:01 AM",
+      "endTime": "10:45 AM",
+      "className": "X A",
+      "courseName": "Science"
+    },
+    {
+      "day": "MON",
+      "startTime": "11:31 AM",
+      "endTime": "12:15 PM",
+      "className": "X C",
+      "courseName": "English"
+    },
+    {
+      "day": "MON",
+      "startTime": "12:16 PM",
+      "endTime": "1:00 PM",
+      "className": "X B",
+      "courseName": "English"
+    },
+    {
+      "day": "MON",
+      "startTime": "1:00 PM",
+      "endTime": "2:00 PM",
+      "className": "null null",
+      "courseName": "null"
+    },
+    {
+      "day": "MON",
+      "startTime": "2:01 PM",
+      "endTime": "2:45 PM",
+      "className": "X B",
+      "courseName": "Science"
+    },
+    {
+      "day": "MON",
+      "startTime": "3:31 PM",
+      "endTime": "4:15 PM",
+      "className": "X C",
+      "courseName": "Science"
+    },
+    {
+      "day": "MON",
+      "startTime": "4:16 PM",
+      "endTime": "5:00 PM",
+      "className": "X A",
+      "courseName": "English"
+    },
+
+    {
+      "day": "TUE",
+      "startTime": "9:31 AM",
+      "endTime": "10:00 AM",
+      "className": "",
+      "courseName": "0 Period"
+    },
+    {
+      "day": "TUE",
+      "startTime": "10:01 AM",
+      "endTime": "10:45 PM",
+      "className": "X C",
+      "courseName": "English"
+    },
+    {
+      "day": "TUE",
+      "startTime": "10:46 AM",
+      "endTime": "11:30 PM",
+      "className": "X A",
+      "courseName": "English"
+    },
+    {
+      "day": "TUE",
+      "startTime": "11:31 AM",
+      "endTime": "12:15 PM",
+      "className": "X A",
+      "courseName": "Science"
+    },
+    {
+      "day": "TUE",
+      "startTime": "1:00 PM",
+      "endTime": "2:00 PM",
+      "className": "null null",
+      "courseName": "null"
+    },
+    {
+      "day": "TUE",
+      "startTime": "2:01 PM",
+      "endTime": "2:45 PM",
+      "className": "X B",
+      "courseName": "English"
+    },
+    {
+      "day": "TUE",
+      "startTime": "3:31 PM",
+      "endTime": "4:15 PM",
+      "className": "X B",
+      "courseName": "Science"
+    },
+    {
+      "day": "TUE",
+      "startTime": "4:16 PM",
+      "endTime": "5:00 PM",
+      "className": "X C",
+      "courseName": "Science"
+    },
+
+    {
+      "day": "WED",
+      "startTime": "9:31 AM",
+      "endTime": "10:00 AM",
+      "className": "",
+      "courseName": "0 Period"
+    },
+    {
+      "day": "WED",
+      "startTime": "10:01 AM",
+      "endTime": "10:45 AM",
+      "className": "X C",
+      "courseName": "Science"
+    },
+    {
+      "day": "WED",
+      "startTime": "10:46 AM",
+      "endTime": "11:30 AM",
+      "className": "X A",
+      "courseName": "Science"
+    },
+    {
+      "day": "WED",
+      "startTime": "11:31 AM",
+      "endTime": "12:15 PM",
+      "className": "X C",
+      "courseName": "English"
+    },
+    {
+      "day": "WED",
+      "startTime": "12:16 PM",
+      "endTime": "1:00 PM",
+      "className": "X A",
+      "courseName": "English"
+    },
+    {
+      "day": "WED",
+      "startTime": "1:00 PM",
+      "endTime": "2:00 PM",
+      "className": "null null",
+      "courseName": "null"
+    },
+    {
+      "day": "WED",
+      "startTime": "2:01 PM",
+      "endTime": "2:45 PM",
+      "className": "X B",
+      "courseName": "English"
+    },
+    {
+      "day": "WED",
+      "startTime": "2:46 PM",
+      "endTime": "3:30 PM",
+      "className": "X B",
+      "courseName": "Science"
+    },
+
+    {
+      "day": "THU",
+      "startTime": "9:31 AM",
+      "endTime": "10:00 AM",
+      "className": "",
+      "courseName": "0 Period"
+    },
+    {
+      "day": "THU",
+      "startTime": "10:46 AM",
+      "endTime": "11:30 AM",
+      "className": "X B",
+      "courseName": "Science"
+    },
+    {
+      "day": "THU",
+      "startTime": "12:16 PM",
+      "endTime": "1:00 PM",
+      "className": "X A",
+      "courseName": "Science"
+    },
+    {
+      "day": "THU",
+      "startTime": "1:00 PM",
+      "endTime": "2:00 PM",
+      "className": "null null",
+      "courseName": "null"
+    },
+    {
+      "day": "THU",
+      "startTime": "2:01 PM",
+      "endTime": "2:45 PM",
+      "className": "X C",
+      "courseName": "Science"
+    },
+    {
+      "day": "THU",
+      "startTime": "2:46 PM",
+      "endTime": "3:30 PM",
+      "className": "X B",
+      "courseName": "English"
+    },
+
+    {
+      "day": "THU",
+      "startTime": "3:31 PM",
+      "endTime": "4:15 PM",
+      "className": "X A",
+      "courseName": "English"
+    },
+    {
+      "day": "THU",
+      "startTime": "4:16 PM",
+      "endTime": "5:00 PM",
+      "className": "X C",
+      "courseName": "English"
+    },
+    {
+      "day": "FRI",
+      "startTime": "9:31 AM",
+      "endTime": "10:00 AM",
+      "className": "",
+      "courseName": "0 Period"
+    },
+    {
+      "day": "FRI",
+      "startTime": "10:01 AM",
+      "endTime": "10:45 AM",
+      "className": "X B",
+      "courseName": "English"
+    },
+    {
+      "day": "FRI",
+      "startTime": "10:46 AM",
+      "endTime": "11:30 AM",
+      "className": "X C",
+      "courseName": "English"
+    },
+    {
+      "day": "FRI",
+      "startTime": "11:31 AM",
+      "endTime": "12:15 PM",
+      "className": "X A",
+      "courseName": "English"
+    },
+    {
+      "day": "FRI",
+      "startTime": "12:16 PM",
+      "endTime": "1:00 PM",
+      "className": "X A",
+      "courseName": "Science"
+    },
+    {
+      "day": "FRI",
+      "startTime": "1:00 PM",
+      "endTime": "2:00 PM",
+      "className": "null null",
+      "courseName": "null"
+    },
+
+    {
+      "day": "FRI",
+      "startTime": "2:46 PM",
+      "endTime": "3:30 PM",
+      "className": "X B",
+      "courseName": "Science"
+    },
+    {
+      "day": "FRI",
+      "startTime": "4:16 PM",
+      "endTime": "5:00 PM",
+      "className": "X C",
+      "courseName": "Science"
+    }
+  ]
+}

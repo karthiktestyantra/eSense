@@ -22,7 +22,25 @@ import 'cypress-mochawesome-reporter/register';
 // require('./commands')
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from
-    // failing the test
-    return false
-  })
+  // returning false here prevents Cypress from
+  // failing the test
+  return false
+})
+
+import postgreSQL from 'cypress-postgresql';
+postgreSQL.loadDBCommands();
+
+// const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
+// module.exports = (on, config) => {
+//   on('task', {downloadFile})
+// }
+
+module.exports = (on, config) => {
+  on('task', { queryDb: query => { return queryTestDb(query, config) }, }); //For running sql query
+}
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // returning false here prevents Cypress from
+  // failing the test
+  return false
+})

@@ -1,0 +1,14 @@
+{
+    "curriculumCourse": [
+      {
+        "userRefId": 1,
+        "statusCode": "200",
+        "message": "data_fetched"
+      },
+      {
+        "userRefId": -1,
+        "statusCode": "200",
+        "message": "data_not_found"
+      }
+    ]
+  }

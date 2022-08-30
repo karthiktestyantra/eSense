@@ -1,0 +1,173 @@
+{
+  "curriculumOverviewData": [
+    {
+      "subjectName": "X  Science",
+      "subjectDetails": [
+        {
+          "themeName": "Materials",
+          "chapterNo": [
+            {
+              "chapterNumber": "CH 40",
+              "unitDetails": "Unit 33 • Matter-Its Nature and Behaviour",
+              "chapterDetails": "Chapter – 2 Is matter around us Pure",
+              "topics": [
+                {
+                  "topicNumber": "Topic 51",
+                  "topicName": "Definition of matter"
+                },
+                {
+                  "topicNumber": "Topic 52",
+                  "topicName": "Nature of matter"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "themeName": "The World of the Living",
+          "chapterNo": [
+            {
+              "chapterNumber": "CH 41",
+              "unitDetails": "Unit 34 • Organization in the Living World",
+              "chapterDetails": "Chapter – 5 The Fundamental Unit of Life",
+              "topics": [
+                {
+                  "topicNumber": "Topic 53",
+                  "topicName": "Cell - Basic Unit of life"
+                }
+              ]
+            },
+            {
+              "chapterNumber": "CH 42",
+              "unitDetails": "Unit 34 • Organization in the Living World",
+              "chapterDetails": "Chapter – 6 Tissues",
+              "topics": [
+                {
+                  "topicNumber": "Topic 54",
+                  "topicName": "Tissues, Organs, Organ System, Organism"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "themeName": "Moving Things, People and Ideas",
+          "chapterNo": [
+            {
+              "chapterNumber": "CH 43",
+              "unitDetails": "Unit 35 • Motion, Force and Work",
+              "chapterDetails": "Chapter – 8 Motion",
+              "topics": [
+                {
+                  "topicNumber": "Topic 55",
+                  "topicName": "Motion"
+                }
+              ]
+            },
+            {
+              "chapterNumber": "CH 44",
+              "unitDetails": "Unit 35 • Motion, Force and Work",
+              "chapterDetails": "Chapter – 9 Force and Laws of Motion",
+              "topics": [
+                {
+                  "topicNumber": "Topic 56",
+                  "topicName": "Force and Newton’s laws"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "themeName": "Materials",
+          "chapterNo": [
+            {
+              "chapterNumber": "CH 45",
+              "unitDetails": "Unit 36 • Unit I: Matter- It’s Nature and Behaviour",
+              "chapterDetails": "Chapter – 3 Atoms and Molecules",
+              "topics": [
+                {
+                  "topicNumber": "Topic 57",
+                  "topicName": "Particle nature and their basic units"
+                }
+              ]
+            },
+            {
+              "chapterNumber": "CH 46",
+              "unitDetails": "Unit 36 • Unit I: Matter- It’s Nature and Behaviour",
+              "chapterDetails": "Chapter – 4 Structure of Atom",
+              "topics": [
+                {
+                  "topicNumber": "Topic 58",
+                  "topicName": "Structure of atoms"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "themeName": "Moving Things, People and Ideas",
+          "chapterNo": [
+            {
+              "chapterNumber": "CH 47",
+              "unitDetails": "Unit 37 • Unit III: Motion, Force and Work",
+              "chapterDetails": "Chapter – 10 Gravitation",
+              "topics": [
+                {
+                  "topicNumber": "Topic 59",
+                  "topicName": "Gravitation"
+                }
+              ]
+            },
+            {
+              "chapterNumber": "CH 48",
+              "unitDetails": "Unit 37 • Unit III: Motion, Force and Work",
+              "chapterDetails": "Chapter – 11 Work and Energy",
+              "topics": [
+                {
+                  "topicNumber": "Topic 60",
+                  "topicName": "Work, energy and power"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "themeName": "The World of the Living",
+          "chapterNo": [
+            {
+              "chapterNumber": "CH 49",
+              "unitDetails": "Unit 38 • Unit II: Organization in the Living World",
+              "chapterDetails": "Chapter – 10 GravitationChapter – 13 Why do we fall ill",
+              "topics": [
+                {
+                  "topicNumber": "Topic 61",
+                  "topicName": "Health and Diseases"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "themeName": "Natural Resources: Balance in nature",
+          "chapterNo": [
+            {
+              "chapterNumber": "CH 50",
+              "unitDetails": "Unit 39 • Unit IV: Our Environment",
+              "chapterDetails": "Chapter -14 Natural Resources",
+              "topics": [
+                {
+                  "topicNumber": "Topic 62",
+                  "topicName": "Physical resources"
+                },
+                {
+                  "topicNumber": "Topic 63",
+                  "topicName": "Bio-geo chemical cycles in nature"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

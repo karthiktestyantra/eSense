@@ -86,7 +86,7 @@ describe("Verify User Management Page functionalities/Sprint-15", function () {
 //it("To validate esense sub-admin is able to access and view-only the allowed modules/EL-4864/ES4864_02",function(){
     userManage.getProfileImg().click()
     userManage.getSignOutBtn().click()
-    cy.login(ids,"Test@12345")
+    cy.Mainlogin(ids,"Test@12345")
           }
         })
         home.getSystemConfigDrpDwn().click()
@@ -146,7 +146,7 @@ describe("Verify User Management Page functionalities/Sprint-15", function () {
     userManage.getSignOutBtn().click()
 })
     it("To validate esense admin is able to delete the user permanently/EL-4145/ES4145_09",function(){
-    cy.login("admin","Test@123")
+    cy.Mainlogin("admin","Test@123")
     cy.wait(1000)
     home.getSystemConfigDrpDwn().click()
     home.getRolesManagementLnk().click()

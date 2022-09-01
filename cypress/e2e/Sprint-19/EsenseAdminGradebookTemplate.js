@@ -9,12 +9,12 @@ const grade = new MainAdminGradebookPage();
 
 describe("Verify Master Management Page functionalities", function () {
 
-  before(function () {
-    cy.visit(Cypress.env("url"))
-    cy.fixture("mainAdminLoginCredentials").then(function (validAdminLoginData) {
-    cy.login(validAdminLoginData.username,validAdminLoginData.password)
-    })
-  })
+    before(function () {
+        cy.visit(Cypress.env("url"))
+        cy.fixture("mainAdminLoginCredentials").then(function (validAdminLoginData) {
+        cy.Mainlogin(validAdminLoginData.username,validAdminLoginData.password)
+        })
+      })
   beforeEach(function (){
     cy.viewport(1920,1080)
     cy.fixture("mainAdminGradebookCredentials").then(function(gradebook){

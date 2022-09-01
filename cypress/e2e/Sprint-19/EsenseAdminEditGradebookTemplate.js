@@ -5,12 +5,12 @@ import EsenseAdminGradePage from "../../support/PageObjects/EsenseAdminGradePage
 const esenseAdminGradePage = new EsenseAdminGradePage();
 
 describe("Verify Esense Admin Grades Feature", function () {
-    before(function () {
-        cy.visit(Cypress.env("url"))
-        cy.fixture("mainAdminLoginCredentials").then(function (validAdminLoginData) {
-        cy.login(validAdminLoginData.username,validAdminLoginData.password)
-        })
+   before(function () {
+      cy.visit(Cypress.env("url"))
+      cy.fixture("mainAdminLoginCredentials").then(function (validAdminLoginData) {
+      cy.Mainlogin(validAdminLoginData.username,validAdminLoginData.password)
       })
+    })
     beforeEach(function (){  
         cy.fixture('mainAdminGradebookCredentials').then(function(EsenseAdminGradesCredentials){
             this.esenseAdminGradesCredentials = EsenseAdminGradesCredentials;

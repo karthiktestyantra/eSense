@@ -12,7 +12,7 @@ describe("Verify User Management Page functionalities/Sprint-15", function () {
   before(function () {
     cy.visit(Cypress.env("url"))
     cy.fixture("mainAdminLoginCredentials").then(function (validAdminLoginData) {
-    cy.login(validAdminLoginData.username,validAdminLoginData.password)
+    cy.Mainlogin(validAdminLoginData.username,validAdminLoginData.password)
     })
   })
   beforeEach(function (){

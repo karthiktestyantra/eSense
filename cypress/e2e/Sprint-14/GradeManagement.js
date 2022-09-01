@@ -11,7 +11,7 @@ describe("Verify Grade Management Page functionalities", function () {
     cy.viewport(1920,1080)
     cy.visit(Cypress.env("url"))
     cy.fixture("mainAdminLoginCredentials").then(function (validAdminLoginData) {
-    cy.login(validAdminLoginData.username,validAdminLoginData.password)
+    cy.Mainlogin(validAdminLoginData.username,validAdminLoginData.password)
     })
   })
   beforeEach(function (){

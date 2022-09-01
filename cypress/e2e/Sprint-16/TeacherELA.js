@@ -32,6 +32,7 @@ describe("Verify Teacher ELA Page functionalities", function () {
         })
         teacherELAPage.getViewELAQuestionCheckBx().click({ multiple: true })
         teacherELAPage.getELAAssignBtn().click()
+        cy.wait(10000)
         cy.on('window:alert', (txt) => {
             expect(txt).to.contains('Successfully Assigned');
         })
@@ -368,6 +369,7 @@ describe("Verify Teacher ELA Page functionalities", function () {
         cy.wait(2000)
         teacherELAPage.getELAMilestoneCreatedAssignBtn().click()
         teacherELAPage.getELAChapterDropdown().click()
+        cy.wait(2000)
         teacherELAPage.getELAChapterDropdownValue().contains('झूठ का फल').click()
     })
 

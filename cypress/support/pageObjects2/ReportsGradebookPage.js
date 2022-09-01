@@ -41,11 +41,11 @@ class ReportsGradebookPage {
   }
 
   getGradePopupCloseIcon(){
-    return cy.get('.gradeBook-model-wrapper>.close-icon_popup_csv')
+    return cy.get('.StudentGradeBook_stdGrdActionSect__BbsXI > .MuiButton-outlined')
   }
 
   getClassForStudentList(){
-    return cy.get('button#simple-tab-0');
+    return cy.get('#simple-tab-2')
   }
 
   getStudentsCountIntheClass(){

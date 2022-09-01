@@ -6,9 +6,9 @@ const sp11 = new sprint11Pages();
 
 describe("Verify School Teacher Basic Info Functionalities", function () {
   before(function () {
-    cy.visit(Cypress.env("url"));
+    cy.visit(Cypress.env("urlMain"));
     sp11.getTeacher().click();
-    cy.fixture("validLoginCredentials").then(function (validTeacherLoginData) {
+    cy.fixture("TeacherLoginCredentials").then(function (validTeacherLoginData) {
       this.validTeacherLoginData = validTeacherLoginData;
     });
   });
@@ -20,7 +20,7 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
   });
 
   it("Verify that teacher able to login with valid credentials", function () {
-    sp11.getUserName().clear().type(this.validTeacherLoginData.username);
+    sp11.getUserName().clear().type(this.validTeacherLoginData.user2);
     sp11.getPassword().clear().type(this.validTeacherLoginData.password);
     sp11.getLogin().click();
     sp11.getdashboarddetailstext().should("be.visible");
@@ -36,8 +36,8 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
       .contains(this.validhomeworkdata.subject)
       .should("be.visible")
       .click();
-    cy.wait(1000);
-    sp11.getstartsessionbutton().should("be.visible").click();
+   // cy.wait(1000);
+    sp11.getstartsessionbutton().click({force:true});
     cy.wait(1000);
     sp11.gettimetablebutton().should("be.visible").click();
     sp11.gettimetablevaue().contains("Timetable 2021 - 2022");

@@ -64,7 +64,7 @@ describe("Verify Reports - Student Gradebook", function () {
   });
 
   it("Verify that the pop up should be displayed and return back to student gradebook by clicking close icon", function () {
-    rgp.getGradePopupCloseIcon().click();
+    rgp.getGradePopupCloseIcon().scrollIntoView().click();
     rgp.getStudentGradebookTitle().should("have.text", "Student Gradebook");
   });
 

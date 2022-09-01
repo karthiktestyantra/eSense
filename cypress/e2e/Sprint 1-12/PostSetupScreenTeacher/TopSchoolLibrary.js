@@ -20,12 +20,12 @@ const tslp = new TopSchoolLibraryPage();
 
 describe("Verify TopSchool Library Functionalities", function () {
   before(function () {
-    cy.visit('https://gv.topschool.co.in/');
+    cy.visit('https://wwe.staging.topschool.co.in/');
     ip.getTeacher().click();
     cy.reload();
-    cy.fixture("validLoginCredentials").then(function (validLoginData) {
+    cy.fixture("TeacherLoginCredentials").then(function (validLoginData) {
       this.validLoginData = validLoginData;
-      cy.login(this.validLoginData.username, this.validLoginData.password);
+      cy.login(this.validLoginData.user2, this.validLoginData.password);
       ttop
         .getDashboardTitle()
         .should("have.text", "Your Dashboard");

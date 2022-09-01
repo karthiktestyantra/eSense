@@ -93,7 +93,11 @@ class Sprint10Regression {
   }
 
   getEditHomeWorkIcon(){
-    return cy.get('svg[data-testid="EditIcon"]');
+    return cy.get('button.MuiButton-root').contains('Edit');
+  }
+
+  getEditHomeWorkKababMenu(){
+    return cy.get('svg[data-testid="MoreVertIcon"]');
   }
 
   getAttachFileOption(){
@@ -109,7 +113,11 @@ class Sprint10Regression {
   }
 
   getEditHomeworkUpdateButton(){
-    return cy.get('.homeworkSaveBtn');
+    return cy.get('.MuiButton-contained');
+  }
+
+  getEditHomeworkCard(){
+    return cy.get('div.group-title-icon ');
   }
 
   getEditHomeworkDeleteIcon(){
@@ -129,7 +137,7 @@ class Sprint10Regression {
   }
 
   getHomeWorkCardDeleteIcon(){
-    return cy.get('.homework-list-wrapper svg[data-testid="DeleteIcon"]');
+    return cy.get('img[src="/static/media/deletefilled.523783ca.svg"]');
   }
 
   getDeleteHomeWorkButton(){
@@ -245,7 +253,7 @@ class Sprint10Regression {
   }
 
   getHomeworkDelPopDeleteButton(){
-    return cy.get('.dlt_prime');
+    return cy.get('.MuiButton-contained');
   }
 
   getDeletedHomeworkMessagePopup(){

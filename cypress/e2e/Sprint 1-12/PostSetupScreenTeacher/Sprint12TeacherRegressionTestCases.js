@@ -22,12 +22,12 @@ const cp = new MyCalendarPage();
 
 describe("Verify Sprint 12 related functionalities", function () {
   before(function () {
-    cy.visit(Cypress.env("url"));
+    cy.visit(Cypress.env("urlMain"));
     ip.getTeacher().click();
     cy.reload();
-    cy.fixture("validLoginCredentials").then(function (validLoginData) {
+    cy.fixture("TeacherLoginCredentials").then(function (validLoginData) {
       this.validLoginData = validLoginData;
-      cy.login(this.validLoginData.username, this.validLoginData.password);
+      cy.login(this.validLoginData.user2, this.validLoginData.password);
    });
   });
 

@@ -369,7 +369,7 @@ class MyCalendarPage {
   }
 
   getHomeworkDelPopDeleteButton(){
-    return cy.get('.dlt_prime');
+    return cy.get('.MuiButton-contained');
   }
 
   getDeletedHomeworkMessagePopup(){

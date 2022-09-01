@@ -24,7 +24,7 @@ describe("Verify Login With Mobile number Functionalities", function () {
   });
 
   it("Verify that Log In With Phone number button is present and enabled in the Login screen", function () {
-    cy.visit(Cypress.env("url"));
+    cy.visit(Cypress.env("urlMain"));
     cy.exec("npm cache clear --force");
     ip.getTeacher().click();
     cy.reload();

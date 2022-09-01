@@ -69,7 +69,7 @@ class LessonPlanPage {
     }
 
     getBasicDetailsLearningObjectiveField(){
-        return cy.get('div.MuiInputBase-formControl input#mui-5');
+        return cy.get('div.MuiInputBase-formControl input');
     }
 
     getBasicDetailsStrategiesUsedField(){

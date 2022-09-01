@@ -56,7 +56,7 @@ describe("Verify Login Page Functionalities", function () {
     cy.reload();
     lp.getLoginTitle().should("have.text", "Hello Teacher");
     cy.title().should("contain", "Top School");
-    cy.login(this.validLoginData.username, this.validLoginData.password);
+    cy.login(this.validLoginData.user2, this.validLoginData.password);
     ttop
       .getDashboardTitle()
       .should("have.text", "Your Dashboard");

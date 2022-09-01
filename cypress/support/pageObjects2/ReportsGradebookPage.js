@@ -9,7 +9,7 @@ class ReportsGradebookPage {
   }
 
   getOneofTheClasses(){
-    return cy.get('div[role="tablist"]>#simple-tab-0');
+    return cy.get('#simple-tab-2')
   }
 
   getCheckboxOfStudents(){
@@ -29,7 +29,7 @@ class ReportsGradebookPage {
   }
 
   getGenerateReport(){
-    return cy.contains('Generate Report');
+    return cy.contains('Print Gradebook');
   }
 
   getArrowbuttonofStudent(){

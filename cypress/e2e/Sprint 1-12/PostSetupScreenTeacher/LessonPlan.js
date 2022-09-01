@@ -107,7 +107,7 @@ describe("Verify Lesson Plan Functionalities", function () {
   });
 
   it("Verify that the all the entered details should be saved by clicking Save button", function () {
-    lpp.getBasicDetailsLearningObjectiveField().type(this.lessonPlanData.learningObjectiveField,{force:true});
+    lpp.getBasicDetailsLearningObjectiveField().eq(7).type(this.lessonPlanData.learningObjectiveField,{force:true});
     lpp.getBasicDetailsRemarksField().type(this.lessonPlanData.remarksField,{force:true});
     lpp.getBasicDetailsSaveButton().scrollIntoView().click({force:true});
     lpp.getLessonPlanCreatedMessage().should('have.text', 'Lesson Plan Created!');
@@ -126,21 +126,23 @@ describe("Verify Lesson Plan Functionalities", function () {
     lpp.getBasicDetailsChapterDropdown().click();
     lpp.getBasicDetailsTopicField().click();
     lpp.getBasicDetailsTopicDropdown().click();
-    lpp.getBasicDetailsLearningObjectiveField().type(this.lessonPlanData.learningObjectiveField,{force:true});
+    lpp.getBasicDetailsLearningObjectiveField().eq(7).type(this.lessonPlanData.learningObjectiveField,{force:true});
     lpp.getBasicDetailsRemarksField().type(this.lessonPlanData.remarksField,{force:true});
-    lpp.getBasicDetailsSaveButton().click();
+    lpp.getBasicDetailsSaveButton().click({force:true});
     lpp.getLessonPlanCreatedMessage().should('have.text', 'Lesson Plan Created!');
   });
 
   it("Verify that the all the entered/provided details should be cleared/not saved and navigated back to previous page by clicking Cancel button", function(){
     lpp.getAddLessonPlan().click();
     lpp.getCreateNewOption().click();
+    lpp.getBasicDetailsThemeorUnitField().click();
+    lpp.getBasicDetailsThemeorUnitDropdownValues().should('be.visible').click();
     lpp.getBasicDetailsChapterField().click();
     lpp.getBasicDetailsChapterDropdownValues().click();
     lpp.getBasicDetailsTopicField().click();
     lpp.getBasicDetailsTopicDropdownValues().click();
-    lpp.getBasicDetailsLearningObjectiveField().type(this.lessonPlanData.learningObjectiveField);
-    lpp.getBasicDetailsCancelButton().click();
+    lpp.getBasicDetailsLearningObjectiveField().eq(7).type(this.lessonPlanData.learningObjectiveField,{force:true});
+    lpp.getBasicDetailsCancelButton().click({force:true});
   });
 
   it("Verify that the 'Select From Library' option should be displayed by clicking Add Lesson Plan button", function(){

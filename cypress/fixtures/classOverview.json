@@ -1,14 +1,14 @@
 {
   "classes": [
     {
-      "class": "VIII C",
+      "class": "Grade 3 A",
       "subject": "Tamil",
-      "students": 1
+      "students": 2
     },
     {
-      "class": "V A",
-      "subject": "Tamil",
-      "students": 1
+      "class": "Grade 4 B",
+      "subject": "Mathematics IV",
+      "students": 0
     }
   ]
 }

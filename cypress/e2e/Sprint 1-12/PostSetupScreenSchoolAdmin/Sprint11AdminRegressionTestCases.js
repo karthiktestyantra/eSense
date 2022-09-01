@@ -428,3 +428,4 @@ describe("Verify Sprint 11 related functionalities", function () {
     cy.contains("EVENT_CREATED");
   });
 });
+//Please run after the date of 2

@@ -9,7 +9,7 @@ const masterManage = new MainAdminMasterManagementPage();
 describe("Verify Master Management Page functionalities", function () {
   before(function () {
     cy.viewport(1920,1080)
-    cy.visit(Cypress.env("url"))
+    cy.visit(Cypress.env("Mainlogin"))
     cy.fixture("mainAdminLoginCredentials").then(function (validAdminLoginData) {
     cy.login(validAdminLoginData.username,validAdminLoginData.password)
     })

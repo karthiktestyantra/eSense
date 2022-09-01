@@ -15,7 +15,7 @@ import MainAdminIndexPage from "./pageObjects/MainAdminIndexPage";
 
 const login = new MainAdminIndexPage();
 
- Cypress.Commands.add('login', (email, password) => { 
+ Cypress.Commands.add('Mainlogin', (email, password) => { 
   login.getTitle().should('be.visible')
   login.getUserName().type(email);
   login.getPassword().type(password);
@@ -64,9 +64,9 @@ Cypress.Commands.add("requestAPI", (url, body, aliasName, methodType) => {
 })
 
 //For Cypress drag and drop plugin
-require('@4tw/cypress-drag-drop')
+//require('@4tw/cypress-drag-drop')
 
-require('cypress-downloadfile/lib/downloadFileCommand')
+//require('cypress-downloadfile/lib/downloadFileCommand')
 
 
 // -- This is a parent command --

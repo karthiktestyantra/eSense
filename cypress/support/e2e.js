@@ -27,8 +27,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   return false
 })
 
-import postgreSQL from 'cypress-postgresql';
-postgreSQL.loadDBCommands();
+// import postgreSQL from 'cypress-postgresql';
+// postgreSQL.loadDBCommands();
 
 // const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
 // module.exports = (on, config) => {

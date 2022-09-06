@@ -8,7 +8,7 @@ describe("Verify Curriculum plan view Page functionalities", function () {
     before(function () {
         cy.visit(Cypress.env('url'))
         cy.fixture('mainAdminLoginCredentials').then(function(validEsenseAdminLoginData){
-        cy.login(validEsenseAdminLoginData.username,validEsenseAdminLoginData.password)  
+        cy.Mainlogin(validEsenseAdminLoginData.username,validEsenseAdminLoginData.password)  
         })
     })
 

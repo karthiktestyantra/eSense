@@ -16,4 +16,4 @@ class MainAdminIndexPage {
         return cy.get('button[type="submit"]');
       }
     }
-    export default MainAdminIndexPage;
+    module.exports = new MainAdminIndexPage()

@@ -1,6 +1,6 @@
+const loginPage = require('../../../support/pageObjects/ERP/LoginPage')
 const adminDashboardPage = require('../../../support/pageObjects/ERP/AdminDashboardPage')
 const feeManagementFeeStructurePage = require('../../../support/pageObjects/ERP/AdminFeeManagementFeeStructurePage')
-const loginPage = require('../../../support/pageObjects/ERP/LoginPage')
 
 describe("Verify Fee Management Fee Structure functionalities", function () {
 
@@ -16,14 +16,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   })
 
   beforeEach(function () {
-    cy.window().then(win => win.sessionStorage.clear());
-    cy.clearCookies();
-    cy.clearLocalStorage();
     cy.fixture("ERP/FeeManagement").as("feeManagement")
-  })
-
-  after(function () {
-    cy.clearCookies();
   })
 
   it("Validate User is able to land on on-boarding process by clicking Fees management module/EE-57/ERP_TC_001", { tags: '@smoke' }, function () {

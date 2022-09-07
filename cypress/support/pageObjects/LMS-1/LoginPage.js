@@ -40,4 +40,4 @@ class LoginPage {
     return cy.get(".text-danger");
   }
 }
-export default LoginPage;
+module.exports = new LoginPage()

@@ -25,5 +25,4 @@ class WalkthroughPage{
         return cy.get('.float-right')
     }
 }
-
-export default WalkthroughPage
+module.exports = new WalkthroughPage()

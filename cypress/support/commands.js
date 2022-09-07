@@ -1,7 +1,12 @@
 import 'cypress-file-upload';
-import MainAdminIndexPage from "./pageObjects/LMS-2/MainAdminIndexPage";
-const login = new MainAdminIndexPage();
 
+afterEach(function () {
+  cy.window().then(win => win.sessionStorage.clear());
+  cy.clearCookies();
+  cy.clearLocalStorage();
+})
+
+const login = require('./pageObjects/LMS-2/MainAdminIndexPage')
 Cypress.Commands.add('Mainlogin', (email, password) => {
   login.getTitle().should('be.visible')
   login.getUserName().type(email);
@@ -11,9 +16,7 @@ Cypress.Commands.add('Mainlogin', (email, password) => {
   cy.wait(1000);
 })
 
-import AdminIndexPage from "./pageObjects/LMS-2/AdminIndexPage";
-const Adminlogin = new AdminIndexPage();
-
+const Adminlogin = require('./pageObjects/LMS-2/AdminIndexPage')
 Cypress.Commands.add('AdminPostSetup', (email, password) => {
   Adminlogin.getAdminBtn().click()
   Adminlogin.getTitle().should('be.visible')
@@ -22,6 +25,15 @@ Cypress.Commands.add('AdminPostSetup', (email, password) => {
   Adminlogin.getLoginBtn().click({ force: true });
   cy.url().should('contain', 'dashboard');
   cy.wait(1000);
+})
+
+const lp = require('./pageObjects/LMS-1/LoginPage')
+const wp = require('./pageObjects/LMS-1/WalkthroughPage')
+Cypress.Commands.add('login', (email, password) => {
+  lp.getUserName().type(email);
+  lp.getPassword().type(password);
+  lp.getLogin().click({ force: true });
+  wp.getLoginSuccessfulMsg().should("have.text", "Logged in successfully");
 })
 
 Cypress.Commands.add('TeacherPostSetupLogin', (email, password) => {
@@ -43,17 +55,6 @@ Cypress.Commands.add("requestAPI", (url, body, aliasName, methodType) => {
     failOnStatusCode: false
   }).as(aliasName)
   //.then((response) =>{cy.wrap(response).as(aliasName)})
-})
-
-import LoginPage from "../support/pageObjects/LMS-1/LoginPage";
-import WalkthroughPage from "../support/pageObjects/LMS-1/WalkthroughPage";
-const lp = new LoginPage();
-const wp = new WalkthroughPage();
-Cypress.Commands.add('login', (email, password) => {
-  lp.getUserName().type(email);
-  lp.getPassword().type(password);
-  lp.getLogin().click({ force: true });
-  wp.getLoginSuccessfulMsg().should("have.text", "Logged in successfully");
 })
 
 Cypress.on('uncaught:exception', (err, runnable) => {

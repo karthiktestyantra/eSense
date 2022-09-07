@@ -24,4 +24,4 @@ class AdminIndexPage {
       return cy.get('button[type="submit"]').contains("Log In");
     }
   }
-  export default AdminIndexPage;
+  module.exports = new AdminIndexPage()

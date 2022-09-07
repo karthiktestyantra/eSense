@@ -9,7 +9,7 @@ module.exports = defineConfig({
     urlStaging: 'https://boys.staging.topschool.co.in',
     urlMain: 'https://wwe.staging.topschool.co.in',
     urlQA: 'https://srilanka.staging.topschool.co.in',
-    urlStagingERP: "https://liverpool.staging.topschool.co.in"
+    urlStagingERP: "https://automation.staging.topschool.co.in"
   },
   video: false,
   defaultCommandTimeout: 20000,

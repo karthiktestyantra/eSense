@@ -7,11 +7,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("urlStagingERP"))
     cy.fixture("ERP/LoginCredentials").then(function (validLoginData) {
-      if ((Cypress.spec.name).includes('Admin')) {
-        loginPage.login(validLoginData.adminUsername, validLoginData.adminPassword)
-      } else {
-        loginPage.login(validLoginData.teacherUsername, validLoginData.teacherPassword)
-      }
+      loginPage.login(validLoginData.adminUsername, validLoginData.adminPassword)
     })
   })
 

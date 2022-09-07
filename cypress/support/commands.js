@@ -27,13 +27,13 @@ Cypress.Commands.add('AdminPostSetup', (email, password) => {
   cy.wait(1000);
 })
 
-const lp = require('./pageObjects/LMS-1/LoginPage')
-const wp = require('./pageObjects/LMS-1/WalkthroughPage')
+const loginPage = require('./pageObjects/LMS-1/LoginPage')
+const walkthroughPage = require('./pageObjects/LMS-1/WalkthroughPage')
 Cypress.Commands.add('login', (email, password) => {
-  lp.getUserName().type(email);
-  lp.getPassword().type(password);
-  lp.getLogin().click({ force: true });
-  wp.getLoginSuccessfulMsg().should("have.text", "Logged in successfully");
+  loginPage.getUserName().type(email);
+  loginPage.getPassword().type(password);
+  loginPage.getLogin().click({ force: true });
+  walkthroughPage.getLoginSuccessfulMsg().should("have.text", "Logged in successfully");
 })
 
 Cypress.Commands.add('TeacherPostSetupLogin', (email, password) => {

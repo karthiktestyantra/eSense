@@ -4,7 +4,9 @@
   "main": "index.js",
   "description": "esense-project",
   "scripts": {
-    "allTests": "npx cypress run"
+    "allTests": "npx cypress run",
+    "lmsTests": "npx cypress run --spec cypress/e2e/LMS/**/*.js",
+    "erpTests": "npx cypress run --spec cypress/e2e/ERP/**/*.js"
   },
   "author": "",
   "license": "ISC",

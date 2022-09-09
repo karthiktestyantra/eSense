@@ -105,7 +105,6 @@ class AdminFeeManagementFeeStructurePage {
     }
 
     verifyAddNewFeeStructurePopUp(addNewBtnPageTitle1, addNewBtnPageTitle2) {
-        this.getFeeStructureAddNewBtn().click()
         cy.verifyTextContains(this.getFeesStructureAddNewPage(), addNewBtnPageTitle1)
         cy.verifyTextContains(this.getFeesStructureAddNewPage(), addNewBtnPageTitle2)
     }
@@ -127,6 +126,11 @@ class AdminFeeManagementFeeStructurePage {
         cy.isVisible(this.getFeeStructureSelectGradeDrpDwnInDetailPage())
         cy.isVisible(this.getFeeStructureContinueBtnInDetailPage())
         cy.isVisible(this.getFeeStructureCancelBtnInDetailPage())
+    }
+
+    clickOnSetUpFeeMastersButton(){
+        this.getSetUpFeeMastersButton().click()
+        cy.wait(1000)
     }
 
 }

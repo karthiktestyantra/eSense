@@ -17,7 +17,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
 
   
   it("Validate User is able to land on on-boarding process by clicking Fees management module/EE-57/ERP_TC_001", { tags: '@smoke' }, function () {
-    adminDashboardPage.getFeeManagementPage()
+    adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.verifyFeeManagementPage(this.feeManagement.feeStructurePageTitle)
   })
 
@@ -26,11 +26,8 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     feeManagementFeeStructurePage.verifySetUpFeeMastersIsDisplayed()
   })
 
-  it("Validate navigation flow in the form of tabs available at the top to know the step by step process of fee management mini-onboarding/EE-57/ERP_TC_003", { tags: '@smoke' }, function () {
-    feeManagementFeeStructurePage.verifyFeeManagementTabs(this.feeManagement.feeStructurePageFeeStructureTitle, this.feeManagement.feeStructurePagePenaltyMasterTitle, this.feeManagement.feeStructurePageDiscountMasterTitle, this.feeManagement.feeStructurePagePaymentGatewayTitle)
-  })
-
   it("Validate action icon is showing for fee structure when user is on the fees structure tab/EE-57/ERP_TC_004", { tags: '@smoke' }, function () {
+    feeManagementFeeStructurePage.verifyFeeManagementTabs(this.feeManagement.feeStructurePageFeeStructureTitle, this.feeManagement.feeStructurePagePenaltyMasterTitle, this.feeManagement.feeStructurePageDiscountMasterTitle, this.feeManagement.feeStructurePagePaymentGatewayTitle)
     feeManagementFeeStructurePage.verifyActionsTab()
   })
 

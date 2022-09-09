@@ -24,7 +24,7 @@ class AdminDashboardPage {
         return cy.xpath('//p[.=" Fees Structure "]')
     }
 
-    getFeeManagementPage(feeStructurePageTitle) {
+    navigateToFeeSetUpPage(feeStructurePageTitle) {
         this.getSideMenuFeeManagementIcon().click()
         this.getFeeSetupLink().click()
     }

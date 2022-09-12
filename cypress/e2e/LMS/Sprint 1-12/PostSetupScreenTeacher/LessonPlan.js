@@ -8,8 +8,7 @@ import MyCalendarPage from "../../../../support/pageObjects/LMS-1/MyCalendarPage
 import LessonPlanPage from "../../../../support/pageObjects/LMS-1/LessonPlanPage";
 
 const ip = new IndexPage();
-const lp = new LoginPage();
-const wp = new WalkthroughPage();
+const wp =require('../../../../support/pageObjects/LMS-1/WalkthroughPage')
 const cop = new ClassOverviewPage();
 const cup = new CurriculumOverviewPage();
 const ttop = new TimeTableOverviewPage();

@@ -93,7 +93,7 @@ Cypress.Commands.add('forceClick', (element) => {
 
 //This command is used to check and verify the checkbox
 Cypress.Commands.add('checkAndVerify', (element) => {
-  element.check().should('be.checked')
+  element.check({force:true}).should('be.checked')
 })
 
 //This command is used to uncheck and verify the checkbox

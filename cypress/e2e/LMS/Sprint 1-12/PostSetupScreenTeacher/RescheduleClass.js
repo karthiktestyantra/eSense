@@ -8,8 +8,8 @@ import MyCalendarPage from "../../../../support/pageObjects/LMS-1/MyCalendarPage
 import RescheduleClassPage from "../../../../support/pageObjects/LMS-1/RescheduleClassPage";
 
 const ip = new IndexPage();
-const lp = new LoginPage();
-const wp = new WalkthroughPage();
+const lp = require('../../../../support/pageObjects/LMS-1/LoginPage')
+const wp = require('../../../../support/pageObjects/LMS-1/WalkthroughPage')
 const cop = new ClassOverviewPage();
 const cup = new CurriculumOverviewPage();
 const ttop = new TimeTableOverviewPage();

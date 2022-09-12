@@ -7,8 +7,8 @@ import TimeTableOverviewPage from "../../../../support/pageObjects/LMS-1/TimeTab
 import DashboardPage from "../../../../support/pageObjects/LMS-1/DashboardPage";
 import TopSchoolLibraryPage from "../../../../support/pageObjects/LMS-1/TopSchoolLibraryPage";
 
-const lp = new LoginPage();
-const wp = new WalkthroughPage();
+const lp = require('../../../../support/pageObjects/LMS-1/LoginPage')
+const wp = require('../../../../support/pageObjects/LMS-1/WalkthroughPage')
 const ip = new IndexPage();
 const cop = new ClassOverviewPage();
 const cup = new CurriculumOverviewPage();

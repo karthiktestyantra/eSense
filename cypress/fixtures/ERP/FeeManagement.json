@@ -6,5 +6,7 @@
     "feeStructurePageFeeStructureTitle": "Fee Structure",
     "feeStructurePagePenaltyMasterTitle": "Penalty Master",
     "feeStructurePageDiscountMasterTitle": "Discount Master",
-    "feeStructurePagePaymentGatewayTitle": "Payment Gateway"
+    "feeStructurePagePaymentGatewayTitle": "Payment Gateway",
+    "feeStructureName": "Automation School",
+    "feeStructureDescription": "This test is created for automation purpose"
 }

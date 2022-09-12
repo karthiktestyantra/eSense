@@ -84,56 +84,56 @@ class AdminFeeManagementFeeStructurePage {
         return cy.get('button[data-testid="cancelBtn"]')
     }
 
-    getFeeStructureNameTextfield(){
+    getFeeStructureNameTextfield() {
         return cy.get(':nth-child(1) > .MuiFormControl-root > .MuiInputBase-root > #outlined-basic')
     }
-    
-    getDescriptionTextAreaField(){
+
+    getDescriptionTextAreaField() {
         return cy.get('textarea[id="outlined-basic"]')
     }
 
-    getStartDateIcon(){
+    getStartDateIcon() {
         return cy.get('[class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-slyssw"]').eq(0)
     }
 
-    getEndDateIcon(){
+    getEndDateIcon() {
         return cy.get('[style="text-align: right; padding-top: 0px;"] > .css-13sljp9 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputAdornment-root > .MuiButtonBase-root')
     }
 
-    getStartDate(){
+    getStartDate() {
         return cy.xpath('//button[text()="1"]')
     }
 
-    getEndDate(){
+    getEndDate() {
         return cy.xpath('//div[@class="css-mvmu1r"]//button[text()="20"]')
     }
 
-    getNewStudentCheckBox(){
+    getNewStudentCheckBox() {
         return cy.get('[class="CustomCheckmark"]').eq(0)
     }
 
-    getExisitingCheckBox(){
+    getExisitingCheckBox() {
         return cy.get('[class="CustomCheckmark"]').eq(1)
     }
 
-    getSelectGrade(){
+    getSelectGrade() {
         return cy.get('[id="demo-multiple-checkbox"]')
     }
 
-    getGrade3(){
+    getGrade3() {
         return cy.get('[data-value="Grade 3"]')
     }
 
-    getContinueButton(){
+    getContinueButton() {
         return cy.xpath('//div[@class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-15j76c0"]//button[@type="submit"]')
     }
 
-    getCancelButton(){
+    getCancelButton() {
         return cy.xpath('//button[text()="Cancel"]')
     }
 
-    clickOnOutSide(){
-        return cy.get('body').click(0,0)
+    clickOnOutSide() {
+        return cy.get('body').click(0, 0)
     }
 
     verifyFeeManagementTabs(feeStructurePageFeeStructureTitle, feeStructurePagePenaltyMasterTitle, feeStructurePageDiscountMasterTitle, feeStructurePagePaymentGatewayTitle) {
@@ -180,12 +180,11 @@ class AdminFeeManagementFeeStructurePage {
         cy.isVisible(this.getFeeStructureCancelBtnInDetailPage())
     }
 
-    clickOnSetUpFeeMastersButton(){
+    clickOnSetUpFeeMastersButton() {
         this.getSetUpFeeMastersButton().click()
-        cy.wait(1000)
     }
 
-    enterAllDetails(FeeStructureNameTextfield,description){
+    enterAllDetails(FeeStructureNameTextfield, description) {
         this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
         this.getDescriptionTextAreaField().type(description)
         this.getStartDateIcon().click()
@@ -197,10 +196,10 @@ class AdminFeeManagementFeeStructurePage {
         this.getSelectGrade().click()
         this.getGrade3().click()
         this.clickOnOutSide()
-        this.getContinueButton().click({force:true})
+        this.getContinueButton().click({ force: true })
     }
 
-    verifyElementsInAddNewFeeStructurePage(){
+    verifyElementsInAddNewFeeStructurePage() {
         cy.wait(1000)
         cy.isVisible(this.getFeeStructureNameTextfield())
         cy.isVisible(this.getDescriptionTextAreaField())

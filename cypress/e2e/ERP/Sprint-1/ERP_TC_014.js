@@ -15,10 +15,5 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     cy.fixture("ERP/FeeManagement").as("feeManagement")
   })
 
-  it('Validate an error message appears if the user do not enter any data into "Fee structure name" text field ',{tags:'@somke'},function () {
-    adminDashboardPage.navigateToFeeSetUpPage()
-    feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.getContinueButton().click()
-    cy.xpath('//p[text()="Fee Structure Name Required"]').should('have.text','Fee Structure Name Required')
-    })
+  
 })

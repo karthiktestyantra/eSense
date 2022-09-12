@@ -15,9 +15,5 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     cy.fixture("ERP/FeeManagement").as("feeManagement")
   })
 
-  it('Validate the user is allowed to add 45 characters in "Fee structure name" text field',{tags:'@somke'},function () {
-    adminDashboardPage.navigateToFeeSetUpPage()
-    feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.getFeeStructureNameTextfield().type('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHI').invoke('val').should('have.length',45)
-    })
+ 
 })

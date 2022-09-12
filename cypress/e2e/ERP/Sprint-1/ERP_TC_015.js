@@ -15,10 +15,5 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     cy.fixture("ERP/FeeManagement").as("feeManagement")
   })
 
-  it('Validate the user is able to add data into "Description" text field ',{tags:'@somke'},function () {
-    adminDashboardPage.navigateToFeeSetUpPage()
-    feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.getDescriptionTextAreaField().type('my data')
-    cy.contains('my data')
-    })
+  
 })

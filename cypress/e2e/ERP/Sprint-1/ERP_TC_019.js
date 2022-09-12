@@ -15,8 +15,6 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     cy.fixture("ERP/FeeManagement").as("feeManagement")
   })
 
-  it('Validate an error message stating error message “End Date Required“ appears if the user do not select any valid start date ',{tags:'@somke'},function () {
-    adminDashboardPage.navigateToFeeSetUpPage()
-    feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.validateAnErrorMessageEndDateErrorMessage('school','description')    })
 })
+
+ 

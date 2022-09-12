@@ -52,7 +52,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   it('Validate the user is allowed to add 45 characters in "Fee structure name" text field/EE-79/ERP_TC_013', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.validateAddNewFeeStructureNameTextField(this.feeManagement.feestructurestring, 45)
+    feeManagementFeeStructurePage.validateAddNewFeeStructureNameTextField(this.feeManagement.feeStructureString, this.feeManagement.feeStructureStringLength)
 
   })
 
@@ -81,17 +81,15 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     feeManagementFeeStructurePage.validateAnErrorMessageEndDateErrorMessage(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription)
   })
 
-  it('Validate an error message stating error message “End Date Required“ appears if the user do not select any valid start date/EE-79/ERP_TC_020 ', { tags: '@somke' }, function () {
+  it('Validate the user is able to select either or both the options New student Existing student in Applicable For section/EE-79/ERP_TC_020 ', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    cy.checkAndVerify(feeManagementFeeStructurePage.getNewStudentCheckBox())
-    cy.checkAndVerify(feeManagementFeeStructurePage.getExisitingCheckBox())
+    feeManagementFeeStructurePage.verifyApplicableForStudentCheckbox()
   })
 
-  it.only('Validate the user can select multiple grades and streams from the "Select Grade" and "Stream" drop down list /EE-79/ERP_TC_021', { tags: '@somke' }, function () {
+  it('Validate the user can select multiple grades and streams from the "Select Grade" and "Stream" drop down list /EE-79/ERP_TC_021', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-
   })
 
 })

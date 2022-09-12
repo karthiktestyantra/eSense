@@ -148,7 +148,7 @@ class AdminFeeManagementFeeStructurePage {
         return cy.xpath('//p[text()="End Date required"]')
     }
 
-    getFeeStructureNameErrorMessage(){
+    getFeeStructureNameErrorMessage() {
         return cy.xpath('//p[text()="End Date required"]')
     }
     verifyFeeManagementTabs(feeStructurePageFeeStructureTitle, feeStructurePagePenaltyMasterTitle, feeStructurePageDiscountMasterTitle, feeStructurePagePaymentGatewayTitle) {
@@ -266,13 +266,18 @@ class AdminFeeManagementFeeStructurePage {
         cy.contains(feeStructureDescription)
     }
 
-    validateAddNewFeeStructureErrorMessageFeeStructureName(FeeStructureNameRequired){
+    validateAddNewFeeStructureErrorMessageFeeStructureName(FeeStructureNameRequired) {
         this.getContinueButton().click()
         this.getFeeStructureNameErrorMessage().should('have.text', FeeStructureNameRequired)
     }
 
-    validateAddNewFeeStructureNameTextField(feestuctureString,lengthnumber){
+    validateAddNewFeeStructureNameTextField(feestuctureString, lengthnumber) {
         this.getFeeStructureNameTextfield().type(feestuctureString).invoke('val').should('have.length', lengthnumber)
+    }
+
+    verifyApplicableForStudentCheckbox() {
+        cy.checkAndVerify(this.getNewStudentCheckBox())
+        cy.checkAndVerify(this.getExisitingCheckBox())
     }
 }
 module.exports = new AdminFeeManagementFeeStructurePage()

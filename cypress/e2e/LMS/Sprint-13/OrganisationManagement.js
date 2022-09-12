@@ -1,3 +1,6 @@
+import MainAdminHomePage from "../../../support/pageObjects/LMS-2/MainAdminHomePage"
+import MainAdminOrganisationManagementPage from "../../../support/pageObjects/LMS-2/MainAdminOrganisationManagementPage";
+
 const home = new MainAdminHomePage();
 const OrgManage = new MainAdminOrganisationManagementPage();
 

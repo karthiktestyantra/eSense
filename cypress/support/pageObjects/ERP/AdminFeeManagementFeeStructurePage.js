@@ -1,7 +1,7 @@
 class AdminFeeManagementFeeStructurePage {
 
     getFeeStructureAddNewBtn() {
-        return cy.get('button.MuiButtonBase-root').contains("Add New")
+        return cy.xpath('//button[text()="Add New"]')
     }
 
     getFeesStructureAddNewPage() {
@@ -46,6 +46,10 @@ class AdminFeeManagementFeeStructurePage {
 
     getSetUpFeeMastersButton() {
         return cy.xpath('//button[.="Setup Fee Masters"]')
+    }
+
+    getOnSetUpFeeMastersOrAddNewButton() {
+        return cy.get('button[class*="MuiButton-size"]').eq(0)
     }
 
     getFeeStructureDescriptionTxtAreaFldInDetailPage() {
@@ -100,12 +104,12 @@ class AdminFeeManagementFeeStructurePage {
         return cy.get('[style="text-align: right; padding-top: 0px;"] > .css-13sljp9 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputAdornment-root > .MuiButtonBase-root')
     }
 
-    getStartDate() {
-        return cy.xpath('//button[text()="1"]')
+    getStartDate(StartDate) {
+        return cy.xpath('//button[text()="' + StartDate + '"]')
     }
 
-    getEndDate() {
-        return cy.xpath('//div[@class="css-mvmu1r"]//button[text()="20"]')
+    getEndDate(EndDate) {
+        return cy.xpath('//div[@class="css-mvmu1r"]//button[text()="' + EndDate + '"]')
     }
 
     getNewStudentCheckBox() {
@@ -136,11 +140,11 @@ class AdminFeeManagementFeeStructurePage {
         return cy.get('body').click(0, 0)
     }
 
-    getStartDateErrorMessage(){
+    getStartDateErrorMessage() {
         return cy.xpath('//p[text()="Start Date required"]')
     }
 
-    getEndDateErrorMessage(){
+    getEndDateErrorMessage() {
         return cy.xpath('//p[text()="End Date required"]')
     }
 
@@ -191,18 +195,26 @@ class AdminFeeManagementFeeStructurePage {
         cy.isVisible(this.getFeeStructureCancelBtnInDetailPage())
     }
 
+    clickOnAddNewButton() {
+        this.getFeeStructureAddNewBtn().click()
+    }
+
     clickOnSetUpFeeMastersButton() {
         this.getSetUpFeeMastersButton().click()
     }
 
-    enterAllDetails(FeeStructureNameTextfield, description) {
-        this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
-        this.getDescriptionTextAreaField().type(description)
+    clickOnSetUpFeeMastersOrAddNewButton() {
+        this.getOnSetUpFeeMastersOrAddNewButton().click()
+    }
+
+    enterAllDetails(FeeStructureName, Description, StartDate, EndDate) {
+        this.getFeeStructureNameTextfield().type(FeeStructureName)
+        this.getDescriptionTextAreaField().type(Description)
         this.getStartDateIcon().click()
-        this.getStartDate().click()
+        this.getStartDate(StartDate).click()
         cy.wait(1000)
         this.getEndDateIcon().click()
-        this.getEndDate().click()
+        this.getEndDate(EndDate).click()
         this.getExisitingCheckBox().click()
         this.getSelectGrade().click()
         this.getGrade3().click()
@@ -222,7 +234,7 @@ class AdminFeeManagementFeeStructurePage {
         cy.isVisible(this.getNewStudentCheckBox())
         cy.isVisible(this.getCancelButton())
     }
-    validateAnErrorMessageStatingErrorMessage(FeeStructureNameTextfield,description){
+    validateAnErrorMessageStatingErrorMessage(FeeStructureNameTextfield, description) {
         this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
         this.getDescriptionTextAreaField().type(description)
         cy.wait(1000)
@@ -232,11 +244,11 @@ class AdminFeeManagementFeeStructurePage {
         this.getSelectGrade().click()
         this.getGrade3().click()
         this.clickOnOutSide()
-        this.getContinueButton().click({force:true})
-        this.getStartDateErrorMessage().should('have.text','Start Date required')
+        this.getContinueButton().click({ force: true })
+        this.getStartDateErrorMessage().should('have.text', 'Start Date required')
     }
 
-    validateAnErrorMessageEndDateErrorMessage(FeeStructureNameTextfield,description){
+    validateAnErrorMessageEndDateErrorMessage(FeeStructureNameTextfield, description) {
         this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
         this.getDescriptionTextAreaField().type(description)
         this.getStartDateIcon().click()
@@ -245,11 +257,11 @@ class AdminFeeManagementFeeStructurePage {
         this.getSelectGrade().click()
         this.getGrade3().click()
         this.clickOnOutSide()
-        this.getContinueButton().click({force:true})
-        this.getEndDateErrorMessage().should('have.text','End Date required')
+        this.getContinueButton().click({ force: true })
+        this.getEndDateErrorMessage().should('have.text', 'End Date required')
     }
 
-    verifyAddNewFeeStructureDescriptionTextareafield(){
+    verifyAddNewFeeStructureDescriptionTextareafield() {
         this.getDescriptionTextAreaField().type(feeStructureDescription)
         cy.contains(feeStructureDescription)
     }

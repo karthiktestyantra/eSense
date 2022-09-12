@@ -101,7 +101,7 @@ class AdminFeeManagementFeeStructurePage {
     }
 
     getEndDateIcon() {
-        return cy.get('[style="text-align: right; padding-top: 0px;"] > .css-13sljp9 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputAdornment-root > .MuiButtonBase-root')
+        return cy.get('[class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-slyssw"]').eq(1)
     }
 
     getStartDate(StartDate) {

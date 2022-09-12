@@ -6,6 +6,8 @@ const dayjs = require('dayjs')
 describe("Verify Fee Management Fee Structure functionalities", function () {
 
   beforeEach(function () {
+    cy.clearCookies();
+    cy.clearLocalStorage();
     cy.visit(Cypress.env("urlStagingERP"))
     cy.fixture("ERP/LoginCredentials").then(function (validLoginData) {
       loginPage.login(validLoginData.adminUsername, validLoginData.adminPassword)
@@ -42,7 +44,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     feeManagementFeeStructurePage.verifyAddNewFeeStructureDetailsPage()
   })
 
-  it.only("Validate user can navigate to different tabs showing lock icon only by clicking continue button./EE-57/ERP_TC_007", { tags: '@smoke' }, function () {
+  it("Validate user can navigate to different tabs showing lock icon only by clicking continue button./EE-57/ERP_TC_007", { tags: '@smoke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersOrAddNewButton()
     feeManagementFeeStructurePage.verifyAddNewFeeStructureDetailsPage()

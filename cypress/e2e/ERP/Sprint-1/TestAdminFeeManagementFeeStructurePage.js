@@ -1,6 +1,7 @@
 const loginPage = require('../../../support/pageObjects/ERP/LoginPage')
 const adminDashboardPage = require('../../../support/pageObjects/ERP/AdminDashboardPage')
 const feeManagementFeeStructurePage = require('../../../support/pageObjects/ERP/AdminFeeManagementFeeStructurePage')
+const dayjs = require('dayjs')
 
 describe("Verify Fee Management Fee Structure functionalities", function () {
 
@@ -45,7 +46,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
     feeManagementFeeStructurePage.verifyAddNewFeeStructureDetailsPage()
-    feeManagementFeeStructurePage.enterAllDetails(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription)
+    feeManagementFeeStructurePage.enterAllDetails(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription, dayjs().format('D'), Number(dayjs().format('D'))+5)
   })
 
   it('Validate the user is allowed to add 45 characters in "Fee structure name" text field/EE-79/ERP_TC_013', { tags: '@somke' }, function () {

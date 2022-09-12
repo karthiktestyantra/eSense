@@ -100,12 +100,12 @@ class AdminFeeManagementFeeStructurePage {
         return cy.get('[style="text-align: right; padding-top: 0px;"] > .css-13sljp9 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputAdornment-root > .MuiButtonBase-root')
     }
 
-    getStartDate() {
-        return cy.xpath('//button[text()="1"]')
+    getStartDate(StartDate) {
+        return cy.xpath('//button[text()="'+StartDate+'"]')
     }
 
-    getEndDate() {
-        return cy.xpath('//div[@class="css-mvmu1r"]//button[text()="20"]')
+    getEndDate(EndDate) {
+        return cy.xpath('//div[@class="css-mvmu1r"]//button[text()="'+EndDate+'"]')
     }
 
     getNewStudentCheckBox() {
@@ -192,14 +192,14 @@ class AdminFeeManagementFeeStructurePage {
         this.getSetUpFeeMastersButton().click()
     }
 
-    enterAllDetails(FeeStructureNameTextfield, description) {
-        this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
-        this.getDescriptionTextAreaField().type(description)
+    enterAllDetails(FeeStructureName, Description, StartDate, EndDate) {
+        this.getFeeStructureNameTextfield().type(FeeStructureName)
+        this.getDescriptionTextAreaField().type(Description)
         this.getStartDateIcon().click()
-        this.getStartDate().click()
+        this.getStartDate(StartDate).click()
         cy.wait(1000)
         this.getEndDateIcon().click()
-        this.getEndDate().click()
+        this.getEndDate(EndDate).click()
         this.getExisitingCheckBox().click()
         this.getSelectGrade().click()
         this.getGrade3().click()

@@ -261,7 +261,7 @@ class AdminFeeManagementFeeStructurePage {
         this.getEndDateErrorMessage().should('have.text', 'End Date required')
     }
 
-    verifyAddNewFeeStructureDescriptionTextareafield() {
+    verifyAddNewFeeStructureDescriptionTextareafield(feeStructureDescription) {
         this.getDescriptionTextAreaField().type(feeStructureDescription)
         cy.contains(feeStructureDescription)
     }

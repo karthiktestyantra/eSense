@@ -48,39 +48,38 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     feeManagementFeeStructurePage.enterAllDetails(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription)
   })
 
-  it('Validate the user is allowed to add 45 characters in "Fee structure name" text field', { tags: '@somke' }, function () {
+  it('Validate the user is allowed to add 45 characters in "Fee structure name" text field/EE-79/ERP_TC_013', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
     feeManagementFeeStructurePage.getFeeStructureNameTextfield().type('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHI').invoke('val').should('have.length', 45)
   })
 
-  it('Validate an error message appears if the user do not enter any data into "Fee structure name" text field ', { tags: '@somke' }, function () {
+  it('Validate an error message appears if the user do not enter any data into "Fee structure name" text field /EE-79/ERP_TC_014', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
     feeManagementFeeStructurePage.getContinueButton().click()
     cy.xpath('//p[text()="Fee Structure Name Required"]').should('have.text', 'Fee Structure Name Required')
   })
 
-  it('Validate the user is able to add data into "Description" text field ', { tags: '@somke' }, function () {
+  it('Validate the user is able to add data into "Description" text field /EE-79/ERP_TC_015', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.getDescriptionTextAreaField().type('my data')
-    cy.contains('my data')
+    feeManagementFeeStructurePage.verifyAddNewFeeStructureDescriptionTextareafield(this.feeManagement.feeStructureDescription)
   })
 
-  it('Validate an error message stating error message “Start Date Required“ appears if the user do not select any valid start date ', { tags: '@somke' }, function () {
+  it('Validate an error message stating error message “Start Date Required“ appears if the user do not select any valid start date EE-79/ERP_TC_017', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.validateAnErrorMessageStatingErrorMessage('school', 'description')
+    feeManagementFeeStructurePage.validateAnErrorMessageStatingErrorMessage(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription)
   })
 
-  it('Validate an error message stating error message “End Date Required“ appears if the user do not select any valid start date ', { tags: '@somke' }, function () {
+  it('Validate an error message stating error message “End Date Required“ appears if the user do not select any valid start date/EE-79/ERP_TC_019 ', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.validateAnErrorMessageEndDateErrorMessage('school', 'description')
+    feeManagementFeeStructurePage.validateAnErrorMessageEndDateErrorMessage(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription)
   })
 
-  it('Validate an error message stating error message “End Date Required“ appears if the user do not select any valid start date ', { tags: '@somke' }, function () {
+  it('Validate an error message stating error message “End Date Required“ appears if the user do not select any valid start date/EE-79/ERP_TC_020 ', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
     feeManagementFeeStructurePage.getNewStudentCheckBox().click()

@@ -245,5 +245,10 @@ class AdminFeeManagementFeeStructurePage {
         this.getContinueButton().click({force:true})
         this.getEndDateErrorMessage().should('have.text','End Date required')
     }
+
+    verifyAddNewFeeStructureDescriptionTextareafield(){
+        this.getDescriptionTextAreaField().type(feeStructureDescription)
+        cy.contains(feeStructureDescription)
+    }
 }
 module.exports = new AdminFeeManagementFeeStructurePage()

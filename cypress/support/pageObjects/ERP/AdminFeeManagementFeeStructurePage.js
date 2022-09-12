@@ -109,11 +109,11 @@ class AdminFeeManagementFeeStructurePage {
     }
 
     getNewStudentCheckBox() {
-        return cy.get('[class="CustomCheckmark"]').eq(0)
+        return cy.xpath('//input[@class="muicheck"]')
     }
 
     getExisitingCheckBox() {
-        return cy.get('[class="CustomCheckmark"]').eq(1)
+        return cy.xpath('//input[@data-testid="existingStudent"]')
     }
 
     getSelectGrade() {
@@ -144,6 +144,9 @@ class AdminFeeManagementFeeStructurePage {
         return cy.xpath('//p[text()="End Date required"]')
     }
 
+    getFeeStructureNameErrorMessage(){
+        return cy.xpath('//p[text()="End Date required"]')
+    }
     verifyFeeManagementTabs(feeStructurePageFeeStructureTitle, feeStructurePagePenaltyMasterTitle, feeStructurePageDiscountMasterTitle, feeStructurePagePaymentGatewayTitle) {
         cy.verifyTextEquals(this.getFeeStructureTabsTitle().eq(0), feeStructurePageFeeStructureTitle)
         cy.verifyTextEquals(this.getFeeStructureTabsTitle().eq(1), feeStructurePagePenaltyMasterTitle)
@@ -249,6 +252,15 @@ class AdminFeeManagementFeeStructurePage {
     verifyAddNewFeeStructureDescriptionTextareafield(){
         this.getDescriptionTextAreaField().type(feeStructureDescription)
         cy.contains(feeStructureDescription)
+    }
+
+    validateAddNewFeeStructureErrorMessageFeeStructureName(FeeStructureNameRequired){
+        this.getContinueButton().click()
+        this.getFeeStructureNameErrorMessage().should('have.text', FeeStructureNameRequired)
+    }
+
+    validateAddNewFeeStructureNameTextField(feestuctureString,lengthnumber){
+        this.getFeeStructureNameTextfield().type(feestuctureString).invoke('val').should('have.length', lengthnumber)
     }
 }
 module.exports = new AdminFeeManagementFeeStructurePage()

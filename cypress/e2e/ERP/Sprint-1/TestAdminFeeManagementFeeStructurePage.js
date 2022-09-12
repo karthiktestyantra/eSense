@@ -51,14 +51,13 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   it('Validate the user is allowed to add 45 characters in "Fee structure name" text field/EE-79/ERP_TC_013', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.getFeeStructureNameTextfield().type('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHI').invoke('val').should('have.length', 45)
+    feeManagementFeeStructurePage.validateAddNewFeeStructureNameTextField(this.feeManagement.feestructurestring,45)
   })
 
   it('Validate an error message appears if the user do not enter any data into "Fee structure name" text field /EE-79/ERP_TC_014', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.getContinueButton().click()
-    cy.xpath('//p[text()="Fee Structure Name Required"]').should('have.text', 'Fee Structure Name Required')
+    feeManagementFeeStructurePage.validateAddNewFeeStructureErrorMessageFeeStructureName(this.feeManagement.feeStructureErrorMessage)
   })
 
   it('Validate the user is able to add data into "Description" text field /EE-79/ERP_TC_015', { tags: '@somke' }, function () {
@@ -82,11 +81,15 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   it('Validate an error message stating error message “End Date Required“ appears if the user do not select any valid start date/EE-79/ERP_TC_020 ', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
-    feeManagementFeeStructurePage.getNewStudentCheckBox().click()
-    feeManagementFeeStructurePage.getExisitingCheckBox().click()
+    cy.checkAndVerify(feeManagementFeeStructurePage.getNewStudentCheckBox())
+    cy.checkAndVerify(feeManagementFeeStructurePage.getExisitingCheckBox())
   })
 
-
+  it.only('Validate the user can select multiple grades and streams from the "Select Grade" and "Stream" drop down list /EE-79/ERP_TC_021', { tags: '@somke' }, function () {
+    adminDashboardPage.navigateToFeeSetUpPage()
+    feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
+    
+  })
 
 
 })

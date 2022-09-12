@@ -4,7 +4,7 @@ import EnterOTPPage from "../../../../support/pageObjects/LMS-1/EnterOTPPage";
 import IndexPage from "../../../../support/pageObjects/LMS-1/IndexPage";
 
 const ip = new IndexPage();
-const lp = new LoginPage();
+const lp = require('../../../../support/pageObjects/LMS-1/LoginPage')
 const lwmp = new LoginWithPhoneNumberPage();
 const eop = new EnterOTPPage();
 

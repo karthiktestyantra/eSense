@@ -9,8 +9,8 @@ import Sprint12Regression from "../../../../support/pageObjects/LMS-1/Sprint12Re
 import MyCalendarPage from "../../../../support/pageObjects/LMS-1/MyCalendarPage";
 
 const ip = new IndexPage();
-const lp = new LoginPage();
-const wp = new WalkthroughPage();
+const lp = require('../../../../support/pageObjects/LMS-1/LoginPage')
+const wp = require('../../../../support/pageObjects/LMS-1/WalkthroughPage')
 const cop = new ClassOverviewPage();
 const cup = new CurriculumOverviewPage();
 const ttop = new TimeTableOverviewPage();

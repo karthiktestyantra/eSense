@@ -3,7 +3,7 @@ import ForgotPasswordPage from "../../../../support/pageObjects/LMS-1/ForgotPass
 import IndexPage from "../../../../support/pageObjects/LMS-1/IndexPage";
 
 const ip = new IndexPage();
-const lp = new LoginPage();
+const lp = require('../../../../support/pageObjects/LMS-1/LoginPage')
 const fpp = new ForgotPasswordPage();
 
 describe("Verify Forgot Password Functionaities", function () {

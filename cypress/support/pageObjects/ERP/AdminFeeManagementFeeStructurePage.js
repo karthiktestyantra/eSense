@@ -136,6 +136,14 @@ class AdminFeeManagementFeeStructurePage {
         return cy.get('body').click(0,0)
     }
 
+    getStartDateErrorMessage(){
+        return cy.xpath('//p[text()="Start Date required"]')
+    }
+
+    getEndDateErrorMessage(){
+        return cy.xpath('//p[text()="End Date required"]')
+    }
+
     verifyFeeManagementTabs(feeStructurePageFeeStructureTitle, feeStructurePagePenaltyMasterTitle, feeStructurePageDiscountMasterTitle, feeStructurePagePaymentGatewayTitle) {
         cy.verifyTextEquals(this.getFeeStructureTabsTitle().eq(0), feeStructurePageFeeStructureTitle)
         cy.verifyTextEquals(this.getFeeStructureTabsTitle().eq(1), feeStructurePagePenaltyMasterTitle)
@@ -212,6 +220,31 @@ class AdminFeeManagementFeeStructurePage {
         cy.isVisible(this.getNewStudentCheckBox())
         cy.isVisible(this.getCancelButton())
     }
+    validateAnErrorMessageStatingErrorMessage(FeeStructureNameTextfield,description){
+        this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
+        this.getDescriptionTextAreaField().type(description)
+        cy.wait(1000)
+        this.getEndDateIcon().click()
+        this.getEndDate().click()
+        this.getExisitingCheckBox().click()
+        this.getSelectGrade().click()
+        this.getGrade3().click()
+        this.clickOnOutSide()
+        this.getContinueButton().click({force:true})
+        this.getStartDateErrorMessage().should('have.text','Start Date required')
+    }
 
+    validateAnErrorMessageEndDateErrorMessage(FeeStructureNameTextfield,description){
+        this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
+        this.getDescriptionTextAreaField().type(description)
+        this.getStartDateIcon().click()
+        this.getStartDate().click()
+        this.getExisitingCheckBox().click()
+        this.getSelectGrade().click()
+        this.getGrade3().click()
+        this.clickOnOutSide()
+        this.getContinueButton().click({force:true})
+        this.getEndDateErrorMessage().should('have.text','End Date required')
+    }
 }
 module.exports = new AdminFeeManagementFeeStructurePage()

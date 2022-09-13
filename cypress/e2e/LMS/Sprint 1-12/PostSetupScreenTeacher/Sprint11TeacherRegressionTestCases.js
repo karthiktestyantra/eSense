@@ -5,14 +5,9 @@ const sp11 = new sprint11Pages();
 describe("Verify School Teacher Basic Info Functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("urlMain"));
-<<<<<<< HEAD:cypress/e2e/Sprint 1-12/PostSetupScreenTeacher/Sprint11TeacherRegressionTestCases.js
     cy.wait(3000)
     sp11.getTeacher().eq(1).click();
     cy.fixture("TeacherLoginCredentials").then(function (validTeacherLoginData) {
-=======
-    sp11.getTeacher().click();
-    cy.fixture("LMS/TeacherLoginCredentials").then(function (validTeacherLoginData) {
->>>>>>> 41c326dc69c590af026b3a135082e220706451e8:cypress/e2e/LMS/Sprint 1-12/PostSetupScreenTeacher/Sprint11TeacherRegressionTestCases.js
       this.validTeacherLoginData = validTeacherLoginData;
       
     });

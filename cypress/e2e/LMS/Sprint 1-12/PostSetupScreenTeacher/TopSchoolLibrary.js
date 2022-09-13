@@ -39,13 +39,8 @@ describe("Verify TopSchool Library Functionalities", function () {
   });
 
   it("Verify that the Teacher is able to click View Lesson Plan link", function () {
-<<<<<<< HEAD:cypress/e2e/Sprint 1-12/PostSetupScreenTeacher/TopSchoolLibrary.js
     cy.contains('Newly Added').click({force:true});
     tslp.getViewLessonPlan().scrollIntoView().click();
-=======
-    cy.contains('Newly Added').click({ force: true });
-    tslp.getViewLessonPlan().click();
->>>>>>> 41c326dc69c590af026b3a135082e220706451e8:cypress/e2e/LMS/Sprint 1-12/PostSetupScreenTeacher/TopSchoolLibrary.js
     tslp
       .getLessonPlanPageConfirmTitle()
       .should("have.text", " Lesson Plans  ");

@@ -6,6 +6,8 @@ const dayjs = require('dayjs')
 describe("Verify Fee Management Fee Structure functionalities", function () {
 
   beforeEach(function () {
+    cy.clearCookies();
+    cy.clearLocalStorage();
     cy.visit(Cypress.env("urlStagingERP"))
     cy.fixture("ERP/LoginCredentials").then(function (validLoginData) {
       loginPage.login(validLoginData.adminUsername, validLoginData.adminPassword)

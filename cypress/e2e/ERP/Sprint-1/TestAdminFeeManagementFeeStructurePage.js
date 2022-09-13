@@ -42,7 +42,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     feeManagementFeeStructurePage.verifyAddNewFeeStructureDetailsPage()
   })
 
-  it.only("Validate user can navigate to different tabs showing lock icon only by clicking continue button./EE-57/ERP_TC_007", { tags: '@smoke' }, function () {
+  it("Validate user can navigate to different tabs showing lock icon only by clicking continue button./EE-57/ERP_TC_007", { tags: '@smoke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersOrAddNewButton()
     feeManagementFeeStructurePage.verifyAddNewFeeStructureDetailsPage()
@@ -70,13 +70,13 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   it('Validate an error message stating error message “Start Date Required“ appears if the user do not select any valid start date EE-79/ERP_TC_017', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersOrAddNewButton()
-    feeManagementFeeStructurePage.validateAnErrorMessageStatingErrorMessage(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription)
+    feeManagementFeeStructurePage.validateAnErrorMessageStatingErrorMessage(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription,Number(dayjs().format('D')) + 5,this.feeManagement.startDateErrorMessage)
   })
 
   it('Validate an error message stating error message “End Date Required“ appears if the user do not select any valid start date/EE-79/ERP_TC_019 ', { tags: '@somke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersOrAddNewButton()
-    feeManagementFeeStructurePage.validateAnErrorMessageEndDateErrorMessage(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription)
+    feeManagementFeeStructurePage.validateAnErrorMessageEndDateErrorMessage(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription,dayjs().format('D'),this.feeManagement.endDateErrorMessage)
   })
 
   it('Validate the user is able to select either or both the options New student Existing student in Applicable For section/EE-79/ERP_TC_020 ', { tags: '@somke' }, function () {

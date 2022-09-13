@@ -9,7 +9,9 @@
     "feeStructurePagePaymentGatewayTitle": "Payment Gateway",
     "feeStructureName": "Automation School",
     "feeStructureDescription": "This test is created for automation purpose",
-    "feeStructureErrorMessage":"-Fee Structure Name Required",
+    "feeStructureErrorMessage":"Fee Structure Name Required",
+    "startDateErrorMessage":"Start Date required",
+    "endDateErrorMessage":"End Date required",
     "feeStructureString":"1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHI",
     "feeStructureStringLength":"45"
 }

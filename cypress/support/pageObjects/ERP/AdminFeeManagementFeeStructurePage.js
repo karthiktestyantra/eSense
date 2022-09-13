@@ -149,7 +149,7 @@ class AdminFeeManagementFeeStructurePage {
     }
 
     getFeeStructureNameErrorMessage() {
-        return cy.xpath('//p[text()="End Date required"]')
+        return cy.xpath('//p[text()="Fee Structure Name Required"]')
     }
     verifyFeeManagementTabs(feeStructurePageFeeStructureTitle, feeStructurePagePenaltyMasterTitle, feeStructurePageDiscountMasterTitle, feeStructurePagePaymentGatewayTitle) {
         cy.verifyTextEquals(this.getFeeStructureTabsTitle().eq(0), feeStructurePageFeeStructureTitle)
@@ -215,7 +215,7 @@ class AdminFeeManagementFeeStructurePage {
         cy.wait(1000)
         this.getEndDateIcon().click()
         this.getEndDate(EndDate).click()
-        this.getExisitingCheckBox().click()
+        cy.checkAndVerify(this.getExisitingCheckBox())
         this.getSelectGrade().click()
         this.getGrade3().click()
         this.clickOnOutSide()
@@ -234,31 +234,31 @@ class AdminFeeManagementFeeStructurePage {
         cy.isVisible(this.getNewStudentCheckBox())
         cy.isVisible(this.getCancelButton())
     }
-    validateAnErrorMessageStatingErrorMessage(FeeStructureNameTextfield, description) {
+    validateAnErrorMessageStatingErrorMessage(FeeStructureNameTextfield, description,EndDate,StartDaterequired) {
         this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
         this.getDescriptionTextAreaField().type(description)
         cy.wait(1000)
         this.getEndDateIcon().click()
-        this.getEndDate().click()
-        this.getExisitingCheckBox().click()
+        this.getEndDate(EndDate).click()
+        cy.checkAndVerify(this.getExisitingCheckBox())
         this.getSelectGrade().click()
         this.getGrade3().click()
         this.clickOnOutSide()
         this.getContinueButton().click({ force: true })
-        this.getStartDateErrorMessage().should('have.text', 'Start Date required')
+        this.getStartDateErrorMessage().should('have.text', StartDaterequired)
     }
 
-    validateAnErrorMessageEndDateErrorMessage(FeeStructureNameTextfield, description) {
+    validateAnErrorMessageEndDateErrorMessage(FeeStructureNameTextfield, description,startDate,EndDaterequired) {
         this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
         this.getDescriptionTextAreaField().type(description)
         this.getStartDateIcon().click()
-        this.getStartDate().click()
-        this.getExisitingCheckBox().click()
+        this.getStartDate(startDate).click()
+        cy.checkAndVerify(this.getExisitingCheckBox())
         this.getSelectGrade().click()
         this.getGrade3().click()
         this.clickOnOutSide()
         this.getContinueButton().click({ force: true })
-        this.getEndDateErrorMessage().should('have.text', 'End Date required')
+        this.getEndDateErrorMessage().should('have.text', EndDaterequired)
     }
 
     verifyAddNewFeeStructureDescriptionTextareafield(feeStructureDescription) {

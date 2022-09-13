@@ -129,13 +129,10 @@ class Sprint10Regression {
   }
 
   getFileSharedDeleteIcon(){
-<<<<<<< HEAD:cypress/support/pageObjects2/Sprint10Regression.js
-    return cy.get('[data-testid="DeleteIcon"] > path').eq(0);
-=======
-    return cy.get('[data-testid="DeleteIcon"] path').eq(0);
->>>>>>> 41c326dc69c590af026b3a135082e220706451e8:cypress/support/pageObjects/LMS-1/Sprint10Regression.js
-  }
 
+    return cy.get('[data-testid="DeleteIcon"] > path').eq(0);
+  }
+  
   getResourceRemovedMessage(){
     return cy.get('.MuiAlert-message');
   }

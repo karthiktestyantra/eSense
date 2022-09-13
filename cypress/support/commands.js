@@ -57,24 +57,6 @@ Cypress.Commands.add("requestAPI", (url, body, aliasName, methodType) => {
   //.then((response) =>{cy.wrap(response).as(aliasName)})
 })
 
-//For Cypress drag and drop plugin
-//require('@4tw/cypress-drag-drop')
-
-//require('cypress-downloadfile/lib/downloadFileCommand')
-
-
-// -- This is a parent command --
-import LoginPage from "../support/pageObjects2/LoginPage";
-import WalkthroughPage from "../support/pageObjects2/WalkthroughPage";
-const lp = new LoginPage();
-const wp = new WalkthroughPage();
- Cypress.Commands.add('login', (email, password) => { 
-  lp.getUserName().clear().type(email);
-  lp.getPassword().clear().type(password);
-  lp.getLogin().click({force:true});
-  wp.getLoginSuccessfulMsg().should("have.text", "Logged in successfully"); 
-})
-
 //This command is to verify the text using equals method
 Cypress.Commands.add('verifyTextEquals', (element, text) => {
   element.should(($el) => {
@@ -106,7 +88,7 @@ Cypress.Commands.add('forceClick', (element) => {
 
 //This command is used to check and verify the checkbox
 Cypress.Commands.add('checkAndVerify', (element) => {
-  element.check({force:true}).should('be.checked')
+  element.check({ force: true }).should('be.checked')
 })
 
 //This command is used to uncheck and verify the checkbox

@@ -1,7 +1,7 @@
 class sprint11Pages{
 
     getTeacher() {
-        return cy.get(':nth-child(3) > .d-flex');
+        return cy.get('div[class="d-flex align-items-center"]').eq(1);
       }
       getLoginTitle(){
         return cy.get('.login_title');

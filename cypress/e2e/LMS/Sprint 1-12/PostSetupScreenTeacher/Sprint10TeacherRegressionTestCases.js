@@ -200,13 +200,14 @@ describe("Verify Sprint 10 related functionalities", function () {
     sr.getEditHomeWorkIcon().click({ force: true });
     sr.getAttachFileOption().scrollIntoView().click();
     sr.getAddResourcesUploadTab().click();
-    const filepath = "SampleDocs-sample-pdf-file.pdf";
+    const filepath = "LMS/SampleDocs-sample-pdf-file.pdf";
     cy.get(".drop-sub").attachFile(filepath);
     sr.getAddResourcesCloseIcon().click();
     sr.getEditHomeworkUpdateButton().click({ force: true });
     cy.wait(8000);
     sr.getEditHomeworkCard().eq(0).click()
     sr.getFileSharedTab().click({ force: true });
+    cy.wait(2000)
     sr.getFileSharedDeleteIcon().click({ force: true });
     sr.getResourceRemovedMessage().should("have.text", "Resource removed!");
   });
@@ -223,7 +224,7 @@ describe("Verify Sprint 10 related functionalities", function () {
     sr.getAttachFileOption().scrollIntoView().click();
     sr.getFileSharedTabViewIcon().should("be.visible");
     sr.getAddResourcesUploadTab().click();
-    const filepath = "SampleDocs-sample-pdf-file.pdf";
+    const filepath = "LMS/SampleDocs-sample-pdf-file.pdf";
     cy.get(".drop-sub").attachFile(filepath);
     sr.getAddResourcesCloseIcon().click();
     sr.getEditHomeworkUpdateButton().click();

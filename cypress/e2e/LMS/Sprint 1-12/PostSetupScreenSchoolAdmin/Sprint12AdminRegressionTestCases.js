@@ -1,10 +1,9 @@
 import IndexPage from "../../../../support/pageObjects/LMS-1/IndexPage";
-import LoginPage from "../../../../support/pageObjects/LMS-1/LoginPage";
 import Sprint12Regression from "../../../../support/pageObjects/LMS-1/Sprint12Regression";
 import CurriculumBuilderPage from "../../../../support/pageObjects/LMS-1/CurriculumBuilderPage";
 
 const ip = new IndexPage();
-const lp = new LoginPage();
+const lp = require('../../../../support/pageObjects/LMS-1/LoginPage')
 const srn = new Sprint12Regression();
 const cbp = new CurriculumBuilderPage();
 

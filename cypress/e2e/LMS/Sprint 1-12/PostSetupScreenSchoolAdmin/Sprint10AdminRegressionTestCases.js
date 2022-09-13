@@ -1,9 +1,9 @@
 import IndexPage from "../../../../support/pageObjects/LMS-1/IndexPage";
-import LoginPage from "../../../../support/pageObjects/LMS-1/LoginPage";
+//import LoginPage from "../../../../support/pageObjects/LMS-1/LoginPage";
 import Sprint10Regression from "../../../../support/pageObjects/LMS-1/Sprint10Regression";
 
 const ip = new IndexPage();
-const lp = new LoginPage();
+const lp = require('../../../../support/pageObjects/LMS-1/LoginPage')
 const sr = new Sprint10Regression();
 
 describe("Verify Sprint 10 related functionalities", function () {

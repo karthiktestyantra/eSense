@@ -7,12 +7,12 @@ const gradebook = new AdminGradebookPageNew();
 describe("Verify Admin Account Page functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("urlMain"))
-    cy.fixture("AdminLoginCredentials").then(function (validAdminLoginData) {
+    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
     })
   })
   beforeEach(function () {
-    cy.fixture("AdminReports").then(function (report) {
+    cy.fixture("LMS/AdminReports").then(function (report) {
       this.report = report;
     })
   })

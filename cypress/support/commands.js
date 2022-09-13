@@ -57,7 +57,6 @@ Cypress.Commands.add("requestAPI", (url, body, aliasName, methodType) => {
   //.then((response) =>{cy.wrap(response).as(aliasName)})
 })
 
-<<<<<<< HEAD
 //For Cypress drag and drop plugin
 //require('@4tw/cypress-drag-drop')
 
@@ -74,11 +73,6 @@ const wp = new WalkthroughPage();
   lp.getPassword().clear().type(password);
   lp.getLogin().click({force:true});
   wp.getLoginSuccessfulMsg().should("have.text", "Logged in successfully"); 
-=======
-Cypress.on('uncaught:exception', (err, runnable) => {
-  // returning false here prevents Cypress from failing the test
-  return false
->>>>>>> 41c326dc69c590af026b3a135082e220706451e8
 })
 
 //This command is to verify the text using equals method

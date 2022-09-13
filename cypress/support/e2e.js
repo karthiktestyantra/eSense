@@ -1,46 +1,13 @@
-// ***********************************************************
-// This example support/index.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
-
 // Import commands.js using ES2015 syntax:
-import './commands';
+import './commands'
+
+//for mochawesore report with screenshots
 import 'cypress-mochawesome-reporter/register';
 
+// For using Xpath
+require('cypress-xpath')
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+//for grouping/tags
+require('cypress-grep')()
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-  // returning false here prevents Cypress from
-  // failing the test
-  return false
-})
 
-// import postgreSQL from 'cypress-postgresql';
-// postgreSQL.loadDBCommands();
-
-// const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
-// module.exports = (on, config) => {
-//   on('task', {downloadFile})
-// }
-
-module.exports = (on, config) => {
-  on('task', { queryDb: query => { return queryTestDb(query, config) }, }); //For running sql query
-}
-
-Cypress.on('uncaught:exception', (err, runnable) => {
-  // returning false here prevents Cypress from
-  // failing the test
-  return false
-})

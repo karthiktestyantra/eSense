@@ -4,13 +4,9 @@
   "main": "index.js",
   "description": "esense-project",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "allFiles": "npx cypress run --spec cypress\\e2e\\**\\*.js --reporter mochawesome --headed chrome",
-    "reportName": "npx mochawesome-merge .\\cypress\\reports\\*.json | out-file -encoding ascii cypress/htmlReports/report1.json",
-    "htmlReport": "npx marge cypress/htmlReports/report1.json --reportDir ./ --inline",
     "allTests": "npx cypress run",
-    "failedTest": "npx cypress run --spec cypress\\e2e\\Sprint-17\\AdminQuickLinkTimeTable.js",
-    "failedTestHeaded": "npx cypress run --spec cypress\\e2e\\Sprint-17\\AdminQuickLinkTimeTable.js --headed"
+    "lmsTests": "npx cypress run --spec cypress/e2e/LMS/**/*.js",
+    "erpTests": "npx cypress run --spec cypress/e2e/ERP/**/*.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +14,8 @@
     "cypress": "^10.7.0",
     "cypress-file-upload": "^5.0.8",
     "cypress-mochawesome-reporter": "^3.1.0",
-    "mocha": "^9.2.2",
+    "cypress-grep": "^3.0.2",
+    "cypress-xpath": "^2.0.1",
     "mochawesome": "^7.1.3",
     "moment": "^2.29.4"
   }

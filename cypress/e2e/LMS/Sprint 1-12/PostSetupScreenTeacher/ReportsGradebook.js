@@ -42,10 +42,12 @@ describe("Verify Reports - Student Gradebook", function () {
   });
 
   it("Verify that the Teacher should be able to select the checkbox against the student", function () {
+    cy.wait(1000)
     rgp
       .getOneofTheClasses()
       .should("have.text", this.studentCountData.class)
       .click({ force: true });
+      cy.wait(2000)
     rgp.getCheckboxOfStudents().check();
   });
 

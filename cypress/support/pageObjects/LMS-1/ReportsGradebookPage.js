@@ -13,7 +13,7 @@ class ReportsGradebookPage {
   }
 
   getCheckboxOfStudents(){
-    return cy.get('input[type="checkbox"]').eq(1);
+    return cy.xpath('//input[@type="checkbox"]').eq(1);
   }
 
   getUploadCSV(){

@@ -129,7 +129,7 @@ class Sprint10Regression {
   }
 
   getFileSharedDeleteIcon(){
-    return cy.get('.delete').eq(0);
+    return cy.get('[data-testid="DeleteIcon"] path').eq(0);
   }
 
   getResourceRemovedMessage(){

@@ -75,8 +75,8 @@ import WalkthroughPage from "../support/pageObjects2/WalkthroughPage";
 const lp = new LoginPage();
 const wp = new WalkthroughPage();
  Cypress.Commands.add('login', (email, password) => { 
-  lp.getUserName().type(email);
-  lp.getPassword().type(password);
+  lp.getUserName().clear().type(email);
+  lp.getPassword().clear().type(password);
   lp.getLogin().click({force:true});
   wp.getLoginSuccessfulMsg().should("have.text", "Logged in successfully"); 
 })

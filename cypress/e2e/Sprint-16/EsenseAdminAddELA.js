@@ -179,7 +179,7 @@ describe("Verify Esense Admin Main Login Page functionalities", function () {
         esenseAdminAddELAPage.getSectionDropDwnNameLst().each(($e6, index, $list) => {
             const text = $e6.text()
             if (text.includes('Hindi V')) {
-                esenseAdminAddELAPage.getSectionDrpDwnCheckBxLst().eq(index).check()
+                esenseAdminAddELAPage.getSectionDrpDwnCheckBxLst().eq(index).check({force:true})
             }
         })
 

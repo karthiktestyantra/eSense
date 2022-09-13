@@ -44,10 +44,10 @@ describe("Verify TopSchool Library Functionalities", function () {
 
   it("Verify that the Teacher is able to click View Lesson Plan link", function () {
     cy.contains('Newly Added').click({force:true});
-    tslp.getViewLessonPlan().click();
+    tslp.getViewLessonPlan().scrollIntoView().click();
     tslp
       .getLessonPlanPageConfirmTitle()
-      .should("have.text", " Lesson Plan  ");
+      .should("have.text", " Lesson Plans  ");
   });
 
   it("Verify that by clicking back button will return to the previous page i.e. TopSchool library page", function () {

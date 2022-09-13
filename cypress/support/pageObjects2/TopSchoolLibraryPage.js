@@ -9,7 +9,7 @@ class TopSchoolLibraryPage {
   }
 
   getViewLessonPlan(){
-    return cy.contains('View Lesson Plan');
+    return cy.get('#simple-tabpanel-1 > .MuiBox-root > :nth-child(1) > .MuiGrid-spacing-xs-1 > :nth-child(4) > .MuiPaper-root > .MuiCardActions-root > .MuiGrid-container > .MuiGrid-grid-xs-10 > [data-testid="cntLibCardBtn_3"]')
   }
 
   getLessonPlanPageConfirmTitle(){

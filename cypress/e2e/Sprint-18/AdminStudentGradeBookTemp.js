@@ -20,7 +20,7 @@ describe("Verify Esense Teacher Login Page functionalities", function () {
  it("Validate user is able to view the list of templates (Preloaded by TopSchool/ New created by School), by clicking on “Student Gradebook” > “Template” in the “Reports” menu/EL-4150/ES4150_01",function () {
   adminStudentGradeBookPage.getHarSideMenuAdminReportImg().click()
   cy.wait(1000)
-  adminStudentGradeBookPage.getHarStudentGradeBookBtn().click()
+  adminStudentGradeBookPage.getHarStudentGradeBookBtn().click({force:true})
   adminStudentGradeBookPage.getHarStudentGradeBookHeaderTitle().contains('Student Gradebook').should('be.visible')
   adminStudentGradeBookPage.getHarStudentGradeName().should('be.visible')
 

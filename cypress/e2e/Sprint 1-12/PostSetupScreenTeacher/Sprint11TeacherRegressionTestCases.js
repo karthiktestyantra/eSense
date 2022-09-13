@@ -7,9 +7,11 @@ const sp11 = new sprint11Pages();
 describe("Verify School Teacher Basic Info Functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("urlMain"));
-    sp11.getTeacher().click();
+    cy.wait(3000)
+    sp11.getTeacher().eq(1).click();
     cy.fixture("TeacherLoginCredentials").then(function (validTeacherLoginData) {
       this.validTeacherLoginData = validTeacherLoginData;
+      
     });
   });
 

@@ -9,8 +9,8 @@ afterEach(function () {
 const login = require('./pageObjects/LMS-2/MainAdminIndexPage')
 Cypress.Commands.add('Mainlogin', (email, password) => {
   login.getTitle().should('be.visible')
-  login.getUserName().type(email);
-  login.getPassword().type(password);
+  login.getUserName().clear().type(email);
+  login.getPassword().clear().type(password);
   login.getContinueBtn().click({ force: true });
   cy.url().should('contain', 'dashboard')
   cy.wait(1000);
@@ -30,8 +30,8 @@ Cypress.Commands.add('AdminPostSetup', (email, password) => {
 const loginPage = require('./pageObjects/LMS-1/LoginPage')
 const walkthroughPage = require('./pageObjects/LMS-1/WalkthroughPage')
 Cypress.Commands.add('login', (email, password) => {
-  loginPage.getUserName().type(email);
-  loginPage.getPassword().type(password);
+  loginPage.getUserName().clear().type(email);
+  loginPage.getPassword().clear().type(password);
   loginPage.getLogin().click({ force: true });
   walkthroughPage.getLoginSuccessfulMsg().should("have.text", "Logged in successfully");
 })

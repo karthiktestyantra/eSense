@@ -1,0 +1,147 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-09-15T07:25:59.819Z",
+    "end": "2022-09-15T07:26:13.739Z",
+    "duration": 13920,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "261452ca-9024-4ca1-9e21-e836128cb62f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\LMS\\Sprint-14\\AdminAccounts.js",
+      "file": "cypress\\e2e\\LMS\\Sprint-14\\AdminAccounts.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cf3af570-63a5-4d16-bbfc-e9e5cd7be76e",
+          "title": "Verify Admin Account Page functionalities",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate  school admin is able to create “Role” and provide “Approval” privilege for “Curriculum” domain/EL-4094/ES4094_01",
+              "fullTitle": "Verify Admin Account Page functionalities Validate  school admin is able to create “Role” and provide “Approval” privilege for “Curriculum” domain/EL-4094/ES4094_01",
+              "timedOut": null,
+              "duration": 7889,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "home.getSchoolLnk().click({\n  force: true\n});\nhome.getAdminAccountsSectionLnk().click();\naccount.getAddNewBtn().click();\naccount.getEnterDesignationName().type(\"Super-Admin\");\naccount.getCheckBoxLst().check({\n  force: true\n});\naccount.getAddRoleBtn().click();",
+              "err": {},
+              "uuid": "31e3985b-0de0-4dd0-98c9-1d523686c3a9",
+              "parentUUID": "cf3af570-63a5-4d16-bbfc-e9e5cd7be76e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate school admin is able to provide “Approval” privilege to School Sub admin user, will get access to Edit, Approve or Reject a curriculum from the curriculum section/EL-4094/ES4094_02",
+              "fullTitle": "Verify Admin Account Page functionalities Validate school admin is able to provide “Approval” privilege to School Sub admin user, will get access to Edit, Approve or Reject a curriculum from the curriculum section/EL-4094/ES4094_02",
+              "timedOut": null,
+              "duration": 3159,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(2000);\naccount.getRoleLst().each(($e1, index, $list) => {\n  const actualText = $e1.text();\n  if (actualText.includes(\"Super-Admin\")) {\n    account.getEditRoleBtnLst().eq(index).click({\n      force: true\n    });\n  }\n});\ncy.wait(1000);\naccount.getCurriculumPrevilegeEditCheckBx().should('be.visible');",
+              "err": {},
+              "uuid": "351e9a5c-55ce-4731-a5da-2334f12d0e49",
+              "parentUUID": "cf3af570-63a5-4d16-bbfc-e9e5cd7be76e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate school admin is able mouse hover on roles Privilege will show view, edit, approval icons/EL-4094/ES4094_03",
+              "fullTitle": "Verify Admin Account Page functionalities Validate school admin is able mouse hover on roles Privilege will show view, edit, approval icons/EL-4094/ES4094_03",
+              "timedOut": null,
+              "duration": 696,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "account.getCloseEditRoleBtn().click();\naccount.getRoleLst().each(($e1, index, $list) => {\n  const actualText = $e1.text();\n  if (actualText.includes(\"Super-Admin\")) {\n    account.getPrevilegesLst().eq(index).trigger('mouseover');\n  }\n});\naccount.getPrevilegesBoardLst().should('be.visible').should('have.length', 13);",
+              "err": {},
+              "uuid": "02ffd6f0-d166-4efd-bc03-a38494d7a706",
+              "parentUUID": "cf3af570-63a5-4d16-bbfc-e9e5cd7be76e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "31e3985b-0de0-4dd0-98c9-1d523686c3a9",
+            "351e9a5c-55ce-4731-a5da-2334f12d0e49",
+            "02ffd6f0-d166-4efd-bc03-a38494d7a706"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11744,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\.jsons",
+        "charts": true,
+        "reportPageTitle": "My Test Suite",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

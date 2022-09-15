@@ -14,7 +14,7 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
   });
 
   beforeEach(function () {
-    cy.fixture("LMS/Addhomework").then(function (validhomeworkdata) {
+    cy.fixture("LMS/addHomework").then(function (validhomeworkdata) {
       this.validhomeworkdata = validhomeworkdata;
     });
   });

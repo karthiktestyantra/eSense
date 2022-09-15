@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Sep 15 16:00:03 IST 2022","Thu Sep 15 16:00:10 IST 2022","6993","","Verify Master Management Page functionalities","","","","Navigate to Master Management page",""
+"passed","Thu Sep 15 16:48:56 IST 2022","Thu Sep 15 16:49:04 IST 2022","7791","","Verify Master Management Page functionalities","","","","Navigate to Master Management page",""

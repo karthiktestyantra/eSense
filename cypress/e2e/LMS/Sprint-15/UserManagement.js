@@ -54,7 +54,7 @@ describe("Verify User Management Page functionalities/Sprint-15", function () {
     userManage.getUsersAndRolesCreateCheckBx().check()
     userManage.getUsersAndRolesReadCheckBx().check()
     userManage.getUsersAndRolesUpdateCheckBx().check()
-    userManage.getRoleSubmitBtn().click()
+    userManage.getRoleSubmitBtn().click({force:true})
     userManage.getUserAddedPopup().should('have.text', this.userManageCredentials.RoleAddedSuccessPopUp)
     userManage.getUserAddedPopupBtn().click()
     //it("To validate esense admin is able to change role for an user/EL-4149/ES4149_08",function(){

@@ -2,7 +2,7 @@ import AdminDashboardPage from "../../../support/pageObjects/LMS-2/AdminDashboar
 
 const adminDashboardPage = new AdminDashboardPage()
 
-describe("Verify Esense Teacher Login Page functionalities", function () {
+describe("Verify admin dashboard functionalities", function () {
     before(function () {
         cy.visit(Cypress.env('urlQAPreSetup'))
         cy.fixture('LMS/AdminLoginCredentials').then(function (validAdminLoginData) {

@@ -57,7 +57,7 @@ describe("Verify Sub Admin Curriculum Page functionalities", function () {
   it("To validate school sub-admin is able to view the edit and delete buttons for curriculum/EL-4870/ES4870_01", function () {
     cy.clearLocalStorage()
     cy.visit(Cypress.env('urlQAPreSetup'))
-    cy.fixture("AdminLoginCredentials").then(function (validAdminLoginData) {
+    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.subAdminUsername, validAdminLoginData.subAdminPassword)
     })
     home.getSchoolLnk().click({ force: true })
@@ -106,7 +106,7 @@ describe("Verify Sub Admin Curriculum Page functionalities", function () {
   it("To delete the created theme", function () {
     cy.clearLocalStorage()
     cy.visit("https://liverpool.staging.topschool.co.in/")
-    cy.fixture("AdminLoginCredentials").then(function (validAdminLoginData) {
+    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.fNew, validAdminLoginData.password)
     })
     home.getSchoolLnk().click({ force: true })

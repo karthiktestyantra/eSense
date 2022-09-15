@@ -56,7 +56,7 @@ describe("Verify Sub Admin Curriculum Page functionalities", function () {
   it("Validate any School Sub Admin [HOD] who has “Approval” privilege for “Curriculum” module will get access to view and approve Curriculum builder/EL-4108/ES4108_01", function () {
     cy.clearLocalStorage()
     cy.visit(Cypress.env("urlQAPreSetup"))
-    cy.fixture("AdminLoginCredentials").then(function (validAdminLoginData) {
+    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.subAdminUsername, validAdminLoginData.subAdminPassword)
     })
     home.getSchoolLnk().click({ force: true })
@@ -172,7 +172,7 @@ describe("Verify Sub Admin Curriculum Page functionalities", function () {
   it("To validate school sub-admin with no edit and approval access is unable to view the action icons/EL-4110/ES4110_04", function () {
     cy.clearLocalStorage()
     cy.visit(Cypress.env("urlQAPreSetup"))
-    cy.fixture("AdminLoginCredentials").then(function (validAdminLoginData) {
+    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.fNew, validAdminLoginData.password)
     })
     home.getSchoolLnk().click({ force: true })
@@ -190,7 +190,7 @@ describe("Verify Sub Admin Curriculum Page functionalities", function () {
     cy.clearLocalStorage()
     cy.clearCookies()
     cy.visit("https://liverpool.staging.topschool.co.in/")
-    cy.fixture("AdminLoginCredentials").then(function (validAdminLoginData) {
+    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.subAdminUsername, validAdminLoginData.subAdminPassword)
     })
     home.getSchoolLnk().click({ force: true })
@@ -217,7 +217,7 @@ describe("Verify Sub Admin Curriculum Page functionalities", function () {
   it("click on all checkbox for back to default", function () {
     cy.clearLocalStorage()
     cy.visit("https://liverpool.staging.topschool.co.in/")
-    cy.fixture("AdminLoginCredentials").then(function (validAdminLoginData) {
+    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.fNew, validAdminLoginData.password)
     })
     home.getSchoolLnk().click({ force: true })

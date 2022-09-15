@@ -34,7 +34,7 @@ class AdminAccountsPage{
         return cy.get(':nth-child(5) tbody tr td:nth-child(1)')
     }
     getCurriculumEditCheckbox(){
-        return cy.get('input[name="2.IsEditable"]')
+        return cy.get('input[name="3.IsEditable"]')
     }
     
 

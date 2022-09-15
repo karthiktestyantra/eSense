@@ -4,7 +4,7 @@ import TeacherELAPage from "../../../support/pageObjects/LMS-2/TeacherELAPage";
 const home = new TeacherDashboardPage();
 const teacherELA = new TeacherELAPage();
 
-describe("Verify Domain Mapping functionalities", function () {
+describe("Verify techer content library functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("urlQA"))
     cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {

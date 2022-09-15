@@ -44,7 +44,7 @@ describe("Verify Domain Mapping functionalities", function () {
 
   it("Validate that user is able to view the class and Student list of the resepective class/EL-4079/ES4079_01", function () {
     home.getReportLnk().click({ force: true })
-    report.get360ReportLnk().click()
+    report.get360ReportLnk().click({ force: true })
     report.get360ReportTitleTxt().should('have.text', "360˚ Reports")
     report.get360ReportContents().should('contain.text', "ROLL NO").and('contain.text', "FIRST NAME")
       .and('contain.text', "LAST NAME").and('contain.text', "LAST ACTIVE").and('contain.text', "REPORTS")

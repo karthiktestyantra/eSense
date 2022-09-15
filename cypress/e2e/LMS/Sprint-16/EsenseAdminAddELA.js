@@ -2,7 +2,7 @@ import MainAdminAddELAPage from "../../../support/pageObjects/LMS-2/MainAdminAdd
 
 const esenseAdminAddELAPage = new MainAdminAddELAPage();
 
-describe("Verify Esense Admin Main Login Page functionalities", function () {
+describe("Verify Esense Admin Main add ELA functionalities", function () {
     before(function () {
         cy.clearLocalStorage()
         cy.visit(Cypress.env("url"))
@@ -63,7 +63,7 @@ describe("Verify Esense Admin Main Login Page functionalities", function () {
 
         // it("Validate that user is able to Add the questions in Add Question sections/EL-5058/ES5058_05",function () {
         esenseAdminAddELAPage.getUploadQuestionsBtn().click()
-        esenseAdminAddELAPage.getUploadFileBtn().attachFile('SampleQuestions.xlsx')
+        esenseAdminAddELAPage.getUploadFileBtn().attachFile('LMS/SampleQuestions.xlsx')
         esenseAdminAddELAPage.getImportQuestionBtn().click()
         // })
 
@@ -101,7 +101,7 @@ describe("Verify Esense Admin Main Login Page functionalities", function () {
         esenseAdminAddELAPage.getCoursesKebabMenuAddELABtn().click({ force: true })
         cy.url().should('include', 'add-ela')
         esenseAdminAddELAPage.getUploadQuestionsBtn().click()
-        esenseAdminAddELAPage.getUploadFileBtn().attachFile('SampleQuestions.xlsx')
+        esenseAdminAddELAPage.getUploadFileBtn().attachFile('LMS/SampleQuestions.xlsx')
         esenseAdminAddELAPage.getImportQuestionBtn().click()
         esenseAdminAddELAPage.getTopicNameDropdown().select(1)
         esenseAdminAddELAPage.getTypeTxtField().type(this.esenseAdminAddELAData.topictype)
@@ -123,7 +123,7 @@ describe("Verify Esense Admin Main Login Page functionalities", function () {
         esenseAdminAddELAPage.getCompetencySatisTxtField().type(this.esenseAdminAddELAData.competencysatisifactory)
         esenseAdminAddELAPage.getcompetencyBetterTxtField().type(this.esenseAdminAddELAData.competencycandobetter)
         esenseAdminAddELAPage.getUploadRankingsBtn().click()
-        esenseAdminAddELAPage.getSelectFolderUploadRankings().attachFile('SampleRankings.xlsx')
+        esenseAdminAddELAPage.getSelectFolderUploadRankings().attachFile('LMS/SampleRankings.xlsx')
         esenseAdminAddELAPage.getImportUploadRankingsBtn().click()
         esenseAdminAddELAPage.getSaveELABtn().should('be.visible').click()
         esenseAdminAddELAPage.getELASuccessFullySavedMsg().should('have.text', 'Saved Successfully')
@@ -153,7 +153,7 @@ describe("Verify Esense Admin Main Login Page functionalities", function () {
         cy.clearLocalStorage()
         cy.clearCookies()
         cy.visit('https://new.staging.topschool.co.in')
-        cy.fixture('AdminLoginCredentials').then(function (validAdminLoginData) {
+        cy.fixture('LMS/AdminLoginCredentials').then(function (validAdminLoginData) {
             cy.AdminPostSetup(validAdminLoginData.updUserName, validAdminLoginData.password)
         })
         esenseAdminAddELAPage.getAdminUserImg().click()
@@ -176,11 +176,7 @@ describe("Verify Esense Admin Main Login Page functionalities", function () {
         esenseAdminAddELAPage.getSectionDropDwnNameLst().each(($e6, index, $list) => {
             const text = $e6.text()
             if (text.includes('Hindi V')) {
-<<<<<<< HEAD:cypress/e2e/Sprint-16/EsenseAdminAddELA.js
                 esenseAdminAddELAPage.getSectionDrpDwnCheckBxLst().eq(index).check({force:true})
-=======
-                esenseAdminAddELAPage.getSectionDrpDwnCheckBxLst().eq(index).check({ force: true })
->>>>>>> 41c326dc69c590af026b3a135082e220706451e8:cypress/e2e/LMS/Sprint-16/EsenseAdminAddELA.js
             }
         })
 
@@ -189,7 +185,7 @@ describe("Verify Esense Admin Main Login Page functionalities", function () {
         cy.go('back')
         esenseAdminAddELAPage.getMenuProfileImg().click({ force: true })
         esenseAdminAddELAPage.getMenuProfileLogoutBtn().click()
-        cy.fixture('TeacherLoginCredentials').then(function (validTeacherLoginData) {
+        cy.fixture('LMS/TeacherLoginCredentials').then(function (validTeacherLoginData) {
             cy.TeacherPostSetupLogin(validTeacherLoginData.updUsername, validTeacherLoginData.password)
         })
 
@@ -203,7 +199,7 @@ describe("Verify Esense Admin Main Login Page functionalities", function () {
         esenseAdminAddELAPage.getMenuProfileLogoutBtn().click()
         cy.wait(2000)
         cy.visit(Cypress.env("url"))
-        cy.fixture("mainAdminLoginCredentials").then(function (validAdminLoginData) {
+        cy.fixture("LMS/mainAdminLoginCredentials").then(function (validAdminLoginData) {
             cy.Mainlogin(validAdminLoginData.username, validAdminLoginData.password)
         })
         esenseAdminAddELAPage.getMenuCoursesBtn().click()

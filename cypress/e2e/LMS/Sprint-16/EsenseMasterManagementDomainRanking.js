@@ -4,7 +4,7 @@ import MainAdminMasterManagementPage from "../../../support/pageObjects/LMS-2/Ma
 const home = new MainAdminHomePage();
 const masterManage = new MainAdminMasterManagementPage();
 
-describe("Verify Master Management Page functionalities", function () {
+describe("Verify Master Management domain ranking Page functionalities", function () {
   before(function () {
     cy.viewport(1920, 1080)
     cy.visit(Cypress.env("url"))

@@ -4,7 +4,7 @@ import AdminPostSetupCurriculumBuilderPage from "../../../support/pageObjects/LM
 const esenseAdminCurriculamPlanPage = new EsenseAdminCurriculumPlanPage();
 const curriculumBuilder = new AdminPostSetupCurriculumBuilderPage();
 
-describe("Verify Curriculum Plan Page functionalities", function () {
+describe("Verify admin Curriculum Plan Page functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("url"))
     cy.fixture("LMS/mainAdminLoginCredentials").then(function (validAdminLoginData) {

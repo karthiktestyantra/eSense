@@ -2,7 +2,7 @@ import EsenseAdminLessonPlanPage from "../../../support/pageObjects/LMS-2/Esense
 
 const esenseAdminLessonPlanPage = new EsenseAdminLessonPlanPage();
 
-describe("Verify Esense Admin Main Login Page functionalities", function () {
+describe("Verify lesson plan functionalities", function () {
   
   before(function () {
     cy.visit(Cypress.env("url"))

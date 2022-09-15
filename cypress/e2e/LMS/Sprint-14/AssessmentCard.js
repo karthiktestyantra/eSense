@@ -38,3 +38,4 @@ describe("Verify AssessmentCard functionalities", function () {
 })
 
 //Need to Create new exam manually with respective grade
+//each and every month need to create event and exam manually

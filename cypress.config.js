@@ -20,7 +20,7 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   failOnStatusCode: false,
   //modifyObstructiveCode:false,
-  reporter: "cypress-mochawesome-reporter",
+  //reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
     reportDir: "cypress/reports",
     charts: true,

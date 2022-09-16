@@ -2,7 +2,7 @@ import AdminQuickLinksPage from "../../../support/pageObjects/LMS-2/AdminQuickLi
 
 const adminQuickLinksPage = new AdminQuickLinksPage();
 
-describe("Verify Esense Teacher Login Page functionalities", function () {
+describe("Verify admin quick link time table functionalities", function () {
     before(function () {
         cy.visit(Cypress.env('urlStaging'))
         cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {

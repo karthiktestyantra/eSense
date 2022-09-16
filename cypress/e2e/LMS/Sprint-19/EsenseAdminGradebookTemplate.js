@@ -5,7 +5,7 @@ import MainAdminGradebookPage from "../../../support/pageObjects/LMS-2/MainAdmin
 const home = new MainAdminHomePage();
 const grade = new MainAdminGradebookPage();
 
-describe("Verify Master Management Page functionalities", function () {
+describe("Verify admin grade book template functionalities", function () {
 
     before(function () {
         cy.visit(Cypress.env("url"))

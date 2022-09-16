@@ -4,7 +4,7 @@ import AdminPostSetupHomePage from "../../../support/pageObjects/LMS-2/AdminPost
 const home = new AdminPostSetupHomePage();
 const gradebook = new AdminGradeBookPage();
 
-describe("Verify Admin Account Page functionalities", function () {
+describe("Verify Admin student grade book functionalities", function () {
    before(function () {
       cy.visit(Cypress.env('urlQA'))
       cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {

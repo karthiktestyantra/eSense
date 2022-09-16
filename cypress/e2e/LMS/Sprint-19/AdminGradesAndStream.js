@@ -4,7 +4,7 @@ import AdminGradesAndStreamPage from "../../../support/pageObjects/LMS-2/AdminGr
 const home = new AdminPostSetupHomePage();
 const grade = new AdminGradesAndStreamPage();
 
-describe("Verify Admin Account Page functionalities", function () {
+describe("Verify Admin grades and stream functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("urlMain"))
     cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {

@@ -2,7 +2,7 @@ import EsenseAdminGradePage from "../../../support/pageObjects/LMS-2/EsenseAdmin
 
 const esenseAdminGradePage = new EsenseAdminGradePage();
 
-describe("Verify Esense Admin Grades Feature", function () {
+describe("Verify admin edit grade book template", function () {
    before(function () {
       cy.visit(Cypress.env("url"))
       cy.fixture("LMS/mainAdminLoginCredentials").then(function (validAdminLoginData) {

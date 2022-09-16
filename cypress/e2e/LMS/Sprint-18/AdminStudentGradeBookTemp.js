@@ -4,7 +4,7 @@ import AdminStudentGradebookPage from "../../support/PageObjects/AdminStudentGra
 
 const adminStudentGradeBookPage = new AdminStudentGradebookPage();
 
-describe("Verify Esense Teacher Login Page functionalities", function () {
+describe("Verify admin student grade book temp functionalities", function () {
     before(function () {
         cy.visit(Cypress.env('urlStagingPostSetup'))
         cy.fixture('AdminLoginCredentials').then(function(validAdminLoginData){

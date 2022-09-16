@@ -6,7 +6,7 @@ const home = new TeacherDashboardPage();
 const report = new Teacher360ReportPage();
 const teacherELA = new TeacherELAPage();
 
-describe("Verify Domain Mapping functionalities", function () {
+describe("Verify admin 360 report functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("urlQAPreSetup"))
     cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
@@ -46,8 +46,8 @@ describe("Verify Domain Mapping functionalities", function () {
     home.getReportLnk().click({ force: true })
     report.get360ReportLnk().click({ force: true })
     report.get360ReportTitleTxt().should('have.text', "360˚ Reports")
-    report.get360ReportContents().should('contain.text', "ROLL NO").and('contain.text', "FIRST NAME")
-      .and('contain.text', "LAST NAME").and('contain.text', "LAST ACTIVE").and('contain.text', "REPORTS")
+    report.get360ReportContents().should('contain.text', "ROLL NO").and('contain.text', "FULL NAME")
+      .and('contain.text', "LAST ACTIVE").and('contain.text', "REPORTS")
   })
 
   it("Validate that user is able to view the class and Student list of the resepective class/EL-4079/ES4079_02", function () {

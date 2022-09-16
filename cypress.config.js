@@ -19,6 +19,7 @@ module.exports = defineConfig({
   pageLoadTimeout: 120000,
   chromeWebSecurity: false,
   failOnStatusCode: false,
+  screenshotOnRunFailure: true,
   //modifyObstructiveCode:false,
   //reporter: "cypress-mochawesome-reporter",
   reporterOptions: {

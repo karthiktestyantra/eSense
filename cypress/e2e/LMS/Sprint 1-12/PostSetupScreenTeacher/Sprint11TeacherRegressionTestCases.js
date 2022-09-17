@@ -7,7 +7,7 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
     cy.visit(Cypress.env("urlMain"));
     cy.wait(3000)
     sp11.getTeacher().eq(1).click();
-    cy.fixture("TeacherLoginCredentials").then(function (validTeacherLoginData) {
+    cy.fixture("LMS/TeacherLoginCredentials").then(function (validTeacherLoginData) {
       this.validTeacherLoginData = validTeacherLoginData;
       
     });

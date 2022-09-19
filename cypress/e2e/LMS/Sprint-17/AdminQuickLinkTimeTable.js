@@ -104,6 +104,7 @@ describe("Verify admin quick link time table functionalities", function () {
     })
 
     it("To validate that user is able to create the timetable by clicking on Generate Timetable button in post-setup if the timetable is not configured during pre-setup/EL-5163/ES5163_01", function () {
+        //Timetable - Auto
         adminQuickLinksPage.getTimetableGenerateBtn().click()
         adminQuickLinksPage.getGeneratedTimetableDaysDropdown().eq(0).click()
         adminQuickLinksPage.getGeneratedTimetableDropdownValue().contains('6').click()

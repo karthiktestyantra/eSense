@@ -197,8 +197,9 @@ describe("Verify admin 360 report functionalities", function () {
 
   it("Validate that 'My Yearly Performance' report should be generated for each student only when All ELA has been assigned to the student/EL-4095/ES4095_05", function () {
     home.getReportLnk().click({ force: true })
-    report.get360ReportLnk().click()
-    cy.wait(3000)
+    cy.wait(4000)
+    report.get360ReportLnk().click({force:true})
+    cy.wait(5000)
     report.getGradeDrpDwnInReport().click()
     report.getGradeDrpDwnLstInReport().contains("Grade 3").click()
     cy.wait(2000)

@@ -1,6 +1,6 @@
 import 'cypress-file-upload';
 
-afterEach(function () {
+after(function () {
   cy.window().then(win => win.sessionStorage.clear());
   cy.clearCookies();
   cy.clearLocalStorage();
@@ -38,6 +38,7 @@ Cypress.Commands.add('login', (email, password) => {
 
 Cypress.Commands.add('TeacherPostSetupLogin', (email, password) => {
   Adminlogin.getTeacherBtn().click()
+  cy.wait(2000)
   Adminlogin.getTitle().should('be.visible')
   Adminlogin.getUserName().clear().type(email);
   Adminlogin.getPassword().clear().type(password);

@@ -37,7 +37,7 @@ describe("Verify Reports - Student Gradebook", function () {
 
   it("Verify that the Teacher is able to login the application and navigate to Reports > Student gradebook", function () {
     dbp.getReports().click({ force: true });
-    rgp.getStudentGradebookOption().click();
+    rgp.getStudentGradebookOption().click({force:true});
     rgp.getStudentGradebookTitle().should("have.text", "Student Gradebook");
   });
 

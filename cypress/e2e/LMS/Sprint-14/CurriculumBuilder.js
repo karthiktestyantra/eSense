@@ -59,7 +59,7 @@ describe("Verify Curriculum Builder pagefunctionalities", function () {
         return false;
       }
     })
-    curriculumBuilder.getStartWithChapterBtn().click()
+    curriculumBuilder.getStartWithChapterBtn().click({force:true})
     curriculumBuilder.getTotalSessionsTxtFld().should('be.visible')
     curriculumBuilder.getAddNewChapterCloseIcon().click()
     curriculumBuilder.getStartWithThemeBtn().click()

@@ -50,7 +50,7 @@ describe("Verify Esense Admin Main add ELA functionalities", function () {
         // })
 
         // it("Validate that user is able to Enter alphaNumeric Characters into Type Textbox/EL-5058/ES5058_03",function () {
-        esenseAdminAddELAPage.getTypeTxtField().type(this.esenseAdminAddELAData.topictype).should('have.value', this.esenseAdminAddELAData.topictype)
+        esenseAdminAddELAPage.getTypeTxtField().clear().type(this.esenseAdminAddELAData.topictype).should('have.value', this.esenseAdminAddELAData.topictype)
         // })
 
         // it("Validate that user is able to Enter value more than 50 characters into Type Text field/EL-5058/ES5058_04",function () {
@@ -68,16 +68,16 @@ describe("Verify Esense Admin Main add ELA functionalities", function () {
         // })
 
         // it("Validate that user is able to Add the parameters with the proper data validation/EL-5058/ES5058_06",function () {
-        esenseAdminAddELAPage.getParameterTxtField().type(this.esenseAdminAddELAData.parameter).should('have.value', this.esenseAdminAddELAData.parameter)
+        esenseAdminAddELAPage.getParameterTxtField().clear().type(this.esenseAdminAddELAData.parameter).should('have.value', this.esenseAdminAddELAData.parameter)
         // })
 
         // it("Validate that user is able to Map the learning outcome/EL-5058/ES5058_07",function () {
-        esenseAdminAddELAPage.getLearningOutcomeTxtField().type(this.esenseAdminAddELAData.learningoutcome).should('have.value', this.esenseAdminAddELAData.learningoutcome)
+        esenseAdminAddELAPage.getLearningOutcomeTxtField().clear().type(this.esenseAdminAddELAData.learningoutcome).should('have.value', this.esenseAdminAddELAData.learningoutcome)
         // })
 
         // it("Validate that user is able to Map the Competency/EL-5058/ES5058_08",function () {
         esenseAdminAddELAPage.getCompetencyDropdown().should('be.visible').select(1)
-        esenseAdminAddELAPage.getSubCompetencyTxtField().type(this.esenseAdminAddELAData.subcompetency).should('have.value', this.esenseAdminAddELAData.subcompetency)
+        esenseAdminAddELAPage.getSubCompetencyTxtField().clear().type(this.esenseAdminAddELAData.subcompetency).should('have.value', this.esenseAdminAddELAData.subcompetency)
         esenseAdminAddELAPage.getBackBtn().scrollIntoView().click()
         esenseAdminAddELAPage.getBackPopupBtn().click()
         // })
@@ -126,7 +126,7 @@ describe("Verify Esense Admin Main add ELA functionalities", function () {
         esenseAdminAddELAPage.getSelectFolderUploadRankings().attachFile('LMS/SampleRankings.xlsx')
         esenseAdminAddELAPage.getImportUploadRankingsBtn().click()
         esenseAdminAddELAPage.getSaveELABtn().should('be.visible').click()
-        esenseAdminAddELAPage.getELASuccessFullySavedMsg().should('have.text', 'Saved Successfully')
+        esenseAdminAddELAPage.getELASuccessFullySavedMsg().should('have.text', 'Updated Successfully')
         esenseAdminAddELAPage.getOkBtn().click()
         esenseAdminAddELAPage.getOrganizationmanagementBtn().click()
         esenseAdminAddELAPage.getListOfOrganizationmanagementNames().each(($e2, index, $lis) => {

@@ -104,7 +104,7 @@ describe("Verify User Management Page functionalities/Sprint-15", function () {
     masterManage.getDomainMappingMainSkillTxtBx().type("Knowledge")
     masterManage.getDomainMappingMainSkillDisplayName().type("knowledgeSkill")
     masterManage.getStatusBar().click()
-    masterManage.getDomainMappingSubmitBtn().click()
+    masterManage.getDomainMappingSubmitBtn().click({force:true})
     cy.contains("Domain Skill is successfully Added !").should('be.visible')
     userManage.getUserAddedPopupBtn().click()
     //it("To validate esense sub-admin is able to access and edit the content in allowed modules/EL-4864/ES4864_03",function(){

@@ -47,6 +47,6 @@ describe("Verify Admin Account Page functionalities", function () {
         account.getPrevilegesLst().eq(index).trigger('mouseover')
       }
     })
-    account.getPrevilegesBoardLst().should('be.visible').should('have.length', 13)
+    account.getPrevilegesBoardLst().should('be.visible').should('have.length', 18)
   })
 })

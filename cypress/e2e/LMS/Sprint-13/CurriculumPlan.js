@@ -53,10 +53,10 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     // it('To validate that when user click on "Continue" button, user is able to add more Themes, units or chapters based on format choosed/EL-2280/ES2280_07',function(){
     cy.go('back')
     cy.wait(3000)
-    cy.get('.fw-bold > :nth-child(n) > :nth-child(2) > .d-flex > .text-gray-800').each(($e1, index, $list) => {
+    esenseAdminCurriculamPlanPage.getListOfCurriculamGradeTxt().each(($e1, index, $list) => {
       const curriculumHeaderTxt = $e1.text()
-      if (curriculumHeaderTxt.includes('EVS I')) {
-        cy.get('td.text-end button').eq(index).click({ force: true })
+      if (curriculumHeaderTxt.includes(this.curriculumPage.CurriculamGrade)) {
+        esenseAdminCurriculamPlanPage.getAddCurriculamBtn().eq(index).click({ force: true })
         return false;
       }
 

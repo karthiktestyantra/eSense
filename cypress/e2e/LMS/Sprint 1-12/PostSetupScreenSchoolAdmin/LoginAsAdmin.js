@@ -31,7 +31,7 @@ describe("Verify Login Page Functionalities", function () {
     });
   });
 
-  //admin login
+  //admin login 
   it("Verify that the Admin login page should be by clicking Admin login in Index Page", function () {
     lpa.getLoginTitle().should("have.text", "Hello Admin");
     cy.title().should("contain", "Top School");

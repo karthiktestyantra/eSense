@@ -24,12 +24,21 @@ class EsenseAdminCurriculamPlanPage{
         return cy.get('button.MuiButton-root')
     }
 
+    getAddCurriculamBtn(){
+        return cy.get('td.text-end button')
+    }
+
+
     getCloseIcon(){
         return cy.get('div svg[data-testid="CloseIcon"]')
     }
 
     getAddNewThemeOrUnitPopupTitle(){
         return cy.get('div.create_curriculum-content h1')
+    }
+
+    getListOfCurriculamGradeTxt(){
+        return cy.get('.fw-bold > :nth-child(n) > :nth-child(2) > .d-flex > .text-gray-800')
     }
 
     getAddNewChapterPopupTitle(){

@@ -1,18 +1,18 @@
 /// <reference types="Cypress"/>
 
-import AdminStudentGradebookPage from "../../support/PageObjects/AdminStudentGradebookPage";
+import AdminStudentGradebookPage from "../../../support/pageObjects/LMS-2/AdminStudentGradebookPage";
 
 const adminStudentGradeBookPage = new AdminStudentGradebookPage();
 
 describe("Verify admin student grade book temp functionalities", function () {
     before(function () {
         cy.visit(Cypress.env('urlStagingPostSetup'))
-        cy.fixture('AdminLoginCredentials').then(function(validAdminLoginData){
+        cy.fixture('LMS/AdminLoginCredentials').then(function(validAdminLoginData){
         cy.AdminPostSetup(validAdminLoginData.updUserName,validAdminLoginData.password)  
         })
     })
     beforeEach(function (){  
-      cy.fixture('mainAdminGradebookCredentials').then(function(AdminReports){
+      cy.fixture('LMS/mainAdminGradebookCredentials').then(function(AdminReports){
           this.adminReports = AdminReports;
     })
  })
@@ -169,7 +169,8 @@ const name= cy.get('#fullName').invoke('val').then(sometext =>{
 
     adminStudentGradeBookPage.getHarSideMenuAdminReportImg().click()
     cy.wait(1000)
-    adminStudentGradeBookPage.getHarStudentGradeBookBtn().click()
+    adminStudentGradeBookPage.getHarStudentGradeBookBtn().click({force:true})
+    cy.wait(1000)
     adminStudentGradeBookPage.getHarGradeBookTab().click()
     adminStudentGradeBookPage.getHarGradeBookStudentName().each(($e1,index,$list)=>{
       const gradeStdName = $e1.text()
@@ -332,7 +333,7 @@ adminStudentGradeBookPage.getHarDownloadsamplefile().should('be.visible')
 })
 
 it("To validate that when user click on Select file from computer” button user is able browse from their local system and upload the file/EL-5490/ES5490_05",function () {
-adminStudentGradeBookPage.getHarAttachsamplefile().attachFile('Report_recent.xlsx')
+adminStudentGradeBookPage.getHarAttachsamplefile().attachFile('LMS/Report_recent.xlsx')
 adminStudentGradeBookPage.getHarAttachsamplefileDeleteBtn().should('be.visible')
 
 })
@@ -385,7 +386,7 @@ it("To validate that while importing if there is any mismatch in the input field
     })
 
     adminStudentGradeBookPage.getHarBulkUploadScore().click()
-    adminStudentGradeBookPage.getHarAttachsamplefile().attachFile('ErrorReport.xlsx')
+    adminStudentGradeBookPage.getHarAttachsamplefile().attachFile('LMS/ErrorReport.xlsx')
     adminStudentGradeBookPage.getHarsamplefileImportBtn().click()
     cy.wait(1000)
     adminStudentGradeBookPage.getErrorImportPopup().should('have.text','There seems to be a problem.')

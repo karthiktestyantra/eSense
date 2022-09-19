@@ -42,6 +42,7 @@ describe("Verify Curriculum Builder pagefunctionalities", function () {
 
   //Sprint 14
   it("Validate school admin is able to add “Total number of session” field is available for both Theme and Chapter workflows under “Duration” section/EL-4067/ES4067_02", function () {
+    //Curriculum Builder -Create
     home.getSchoolLnk().click({ force: true })
     home.getCurriculumBuilderSectionLnk().click()
     curriculumBuilder.getTitle().should('have.text', this.curriculumBuilder.Title)
@@ -67,16 +68,19 @@ describe("Verify Curriculum Builder pagefunctionalities", function () {
   })
 
   it("Validate school admin is able to add “Total number of sessions” required for the teacher to complete the theme or chapter/EL-4067/ES4067_01", function () {
+    //Curriculum Builder -Create
     curriculumBuilder.getStartWithChapterBtn().click()
     curriculumBuilder.getTotalSessionsTxtFld().clear().type(this.curriculumBuilder.ValidTotalSessionsNum)
   })
 
   it("Validate school admin is able to enter only Numeric two digits/EL-4067/ES4067_03", function () {
+    //Curriculum Builder -Create
     curriculumBuilder.getTotalSessionsTxtFld().clear().type(this.curriculumBuilder.InvalidTotalSessionsNum)
     curriculumBuilder.getAlert().should('have.text', this.curriculumBuilder.AlertForTotalSessionField)
   })
 
   it("Validate school admin is able to Add  chapter without selecting Total  session/ periods /EL-4067/ES4067_05", function () {
+    //Curriculum Builder -Create
     curriculumBuilder.getChapterNumTxtFld().type(this.curriculumBuilder.ChapterNum)
     curriculumBuilder.getChapterName().type(this.curriculumBuilder.ChapterName)
     curriculumBuilder.getChapterDescription().type(this.curriculumBuilder.ChapterDescription)
@@ -86,17 +90,20 @@ describe("Verify Curriculum Builder pagefunctionalities", function () {
   })
 
   it("Validate school admin is able to Enter total number of session/ periods required to complete the theme or chapter (mandatory field)/EL-4067/ES4067_04", function () {
+    //Curriculum Builder -Create
     curriculumBuilder.getTotalSessionsTxtFld().type(this.curriculumBuilder.ValidTotalSessionsNum)
     curriculumBuilder.getContinueBtn().click()
     curriculumBuilder.getSuccessfulPopup().should('have.text', this.curriculumBuilder.SuccessPopup)
   })
 
   it("Validate school admin is able to save the changes made using “Save Progress” button under curriculum builder at least one theme or chapter flow to be added/EL-4070/ES4070_01", function () {
+    //Curriculum Builder - Edit
     cy.wait(2000)
     curriculumBuilder.getSaveProgressBtn().click()
   })
 
   it("Validate school admin is Waiting for Approval - the Subjects which are sent for HOD user approval will have “ waiting for Approval” Status/EL-4070/ES4070_03", function () {
+    //Curriculum Builder - approve
     curriculumBuilder.getGradeLst().each(($e1, index, $list) => {
       const text = $e1.text()
       if (text.includes(this.curriculumBuilder.Grade)) {

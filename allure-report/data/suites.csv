@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Sep 19 11:23:45 IST 2022","Mon Sep 19 11:23:45 IST 2022","829","","Verify Admin Account Page functionalities","","","","Validate school admin is able mouse hover on roles Privilege will show view, edit, approval icons/EL-4094/ES4094_03",""
+"passed","Mon Sep 19 11:23:39 IST 2022","Mon Sep 19 11:23:41 IST 2022","2407","","Verify Admin Account Page functionalities","","","","Validate  school admin is able to create “Role” and provide “Approval” privilege for “Curriculum” domain/EL-4094/ES4094_01",""
+"passed","Mon Sep 19 11:23:41 IST 2022","Mon Sep 19 11:23:45 IST 2022","3157","","Verify Admin Account Page functionalities","","","","Validate school admin is able to provide “Approval” privilege to School Sub admin user, will get access to Edit, Approve or Reject a curriculum from the curriculum section/EL-4094/ES4094_02",""
+"passed","Mon Sep 19 11:17:41 IST 2022","Mon Sep 19 11:17:47 IST 2022","6260","","Verify Master Management Page functionalities","","","","Navigate to Master Management page",""

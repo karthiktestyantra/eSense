@@ -36,5 +36,20 @@ class Admin360ReportPage{
      getDwnldReportBtn(){
       return cy.get('button[type="button"]').contains("Download report")
      }
+     getAllStudentCheckBx(){
+      return cy.get('input[aria-label="select all students"]')
+     }
+     getGenerateBtnInGenerateReportPopup(){
+      return cy.get('button[name="buttons"]')
+     }
+     getCancelReportBtnInGenerateReportPopup(){
+      return cy.get('button.dlt_outline')
+     }
+     getReportGenerateSuccessPopupCloseIcon(){
+      return cy.get('svg.close-icon_report')
+     }
+     get360ReportPageTitle(){
+      return cy.get('p.MuiTypography-body1').contains("360˚ Reports")
+     }
 }
-export default Admin360ReportPage
+export default Admin360ReportPage;

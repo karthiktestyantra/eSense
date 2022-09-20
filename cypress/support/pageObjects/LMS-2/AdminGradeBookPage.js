@@ -54,6 +54,9 @@ class AdminGradeBookPage {
     getMaxMarksDrpDwn(){
         return cy.get('div.MuiInputBase-formControl #demo-simple-select-helper').eq(3)
     }
+    getMaxMarksDrpDwnbtn(){
+        return cy.get('#menu-maxMarks > .MuiPaper-root')
+    }
     getAddSubBtn(){
         return cy.get('[data-testid="add-subject"]')
     }

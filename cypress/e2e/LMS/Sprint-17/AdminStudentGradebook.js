@@ -20,7 +20,7 @@ describe("Verify Admin student grade book functionalities", function () {
    //pre-condition
    it("Validate user clicks on “Create Template”, the user redirected to the “Create New Template” screen/EL-4151/ES4151_02", function () {
       home.getReportsSectionLnk().click({ force: true })
-      gradebook.getStudentGradebookLnk().click()
+      gradebook.getStudentGradebookLnk().click({ force: true })
       gradebook.getStudentGradeBooktitle().should('have.text', this.report.title)
       gradebook.getCreateTemplateBtn().click()
       gradebook.getNewTemplateTitleTxt().should('have.text', this.report.Create_Template)
@@ -92,7 +92,7 @@ describe("Verify Admin student grade book functionalities", function () {
 
    it("Validate user is abel to select Number from 0 to 100 in multiple of 5/EL-4151/ES4151_15", function () {
       home.getReportsSectionLnk().click({ force: true })
-      gradebook.getStudentGradebookLnk().click()
+      gradebook.getStudentGradebookLnk({ force: true }).click()
       gradebook.getCreateTemplateBtn().click()
       gradebook.getAddTestBtn().click({ force: true })
       cy.wait(1000)
@@ -101,7 +101,7 @@ describe("Verify Admin student grade book functionalities", function () {
          let txt = Number(i * 5);
          gradebook.getSectionsLst().eq(i).should('have.text', txt);
       }
-      gradebook.getSectionsLst().contains(20).click()
+      gradebook.getSectionsLst().contains(70).click()
    })
 
    it("Validate user clicks on “Add Subjects” button the list of mandatory and optional subjects with code should be populated based on the grade and section selected/EL-4151/ES4151_17", function () {
@@ -134,7 +134,7 @@ describe("Verify Admin student grade book functionalities", function () {
       gradebook.getAddTestTstTypeDrpdwn().click({ force: true })
       gradebook.getSectionsLst().contains("Half Yearly").click({ force: true })
       gradebook.getMaxMarksDrpDwn().click({ force: true })
-      gradebook.getSectionsLst().contains(20).click({ force: true })
+      gradebook.getMaxMarksDrpDwnbtn().scrollTo('bottom').contains(100).click({ force: true })
       gradebook.getAddTheoryBtnLst().eq(1).click({ force: true })
       gradebook.getAddTestTypeDrpDwnInAddTheory().click({ force: true })
       gradebook.getAddTheoryAddTermDrpDwnLst().contains("Annual examination").should('not.exist')
@@ -152,7 +152,7 @@ describe("Verify Admin student grade book functionalities", function () {
 
    it("Validate whether Number (should not exceed the “Test type max. marks”)/EL-4151/ES4151_21", function () {
       gradebook.getAddTheoryAddTermDrpDwnLst().contains("Half Yearly").click({ force: true })
-      gradebook.getAddTheoryTheoryFld().click({ force: true }).type(20, { force: true })
+      gradebook.getAddTheoryTheoryFld().click({ force: true }).type(30, { force: true })
       cy.contains("Marks should  be equal to the  max marks of the test").should('not.exist')
    })
 
@@ -194,10 +194,10 @@ describe("Verify Admin student grade book functionalities", function () {
       gradebook.getAddTheoryBtnLst().eq(1).click({ force: true })
       gradebook.getAddTestTypeDrpDwnInAddTheory().click({ force: true })
       gradebook.getAddTheoryAddTermDrpDwnLst().contains("Half Yearly").click({ force: true })
-      gradebook.getAddTheoryTheoryFld().click({ force: true }).type(20, { force: true })
-      gradebook.getPracticalFld().type(0, { force: true })
+      gradebook.getAddTheoryTheoryFld().click({ force: true }).type(50, { force: true })
+      gradebook.getPracticalFld().type(50, { force: true })
       gradebook.getSaveAndPreviewBtn().click({ force: true })
-      cy.contains("Gradebook Grade 10 Preview").should('be.visible')
+      cy.contains("Gradebook Grade 1 Preview").should('be.visible')
    })
 
    it("Validtae user click on Cancel button, redirected to the Template list screen/EL-4151/ES4151_33", function () {

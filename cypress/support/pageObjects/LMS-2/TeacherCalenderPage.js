@@ -11,7 +11,21 @@ class TeacherCalenderPage{
     getCalenderRange(){
         return cy.get('div.mbsc-range-day:visible')
     }
+    getClassesCheckbox(){
+        return cy.get('[name="Classes"]')
+    }
 
+    getForwordWeekButton(){
+        return cy.get('[class="mbsc-calendar-button cal-header-next mbsc-reset mbsc-font mbsc-button mbsc-windows mbsc-ltr mbsc-button-flat mbsc-icon-button"]')
+    }
+
+    getGreade3A(){
+        return cy.xpath('//strong[text()="Grade 3"]')
+    }
+
+    getStartSessionButton(){
+        return cy.get('div .viewLiveFields').contains('Start Session')
+    }
 
 }
 export default TeacherCalenderPage;

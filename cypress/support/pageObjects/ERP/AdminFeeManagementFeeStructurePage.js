@@ -239,36 +239,16 @@ class AdminFeeManagementFeeStructurePage {
         cy.isVisible(this.getNewStudentCheckBox())
         cy.isVisible(this.getCancelButton())
     }
-    validateAnErrorMessageStatingErrorMessage(FeeStructureNameTextfield, description, EndDate, StartDaterequired) {
-        this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
-        this.getDescriptionTextAreaField().type(description)
-        cy.wait(1000)
-        this.getEndDateIcon().click()
-        this.getEndDate(EndDate).click()
-        cy.checkAndVerify(this.getExisitingCheckBox())
-        this.getSelectGrade().click()
-        this.getGrade3().click()
-        this.clickOnOutSide()
-        this.getContinueButton().click({ force: true })
-        this.getStartDateErrorMessage().should('have.text', StartDaterequired)
+    validateAnErrorMessageStartDateErrorMessage(startDaterequired) {
+        this.getStartDateErrorMessage().should('have.text', startDaterequired)
     }
 
-    validateAnErrorMessageEndDateErrorMessage(FeeStructureNameTextfield, description, startDate, EndDaterequired) {
-        this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
-        this.getDescriptionTextAreaField().type(description)
-        this.getStartDateIcon().click()
-        this.getStartDate(startDate).click()
-        cy.checkAndVerify(this.getExisitingCheckBox())
-        this.getSelectGrade().click()
-        this.getGrade3().click()
-        this.clickOnOutSide()
-        this.getContinueButton().click({ force: true })
-        this.getEndDateErrorMessage().should('have.text', EndDaterequired)
+    validateAnErrorMessageEndDateErrorMessage(endDaterequired) {
+        this.getEndDateErrorMessage().should('have.text', endDaterequired)
     }
 
     verifyAddNewFeeStructureDescriptionTextareafield(feeStructureDescription) {
         this.getDescriptionTextAreaField().type(feeStructureDescription)
-        cy.contains(feeStructureDescription)
     }
 
     validateAddNewFeeStructureErrorMessageFeeStructureName(FeeStructureNameRequired) {
@@ -276,8 +256,9 @@ class AdminFeeManagementFeeStructurePage {
         this.getFeeStructureNameErrorMessage().should('have.text', FeeStructureNameRequired)
     }
 
-    validateAddNewFeeStructureNameTextField(feestuctureString, lengthnumber) {
+    validateAddNewFeeStructureNameTextField(feestuctureString, lengthnumber, feeStructureName, ) {
         this.getFeeStructureNameTextfield().type(feestuctureString).invoke('val').should('have.length', lengthnumber)
+        this.getFeeStructureNameTextfield().clear().type(feeStructureName)
     }
 
     verifyApplicableForStudentCheckbox() {

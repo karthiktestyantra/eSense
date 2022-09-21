@@ -285,8 +285,13 @@ class AdminFeeManagementFeeStructurePage {
         cy.checkAndVerify(this.getExisitingCheckBox())
     }
 
-    verifyFeesStructureContinueBtnIsDisabled() {
-        cy.isDisabled(this.getFeeStructureContinueBtn())
+    verifyFeesStructureContinueBtnEveryTab() {
+        this.getFeeStructureTabsTitle().each(($e1, index, $list) => {
+            cy.wrap($e1).click()
+            cy.isEnabled(this.getFeeStructureContinueBtn())
+        })
+        this.getFeeStructureTabsTitle().eq(0).click()
     }
+
 }
 module.exports = new AdminFeeManagementFeeStructurePage()

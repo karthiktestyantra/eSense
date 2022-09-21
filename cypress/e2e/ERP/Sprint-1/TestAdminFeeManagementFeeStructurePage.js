@@ -103,7 +103,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   it("EE-57/ERP_TC_002 - Validate set up new fee master option  available when there is no fee structure master created", { tags: '@smoke' }, function () {
     feeManagementFeeStructurePage.clickOnAddNewButton()
     feeManagementFeeStructurePage.verifyFeeManagementPageSetUpFeeMasters(this.feeManagement.feeStructurePageTitleSetUpFeeMasters)
-    feeManagementFeeStructurePage.verifySetUpFeeMastersIsDisplayed()
+feeManagementFeeStructurePage.verifySetUpFeeMastersIsDisplayed()
   })
 
   it("EE-57/ERP_TC_003 - Validate navigation flow in the form of tabs available at the top to know the step by step process of fee management mini-onboarding", { tags: '@smoke' }, function () {
@@ -111,7 +111,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   })
 
   it.skip("ERP_TC_008/EE-57 - Validate the continue button is disabled for every tab unless atleast one fee structure master is created", { tags: '@smoke' }, function () {
-    feeManagementFeeStructurePage.verifyFeesStructureContinueBtnIsDisabled()
+    feeManagementFeeStructurePage.verifyFeesStructureContinueBtnEveryTab()
   })
 
   it("EE-79/ERP_TC_011 - Validate the user is displayed with Details tab/modal as they click on setup new fee master button", function () {

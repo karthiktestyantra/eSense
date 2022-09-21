@@ -18,7 +18,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     cy.fixture("ERP/FeeManagement").as("feeManagement")
   })
 
-  it("Validate User is able to land on on-boarding process by clicking Fees management module/EE-57/ERP_TC_001", { tags: '@smoke' }, function () {
+  it("EE-57/ERP_TC_001 - Validate User is able to land on on-boarding process by clicking Fees management module", { tags: '@smoke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeManagementFeeStructurePage.verifyFeeManagementPage(this.feeManagement.feeStructurePageTitle)
   })
@@ -96,41 +96,41 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   // })
 
 
-  it.skip("Validate action icon is showing for fee structure when user is on the fees structure tab/EE-57/ERP_TC_004", { tags: '@smoke' }, function () {
+  it.skip("EE-57/ERP_TC_004 - Validate action icon is showing for fee structure when user is on the fees structure tab", { tags: '@smoke' }, function () {
     feeManagementFeeStructurePage.verifyActionsTab()
   })
 
-  it("Validate set up new fee master option  available when there is no fee structure master created/EE-57/ERP_TC_002", { tags: '@smoke' }, function () {
+  it("EE-57/ERP_TC_002 - Validate set up new fee master option  available when there is no fee structure master created", { tags: '@smoke' }, function () {
     feeManagementFeeStructurePage.clickOnAddNewButton()
     feeManagementFeeStructurePage.verifyFeeManagementPageSetUpFeeMasters(this.feeManagement.feeStructurePageTitleSetUpFeeMasters)
     feeManagementFeeStructurePage.verifySetUpFeeMastersIsDisplayed()
   })
 
-  it("Validate navigation flow in the form of tabs available at the top to know the step by step process of fee management mini-onboarding./EE-57/ERP_TC_003", { tags: '@smoke' }, function () {
+  it("EE-57/ERP_TC_003 - Validate navigation flow in the form of tabs available at the top to know the step by step process of fee management mini-onboarding", { tags: '@smoke' }, function () {
     feeManagementFeeStructurePage.verifyFeeManagementTabs(this.feeManagement.feeStructurePageFeeStructureTitle, this.feeManagement.feeStructurePagePenaltyMasterTitle, this.feeManagement.feeStructurePageDiscountMasterTitle, this.feeManagement.feeStructurePagePaymentGatewayTitle)
   })
 
-  it.skip("Validate the continue button is disabled for every tab unless atleast one fee structure master is created/ERP_TC_008/EE-57", { tags: '@smoke' }, function () {
+  it.skip("ERP_TC_008/EE-57 - Validate the continue button is disabled for every tab unless atleast one fee structure master is created", { tags: '@smoke' }, function () {
     feeManagementFeeStructurePage.verifyFeesStructureContinueBtnIsDisabled()
   })
 
-  it("Validate the user is displayed with Details tab/modal as they click on setup new fee master button/EE-79/ERP_TC_011", function () {
+  it("EE-79/ERP_TC_011 - Validate the user is displayed with Details tab/modal as they click on setup new fee master button", function () {
     feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
     feeManagementFeeStructurePage.verifyAddNewFeeStructurePopUp(this.feeManagement.addNewBtnPageTitle1, this.feeManagement.addNewBtnPageTitle2)
     feeManagementFeeStructurePage.verifyAddNewFeeStructureDetailsPage()
   })
 
-  it.skip("Validate the user is displayed with Details tab/modal as they click on  Add new button/EE-79/ERP_TC_012", function () {
+  it.skip("EE-79/ERP_TC_012 - Validate the user is displayed with Details tab/modal as they click on  Add new button", function () {
     feeManagementFeeStructurePage.clickOnAddNewButton()
     feeManagementFeeStructurePage.verifyAddNewFeeStructurePopUp(this.feeManagement.addNewBtnPageTitle1, this.feeManagement.addNewBtnPageTitle2)
     feeManagementFeeStructurePage.verifyAddNewFeeStructureDetailsPage()
   })
 
-  it('Validate an error message appears if the user do not enter any data into "Fee structure name" text field /EE-79/ERP_TC_014', { tags: '@somke' }, function () {
+  it('EE-79/ERP_TC_014 - Validate an error message appears if the user do not enter any data into Fee structure name text field', { tags: '@somke' }, function () {
     feeManagementFeeStructurePage.validateAddNewFeeStructureErrorMessageFeeStructureName(this.feeManagement.feeStructureErrorMessage)
   })
 
-  it('Validate the user is allowed to add 45 characters in "Fee structure name" text field/EE-79/ERP_TC_013', { tags: '@somke' }, function () {
+  it('EE-79/ERP_TC_013 - Validate the user is allowed to add 45 characters in "Fee structure name" text field', { tags: '@somke' }, function () {
     feeManagementFeeStructurePage.validateAddNewFeeStructureNameTextField(this.feeManagement.feeStructureString, this.feeManagement.feeStructureStringLength)
   })
 

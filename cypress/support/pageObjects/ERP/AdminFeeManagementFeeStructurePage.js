@@ -9,7 +9,7 @@ class AdminFeeManagementFeeStructurePage {
     }
 
     getFeeStructureTitle() {
-        return cy.xpath('//p[.=" Fees Structure "]')
+        return cy.get('p.pageTitle')
     }
 
     getFeeStructureTitleSetUpFeeMasters() {

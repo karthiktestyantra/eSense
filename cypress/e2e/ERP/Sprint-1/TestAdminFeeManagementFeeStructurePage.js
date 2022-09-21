@@ -69,7 +69,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   // it('Validate the user is able to add data into "Description" text field /EE-79/ERP_TC_015', { tags: '@somke' }, function () {
   //   adminDashboardPage.navigateToFeeSetUpPage()
   //   feeManagementFeeStructurePage.clickOnSetUpFeeMastersOrAddNewButton()
-  //   feeManagementFeeStructurePage.verifyAddNewFeeStructureDescriptionTextareafield(this.feeManagement.feeStructureDescription)
+  //   
   // })
 
   // it('Validate an error message stating error message “Start Date Required“ appears if the user do not select any valid start date EE-79/ERP_TC_017', { tags: '@somke' }, function () {
@@ -126,13 +126,19 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     feeManagementFeeStructurePage.verifyAddNewFeeStructureDetailsPage()
   })
 
-  it('EE-79/ERP_TC_014 - Validate an error message appears if the user do not enter any data into Fee structure name text field', { tags: '@somke' }, function () {
+  it('EE-79/ERP_TC_014,017,019 - Validate an error message appears if the user do not enter any data into Fee structure name text field, start data and end date', { tags: '@somke' }, function () {
     feeManagementFeeStructurePage.validateAddNewFeeStructureErrorMessageFeeStructureName(this.feeManagement.feeStructureErrorMessage)
+    feeManagementFeeStructurePage.validateAnErrorMessageStartDateErrorMessage(this.feeManagement.startDateErrorMessage)
+    feeManagementFeeStructurePage.validateAnErrorMessageEndDateErrorMessage(this.feeManagement.endDateErrorMessage)
   })
 
-  it('EE-79/ERP_TC_013 - Validate the user is allowed to add 45 characters in "Fee structure name" text field', { tags: '@somke' }, function () {
-    feeManagementFeeStructurePage.validateAddNewFeeStructureNameTextField(this.feeManagement.feeStructureString, this.feeManagement.feeStructureStringLength)
+  it('EE-79/ERP_TC_013,015 - Validate the user is able to enter deatils in the Add New Fee Structure details popup', { tags: '@somke' }, function () {
+    feeManagementFeeStructurePage.validateAddNewFeeStructureNameTextField(this.feeManagement.feeStructureString, this.feeManagement.feeStructureStringLength, this.feeManagement.feeStructureName)
+    feeManagementFeeStructurePage.verifyAddNewFeeStructureDescriptionTextareafield(this.feeManagement.feeStructureDescription)
+
   })
+
+
 
 
 

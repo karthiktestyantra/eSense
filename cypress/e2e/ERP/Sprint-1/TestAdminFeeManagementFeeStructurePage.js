@@ -104,10 +104,13 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     feeManagementFeeStructurePage.clickOnAddNewButton()
     feeManagementFeeStructurePage.verifyFeeManagementPageSetUpFeeMasters(this.feeManagement.feeStructurePageTitleSetUpFeeMasters)
     feeManagementFeeStructurePage.verifySetUpFeeMastersIsDisplayed()
+  })
+
+  it("Validate navigation flow in the form of tabs available at the top to know the step by step process of fee management mini-onboarding./EE-57/ERP_TC_003", { tags: '@smoke' }, function () {
     feeManagementFeeStructurePage.verifyFeeManagementTabs(this.feeManagement.feeStructurePageFeeStructureTitle, this.feeManagement.feeStructurePagePenaltyMasterTitle, this.feeManagement.feeStructurePageDiscountMasterTitle, this.feeManagement.feeStructurePagePaymentGatewayTitle)
   })
 
-  it("Validate the continue button is disabled for every tab unless atleast one fee structure master is created/ERP_TC_008/EE-57", { tags: '@smoke' }, function () {
+  it.skip("Validate the continue button is disabled for every tab unless atleast one fee structure master is created/ERP_TC_008/EE-57", { tags: '@smoke' }, function () {
     feeManagementFeeStructurePage.verifyFeesStructureContinueBtnIsDisabled()
   })
 

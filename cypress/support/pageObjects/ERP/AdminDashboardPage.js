@@ -11,7 +11,7 @@ class AdminDashboardPage {
     getDashboardLink() {
         return cy.xpath('//div[@class="content-popover-feemanagement w-100"]//div[text()="Dashboard"]')
     }
-    
+
     getFeeAllocationLink() {
         return cy.xpath('//div[text()="Fee Allocation"]')
     }
@@ -19,7 +19,7 @@ class AdminDashboardPage {
     getFeeCollectionLink() {
         return cy.xpath('//div[text()="Fee Collection"]')
     }
-    
+
     getFeeStructureTitle() {
         return cy.xpath('//p[.=" Fees Structure "]')
     }
@@ -28,6 +28,6 @@ class AdminDashboardPage {
         this.getSideMenuFeeManagementIcon().click()
         this.getFeeSetupLink().click()
     }
-    
+
 }
 module.exports = new AdminDashboardPage()

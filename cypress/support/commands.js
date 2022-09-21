@@ -1,4 +1,3 @@
-/// <reference types ="Cypress"/>
 import 'cypress-file-upload';
 
 after(function () {
@@ -85,7 +84,7 @@ Cypress.Commands.add('isEnabled', (element) => {
 
 //This command is to verify the element is Disabled
 Cypress.Commands.add('isDisabled', (element) => {
-  element.should('be.enabled')
+  element.should('be.disabled')
 })
 
 //This command is used to do Force click on a element

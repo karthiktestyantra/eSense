@@ -238,7 +238,7 @@ class AdminFeeManagementFeeStructurePage {
         cy.isVisible(this.getNewStudentCheckBox())
         cy.isVisible(this.getCancelButton())
     }
-    validateAnErrorMessageStatingErrorMessage(FeeStructureNameTextfield, description,EndDate,StartDaterequired) {
+    validateAnErrorMessageStatingErrorMessage(FeeStructureNameTextfield, description, EndDate, StartDaterequired) {
         this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
         this.getDescriptionTextAreaField().type(description)
         cy.wait(1000)
@@ -252,7 +252,7 @@ class AdminFeeManagementFeeStructurePage {
         this.getStartDateErrorMessage().should('have.text', StartDaterequired)
     }
 
-    validateAnErrorMessageEndDateErrorMessage(FeeStructureNameTextfield, description,startDate,EndDaterequired) {
+    validateAnErrorMessageEndDateErrorMessage(FeeStructureNameTextfield, description, startDate, EndDaterequired) {
         this.getFeeStructureNameTextfield().type(FeeStructureNameTextfield)
         this.getDescriptionTextAreaField().type(description)
         this.getStartDateIcon().click()
@@ -284,7 +284,7 @@ class AdminFeeManagementFeeStructurePage {
         cy.checkAndVerify(this.getExisitingCheckBox())
     }
 
-    verifyFeesStructureContinueBtnIsDisabled(){
+    verifyFeesStructureContinueBtnIsDisabled() {
         cy.isDisabled(this.getFeeStructureContinueBtn())
     }
 }

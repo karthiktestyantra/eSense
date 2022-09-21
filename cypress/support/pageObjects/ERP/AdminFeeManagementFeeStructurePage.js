@@ -9,7 +9,7 @@ class AdminFeeManagementFeeStructurePage {
     }
 
     getFeeStructureTitle() {
-        return cy.xpath('//p[.=" Fees Structure "]')
+        return cy.get('p.pageTitle')
     }
 
     getFeeStructureTitleSetUpFeeMasters() {
@@ -82,6 +82,10 @@ class AdminFeeManagementFeeStructurePage {
 
     getFeeStructureContinueBtnInDetailPage() {
         return cy.get('button[data-testid="continueBtn"]')
+    }
+
+    getFeeStructureContinueBtn() {
+        return cy.get('button.continue-btn')
     }
 
     getFeeStructureCancelBtnInDetailPage() {
@@ -278,6 +282,10 @@ class AdminFeeManagementFeeStructurePage {
     verifyApplicableForStudentCheckbox() {
         cy.checkAndVerify(this.getNewStudentCheckBox())
         cy.checkAndVerify(this.getExisitingCheckBox())
+    }
+
+    verifyFeesStructureContinueBtnIsDisabled(){
+        cy.isDisabled(this.getFeeStructureContinueBtn())
     }
 }
 module.exports = new AdminFeeManagementFeeStructurePage()

@@ -12,6 +12,6 @@
     "feeStructureErrorMessage":"Fee Structure Name Required",
     "startDateErrorMessage":"Start Date required",
     "endDateErrorMessage":"End Date required",
-    "feeStructureString":"1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHI",
-    "feeStructureStringLength":"45"
+    "feeStructureString":"Automation",
+    "feeStructureStringLength":"10"
 }

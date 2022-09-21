@@ -114,6 +114,28 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     feeManagementFeeStructurePage.verifyFeesStructureContinueBtnIsDisabled()
   })
 
+  it("Validate the user is displayed with Details tab/modal as they click on setup new fee master button/EE-79/ERP_TC_011", function () {
+    feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
+    feeManagementFeeStructurePage.verifyAddNewFeeStructurePopUp(this.feeManagement.addNewBtnPageTitle1, this.feeManagement.addNewBtnPageTitle2)
+    feeManagementFeeStructurePage.verifyAddNewFeeStructureDetailsPage()
+  })
+
+  it.skip("Validate the user is displayed with Details tab/modal as they click on  Add new button/EE-79/ERP_TC_012", function () {
+    feeManagementFeeStructurePage.clickOnAddNewButton()
+    feeManagementFeeStructurePage.verifyAddNewFeeStructurePopUp(this.feeManagement.addNewBtnPageTitle1, this.feeManagement.addNewBtnPageTitle2)
+    feeManagementFeeStructurePage.verifyAddNewFeeStructureDetailsPage()
+  })
+
+  it('Validate an error message appears if the user do not enter any data into "Fee structure name" text field /EE-79/ERP_TC_014', { tags: '@somke' }, function () {
+    feeManagementFeeStructurePage.validateAddNewFeeStructureErrorMessageFeeStructureName(this.feeManagement.feeStructureErrorMessage)
+  })
+
+  it('Validate the user is allowed to add 45 characters in "Fee structure name" text field/EE-79/ERP_TC_013', { tags: '@somke' }, function () {
+    feeManagementFeeStructurePage.validateAddNewFeeStructureNameTextField(this.feeManagement.feeStructureString, this.feeManagement.feeStructureStringLength)
+  })
+
+
+
 
 
 })

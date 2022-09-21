@@ -93,7 +93,7 @@ class AdminFeeManagementFeeStructurePage {
     }
 
     getFeeStructureNameTextfield() {
-        return cy.get(':nth-child(1) > .MuiFormControl-root > .MuiInputBase-root > #outlined-basic')
+        return cy.get('#outlined-basic')
     }
 
     getDescriptionTextAreaField() {
@@ -188,6 +188,7 @@ class AdminFeeManagementFeeStructurePage {
     }
 
     verifyAddNewFeeStructureDetailsPage() {
+        cy.wait(1500)
         cy.isVisible(this.getFeeStructureNameFldInDetailPage())
         cy.isVisible(this.getFeeStructureDescriptionTxtAreaFldInDetailPage())
         cy.isVisible(this.getFeeStructureStartDateFldInDetailPage())

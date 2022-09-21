@@ -264,7 +264,9 @@ class TeacherDashboardPage{
         return cy.get('div.menu-txt').contains("Reports")
     }
 
-
+    getMyCalenderLink(){
+        return cy.contains('My Calendar')
+    }
 
 }
 export default TeacherDashboardPage;

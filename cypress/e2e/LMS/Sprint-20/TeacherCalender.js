@@ -1,5 +1,9 @@
 import TeacherDashboardPage from "../../../support/pageObjects/LMS-2/TeacherDashboardPage";
-const TeacherDashboard = new TeacherDashboardPage(); 
+import TeacherCalenderPage from "../../../support/pageObjects/LMS-2/TeacherCalenderPage";
+import TeacherClassGradePage from "../../../support/pageObjects/LMS-2/TeacherClassGradePage";
+const TeacherDashboard = new TeacherDashboardPage();
+const TeacherCalender = new TeacherCalenderPage();
+const TeacherClassGrade = new TeacherClassGradePage(); 
 
 describe("Verify Admin student grade book functionalities", function () {
     this.beforeEach(function () {
@@ -9,12 +13,31 @@ describe("Verify Admin student grade book functionalities", function () {
        })
     })
     it('To validate teacher is able to view the class details of all the clases/EL-6982/ES6982-01',function () {
-        cy.contains('My Calendar').click({force:true})
-        cy.get('[name="Classes"]').check({force:true})
-        cy.get('[class="mbsc-calendar-button cal-header-next mbsc-reset mbsc-font mbsc-button mbsc-windows mbsc-ltr mbsc-button-flat mbsc-icon-button"]').click()
-        cy.contains('Grade 3').click()
-        cy.contains('Start Session').click()
-        cy.contains('Class Details').should('have.text','Class Details')
-        cy.contains('Timetable').should('have.text','Timetable')
+        TeacherDashboard.getMyCalenderLink().click({force:true})
+        TeacherCalender.getClassesCheckbox().check({force:true})
+        TeacherCalender.getForwordWeekButton().click()
+        TeacherCalender.getGreade3A().click()
+        TeacherCalender.getStartSessionButton().click()
+        TeacherClassGrade.getClassDetailsButton().should('have.text','Class Details')
+        TeacherClassGrade.getTimetableButton().should('have.text','Timetable')
+    })
+    it('To vlaidate that lesson plan pop-up is populated after user clicks on view lesson plan/EL-6982/ES6982-03',function () {
+        TeacherDashboard.getMyCalenderLink().click({force:true})
+        TeacherCalender.getClassesCheckbox().check({force:true})
+        TeacherCalender.getForwordWeekButton().click()
+        TeacherCalender.getGreade3A().click()
+        TeacherCalender.getStartSessionButton().click()
+        TeacherClassGrade.getViewLessonPlaneButton().click()
+        cy.contains('lesson plan 1').should('be.visible')
+        
+    })
+    it('To valiadte dropdown is availabe in view lesson plan popup if there are multiple lesson plans/EL-6982/ES6982-04',function () {
+        TeacherDashboard.getMyCalenderLink().click({force:true})
+        TeacherCalender.getClassesCheckbox().check({force:true})
+        TeacherCalender.getForwordWeekButton().click()
+        TeacherCalender.getGreade3A().click()
+        TeacherCalender.getStartSessionButton().click()
+        TeacherClassGrade.getViewLessonPlaneButton().click()
+        cy.contains('lesson plan').should('be.visible')
     })
 })

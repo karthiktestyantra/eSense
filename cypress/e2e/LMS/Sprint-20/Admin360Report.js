@@ -80,4 +80,8 @@ describe("Verify Domain Mapping functionalities", function () {
     cy.contains("Report generated successfully").should('be.visible')
     report.getReportGenerateSuccessPopupCloseIcon().click()
   })
+
+  it("Validate user clicks on the bulk, the student with the flag option is not selected/EL-4124/ELS4124_10",function(){
+    report.getDisableCheckBxForFlagImg().should
+  })
 })

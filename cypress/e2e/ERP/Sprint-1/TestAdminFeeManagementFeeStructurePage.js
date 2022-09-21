@@ -14,7 +14,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     })
   })
 
-    beforeEach(function () {
+  beforeEach(function () {
     cy.fixture("ERP/FeeManagement").as("feeManagement")
   })
 
@@ -95,8 +95,22 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   //   feeManagementFeeStructurePage.clickOnSetUpFeeMastersButton()
   // })
 
-   it("Validate set up new fee master option  available when there is no fee structure master created/EE-57/ERP_TC_002", { tags: '@smoke' }, function () {
-       feeManagementFeeStructurePage.clickOnAddNewButton()
-    })
+
+  it.skip("Validate action icon is showing for fee structure when user is on the fees structure tab/EE-57/ERP_TC_004", { tags: '@smoke' }, function () {
+    feeManagementFeeStructurePage.verifyActionsTab()
+  })
+
+  it("Validate set up new fee master option  available when there is no fee structure master created/EE-57/ERP_TC_002", { tags: '@smoke' }, function () {
+    feeManagementFeeStructurePage.clickOnAddNewButton()
+    feeManagementFeeStructurePage.verifyFeeManagementPageSetUpFeeMasters(this.feeManagement.feeStructurePageTitleSetUpFeeMasters)
+    feeManagementFeeStructurePage.verifySetUpFeeMastersIsDisplayed()
+    feeManagementFeeStructurePage.verifyFeeManagementTabs(this.feeManagement.feeStructurePageFeeStructureTitle, this.feeManagement.feeStructurePagePenaltyMasterTitle, this.feeManagement.feeStructurePageDiscountMasterTitle, this.feeManagement.feeStructurePagePaymentGatewayTitle)
+  })
+
+  it("Validate the continue button is disabled for every tab unless atleast one fee structure master is created/ERP_TC_008/EE-57", { tags: '@smoke' }, function () {
+    feeManagementFeeStructurePage.verifyFeesStructureContinueBtnIsDisabled()
+  })
+
+
 
 })

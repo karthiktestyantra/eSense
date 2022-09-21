@@ -84,6 +84,10 @@ class AdminFeeManagementFeeStructurePage {
         return cy.get('button[data-testid="continueBtn"]')
     }
 
+    getFeeStructureContinueBtn() {
+        return cy.get('button.continue-btn')
+    }
+
     getFeeStructureCancelBtnInDetailPage() {
         return cy.get('button[data-testid="cancelBtn"]')
     }
@@ -278,6 +282,10 @@ class AdminFeeManagementFeeStructurePage {
     verifyApplicableForStudentCheckbox() {
         cy.checkAndVerify(this.getNewStudentCheckBox())
         cy.checkAndVerify(this.getExisitingCheckBox())
+    }
+
+    verifyFeesStructureContinueBtnIsDisabled(){
+        cy.isDisabled(this.getFeeStructureContinueBtn())
     }
 }
 module.exports = new AdminFeeManagementFeeStructurePage()

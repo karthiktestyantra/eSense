@@ -4,7 +4,7 @@ const adminBasicInfoPage = require('../../../../support/pageObjects/LMS-1/AdminB
 
 describe("Verify Login Page Functionalities", function () {
   beforeEach(function () {
-    cy.visit("https://liverpool.staging.topschool.co.in")
+    cy.visit(Cypress.env('urlQAPreSetup'))
     indexPage.getAdmin().click();
     cy.fixture("LMS/invalidAdminLoginCredentials").then(function (invalidAdminLoginData) {
       this.invalidAdminLoginData = invalidAdminLoginData;

@@ -165,4 +165,4 @@ class CurriculumBuilderPage{
     }
 }
 
-export default CurriculumBuilderPage
+module.exports = new CurriculumBuilderPage() 

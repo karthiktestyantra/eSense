@@ -3,7 +3,7 @@ const sprint10Regression = require('../../../../support/pageObjects/LMS-1/Sprint
 
 describe("Verify Sprint 10 related functionalities", function () {
   before(function () {
-    cy.visit("https://liverpool.staging.topschool.co.in")
+    cy.visit(Cypress.env('urlQAPreSetup'))
     indexPage.getAdmin().click();
     cy.reload();
     cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {

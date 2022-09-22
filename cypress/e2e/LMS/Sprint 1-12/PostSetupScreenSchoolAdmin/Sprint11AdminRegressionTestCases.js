@@ -3,10 +3,9 @@ const sprint11Pages = require('../../../../support/pageObjects/LMS-1/sprint11Pag
 
 describe("Verify Sprint 11 related functionalities", function () {
   before(function () {
-    cy.visit("https://liverpool.staging.topschool.co.in")
+    cy.visit(Cypress.env('urlQAPreSetup'))
     adminpages.getadminbutton().click();
-    cy.fixture("LMS/validAdminLoginCredentials").then(function (validadminLoginData
-    ) {
+    cy.fixture("LMS/validAdminLoginCredentials").then(function (validadminLoginData) {
       this.validadminLoginData = validadminLoginData;
     });
   });
@@ -16,9 +15,9 @@ describe("Verify Sprint 11 related functionalities", function () {
   })
 
   it("Verify that admin able to login to the portal", function () {
-    sp11.getUserName().clear().type(this.validadminLoginData.username);
-    sp11.getPassword().clear().type(this.validadminLoginData.password);
-    sp11.getLogin().click();
+    sprint11Pages.getUserName().clear().type(this.validadminLoginData.username);
+    sprint11Pages.getPassword().clear().type(this.validadminLoginData.password);
+    sprint11Pages.getLogin().click();
     cy.wait(2000);
     adminpages.verifydashboard().should("have.text", "Your Dashboard");
   });

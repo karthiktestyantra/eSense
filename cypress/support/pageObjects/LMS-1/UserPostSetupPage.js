@@ -195,4 +195,4 @@ class UserPostSetupPage {
       return cy.get('#simple-tab-0');
     }
   }
-  export default UserPostSetupPage
+  module.exports = new UserPostSetupPage() 

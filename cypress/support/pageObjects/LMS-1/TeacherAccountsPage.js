@@ -60,7 +60,7 @@ class TeacherAccountsPage {
     return cy.get('.cancel-btn-cls')
   }
 
-  getAcademicDetailsCancelButton(){
+  getAcademicDetailsCancelButton() {
     return cy.get('.cancel-btn');
   }
 
@@ -100,7 +100,7 @@ class TeacherAccountsPage {
     return cy.get('.schAdminSelctCtr > .MuiOutlinedInput-root > #demo-simple-select')
   }
 
-  getAddTeacherBloodGroupList(){
+  getAddTeacherBloodGroupList() {
     return cy.get('ul li[role="option"]')
   }
 
@@ -108,92 +108,92 @@ class TeacherAccountsPage {
     return cy.get('.add-emergency-button-out .font-cls')
   }
 
-  getEmergencyContactFullName(){
+  getEmergencyContactFullName() {
     return cy.get('[name="emergencyContactName"]')
   }
 
-  getEmergencyContactPhoneNumber(){
+  getEmergencyContactPhoneNumber() {
     return cy.get('[name="emergencyContactPhone"]')
   }
 
-  getEmergencyContactRemoveIcon(){
+  getEmergencyContactRemoveIcon() {
     return cy.get('.remove-cls-out')
   }
 
-  getEmpID(){
+  getEmpID() {
     return cy.get('[name="empid"]')
   }
 
-  getDesignation(){
+  getDesignation() {
     return cy.get('[name="designation"]')
   }
 
-  getAddressLine1(){
+  getAddressLine1() {
     return cy.get('[name="address_one"]')
   }
 
-  getAddressLine2(){
+  getAddressLine2() {
     return cy.get('[name="address_two"]')
   }
 
-  getPincode(){
+  getPincode() {
     return cy.get('[name="pincode"]')
   }
 
-  getState(){
+  getState() {
     return cy.get('input[name="state"]')
   }
 
-  getCity(){
+  getCity() {
     return cy.get('input[name="city"]')
   }
 
-  getAcademicDetailsSection(){
+  getAcademicDetailsSection() {
     return cy.get('.academic-ta-section-form-out .font-cls').eq(0)
   }
 
-  getQualificationsSection(){
+  getQualificationsSection() {
     return cy.get('.academic-ta-section-form-out .font-cls').eq(1)
   }
 
-  getDepartment(){
+  getDepartment() {
     return cy.get('#demo-simple-select')
   }
 
-  getDepartmentDropdpwn(){
+  getDepartmentDropdpwn() {
     return cy.get('ul li[role="option"]')
   }
 
-  getBranches(){
+  getBranches() {
     return cy.get('#opt-subjects')
   }
 
-  getBranchesDropdown(){
+  getBranchesDropdown() {
     return cy.get('.MuiListItemText-root span')
   }
 
-  getAddQualificationButton(){
+  getAddQualificationButton() {
     return cy.get('.add-qualification-show-btn .font-cls')
   }
 
-  getQualificationTitle(){
+  getQualificationTitle() {
     return cy.get('input[name="qualificationTitle"]')
   }
 
-  getYearOfPassing(){
+  getYearOfPassing() {
     return cy.get('.ml-text-field-cls > .MuiOutlinedInput-root > #demo-simple-select')
   }
 
-  getUploadCertificationButton(){
+  getUploadCertificationButton() {
     return cy.get('img[alt="UploadIcon"]')
     //return cy.contains('Upload Certification')
   }
 
-  getQualificationAddButton(){
+  getQualificationAddButton() {
     return cy.get('.add-btn')
   }
 
-  getQualificationCancelButton(){
+  getQualificationCancelButton() {
     return cy.get('.cancel-btn')
   }
 
@@ -201,27 +201,27 @@ class TeacherAccountsPage {
     return cy.get('div.continue-btn span')
   }
 
-  getGradeSelectionSection(){
+  getGradeSelectionSection() {
     return cy.get('.sub-header-row .font-cls').eq(0)
   }
 
-  getSectionsSection(){
+  getSectionsSection() {
     return cy.get('.sub-header-row .font-cls').eq(1)
   }
 
-  getSelectGradeDropdown(){
+  getSelectGradeDropdown() {
     return cy.get('#opt-subjects')
   }
-  
-  getSelectGradeDropdownValues(){
+
+  getSelectGradeDropdownValues() {
     return cy.get('ul[aria-labelledby="optional-subs"] li')
   }
 
-  getGradesWithClassTeacher(){
+  getGradesWithClassTeacher() {
     return cy.get('.section-row-ta-out .left-cls').eq(0)
   }
 
-  getSelectSubjectsDropdown(){
+  getSelectSubjectsDropdown() {
     return cy.get('.MuiSelect-select').eq(0)
   }
 
@@ -229,176 +229,176 @@ class TeacherAccountsPage {
     return cy.get('[form="sectionForm"]')
   }
 
-  getStudentsTab(){
+  getStudentsTab() {
     return cy.get('#simple-tab-1')
   }
 
-  getAddStudentIcon(){
+  getAddStudentIcon() {
     return cy.get('div[class*="UserDashBoard_AddUserIcon"]')
   }
 
-  getAddStudentScreenTitle(){
+  getAddStudentScreenTitle() {
     return cy.get('div[class*="AddorEditUser_addEditTitle"]')
   }
 
-  getStudentsBasicDetailsTab(){
+  getStudentsBasicDetailsTab() {
     return cy.get('#simple-tab-0')
   }
 
-  getStudentsAcademicDetailsTab(){
+  getStudentsAcademicDetailsTab() {
     return cy.get('#simple-tab-1')
   }
 
-  getStudentUploadProfilePicture(){
+  getStudentUploadProfilePicture() {
     return cy.get('.AcademicDetails_icon_out_cls__3EAT7 > input')
   }
 
-  getStudentPrimaryDetailsSection(){
+  getStudentPrimaryDetailsSection() {
     return cy.get('.AcademicDetails_BasicDetailsTitleText__3pQx8').eq(0)
   }
 
-  getStudentGuardianDetailsSection(){
+  getStudentGuardianDetailsSection() {
     return cy.get('.AcademicDetails_BasicDetailsTitleText__3pQx8').eq(1)
   }
 
-  getStudentAddressSection(){
+  getStudentAddressSection() {
     return cy.get('.AcademicDetails_BasicDetailsTitleText__3pQx8').eq(2)
   }
 
-  getStudentFullName(){
+  getStudentFullName() {
     return cy.get('#fullName')
   }
 
-  getStudentEmail(){
+  getStudentEmail() {
     return cy.get('input[name="email"]')
   }
 
-  getStudentDOB(){
+  getStudentDOB() {
     return cy.get('input[placeholder="dd/mm/yyyy"]')
   }
 
-  getStudentGender(){
+  getStudentGender() {
     return cy.get('[style="display: flex; align-items: center;"] > .MuiFormControl-root > .MuiOutlinedInput-root > #demo-simple-select')
-   // return cy.get('input[name="gender"]')
+    // return cy.get('input[name="gender"]')
   }
 
-  getStudentGenderDropdownValues(){
+  getStudentGenderDropdownValues() {
     return cy.get('ul li[role="option"]')
   }
 
-  getStudentContactNumber(){
+  getStudentContactNumber() {
     return cy.get('input[name="contactNumber"]')
   }
 
-  getStudentBloodGroup(){
+  getStudentBloodGroup() {
     return cy.get('.MuiInputBase-colorPrimary div[role="button"]').eq(2)
   }
 
-  getStudentBloodGroupDropdownValues(){
+  getStudentBloodGroupDropdownValues() {
     return cy.get('ul li[role="option"]')
   }
 
-  getStudentFathersName(){
+  getStudentFathersName() {
     return cy.get('input[name="fathersName"]')
   }
 
-  getStudentMothersName(){
+  getStudentMothersName() {
     return cy.get('input[name="mothersName"]')
   }
 
-  getStudentFathersEmail(){
+  getStudentFathersEmail() {
     return cy.get('input[name="fathersEmail"]')
   }
 
-  getStudentMothersEmail(){
+  getStudentMothersEmail() {
     return cy.get('input[name="mothersEmail"]')
   }
 
-  getStudentFathersOccupation(){
+  getStudentFathersOccupation() {
     return cy.get('input[name="fathersOccupation"]')
   }
 
-  getStudentMothersOccupation(){
+  getStudentMothersOccupation() {
     return cy.get('input[name="mothersoccupation"]')
   }
 
-  getStudentFathersContact(){
+  getStudentFathersContact() {
     return cy.get('input[name="fathersContact"]')
   }
 
-  getStudentMothersContact(){
+  getStudentMothersContact() {
     return cy.get('input[name="mothersContact"]')
   }
 
-  getStudentAddressLineOne(){
+  getStudentAddressLineOne() {
     return cy.get('input[name="addressLineOne"]')
   }
 
-  getStudentAddressLineTwo(){
+  getStudentAddressLineTwo() {
     return cy.get('input[name="addressLineTwo"]')
   }
 
-  getStudentPincode(){
+  getStudentPincode() {
     return cy.get('input[name="pinCode"]')
   }
 
-  getStudentState(){
+  getStudentState() {
     return cy.get('input[name="State"]')
   }
 
-  getStudentCity(){
+  getStudentCity() {
     return cy.get('input[name="City"]')
   }
 
-  getStudentsAddStudentButton(){
+  getStudentsAddStudentButton() {
     return cy.get('button[class*="AcademicDetails_saveChangesBtn"]')
   }
 
-  getStudentsCancelButton(){
+  getStudentsCancelButton() {
     return cy.get('button[class*="AcademicDetails_userCancelBtn"]')
   }
 
-  getStudentsCloseIcon(){
+  getStudentsCloseIcon() {
     return cy.get('svg[data-testid="CloseIcon"]')
   }
 
-  getStudentAcademicYear(){
+  getStudentAcademicYear() {
     return cy.get('.css-i3pbo > .MuiFormControl-root > .MuiOutlinedInput-root > #demo-simple-select');
   }
 
-  getStudentGrade(){
+  getStudentGrade() {
     return cy.get('.css-10bl4s4 > .MuiGrid-container > :nth-child(2) > .MuiFormControl-root > .MuiOutlinedInput-root > #demo-simple-select');
   }
 
-  getStudentGradeDropdownValues(){
+  getStudentGradeDropdownValues() {
     return cy.get('ul li');
   }
 
-  getStudentSection(){
+  getStudentSection() {
     return cy.get(':nth-child(3) > .MuiFormControl-root > .MuiOutlinedInput-root > #demo-simple-select');
   }
 
-  getStudentSectionDropdownValues(){
+  getStudentSectionDropdownValues() {
     return cy.get('ul li.MuiMenuItem-root');
   }
 
-  getStudentAdmissionNo(){
+  getStudentAdmissionNo() {
     return cy.get('input[id="AdmissionNo"]');
   }
 
-  getStudentRollNo(){
+  getStudentRollNo() {
     return cy.get('input[id="RollNo"]');
   }
 
-  getStudentAcademicDetailsSaveChangesBtn(){
+  getStudentAcademicDetailsSaveChangesBtn() {
     return cy.get('.AcademicDetails_saveChangesBtn__5Hcqk');
   }
 
-  getStudentSearch(){
+  getStudentSearch() {
     return cy.get('input[type="search"]')
   }
 
-  getStudentList(){
+  getStudentList() {
     return cy.get('.adminRoleTable tbody tr >td:nth-child(2)')
   }
 
@@ -406,27 +406,27 @@ class TeacherAccountsPage {
     return cy.get(".continue-btn span")
   }
 
-  getSelectRelationDrpDwn(){
+  getSelectRelationDrpDwn() {
     return cy.get('#demo-simple-select')
   }
 
-  getSelectRelationDrpDwnLst(){
+  getSelectRelationDrpDwnLst() {
     return cy.get('div ul li[role="option"]')
   }
 
-  getGuardianNameTxtFld(){
+  getGuardianNameTxtFld() {
     return cy.get('input[id="Guardian Name*"]')
   }
 
-  getContactNumTxtFld(){
+  getContactNumTxtFld() {
     return cy.get('input[id="Contact Number*"]')
   }
 
-  getEmailAdrssTxtFld(){
+  getEmailAdrssTxtFld() {
     return cy.get('input[id="Email Address"]')
   }
-  getDiscardBtn(){
+  getDiscardBtn() {
     return cy.get('button.cancel').contains("Discard")
   }
 }
-export default TeacherAccountsPage;
+module.exports = new TeacherAccountsPage() 

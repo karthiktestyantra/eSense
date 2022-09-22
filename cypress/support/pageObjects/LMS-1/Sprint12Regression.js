@@ -58,4 +58,4 @@ class Sprint12Regression{
 
 }
 
-export default Sprint12Regression
+module.exports = new Sprint12Regression() 

@@ -3,12 +3,12 @@ const timeTableOverviewPage = require("../../../../support/pageObjects/LMS-1/Tim
 const myCalendarPage = require("../../../../support/pageObjects/LMS-1/MyCalendarPage")
 
 describe("Verify Calendar related Functionalities", function () {
+  
   before(function () {
     cy.fixture("LMS/TeacherLoginCredentials").then(function (validLoginData) {
       this.validLoginData = validLoginData;
       cy.visit(Cypress.env("urlMain"));
       indexPage.getTeacher().click();
-      cy.reload();
       cy.login(this.validLoginData.user2, this.validLoginData.password);
       timeTableOverviewPage
         .getDashboardTitle()

@@ -7,7 +7,6 @@ describe("Verify Sprint 12 related functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("urlMain"));
     indexPage.getTeacher().click();
-    cy.reload();
     cy.fixture("LMS/TeacherLoginCredentials").then(function (validLoginData) {
       this.validLoginData = validLoginData;
       cy.login(this.validLoginData.user2, this.validLoginData.password);

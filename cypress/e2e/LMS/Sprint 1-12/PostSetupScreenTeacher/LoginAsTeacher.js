@@ -10,18 +10,11 @@ describe("Verify Login Page Functionalities", function () {
     cy.exec('npm cache clear --force');
     cy.visit(Cypress.env("urlMain"));
     indexPage.getTeacher().click();
-    cy.fixture("LMS/invalidLoginCredentials").then(function (invalidLoginData) {
-      this.invalidLoginData = invalidLoginData;
-      cy.fixture("LMS/TeacherLoginCredentials").then(function (validLoginData) {
-        this.validLoginData = validLoginData;
-        cy.fixture("LMS/invalidLoginCredentials").as("invalidLoginData")
-        cy.fixture("LMS/TeacherLoginCredentials").as("validLoginData")
-      });
-    });
+    cy.fixture("LMS/invalidLoginCredentials").as("invalidLoginData")
+    cy.fixture("LMS/TeacherLoginCredentials").as("validLoginData")
   });
 
   it("Verify the fields available in login page are enabled", function () {
-    cy.reload();
     loginPage.getUserName().should("be.enabled");
     loginPage.getPassword().should("be.enabled");
     loginPage.getForgotPassword().should("be.visible");

@@ -279,7 +279,7 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     esenseAdminCurriculamPlanPage.getThemeName().type(this.curriculumPage.themeNameLessThn50)
     esenseAdminCurriculamPlanPage.getThemeDiscription().type(this.curriculumPage.themeDiscriptionMoreThn100).clear()
     esenseAdminCurriculamPlanPage.getThemeName().click()
-    esenseAdminCurriculamPlanPage.getThisFieldReqMes().should('be.visible')
+    //esenseAdminCurriculamPlanPage.getThisFieldReqMes().should('be.visible')
     // })
 
     // it("To validate that when user enters more than 100 charecters into Theme Description Textbox , Error message is displayed/EL-2281/ES2281_10",function(){
@@ -336,7 +336,7 @@ describe("Verify Curriculum Plan Page functionalities", function () {
 
     // it("To validate that Chapter Description Textbox is not accepting blank value and throwing error message",function(){
     esenseAdminCurriculamPlanPage.getChapterDiscription().clear()
-    esenseAdminCurriculamPlanPage.getThisFieldReqMes().should('be.visible')
+    //esenseAdminCurriculamPlanPage.getThisFieldReqMes().should('be.visible')
     // })
 
     // it("To validate that when user click on Add Chapter, the chapter is added under Theme/EL-2281/ES2281_27",function(){

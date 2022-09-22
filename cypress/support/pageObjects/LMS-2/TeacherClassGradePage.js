@@ -9,4 +9,4 @@ class TeacherClassGradePage{
         return  cy.get('[class="sessionLessPlanText"]')
     }
 }
-export default TeacherClassGradePage;
+module.exports = new TeacherClassGradePage() 

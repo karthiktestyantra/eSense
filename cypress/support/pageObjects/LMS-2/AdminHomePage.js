@@ -16,6 +16,12 @@ class AdminHomePage {
         return cy.get('div.menu-txt').contains("Reports")
     }
 
+
+    //Business Logic
+    clickOnReportLnk(){
+        cy.forceClick(this.getReportLnk())
+    }
+
     
   }
   export default AdminHomePage;

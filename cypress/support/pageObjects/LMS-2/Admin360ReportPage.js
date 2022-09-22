@@ -51,11 +51,34 @@ class Admin360ReportPage {
    get360ReportPageTitle() {
       return cy.get('p.MuiTypography-body1').contains("360˚ Reports")
    }
-   getFlagImgInReportPage(){
+   getFlagImgInReportPage() {
       return cy.get('div img[class="alertImgcls"]')
    }
-   getDisableCheckBxForFlagImg(){
+   getDisableCheckBxForFlagImg() {
       return cy.xpath("//div//img[@class='alertImgcls']/ancestor::tr[@class='MuiTableRow-root css-1gqug66']/descendant::span[contains(@class,'chk')]")
+   }
+
+
+   //Business Logic
+
+   clickOn360ReportLnk() {
+      this.get360ReportLnk().click()
+   }
+   verify360ReportContents() {
+      this.get360ReportContents().should('contain.text', "ROLL NO").and('contain.text', "FULL NAME").
+         and('contain.text', "LAST ACTIVE").and('contain.text', "REPORTS")
+   }
+   verifyGradeDropDownIsVisible() {
+      cy.isVisible(this.getGradeDrpDwn())
+   }
+   verifySectionDropDownIsVisible(){
+      cy.isVisible(this.getSectionDrpDwn())
+   }
+   clickOnGradeDrpDwn(){
+      this.getGradeDrpDwn().click()
+   }
+   clickOnNothingGradeInGradeDropDownList(){
+      this.getGradeDrpDwnLst()
    }
 }
 export default Admin360ReportPage;

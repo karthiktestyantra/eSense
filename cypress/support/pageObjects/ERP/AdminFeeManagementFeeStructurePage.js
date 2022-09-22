@@ -223,7 +223,7 @@ class AdminFeeManagementFeeStructurePage {
         this.getSelectGrade().click()
         this.getGrade3().click()
         this.clickOnOutSide()
-        this.getContinueButton().click({ force: true })
+        cy.forceClick(this.getContinueButton())
     }
 
     verifyElementsInAddNewFeeStructurePage() {

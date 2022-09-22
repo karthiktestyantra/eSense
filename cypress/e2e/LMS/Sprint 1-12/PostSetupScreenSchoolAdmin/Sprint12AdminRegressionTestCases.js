@@ -8,9 +8,7 @@ describe("Verify Sprint 12 related functionalities", function () {
     indexPage.getAdmin().click();
     cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
       this.validAdminLoginData = validAdminLoginData;
-      cy.login(
-        this.validAdminLoginData.username, this.validAdminLoginData.password
-      );
+      cy.login(this.validAdminLoginData.username, this.validAdminLoginData.password)
     });
   });
 

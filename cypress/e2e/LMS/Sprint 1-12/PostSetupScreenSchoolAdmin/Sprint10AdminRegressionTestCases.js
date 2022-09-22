@@ -5,7 +5,6 @@ describe("Verify Sprint 10 related functionalities", function () {
   before(function () {
     cy.visit(Cypress.env('urlQAPreSetup'))
     indexPage.getAdmin().click();
-    cy.reload();
     cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
       this.validAdminLoginData = validAdminLoginData;
       cy.login(this.validAdminLoginData.username, this.validAdminLoginData.password);

@@ -50,7 +50,6 @@ describe("Verify the User Menu related Functionalities", function () {
   });
 
   it("Verify that Primary details section should have First Name, Last Name, Email, Date of Birth, Gender, Contact Number and Blood Group", function () {
-    //changed
     teacherAccountsPage.getStudentFullName().scrollIntoView().should('be.visible');
     teacherAccountsPage.getStudentEmail().scrollIntoView().should('be.visible');
     teacherAccountsPage.getStudentDOB().scrollIntoView().should('be.visible');
@@ -60,7 +59,6 @@ describe("Verify the User Menu related Functionalities", function () {
   });
 
   it("Verify that Guardian details section should have Father's Name, Mother's Name, Father's Email, Mother's Email, Father's Occupation, Mother's Occupation, Father's Contact and Mother's Contact", function () {
-    //changed
     teacherAccountsPage.getSelectRelationDrpDwn().last().scrollIntoView().should('be.visible');
     teacherAccountsPage.getGuardianNameTxtFld().scrollIntoView().should('be.visible');
     teacherAccountsPage.getContactNumTxtFld().last().scrollIntoView().should('be.visible');

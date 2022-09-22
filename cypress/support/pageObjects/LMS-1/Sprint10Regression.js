@@ -56,220 +56,220 @@ class Sprint10Regression {
     return cy.get(".Dashboard_tchDshPendActFlexSect__E8rdD .flex-fill .cmgSoonOverLay").eq(1);
   }
 
-  getStudentCountPendingSubmission(){
+  getStudentCountPendingSubmission() {
     return cy.get('.MuiGrid-root h5');
   }
 
-  getPendingTab(){
+  getPendingTab() {
     return cy.contains('Pending');
   }
 
-  getHomeworkCard(){
+  getHomeworkCard() {
     return cy.get('.mb-0');
   }
 
-  getPendingTabProfilePicture(){
+  getPendingTabProfilePicture() {
     return cy.get('td .MuiBox-root img');
   }
 
-  getPendingTabStudentName(){
+  getPendingTabStudentName() {
     return cy.get('.student-fullname');
   }
 
-  getPendingTabPendingStatus(){
+  getPendingTabPendingStatus() {
     return cy.get('p.adminssionNumber');
   }
 
-  getPendingTabNotifyIcon(){
+  getPendingTabNotifyIcon() {
     return cy.get('button[title="Notify Student"]');
   }
 
-  getFileSharedTab(){
+  getFileSharedTab() {
     return cy.contains('Files Shared');
   }
 
-  getFileSharedTabViewIcon(){
+  getFileSharedTabViewIcon() {
     return cy.get('span.MuiButton-startIcon').eq(1);
   }
 
-  getEditHomeWorkIcon(){
+  getEditHomeWorkIcon() {
     return cy.get('button.MuiButton-root').contains('Edit');
   }
 
-  getEditHomeWorkKababMenu(){
+  getEditHomeWorkKababMenu() {
     return cy.get('svg[data-testid="MoreVertIcon"]');
   }
 
-  getAttachFileOption(){
+  getAttachFileOption() {
     return cy.get('.attache_file');
   }
 
-  getAddResourcesUploadTab(){
+  getAddResourcesUploadTab() {
     return cy.contains('Upload');
   }
 
-  getAddResourcesCloseIcon(){
+  getAddResourcesCloseIcon() {
     return cy.get('.close-icon_upload-resource');
   }
 
-  getEditHomeworkUpdateButton(){
+  getEditHomeworkUpdateButton() {
     return cy.get('.MuiButton-contained');
   }
 
-  getEditHomeworkCard(){
+  getEditHomeworkCard() {
     return cy.get('div.group-title-icon ');
   }
 
-  getEditHomeworkDeleteIcon(){
+  getEditHomeworkDeleteIcon() {
     return cy.get('.deleteIcon').eq(0);
   }
 
-  getEditHomeworkPopupCloseIcon(){
+  getEditHomeworkPopupCloseIcon() {
     return cy.get('.close-icon_notes');
   }
 
-  getFileSharedDeleteIcon(){
+  getFileSharedDeleteIcon() {
 
     return cy.get('[data-testid="DeleteIcon"] > path').eq(0);
   }
-  
-  getResourceRemovedMessage(){
+
+  getResourceRemovedMessage() {
     return cy.get('.MuiAlert-message');
   }
 
-  getHomeWorkCardDeleteIcon(){
+  getHomeWorkCardDeleteIcon() {
     return cy.get('img[src="/static/media/deletefilled.523783ca.svg"]');
   }
 
-  getDeleteHomeWorkButton(){
+  getDeleteHomeWorkButton() {
     return cy.get('.dlt_prime')
   }
 
-  getHomeworkDeletedMessage(){
+  getHomeworkDeletedMessage() {
     return cy.get('.MuiAlert-message');
   }
 
-  getCreateNewHomeworkButton(){
+  getCreateNewHomeworkButton() {
     return cy.get('.btn-add-group');
   }
 
-  getCreateNewHomeworkPopupTitle(){
+  getCreateNewHomeworkPopupTitle() {
     return cy.get('.add_homework_class-tittle')
   }
 
-  getClassAddHomeworkPopupTitleDetails(){
+  getClassAddHomeworkPopupTitleDetails() {
     return cy.get('.schAdminInputCtr');
   }
 
-  getClassAddHomeworkPopupDescription(){
+  getClassAddHomeworkPopupDescription() {
     return cy.get('.schAdminInputCtrTextarea');
   }
 
-  getClassAddHomeworkPopupDueDate(){
+  getClassAddHomeworkPopupDueDate() {
     return cy.get('input[placeholder="dd/mm/yyyy"]');
   }
 
-  getClassAddHomeworkPopupDueTime(){
+  getClassAddHomeworkPopupDueTime() {
     return cy.get('input[placeholder="h:mm (a|p)m"]');
   }
 
-  getClassAddHomeworkPopupApproxTime(){
+  getClassAddHomeworkPopupApproxTime() {
     return cy.get('.addHmeSltInp');
   }
 
-  getManageStudentsOption(){
+  getManageStudentsOption() {
     return cy.get('.manage_student');
   }
 
-  getAddStudentsSelectAllLink(){
+  getAddStudentsSelectAllLink() {
     return cy.get('.select-wrapper p');
   }
 
-  getAddStudentsConfirmButton(){
+  getAddStudentsConfirmButton() {
     return cy.get('.modalSaveBtn');
   }
 
-  getAddStudentsCancelButton(){
+  getAddStudentsCancelButton() {
     return cy.get('.modalCancelBtn');
   }
 
-  getAddStudentsCloseIcon(){
+  getAddStudentsCloseIcon() {
     return cy.get('.close-icon_notes:visible');
   }
 
-  getAddHomeworkPopupAttachFilesOption(){
+  getAddHomeworkPopupAttachFilesOption() {
     return cy.get('.attache_file');
   }
 
-  getAddHomeworkPopupAddResourcesPopupTitle(){
+  getAddHomeworkPopupAddResourcesPopupTitle() {
     return cy.get('.select-content-tittle');
   }
 
-  getAddResourcesTopSchoolLibTab(){
+  getAddResourcesTopSchoolLibTab() {
     return cy.get('.select-content-tabs button#simple-tab-0');
   }
 
-  getAddResourcesPersonalLibTab(){
+  getAddResourcesPersonalLibTab() {
     return cy.get('.select-content-tabs button#simple-tab-1');
   }
 
-  getAddResourcesUploadTab(){
+  getAddResourcesUploadTab() {
     return cy.get('.select-content-tabs button#simple-tab-2');
   }
 
-  getAddResourcesTopSchoolLibCard(){
+  getAddResourcesTopSchoolLibCard() {
     return cy.get('.content-card').eq(0);
   }
 
-  getAddResourcesPersonalLibCard(){
+  getAddResourcesPersonalLibCard() {
     return cy.get('.content-card').eq(0);
   }
 
-  getAddResourcesPopupAddResourcesbtn(){
+  getAddResourcesPopupAddResourcesbtn() {
     return cy.get('.sectionSaveBtn');
   }
 
-  getAddResourcesPopupCancelbtn(){
+  getAddResourcesPopupCancelbtn() {
     return cy.get('.sectionCancelBtn');
   }
 
-  getAddHomeworkSaveButton(){
+  getAddHomeworkSaveButton() {
     return cy.get('.MuiButton-contained');
   }
 
-  getAddHomeworkCancelButton(){
+  getAddHomeworkCancelButton() {
     return cy.get('.homeworkCancelBtn');
   }
 
-  getHomeworkTitleUnderHomeworkTab(id){
+  getHomeworkTitleUnderHomeworkTab(id) {
     return cy.get('h6.mb-0').eq(id);
   }
 
-  getHomeworkEditIconUnderHomeworkTab(index){
+  getHomeworkEditIconUnderHomeworkTab(index) {
     return cy.get('svg[data-testid="EditIcon"]').eq(index);
   }
 
-  getHomeworkDeleteIconUnderHomeworkTab(index){
+  getHomeworkDeleteIconUnderHomeworkTab(index) {
     return cy.get('svg[data-testid="DeleteIcon"]').eq(index);
   }
 
-  getHomeworkDelPopDeleteButton(){
+  getHomeworkDelPopDeleteButton() {
     return cy.get('.MuiButton-contained');
   }
 
-  getDeletedHomeworkMessagePopup(){
+  getDeletedHomeworkMessagePopup() {
     return cy.get('.MuiAlert-message');
   }
 
-  getEditHomeworkPopupCloseIcon(){
+  getEditHomeworkPopupCloseIcon() {
     return cy.get('.close-icon_notes:visible');
   }
 
-  getAdminDashboardTitle(){
+  getAdminDashboardTitle() {
     return cy.get('.Dashboard_tchDshTitle__3qlHU');
   }
 
-  getAdminDashboardGoToMySchoolLink(){
+  getAdminDashboardGoToMySchoolLink() {
     return cy.get('.Dashboard_tchDshBtn__1MPHM');
   }
 
@@ -285,31 +285,28 @@ class Sprint10Regression {
     return cy.get(".MuiTypography-h2");
   }
 
-  getAdminDashboardTotalClasses(){
+  getAdminDashboardTotalClasses() {
     return cy.get('.Dashboard_tchDshTimelineCnt__2thMj h4').eq(0);
   }
 
-  getAdminDashboardTotalTeachers(){
+  getAdminDashboardTotalTeachers() {
     return cy.get('.Dashboard_tchDshTimelineCnt__2thMj').eq(1);
   }
 
-  getAdminDashboardTotalStudents(){
+  getAdminDashboardTotalStudents() {
     return cy.get('.Dashboard_tchDshTimelineCnt__2thMj').eq(2);
   }
 
-  getAdminDashboardTotalAdmins(){
+  getAdminDashboardTotalAdmins() {
     return cy.get('.Dashboard_tchDshTimelineCnt__2thMj').eq(3);
   }
 
-  getAdminDashboardContentPerformanceTab(){
+  getAdminDashboardContentPerformanceTab() {
     return cy.get('.MuiTab-root:nth-child(2)');
   }
 
-  getAdminDashboardContentPerformanceSection(){
-    return cy.get('.cmgSoonOverLaySect .cmgSoonOverLay').eq(0);
+  getAdminDashboardContentPerformanceSection() {
+    return cy.xpath('//h4[.="Content Performance"]').eq(0);
   }
-
-
 }
-
-export default Sprint10Regression;
+module.exports = new Sprint10Regression() 

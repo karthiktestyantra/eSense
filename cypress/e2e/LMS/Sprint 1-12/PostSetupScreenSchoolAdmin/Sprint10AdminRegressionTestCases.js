@@ -1,15 +1,10 @@
-import IndexPage from "../../../../support/pageObjects/LMS-1/IndexPage";
-//import LoginPage from "../../../../support/pageObjects/LMS-1/LoginPage";
-import Sprint10Regression from "../../../../support/pageObjects/LMS-1/Sprint10Regression";
-
-const ip = new IndexPage();
-const lp = require('../../../../support/pageObjects/LMS-1/LoginPage')
-const sr = new Sprint10Regression();
+const indexPage = require('../../../../support/pageObjects/LMS-1/IndexPage')
+const sprint10Regression = require('../../../../support/pageObjects/LMS-1/Sprint10Regression')
 
 describe("Verify Sprint 10 related functionalities", function () {
   before(function () {
     cy.visit("https://liverpool.staging.topschool.co.in")
-    ip.getAdmin().click();
+    indexPage.getAdmin().click();
     cy.reload();
     cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
       this.validAdminLoginData = validAdminLoginData;
@@ -18,7 +13,7 @@ describe("Verify Sprint 10 related functionalities", function () {
   });
 
   it("Validate Admin is able log in and navigate to dashboard", function () {
-    sr.getAdminDashboardTitle().should("have.text", "Your Dashboard");
+    sprint10Regression.getAdminDashboardTitle().should("have.text", "Your Dashboard");
   });
 
   it("Validate Admin can view School logo, Current date, welcome message with School admin name, and 'Go to My School' link", function () {
@@ -35,27 +30,27 @@ describe("Verify Sprint 10 related functionalities", function () {
     ];
     let now = new Date();
     let day = days[now.getDay()];
-    sr.getTodaysDateInDashboardInAdmin().should("contain", day);
+    sprint10Regression.getTodaysDateInDashboardInAdmin().should("contain", day);
     cy.log(todaysDate);
-    sr.getTodaysDateInDashboardInAdmin().should("contain", todaysDate);
-    sr.getSchoolLogoAdmin().should("be.visible");
-    sr.getWelcomeMessageAdmin().then(($el) => {
+    sprint10Regression.getTodaysDateInDashboardInAdmin().should("contain", todaysDate);
+    sprint10Regression.getSchoolLogoAdmin().should("be.visible");
+    sprint10Regression.getWelcomeMessageAdmin().then(($el) => {
       let name = $el.text();
       expect(name).to.contain("messi");
     });
-    sr.getAdminDashboardGoToMySchoolLink().should("be.visible");
+    sprint10Regression.getAdminDashboardGoToMySchoolLink().should("be.visible");
   });
 
   it("Validate Admin is able to view the No. of Total Classes, Total teachers, Total no of students, and total admins in the school, shown on this section", function () {
-    sr.getAdminDashboardTotalClasses().should('be.visible');
-    sr.getAdminDashboardTotalTeachers().should('be.visible');
-    sr.getAdminDashboardTotalStudents().should('be.visible');
-    sr.getAdminDashboardTotalAdmins().should('be.visible');
+    sprint10Regression.getAdminDashboardTotalClasses().should('be.visible');
+    sprint10Regression.getAdminDashboardTotalTeachers().should('be.visible');
+    sprint10Regression.getAdminDashboardTotalStudents().should('be.visible');
+    sprint10Regression.getAdminDashboardTotalAdmins().should('be.visible');
   });
 
   it("Validate Admin able to view the Content Performance", function () {
-    sr.getAdminDashboardContentPerformanceTab().click();
-    sr.getAdminDashboardContentPerformanceSection().should('be.visible');
+    sprint10Regression.getAdminDashboardContentPerformanceTab().click();
+    sprint10Regression.getAdminDashboardContentPerformanceSection().should('be.visible');
   });
 
 });

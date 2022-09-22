@@ -32,4 +32,4 @@ class DashboardPage {
     return cy.contains('Logout');
   }
 }
-export default DashboardPage
+module.exports = new DashboardPage()

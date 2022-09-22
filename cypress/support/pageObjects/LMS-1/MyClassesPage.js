@@ -209,4 +209,5 @@ class MyClassesPage{
     }
 }
 
-export default MyClassesPage
+module.exports = new MyClassesPage()
+

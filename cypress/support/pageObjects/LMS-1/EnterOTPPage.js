@@ -18,4 +18,4 @@ class EnterOTPPage{
 
 }
 
-export default EnterOTPPage
+module.exports = new EnterOTPPage()

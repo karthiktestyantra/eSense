@@ -21,4 +21,4 @@ class LoginWithPhoneNumberPage{
     }
 }
 
-export default LoginWithPhoneNumberPage
+module.exports = new LoginWithPhoneNumberPage()

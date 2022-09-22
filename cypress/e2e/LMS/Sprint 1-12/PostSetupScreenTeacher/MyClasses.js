@@ -2,7 +2,6 @@ const indexPage = require('../../../../support/pageObjects/LMS-1/IndexPage')
 const timeTableOverviewPage = require('../../../../support/pageObjects/LMS-1/TimeTableOverviewPage')
 const myClassesPage = require('../../../../support/pageObjects/LMS-1/MyClassesPage')
 
-
 describe("Verify My Classes page functionalities", function () {
   before(function () {
     cy.visit(Cypress.env("urlMain"));

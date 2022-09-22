@@ -1,9 +1,4 @@
-
-const loginPage = require('../../../../support/pageObjects/LMS-1/LoginPage')
 const indexPage = require('../../../../support/pageObjects/LMS-1/IndexPage')
-const walkthroughPage =require('../../../../support/pageObjects/LMS-1/WalkthroughPage')
-const classOverviewPage =require('../../../../support/pageObjects/LMS-1/ClassOverviewPage')
-const curriculumOverviewPage =require('../../../../support/pageObjects/LMS-1/CurriculumOverviewPage')
 const timeTableOverviewPage =require('../../../../support/pageObjects/LMS-1/TimeTableOverviewPage')
 const  myCalendarPage =require('../../../../support/pageObjects/LMS-1/MyCalendarPage')
 const  lessonPlanPage =require('../../../../support/pageObjects/LMS-1/LessonPlanPage')
@@ -23,10 +18,8 @@ describe("Verify Lesson Plan Functionalities", function () {
   });
 
   beforeEach(function () {
-    cy.fixture("LMS/calendarClasses").then(function (classesData) {
-      this.classesData = classesData;
-    });
     cy.fixture("LMS/addLessonPlan").as("lessonPlanData")
+    cy.fixture("LMS/calendarClasses").as("classesData")
   });
 
   it("Verify that the Teacher should be able to navigate to Dashboard > My Calendar screen", function () {

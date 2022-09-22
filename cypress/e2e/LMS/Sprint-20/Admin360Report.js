@@ -19,19 +19,18 @@ describe("Verify Domain Mapping functionalities", function () {
 
   //pre-condition
   it("Validate whether report page is displayed with 'Search Box', 'Check Box', 'ROLL NUMBER', 'FIRST NAME', 'LAST NAME', 'LAST ACTIVE', 'REPORTS'/EL-4124ELS4124_1", function () {
-    home.getReportLnk().click({ force: true })
-    report.get360ReportLnk().click()
-    report.get360ReportContents().should('contain.text', "ROLL NO").and('contain.text', "FULL NAME").
-      and('contain.text', "LAST ACTIVE").and('contain.text', "REPORTS")
+    home.clickOnReportLnk()
+    report.clickOn360ReportLnk()
+    report.verify360ReportContents()
   })
 
   it("Validate whether user is able to select the grade and section to view the report/EL-4124/ELS4124_2", function () {
-    report.getGradeDrpDwn().should('be.visible')
-    report.getSectionDrpDwn().should('be.visible')
+    report.verifyGradeDropDownIsVisible()
+    report.verifySectionDropDownIsVisible()
   })
 
   it("Validate whether list of students are displayed as per drop down selection/EL-4124/ELS4124_3", function () {
-    report.getGradeDrpDwn().click()
+    report.clickOnGradeDrpDwn()
     report.getGradeDrpDwnLst().contains(this.report.NothingGrade).click()
     report.getSectionDrpDwn().click()
     report.getSectionDrpDwnLst().contains(this.report.ProperSection).click()

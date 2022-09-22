@@ -132,7 +132,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     feeManagementFeeStructurePage.validateAnErrorMessageEndDateErrorMessage(this.feeManagement.endDateErrorMessage)
   })
 
-  it('EE-79/ERP_TC_013,015 - Validate the user is able to enter deatils in the Add New Fee Structure details popup', { tags: '@somke' }, function () {
+  it('EE-79/ERP_TC_013,015,016,018,020 - Validate the user is able to enter deatils in the Add New Fee Structure details popup', { tags: '@somke' }, function () {
     feeManagementFeeStructurePage.enterAllFeeStructureDetails(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription, Number(dayjs().format('D')), Number(dayjs().format('D')))
   })
 

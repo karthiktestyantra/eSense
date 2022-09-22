@@ -17,4 +17,6 @@ class ForgotPasswordPage{
     }
 }
 
-export default ForgotPasswordPage
+module.exports = new ForgotPasswordPage()
+
+

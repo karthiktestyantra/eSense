@@ -1,37 +1,31 @@
-import LoginPage from "../../../../support/pageObjects/LMS-1/LoginPage";
-import ForgotPasswordPage from "../../../../support/pageObjects/LMS-1/ForgotPasswordPage";
-import IndexPage from "../../../../support/pageObjects/LMS-1/IndexPage";
 
-const ip = new IndexPage();
-const lp = require('../../../../support/pageObjects/LMS-1/LoginPage')
-const fpp = new ForgotPasswordPage();
+
+const forgotPasswordPage = require('../../../../support/pageObjects/LMS-1/ForgotPasswordPage')
+const indexPage = require('../../../../support/pageObjects/LMS-1/IndexPage')
+const loginPage = require('../../../../support/pageObjects/LMS-1/LoginPage')
 
 describe("Verify Forgot Password Functionaities", function () {
 
   beforeEach(function () {
-
-    cy.fixture("LMS/forgotPassword").then(function (emailData) {
-      this.emailData = emailData;
-    });
+    cy.fixture("LMS/forgotPassword").as("emailData")
   });
 
   it("Forgot Password page validation", function () {
     cy.visit(Cypress.env("urlMain"));
-    ip.getTeacher().click();
+    indexPage.getTeacher().click();
     cy.reload();
-    lp.getForgotPassword().click();
-    fpp.getForgotPasswordText().should("have.text", "Forgot Password");
-
+    loginPage.getForgotPassword().click();
+    forgotPasswordPage.getForgotPasswordText().should("have.text", "Forgot Password");
   });
 
   it("Forgot Password field empty validation", function () {
-    fpp.getSendResetInstructionsButton().click();
-    fpp.getErrorMessage().should("have.text", "This field is required");
+    forgotPasswordPage.getSendResetInstructionsButton().click();
+    forgotPasswordPage.getErrorMessage().should("have.text", "This field is required");
 
   });
 
   it("Forgot Password field validation", function () {
-    fpp.getEmail().type(this.emailData.forgotPasswordDetails.email);
-    fpp.getSendResetInstructionsButton().click();
+    forgotPasswordPage.getEmail().type(this.emailData.forgotPasswordDetails.email);
+    forgotPasswordPage.getSendResetInstructionsButton().click();
   });
 });

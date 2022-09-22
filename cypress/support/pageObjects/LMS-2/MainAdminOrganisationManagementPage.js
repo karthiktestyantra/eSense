@@ -1,24 +1,24 @@
 class MainAdminOrganisationManagementPage {
 
-    getTitle(){
-      return cy.get('div.page-title h1');
+    getTitle() {
+        return cy.get('div.page-title h1');
     }
 
-    getRegDateTitle(){
+    getRegDateTitle() {
         return cy.get('thead tr th').eq(4);
     }
 
-    getActionsBtn(){
+    getActionsBtn() {
         return cy.get(':nth-child(5) > .text-center > [href="#"] > .MuiButtonBase-root > .MuiIconButton-label > .MuiSvgIcon-root > path');
     }
 
-    getSchoolManagementLnk(){
+    getSchoolManagementLnk() {
         return cy.get(':nth-child(5) > .text-center > .menu > [style="text-align: justify;"] > .menu-link');
     }
 
-    getSubDomainTitle(){
+    getSubDomainTitle() {
         return cy.get('thead tr th').eq(1);
     }
 
 }
-export default MainAdminOrganisationManagementPage;
+module.exports = new MainAdminOrganisationManagementPage() 

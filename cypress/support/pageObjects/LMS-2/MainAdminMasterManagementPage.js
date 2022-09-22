@@ -4,218 +4,218 @@ class mainAdminMasterManagementPage {
     getTitle() {
         return cy.get('div.page-title h1');
     }
-    getPublicationTabLnk(){
+    getPublicationTabLnk() {
         return cy.get('div.card-header ul li a').contains("Publication");
     }
-    getTestTypeLnk(){
+    getTestTypeLnk() {
         return cy.get('div.card-header ul li a').contains("Test Type");
     }
-    getDomainMappingTabLnk(){
+    getDomainMappingTabLnk() {
         return cy.get('div.card-header ul li a').contains("Domain Mapping");
     }
-    getDomainRankingTabLnk(){
+    getDomainRankingTabLnk() {
         return cy.get('div.card-header ul li a').contains("Domain Ranking");
     }
-    getCompetencyTabLnk(){
+    getCompetencyTabLnk() {
         return cy.get('div.card-header ul li a').contains("Competencies");
     }
-    getPublicationNameLst(){
+    getPublicationNameLst() {
         return cy.get('tbody tr td div.d-flex a.text-gray-800:visible');
     }
-    getBottomAddNewBtn(){
+    getBottomAddNewBtn() {
         return cy.get('button.flex-center');
     }
-    getAddPublicationTitleTxt(){
+    getAddPublicationTitleTxt() {
         return cy.get('div.h4');
     }
-    getPublicationNameTxtFld(){
+    getPublicationNameTxtFld() {
         return cy.get('input[name="publicationName"]');
     }
-    getDisplayNameTxtFld(){
+    getDisplayNameTxtFld() {
         return cy.get('input[name="publicationDisplayName"]');
     }
-    getStatusToggleBtn(){
+    getStatusToggleBtn() {
         return cy.get('.fv-row > .form-check > input');
     }
-    getAddPublicationSubmitBtn(){
+    getAddPublicationSubmitBtn() {
         return cy.get('div.pt-10  button[type="submit"]:visible');
     }
-    getAddPublicationCancenBtn(){
+    getAddPublicationCancenBtn() {
         return cy.get('div.pt-10  button[type="button"]').contains("Cancel");
     }
-    getPublicationAddedTxt(){
+    getPublicationAddedTxt() {
         return cy.get('.body');
     }
-    getPublicationAddedbtn(){
+    getPublicationAddedbtn() {
         return cy.get('.footer > .btn');
     }
-    getStatusLst(){
+    getStatusLst() {
         return cy.get('.fw-bold .text-align-left.min-w-100px .badge:visible');
     }
-    getActionsLst(){
+    getActionsLst() {
         return cy.get('tbody tr td.text-center button.ctgBtnSect span svg[focusable="false"]:visible');
     }
-    getEditBtn(){
+    getEditBtn() {
         return cy.get('div span.menu-link:visible').contains("Edit");
     }
-    getDeleteBtn(){
+    getDeleteBtn() {
         return cy.get('div span.menu-link:visible').contains("Delete");
     }
-    getDeleteInsideBtn(){
+    getDeleteInsideBtn() {
         return cy.get('.modal-footer button').contains("Delete")
     }
-    getPublicationPopupDltBtn(){
+    getPublicationPopupDltBtn() {
         return cy.get('button.btn-elevate').contains("Delete");
     }
-    getAddNewBtn(){
+    getAddNewBtn() {
         return cy.get('div a.btn-primary').contains("Add New");
     }
-    getAddDomainBtn(){
+    getAddDomainBtn() {
         return cy.get('div.stepper-label button')
     }
-    getDomainMappingAddTxtFld(){
+    getDomainMappingAddTxtFld() {
         return cy.get('input[name="masterName"]')
     }
-    getDomainMappingMainSkillTxtBx(){
+    getDomainMappingMainSkillTxtBx() {
         return cy.get('input[type="mainSkill"]');
     }
-    getDomainMappingMainSkillDisplayName(){
+    getDomainMappingMainSkillDisplayName() {
         return cy.get('input[name="mainSkillDisplayName"]')
     }
-    getStatusBar(){
+    getStatusBar() {
         return cy.get('input[name="statusId"]')
     }
-    getDomainMappingSubmitBtn(){
+    getDomainMappingSubmitBtn() {
         return cy.get('button[type="submit"]').eq(2)
     }
-    getDomainMappingMainSkillLst(){
+    getDomainMappingMainSkillLst() {
         return cy.get('div a[data-kt-ecommerce-product-filter="product_name"]:visible')
     }
-    getDomainMappingActionsLst(){
+    getDomainMappingActionsLst() {
         return cy.get('.MuiIconButton-label > .MuiSvgIcon-root')
     }
-    getCompetencyTxtFld(){
+    getCompetencyTxtFld() {
         return cy.get('input[placeholder="Type Competency Name"]')
     }
-    getCompetencyDisplayNameTxtFld(){
+    getCompetencyDisplayNameTxtFld() {
         return cy.get('input[placeholder="Type Display Name"]')
     }
-    getCompetencyTagName(){
+    getCompetencyTagName() {
         return cy.get('input[placeholder="Type Tag Name"]')
     }
-    getCompetencyNameLst(){
+    getCompetencyNameLst() {
         return cy.get('tbody tr td div.d-flex a')
     }
-    getCoursesTabActionsLnk(){
+    getCoursesTabActionsLnk() {
         return cy.get('tbody tr td.text-end button.ctgBtnSect span svg[focusable="false"]:visible')
     }
-    getChapterLstBtn(){
+    getChapterLstBtn() {
         return cy.get('div.menu-item span.px-3').contains("Chapter List")
     }
-    getAddElaBtn(){
+    getAddElaBtn() {
         return cy.get('div.menu-item span.px-3').contains("Add ELA")
     }
-    getChapterLstActionsLst(){
+    getChapterLstActionsLst() {
         return cy.get('.MuiButtonBase-root .MuiIconButton-label .MuiSvgIcon-root')
     }
-    getCompetencyTxtDrpDwnInEla(){
+    getCompetencyTxtDrpDwnInEla() {
         return cy.get('div.fv-row label span.required').contains("Competency")
     }
-    getCompetencyDrpDown(){
+    getCompetencyDrpDown() {
         return cy.get('div.addElaField select[name="competency"]')
     }
-    getDomainDrpDwnInEla(){
+    getDomainDrpDwnInEla() {
         return cy.get('select[name="domain"]')
     }
-    getMainSkillDrpDwnInEla(){
+    getMainSkillDrpDwnInEla() {
         return cy.get('select[name="mainSkill"]')
     }
-    getMainSkillDrpDwnValuesInEla(){
+    getMainSkillDrpDwnValuesInEla() {
         return cy.get('select[name="mainSkill"] option')
     }
-    getGradeLstInDomainRanking(){
+    getGradeLstInDomainRanking() {
         return cy.get('div a h3')
     }
-    getDomainDrpDwnInDomainRanking(){
+    getDomainDrpDwnInDomainRanking() {
         return cy.get('select[name="domain"]')
     }
-    getMainSkillDrpDwnInDomainRanking(){
+    getMainSkillDrpDwnInDomainRanking() {
         return cy.get('select[name="mainSkill"]')
     }
-    getMainSkillDrpDwnInDomainRankingLst(){
+    getMainSkillDrpDwnInDomainRankingLst() {
         return cy.get('select[name="mainSkill"] option')
     }
-    getExcellentTxtFldInDomainRanking(){
+    getExcellentTxtFldInDomainRanking() {
         return cy.get('input[name="excellent"]')
     }
-    getGoodTxtFldInDomainRanking(){
+    getGoodTxtFldInDomainRanking() {
         return cy.get('input[name="Good"]')
     }
-    getSatisfactoryTxtFldInDomainRanking(){
+    getSatisfactoryTxtFldInDomainRanking() {
         return cy.get('input[name="Satisfactory"]')
     }
-    getBetterTxtFldInDomainRanking(){
+    getBetterTxtFldInDomainRanking() {
         return cy.get('input[name="Better"]')
     }
-    getActionsLstDltBtn(){
+    getActionsLstDltBtn() {
         return cy.get('div.menu-item span.menu-link').contains("Delete")
     }
-    getActionsLstEditBtn(){
+    getActionsLstEditBtn() {
         return cy.get('div.menu-item span.menu-link').contains("Edit")
     }
-    getPopupAccptBtn(){
+    getPopupAccptBtn() {
         return cy.get('div.modal-footer button.btn-primary')
     }
-    getInvalidPopUpTxt(){
+    getInvalidPopUpTxt() {
         return cy.get('div.text-danger span')
     }
-    getStatusTxtInDomainRanking(){
+    getStatusTxtInDomainRanking() {
         return cy.get('tbody tr td div.badge')
     }
-    getDomainRankingCancelBtn(){
+    getDomainRankingCancelBtn() {
         return cy.get('button.btn-lg').contains("Cancel")
     }
-    getDomainLst(){
+    getDomainLst() {
         return cy.get('h3.stepper-title')
     }
-    getStatusLstInDomainMappingLst(){
+    getStatusLstInDomainMappingLst() {
         return cy.get('tbody tr td div.badge')
     }
-    getPaginationLst(){
+    getPaginationLst() {
         return cy.get('button.MuiPaginationItem-page')
     }
-    getTestTypeLst(){
+    getTestTypeLst() {
         return cy.get('tbody tr td div.align-items-center a')
     }
-    getTestTypeContents(){
+    getTestTypeContents() {
         return cy.get('table tr th')
     }
-    getTestTypeSearchFld(){
+    getTestTypeSearchFld() {
         return cy.get('input[placeholder="Search test type"]')
     }
-    getCompetencySearchyBtn(){
+    getCompetencySearchyBtn() {
         return cy.get('.align-items-center > .form-control')
     }
-    getTesttypeFilterDrpDwn(){
+    getTesttypeFilterDrpDwn() {
         return cy.get('button.btn-light').contains("Filter")
     }
-    getTestTypeFilterDrpDwnStatusTxt(){
+    getTestTypeFilterDrpDwnStatusTxt() {
         return cy.get('div.py-5 div.mb-10 label.form-label')
     }
-    getTestTypeFilterStatusDrpDwn(){
+    getTestTypeFilterStatusDrpDwn() {
         return cy.get('select[name="status"]')
     }
-    getTestTypeFilterResetBtn(){
+    getTestTypeFilterResetBtn() {
         return cy.get('button[type="reset"]').contains("Reset")
     }
-    getTestTypeTxtFld(){
+    getTestTypeTxtFld() {
         return cy.get('input[name="TestType"]')
     }
-    getTestTypeCancelBtn(){
+    getTestTypeCancelBtn() {
         return cy.get('div.me-2 button.btn-lg').contains('Cancel')
     }
-    getTestTypeSubmitBtn(){
+    getTestTypeSubmitBtn() {
         return cy.get('button[type="submit"]').contains('Submit')
     }
-  }
-  export default mainAdminMasterManagementPage;
+}
+module.exports = new mainAdminMasterManagementPage() 

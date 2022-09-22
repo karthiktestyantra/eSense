@@ -38,8 +38,9 @@ class LoginPage {
     this.getUserName().clear().type(email);
     this.getPassword().clear().type(password);
     cy.forceClick(this.getLoginBtn())
-    cy.url().should('contain', 'dashboard');
+    cy.wait(1000)
     cy.isVisible(this.getLoginSuccessMsg())
+    cy.url().should('contain', 'dashboard');
   }
 
 }

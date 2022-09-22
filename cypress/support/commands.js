@@ -1,4 +1,3 @@
-/// <reference types ="Cypress"/>
 import 'cypress-file-upload';
 
 after(function () {
@@ -85,7 +84,7 @@ Cypress.Commands.add('isEnabled', (element) => {
 
 //This command is to verify the element is Disabled
 Cypress.Commands.add('isDisabled', (element) => {
-  element.should('be.enabled')
+  element.should('be.disabled')
 })
 
 //This command is used to do Force click on a element
@@ -100,8 +99,11 @@ Cypress.Commands.add('checkAndVerify', (element) => {
 
 //This command is used to uncheck and verify the checkbox
 Cypress.Commands.add('unCheckAndVerify', (element) => {
-  element.uncheck().should('not.be.checked')
+  element.uncheck({ force: true }).should('not.be.checked')
 })
+
+
+
 
 
 

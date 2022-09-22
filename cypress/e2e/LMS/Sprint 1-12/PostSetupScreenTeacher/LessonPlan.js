@@ -1,7 +1,7 @@
 const indexPage = require('../../../../support/pageObjects/LMS-1/IndexPage')
-const timeTableOverviewPage =require('../../../../support/pageObjects/LMS-1/TimeTableOverviewPage')
-const  myCalendarPage =require('../../../../support/pageObjects/LMS-1/MyCalendarPage')
-const  lessonPlanPage =require('../../../../support/pageObjects/LMS-1/LessonPlanPage')
+const timeTableOverviewPage = require('../../../../support/pageObjects/LMS-1/TimeTableOverviewPage')
+const myCalendarPage = require('../../../../support/pageObjects/LMS-1/MyCalendarPage')
+const lessonPlanPage = require('../../../../support/pageObjects/LMS-1/LessonPlanPage')
 
 describe("Verify Lesson Plan Functionalities", function () {
   before(function () {
@@ -11,7 +11,7 @@ describe("Verify Lesson Plan Functionalities", function () {
       indexPage.getTeacher().click();
       cy.reload();
       cy.login(this.validLoginData.user2, this.validLoginData.password);
-       timeTableOverviewPage
+      timeTableOverviewPage
         .getDashboardTitle()
         .should("have.text", "Your Dashboard");
     });

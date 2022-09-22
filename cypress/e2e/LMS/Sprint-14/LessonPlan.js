@@ -1,9 +1,7 @@
-import EsenseAdminLessonPlanPage from "../../../support/pageObjects/LMS-2/EsenseAdminLessonPlanPage";
-
-const esenseAdminLessonPlanPage = new EsenseAdminLessonPlanPage();
+const esenseAdminLessonPlanPage = require("../../../support/pageObjects/LMS-2/EsenseAdminLessonPlanPage")
 
 describe("Verify lesson plan functionalities", function () {
-  
+
   before(function () {
     cy.visit(Cypress.env("url"))
     cy.fixture("LMS/mainAdminLoginCredentials").then(function (validAdminLoginData) {
@@ -11,17 +9,13 @@ describe("Verify lesson plan functionalities", function () {
     })
   })
   beforeEach(function () {
-    cy.fixture('LMS/EsenseAdminLessonPlanCredentials').then(function (lessonPlanPage) {
-      this.lessonPlanPage = lessonPlanPage;
-    })
+    cy.fixture("LMS/EsenseAdminLessonPlanCredentials").as("lessonPlanPage")
   })
 
   it("To validate esense admin is able to free-search a particular lesson plan/EL-4135/ES4135_01", function () {
     esenseAdminLessonPlanPage.getSideBarLessonPlanBtn().click()
     cy.wait(5000)
     esenseAdminLessonPlanPage.getLessonPlanSearchTxtFieldBtn().type(this.lessonPlanPage.Searchtxt)
-
-
 
     // it("To validate esense admin is able to view the result with entered text./EL-4135/ES4135_02",function () {
     esenseAdminLessonPlanPage.getLessonPlanSubjectTxt().should('contain.text', this.lessonPlanPage.Searchtxt)
@@ -63,8 +57,5 @@ describe("Verify lesson plan functionalities", function () {
     esenseAdminLessonPlanPage.getLessonPlanGradeCheckBox().click()
     esenseAdminLessonPlanPage.getLessonPlanGradeCheckBoxOkBtn().click()
     esenseAdminLessonPlanPage.getLessonPlanSubjectTxt().should('be.visible')
-
-
-
   })
 })

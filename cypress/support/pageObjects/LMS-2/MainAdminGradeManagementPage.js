@@ -1,31 +1,31 @@
-class MainAdminGradeManagementPage{
+class MainAdminGradeManagementPage {
 
-    getPageTitle(){
-       return cy.get('h1.my-1').contains("Grade")
+    getPageTitle() {
+        return cy.get('h1.my-1').contains("Grade")
     }
-    getAddNewBtn(){
+    getAddNewBtn() {
         return cy.get('div.gap-5 a').contains("Add New")
     }
-    getActionsLst(){
+    getActionsLst() {
         return cy.get('.MuiIconButton-label svg path:visible')
     }
-    getGradeLst(){
+    getGradeLst() {
         return cy.get('div.ms-5 a.fw-bolder:visible')
     }
-    getEditBtn(){
+    getEditBtn() {
         return cy.get('div.menu-item span.menu-link').contains("Edit")
     }
-    getIsEditableBtn(){
+    getIsEditableBtn() {
         return cy.get('input[name=isEditable]')
     }
-    getEditGradeSubmitBtn(){
+    getEditGradeSubmitBtn() {
         return cy.get('button[type=submit] span').contains("Submit")
     }
-    getEditGradePopUpSubmit(){
+    getEditGradePopUpSubmit() {
         return cy.get('.footer .btn')
     }
-    getEditableLst(){
+    getEditableLst() {
         return cy.get('[style="display: flex; justify-content: center;"] .badge')
     }
 }
-export default MainAdminGradeManagementPage;
+module.exports = new MainAdminGradeManagementPage() 

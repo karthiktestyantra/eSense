@@ -1,22 +1,22 @@
 class AdminGradePage {
 
-    getAddNewSectionPopupTitle(){
+    getAddNewSectionPopupTitle() {
         return cy.get('.title');
     }
 
-    getGradeLst(){
+    getGradeLst() {
         return cy.get('tbody tr.MuiTableRow-root  td.grade-name div')
     }
 
-    getEditableGradeLst(){
+    getEditableGradeLst() {
         return cy.get('tbody tr.MuiTableRow-root  td.grade-name input')
     }
 
-    getSectionsLst(){
+    getSectionsLst() {
         return cy.get('button.sectionsBtn')
     }
 
-    getSectionAddBtn(){
+    getSectionAddBtn() {
         return cy.get('button.sectionAddBtn')
     }
 
@@ -29,7 +29,7 @@ class AdminGradePage {
     }
 
     getOptionalSubLstBx() {
-       return cy.get('div.MuiPaper-root ul li div.MuiListItemText-root span.MuiTypography-root');
+        return cy.get('div.MuiPaper-root ul li div.MuiListItemText-root span.MuiTypography-root');
     }
 
     getAddSectionBtn() {
@@ -40,17 +40,17 @@ class AdminGradePage {
         return cy.get('.MuiAlert-message');
     }
 
-    getClassDetailBtnInAddSectionPopup(){
+    getClassDetailBtnInAddSectionPopup() {
         return cy.get('button.class-details')
     }
 
-    getClassDetailsTitle(){
+    getClassDetailsTitle() {
         return cy.get('div.header-container-out div')
     }
 
-    getAddSectionCloseBtn(){
+    getAddSectionCloseBtn() {
         return cy.get('button.closeModal')
     }
-    
-  }
-  export default AdminGradePage;
+
+}
+module.exports = new AdminGradePage() 

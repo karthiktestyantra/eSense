@@ -268,5 +268,11 @@ class TeacherDashboardPage {
         return cy.contains('My Calendar')
     }
 
+     //Buiness logic
+     
+    clickOnMyCalenderLink(){
+        this.getMyCalenderLink().click({force:true})
+    }
+
 }
 module.exports = new TeacherDashboardPage() 

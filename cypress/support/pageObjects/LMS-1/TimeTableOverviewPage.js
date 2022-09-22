@@ -37,4 +37,4 @@ class TimeTableOverviewPage {
   }
 }
 
-export default TimeTableOverviewPage;
+module.exports = new TimeTableOverviewPage()

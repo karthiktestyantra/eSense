@@ -384,4 +384,4 @@ class MyCalendarPage {
     return cy.get('.close-icon_notes:visible');
   }
 }
-export default MyCalendarPage;
+module.exports = new MyCalendarPage

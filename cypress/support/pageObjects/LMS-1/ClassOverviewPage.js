@@ -43,4 +43,4 @@ class ClassOverviewPage{
     
 }
 
-export default ClassOverviewPage
+module.exports = new ClassOverviewPage()

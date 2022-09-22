@@ -72,4 +72,4 @@ class CurriculumOverview {
   }
 
 }
-export default CurriculumOverview;
+module.exports = new CurriculumOverview()

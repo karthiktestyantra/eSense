@@ -1,6 +1,4 @@
-import EsenseAdminCurriculumPlanPage from "../../../support/pageObjects/LMS-2/EsenseAdminCurriculumPlanPage";
-
-const esenseAdminCurriculamPlanPage = new EsenseAdminCurriculumPlanPage();
+const esenseAdminCurriculamPlanPage = require("../../../support/pageObjects/LMS-2/EsenseAdminCurriculumPlanPage")
 
 describe("Verify Curriculum Plan Page functionalities", function () {
   before(function () {
@@ -10,29 +8,24 @@ describe("Verify Curriculum Plan Page functionalities", function () {
       cy.Mainlogin(validAdminLoginData.username, validAdminLoginData.password)
     })
   })
+
   beforeEach(function () {
-    cy.fixture("LMS/EsenseAdminCurriculumPageCredentials").then(function (curriculumPage) {
-      this.curriculumPage = curriculumPage;
-    })
+    cy.fixture("LMS/EsenseAdminCurriculumPageCredentials").as("curriculumPage")
   })
 
   it("To validate that when user click on “Curriculum Plan”, all pre created Course cards are displayed/EL-2280/ES2280_01", function () {
     esenseAdminCurriculamPlanPage.getCurriculamPlanBtn().contains(this.curriculumPage.curriculumplantxt).click()
     esenseAdminCurriculamPlanPage.getCurriculumListOfCourseCard().should('be.visible')
 
-
-
     //it("To validate that user is able to search the course by entering Course Name into the search bar/EL-2280/ES2280_02",function(){
     esenseAdminCurriculamPlanPage.getCurriculumSearchTxtField().type(this.curriculumPage.searchCourseName)
     cy.wait(3000)
     esenseAdminCurriculamPlanPage.getCurriculumListOfCourseCard().should('contain.text', this.curriculumPage.searchCourseName)
-
     //})
 
     // it("To verify that when user Click on Add Curriculam button on any Course card, it's navigating Add Curriculam page./EL-2280/ES2280_03",function(){   
     esenseAdminCurriculamPlanPage.getAddCurriculamPlanBtn().eq(0).click({ force: true })
     esenseAdminCurriculamPlanPage.getAddCurriculamTitle().should('contain', this.curriculumPage.addCurriculumTitleTxt)
-
     // })
 
     //it("To validate the Start with Theme/unit and Start with Chapter buttons are provided in Add Curriculam page/EL-2280/ES2280_04",function(){
@@ -42,7 +35,7 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     // it("To validate that when user click on Start with Theme/unit button it's navigating to Add new Theme/Unit pop-up page./EL-2280/ES2280_05",function(){
     esenseAdminCurriculamPlanPage.getListOfAddThemesOrUnitandChaptersBtn().contains(this.curriculumPage.startWiththemeOrUnitTxt).click()
     esenseAdminCurriculamPlanPage.getAddNewThemeOrUnitPopupTitle().should("have.text", this.curriculumPage.addNewThemeOrUnitPopupTitleTxt)
-
+    // })
 
     // it("To validate that when user Click on Start with Chapter button it's navigating to Add New Chapter pop-up page./EL-2280/ES2280_06",function(){
     esenseAdminCurriculamPlanPage.getListOfAddThemesOrUnitandChaptersBtn().contains(this.curriculumPage.startWithChapterTxt).click({ force: true })
@@ -143,7 +136,6 @@ describe("Verify Curriculum Plan Page functionalities", function () {
       })
       // })
 
-
       it.skip("To validate that when user is able to save Curriculam as draft by clicking on 'Save Draft' button/EL-2280/ES2280_09", function () {
         //cy.go('back')
         // esenseAdminCurriculamPlanPage.getAddCurriculamPlanBtn().eq(2).click()
@@ -178,7 +170,6 @@ describe("Verify Curriculum Plan Page functionalities", function () {
             esenseAdminCurriculamPlanPage.getAddChapterDraftedHeader().eq(index).should('be.visible')
           }
         })
-
 
         // cy.wait(5000)
 
@@ -232,23 +223,18 @@ describe("Verify Curriculum Plan Page functionalities", function () {
         esenseAdminCurriculamPlanPage.getChapterDeleteBtn().eq(0).click()
         esenseAdminCurriculamPlanPage.getDeleteChapterPopupBtn().click()
         cy.wait(4000)
-
-
       }
 
       //   cy.wait(5000)
 
-      // //  esenseAdminCurriculamPlanPage.getChapterDescriptionName().each(($e1,index,$list)=>{
-      // //    const chapterDescriptionName = $e1.text()
-      // //        if(chapterDescriptionName.includes(descriptionTxt)){
-      //          esenseAdminCurriculamPlanPage.getChapterDeleteBtn().eq(0).click()
-      //          esenseAdminCurriculamPlanPage.getDeleteChapterPopupBtn().click()
-      //          cy.wait(4000)
-
-      // //        }
-      // //     })
-
-
+      //  esenseAdminCurriculamPlanPage.getChapterDescriptionName().each(($e1,index,$list)=>{
+      //    const chapterDescriptionName = $e1.text()
+      //        if(chapterDescriptionName.includes(descriptionTxt)){
+      //  esenseAdminCurriculamPlanPage.getChapterDeleteBtn().eq(0).click()
+      //  esenseAdminCurriculamPlanPage.getDeleteChapterPopupBtn().click()
+      //  cy.wait(4000)
+      //        }
+      //     })
     })
     // })
 
@@ -256,7 +242,6 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     cy.wait(2000)
     esenseAdminCurriculamPlanPage.getListOfAddThemesOrUnitandChaptersBtn().contains(this.curriculumPage.startWiththemeOrUnitTxt).click({ force: true })
     esenseAdminCurriculamPlanPage.getAddThemePopupHeaderTitle().should('contain.text', this.curriculumPage.addNewThemeOrUnitPopupTitleTxt)
-
     // })
 
     // it("To validate that Theme Name Textbox is not accepting blank value and throwing error message/EL-2281/ES2281_06",function(){
@@ -272,7 +257,6 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     esenseAdminCurriculamPlanPage.getThemeDiscription().click()
     esenseAdminCurriculamPlanPage.getMax50CharexeedMsg().should('be.visible')
     // })
-
 
     // it("To validate that Theme Description Textbox is not accepting blank value and throwing error message/EL-2281/ES2281_11",function(){
     esenseAdminCurriculamPlanPage.getThemeName().clear()
@@ -318,7 +302,6 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     esenseAdminCurriculamPlanPage.getChapterNumberTxtField().scrollIntoView().type(this.curriculumPage.chapterNameMoreThn50).clear()
     esenseAdminCurriculamPlanPage.getThemeDiscription().click()
     esenseAdminCurriculamPlanPage.getThisFieldReqMes().should('be.visible')
-
     // })
 
     // it("To validate that when user enters more than 50 charecters into Chapter Number Textbox Error message is displayed/EL-2281/ES2281_19",function(){
@@ -364,9 +347,7 @@ describe("Verify Curriculum Plan Page functionalities", function () {
         }
       })
     })
-
     // })
-
 
     // it("To validate that user is able to view the created Topics name in Topic Name dropdown",function(){
     esenseAdminCurriculamPlanPage.getAddNewChapterBtn().click()
@@ -375,18 +356,13 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     esenseAdminCurriculamPlanPage.getAddTopicBtn().click()
     esenseAdminCurriculamPlanPage.getTopicNameDropDown().should('contain.text', this.curriculumPage.topicname).select(this.curriculumPage.topicname)
     esenseAdminCurriculamPlanPage.getTopicDescription().type(this.curriculumPage.TopicDescription)
-
     // })
-
-
 
     // it("To validate that user is able to enter 100 charecters into Topic Description Textbox/EL-2281/ES2281_32",function(){
     esenseAdminCurriculamPlanPage.getTopicDescription().clear()
     esenseAdminCurriculamPlanPage.getTopicDescription().type(this.curriculumPage.themeDiscriptionMoreThn100)
     esenseAdminCurriculamPlanPage.getAddObjectiveBtn().click()
     esenseAdminCurriculamPlanPage.getMax100CharexeedMsg().should('be.visible')
-
-
     // })
 
     // it("To verify that when user click on Cancel the Add Topic Section in closed/EL-2281/ES2281_37",function(){
@@ -399,9 +375,6 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     esenseAdminCurriculamPlanPage.getObjectiveDiscription().type(this.curriculumPage.themeDiscriptionMoreThn100)
     esenseAdminCurriculamPlanPage.getAddOutComeBtn().click()
     esenseAdminCurriculamPlanPage.getMax100CharexeedMsg().should('be.visible')
-
-
-
     // })
 
     // it("To validate that Objective Description Textbox is not accepting blank value and throwing error message/EL-2281/ES2281_43",function(){
@@ -413,17 +386,13 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     esenseAdminCurriculamPlanPage.getObjectiveDiscription().type(this.curriculumPage.ObjectiveDiscription)
     esenseAdminCurriculamPlanPage.getAddObjectiveCancelBtn().click()
     esenseAdminCurriculamPlanPage.getLearningObjectiveTitleheader().should('contain.text', 'Learning Objectives')
-
     // })
-
-
 
     // it("To validate that when user click on ADD OBJECTIVE button the topic is added under that chapter/EL-2281/ES2281_45",function(){
     esenseAdminCurriculamPlanPage.getAddObjectiveBtn().click()
     esenseAdminCurriculamPlanPage.getObjectiveDiscription().type(this.curriculumPage.ObjectiveDiscription)
     esenseAdminCurriculamPlanPage.getSaveObjectiveBtn().click()
     esenseAdminCurriculamPlanPage.getObjectiveCreated().should('contain.text', this.curriculumPage.ObjectiveDiscription)
-
     // })
 
     // it("To validate that when user enters more than 100 charecters into Outcome Description Textbox , Error message is displayed/EL-2281/ES2281_51",function(){
@@ -449,7 +418,6 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     esenseAdminCurriculamPlanPage.getOutComeDiscription().type(this.curriculumPage.outComeDiscription)
     esenseAdminCurriculamPlanPage.getSaveOutcomeBtn().click()
     esenseAdminCurriculamPlanPage.getOutComeCreatedTitleHeader().should('have.length', '2')
-
     // })
 
     // it("To verify that when user click on Cancel the Learning Outcome Section is closed/EL-2281/ES2281_55",function(){
@@ -457,7 +425,6 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     esenseAdminCurriculamPlanPage.getOutComeDiscription().type(this.curriculumPage.outComeDiscription)
     esenseAdminCurriculamPlanPage.getOutComeCancelBtn().click()
     esenseAdminCurriculamPlanPage.getLearningOutComeTitleTxt().should('contain.text', 'Learning Outcome')
-
     // })
 
     // it("To validate that user is able to create the Theme without creating Chapter/EL-2281/ES2281_57",function(){
@@ -482,9 +449,6 @@ describe("Verify Curriculum Plan Page functionalities", function () {
         }
       })
     })
-
   })
-
-
 
 })

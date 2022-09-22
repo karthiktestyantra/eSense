@@ -33,9 +33,11 @@ describe("Verify AssessmentCard functionalities", function () {
   })
 
   it("To verify that teacher is able to view calendar monthly view by “Exams” selected in filter by default/EL-3969/ES3969_07", function () {
-    calender.getCalenderRange().its('length').should('be.gte', 20)
+    calender.getCalenderRange().its('length').should('be.gte', 27)
   })
 })
 
-//Need to Create new exam manually with respective grade
-//each and every month need to create event and exam manually
+
+//pre-condition
+//1.Need to Create new exam manually with respective grade
+//2.each and every month need to create event and exam manually

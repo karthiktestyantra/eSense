@@ -6,6 +6,10 @@ after(function () {
   cy.clearLocalStorage();
 })
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false;
+});
+
 const login = require('./pageObjects/LMS-2/MainAdminIndexPage')
 Cypress.Commands.add('Mainlogin', (email, password) => {
   login.getTitle().should('be.visible')

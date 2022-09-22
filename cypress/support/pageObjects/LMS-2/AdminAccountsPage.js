@@ -36,7 +36,12 @@ class AdminAccountsPage{
     getCurriculumEditCheckbox(){
         return cy.get('input[name="3.IsEditable"]')
     }
+    getDeleteRoleLst(){
+        return cy.get('button.departmentDeleteIcon')
+    }
+    getDeleteConfirmBtn(){
+        return cy.get('div.delete-button')
+    }
     
-
 }
 export default AdminAccountsPage;

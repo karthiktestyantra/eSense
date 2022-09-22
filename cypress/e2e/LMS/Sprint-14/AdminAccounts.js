@@ -49,4 +49,19 @@ describe("Verify Admin Account Page functionalities", function () {
     })
     account.getPrevilegesBoardLst().should('be.visible').should('have.length', 18)
   })
+
+  //Post-Condition
+
+  it("Delete the created role",function(){
+    account.getRoleLst().each(($e1, index, $list) => {
+      const actualText = $e1.text()
+      if (actualText.includes("Super-Admin")) {
+        account.getDeleteRoleLst().eq(index).click()
+      }
+    })
+    cy.contains("Do you want to delete this Role?").should('be.visible')
+    account.getDeleteConfirmBtn().click()
+    cy.contains("Admin Role Super-Admin has been deleted.").should('be.visible')
+  })
+
 })

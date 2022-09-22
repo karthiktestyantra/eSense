@@ -20,27 +20,6 @@ describe("Verify Curriculum Builder pagefunctionalities", function () {
     })
   })
 
-  //Script for pre-setup condtions
-  // it.skip("Script for to create 'A'section in grade VIII",function () {
-  //   cy.wait(2000)
-  //   home.getSchoolLnk().click({force:true})
-  //   home.getGradesAndDeptSectionBtn().click()
-  //   home.getGradesAndDeptSectionBtn2().click()
-  //   grade.getGradeLst().each(($e1,index,$list) =>{
-  //     const actualText = $e1.text()
-  //     if(actualText.includes("VIII")){
-  //       grade.getSectionAddBtn().eq(index).click()
-  //     }
-  //   })
-  //   grade.getAddNewSectionPopupTitle().should('contain',this.curriculumBuilder.AddSectionTitle)
-  //   grade.getSectionNameTxtFld().click().type(this.curriculumBuilder.Section)
-  //   grade.getOptionalSubDrpDwn().click()
-  //   grade.getOptionalSubLstBx().contains(this.curriculumBuilder.SubjectName).click()
-  //   grade.getAddSectionBtn().click({force:true})
-  //   grade.getCreateSectionSuccessPopup().should('have.text',this.curriculumBuilder.GradeCreatedPopup)
-  // })
-
-  //Sprint 14
   it("Validate school admin is able to add “Total number of session” field is available for both Theme and Chapter workflows under “Duration” section/EL-4067/ES4067_02", function () {
     //Curriculum Builder -Create
     home.getSchoolLnk().click({ force: true })
@@ -59,6 +38,7 @@ describe("Verify Curriculum Builder pagefunctionalities", function () {
         return false;
       }
     })
+    cy.wait(2000)
     curriculumBuilder.getStartWithChapterBtn().click({force:true})
     curriculumBuilder.getTotalSessionsTxtFld().should('be.visible')
     curriculumBuilder.getAddNewChapterCloseIcon().click()
@@ -136,5 +116,25 @@ describe("Verify Curriculum Builder pagefunctionalities", function () {
     })
     cy.get('.MuiButton-contained').click()
   })
+
+  //Script for pre-setup condtions
+  // it.skip("Script for to create 'A'section in grade VIII",function () {
+  //   cy.wait(2000)
+  //   home.getSchoolLnk().click({force:true})
+  //   home.getGradesAndDeptSectionBtn().click()
+  //   home.getGradesAndDeptSectionBtn2().click()
+  //   grade.getGradeLst().each(($e1,index,$list) =>{
+  //     const actualText = $e1.text()
+  //     if(actualText.includes("VIII")){
+  //       grade.getSectionAddBtn().eq(index).click()
+  //     }
+  //   })
+  //   grade.getAddNewSectionPopupTitle().should('contain',this.curriculumBuilder.AddSectionTitle)
+  //   grade.getSectionNameTxtFld().click().type(this.curriculumBuilder.Section)
+  //   grade.getOptionalSubDrpDwn().click()
+  //   grade.getOptionalSubLstBx().contains(this.curriculumBuilder.SubjectName).click()
+  //   grade.getAddSectionBtn().click({force:true})
+  //   grade.getCreateSectionSuccessPopup().should('have.text',this.curriculumBuilder.GradeCreatedPopup)
+  // })
 
 })

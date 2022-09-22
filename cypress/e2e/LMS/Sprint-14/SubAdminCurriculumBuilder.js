@@ -9,6 +9,8 @@ const account = new AdminAccountsPage();
 
 describe("Verify Sub Admin Curriculum Page functionalities", function () {
   before(function () {
+    cy.clearLocalStorage()
+    cy.clearCookies()
     cy.visit(Cypress.env("urlQAPreSetup"))
     cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.fNew, validAdminLoginData.password)

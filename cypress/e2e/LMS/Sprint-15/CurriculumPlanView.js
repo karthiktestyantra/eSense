@@ -1,8 +1,7 @@
-import EsenseAdminCurriculumPlanPage from "../../../support/pageObjects/LMS-2/EsenseAdminCurriculumPlanPage";
-
-const esenseAdminCurriculumPlanPage = new EsenseAdminCurriculumPlanPage()
+const esenseAdminCurriculumPlanPage = require("../../../support/pageObjects/LMS-2/EsenseAdminCurriculumPlanPage")
 
 describe("Verify Curriculum plan view Page functionalities", function () {
+
     before(function () {
         cy.visit(Cypress.env('url'))
         cy.fixture('LMS/mainAdminLoginCredentials').then(function (validEsenseAdminLoginData) {

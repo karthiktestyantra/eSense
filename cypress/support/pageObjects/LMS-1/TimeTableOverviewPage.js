@@ -1,11 +1,11 @@
 class TimeTableOverviewPage {
 
-  getTimetableTitle(){
+  getTimetableTitle() {
     return cy.get('.overview_title').eq(2)
   }
 
-  getDay(day){
-    let days = day/6;
+  getDay(day) {
+    let days = day / 6;
     return cy.get('.mbsc-schedule-header-dayname').eq(days);
   }
   getGradeSectionSubject(gradeNumber) {
@@ -32,7 +32,7 @@ class TimeTableOverviewPage {
     return cy.get(".footer_subtitle");
   }
 
-  getDashboardTitle(){
+  getDashboardTitle() {
     return cy.get('.Dashboard_tchDshTitle__3rghy')
   }
 }

@@ -1,14 +1,8 @@
-import AdminPostSetupHomePage from "../../../support/pageObjects/LMS-2/AdminPostSetupHomePage";
-import AdminPostSetupCurriculumBuilderPage from "../../../support/pageObjects/LMS-2/AdminPostSetupCurriculumBuilderPage";
-import AdminAccountsPage from "../../../support/pageObjects/LMS-2/AdminAccountsPage";
-
-
-const home = new AdminPostSetupHomePage();
-const curriculumBuilder = new AdminPostSetupCurriculumBuilderPage();
-const account = new AdminAccountsPage();
-
+const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
+const adminPostSetupCurriculumBuilderPage = require("../../../support/pageObjects/LMS-2/AdminPostSetupCurriculumBuilderPage")
 
 describe("Verify Sub Admin Curriculum Page functionalities", function () {
+
   before(function () {
     cy.clearLocalStorage()
     cy.clearCookies()
@@ -17,40 +11,39 @@ describe("Verify Sub Admin Curriculum Page functionalities", function () {
       cy.AdminPostSetup(validAdminLoginData.fNew, validAdminLoginData.password)
     })
   })
+
   this.beforeEach(function () {
-    cy.fixture("LMS/sprint14CurriculumBuilder").then(function (curriculumBuilder) {
-      this.curriculumBuilder = curriculumBuilder;
-    })
+    cy.fixture("LMS/sprint14CurriculumBuilder").as("curriculumBuilder")
   })
 
   it("To create Curriculum", function () {
-    home.getSchoolLnk().click({ force: true })
-    home.getCurriculumBuilderSectionLnk().click()
-    curriculumBuilder.getTitle().should('have.text', this.curriculumBuilder.Title)
-    curriculumBuilder.getGradeLst().each(($e1, index, $list) => {
+    adminPostSetupHomePage.getSchoolLnk().click({ force: true })
+    adminPostSetupHomePage.getCurriculumBuilderSectionLnk().click()
+    adminPostSetupCurriculumBuilderPage.getTitle().should('have.text', this.adminPostSetupCurriculumBuilderPage.Title)
+    adminPostSetupCurriculumBuilderPage.getGradeLst().each(($e1, index, $list) => {
       const text = $e1.text()
-      if (text.includes(this.curriculumBuilder.Grade)) {
+      if (text.includes(this.adminPostSetupCurriculumBuilderPage.Grade)) {
         cy.get('td button').eq(index).click()
       }
     })
-    curriculumBuilder.getSubLstUnderGrade().each(($e2, index, $list) => {
+    adminPostSetupCurriculumBuilderPage.getSubLstUnderGrade().each(($e2, index, $list) => {
       const sub = $e2.text()
-      if (sub.includes(this.curriculumBuilder.SubjectName)) {
-        curriculumBuilder.getEditCurriculumBtnLst().eq(index).click()
+      if (sub.includes(this.adminPostSetupCurriculumBuilderPage.SubjectName)) {
+        adminPostSetupCurriculumBuilderPage.getEditCurriculumBtnLst().eq(index).click()
         return false;
       }
     })
-    curriculumBuilder.getStartWithChapterBtn().click()
-    curriculumBuilder.getChapterNumTxtFld().type(this.curriculumBuilder.ChapterNum)
-    curriculumBuilder.getChapterName().type(this.curriculumBuilder.ChapterName)
-    curriculumBuilder.getChapterDescription().type(this.curriculumBuilder.ChapterDescription)
-    curriculumBuilder.getTotalSessionsTxtFld().clear().type(this.curriculumBuilder.ValidTotalSessionsNum)
-    curriculumBuilder.getContinueBtn().click()
-    curriculumBuilder.getSuccessfulPopup().should('have.text', this.curriculumBuilder.SuccessPopup)
-    curriculumBuilder.getMarkCurriculumCheckbox().click()
-    curriculumBuilder.getSubmitForApprovalBtn().click()
-    curriculumBuilder.getApprovalListName().contains(this.curriculumBuilder.SubAdminName).click()
-    curriculumBuilder.getSubmitApprovalSubmitBtn().click()
+    adminPostSetupCurriculumBuilderPage.getStartWithChapterBtn().click()
+    adminPostSetupCurriculumBuilderPage.getChapterNumTxtFld().type(this.adminPostSetupCurriculumBuilderPage.ChapterNum)
+    adminPostSetupCurriculumBuilderPage.getChapterName().type(this.adminPostSetupCurriculumBuilderPage.ChapterName)
+    adminPostSetupCurriculumBuilderPage.getChapterDescription().type(this.adminPostSetupCurriculumBuilderPage.ChapterDescription)
+    adminPostSetupCurriculumBuilderPage.getTotalSessionsTxtFld().clear().type(this.adminPostSetupCurriculumBuilderPage.ValidTotalSessionsNum)
+    adminPostSetupCurriculumBuilderPage.getContinueBtn().click()
+    adminPostSetupCurriculumBuilderPage.getSuccessfulPopup().should('have.text', this.adminPostSetupCurriculumBuilderPage.SuccessPopup)
+    adminPostSetupCurriculumBuilderPage.getMarkCurriculumCheckbox().click()
+    adminPostSetupCurriculumBuilderPage.getSubmitForApprovalBtn().click()
+    adminPostSetupCurriculumBuilderPage.getApprovalListName().contains(this.adminPostSetupCurriculumBuilderPage.SubAdminName).click()
+    adminPostSetupCurriculumBuilderPage.getSubmitApprovalSubmitBtn().click()
     cy.contains("Succesfully submitted for approval!").should('be.visible')
     cy.wait(2000)
   })
@@ -62,46 +55,46 @@ describe("Verify Sub Admin Curriculum Page functionalities", function () {
     cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.subAdminUsername, validAdminLoginData.subAdminPassword)
     })
-    home.getSchoolLnk().click({ force: true })
-    home.getCurriculumBuilderSectionLnk().click()
-    curriculumBuilder.getTitle().should('have.text', this.curriculumBuilder.Title)
-    curriculumBuilder.getGradeLst().each(($e1, index, $list) => {
+    adminPostSetupHomePage.getSchoolLnk().click({ force: true })
+    adminPostSetupHomePage.getCurriculumBuilderSectionLnk().click()
+    adminPostSetupCurriculumBuilderPage.getTitle().should('have.text', this.adminPostSetupCurriculumBuilderPage.Title)
+    adminPostSetupCurriculumBuilderPage.getGradeLst().each(($e1, index, $list) => {
       const text = $e1.text()
-      if (text.includes(this.curriculumBuilder.SubAdminGrade)) {
-        curriculumBuilder.getSubAdminViewDtlsDrpDwnLst().eq(index).click()
+      if (text.includes(this.adminPostSetupCurriculumBuilderPage.SubAdminGrade)) {
+        adminPostSetupCurriculumBuilderPage.getSubAdminViewDtlsDrpDwnLst().eq(index).click()
         return false
       }
     })
-    curriculumBuilder.getSubAdminViewDtlsSubjectLst().each(($e2, index, $list) => {
+    adminPostSetupCurriculumBuilderPage.getSubAdminViewDtlsSubjectLst().each(($e2, index, $list) => {
       const text = $e2.text()
       if (text.includes("Tamil")) {
-        curriculumBuilder.getSubAdminViewDtlsViewIconLst().eq(index).click()
+        adminPostSetupCurriculumBuilderPage.getSubAdminViewDtlsViewIconLst().eq(index).click()
         return false;
       }
     })
     cy.wait(2000)
-    curriculumBuilder.getSubAdminEditBtn().click()
-    curriculumBuilder.getEditAndDeleteIconsLst().should('be.visible')
+    adminPostSetupCurriculumBuilderPage.getSubAdminEditBtn().click()
+    adminPostSetupCurriculumBuilderPage.getEditAndDeleteIconsLst().should('be.visible')
   })
 
   it("User is able to create the theme", function () {
-    curriculumBuilder.getAddThemeBtn().click()
-    curriculumBuilder.getChapterNumTxtFld().type(this.curriculumBuilder.ChapterNum)
-    curriculumBuilder.getSubAdminChapterName().type(this.curriculumBuilder.ChapterName)
-    curriculumBuilder.getChapterDescription().type(this.curriculumBuilder.ChapterDescription)
-    curriculumBuilder.getTotalSessionsTxtFld().type(this.curriculumBuilder.ValidTotalSessionsNum)
-    curriculumBuilder.getContinueBtn().click()
+    adminPostSetupCurriculumBuilderPage.getAddThemeBtn().click()
+    adminPostSetupCurriculumBuilderPage.getChapterNumTxtFld().type(this.adminPostSetupCurriculumBuilderPage.ChapterNum)
+    adminPostSetupCurriculumBuilderPage.getSubAdminChapterName().type(this.adminPostSetupCurriculumBuilderPage.ChapterName)
+    adminPostSetupCurriculumBuilderPage.getChapterDescription().type(this.adminPostSetupCurriculumBuilderPage.ChapterDescription)
+    adminPostSetupCurriculumBuilderPage.getTotalSessionsTxtFld().type(this.adminPostSetupCurriculumBuilderPage.ValidTotalSessionsNum)
+    adminPostSetupCurriculumBuilderPage.getContinueBtn().click()
     cy.wait(2000)
   })
 
   it("To validate school sub-admin is able to delete the curriculum/EL-4870/ES4870_02", function () {
-    curriculumBuilder.getChapterLst().each(($e1, index, $list) => {
+    adminPostSetupCurriculumBuilderPage.getChapterLst().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt.includes(this.curriculumBuilder.ChapterName)) {
-        curriculumBuilder.getChapterDltBtn().eq(index).click({ force: true })
+      if (txt.includes(this.adminPostSetupCurriculumBuilderPage.ChapterName)) {
+        adminPostSetupCurriculumBuilderPage.getChapterDltBtn().eq(index).click({ force: true })
       }
     })
-    curriculumBuilder.getDeleteChapterBtn().click()
+    adminPostSetupCurriculumBuilderPage.getDeleteChapterBtn().click()
   })
 
   //post - Condition
@@ -111,26 +104,26 @@ describe("Verify Sub Admin Curriculum Page functionalities", function () {
     cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.fNew, validAdminLoginData.password)
     })
-    home.getSchoolLnk().click({ force: true })
-    home.getCurriculumBuilderSectionLnk().click()
-    curriculumBuilder.getTitle().should('have.text', this.curriculumBuilder.Title)
-    curriculumBuilder.getGradeLst().each(($e1, index, $list) => {
+    adminPostSetupHomePage.getSchoolLnk().click({ force: true })
+    adminPostSetupHomePage.getCurriculumBuilderSectionLnk().click()
+    adminPostSetupCurriculumBuilderPage.getTitle().should('have.text', this.adminPostSetupCurriculumBuilderPage.Title)
+    adminPostSetupCurriculumBuilderPage.getGradeLst().each(($e1, index, $list) => {
       const text = $e1.text()
-      if (text.includes(this.curriculumBuilder.Grade)) {
+      if (text.includes(this.adminPostSetupCurriculumBuilderPage.Grade)) {
         cy.get('td button').eq(index).click()
       }
     })
-    curriculumBuilder.getSubLstUnderGrade().each(($e2, index, $list) => {
+    adminPostSetupCurriculumBuilderPage.getSubLstUnderGrade().each(($e2, index, $list) => {
       const sub = $e2.text()
-      if (sub.includes(this.curriculumBuilder.SubjectName)) {
-        curriculumBuilder.getEditCurriculumBtnLst().eq(index).click()
+      if (sub.includes(this.adminPostSetupCurriculumBuilderPage.SubjectName)) {
+        adminPostSetupCurriculumBuilderPage.getEditCurriculumBtnLst().eq(index).click()
         return false;
       }
     })
-    curriculumBuilder.getChapterLst().each(($e1, index, $list) => {
+    adminPostSetupCurriculumBuilderPage.getChapterLst().each(($e1, index, $list) => {
       const text = $e1.text()
-      if (text.includes(this.curriculumBuilder.ChapterName)) {
-        curriculumBuilder.getChapterDltBtn().eq(index).click()
+      if (text.includes(this.adminPostSetupCurriculumBuilderPage.ChapterName)) {
+        adminPostSetupCurriculumBuilderPage.getChapterDltBtn().eq(index).click()
       }
     })
     cy.get('.MuiButton-contained').click()

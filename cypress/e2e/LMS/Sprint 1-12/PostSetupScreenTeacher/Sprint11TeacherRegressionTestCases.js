@@ -9,7 +9,6 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
     sp11.getTeacher().eq(1).click();
     cy.fixture("LMS/TeacherLoginCredentials").then(function (validTeacherLoginData) {
       this.validTeacherLoginData = validTeacherLoginData;
-      
     });
   });
 

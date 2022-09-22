@@ -1,123 +1,123 @@
-class AdminDashboardPage{
+class AdminDashboardPage {
 
-    getSideMenuAdminSchoolImg(){
-        return  cy.get('div.side-nav-icon img[src="/static/media/company.e1656b4d.svg"]')
-    }
-    
-    getGradesAndDepartmentQuickLink(){
-        return  cy.get('div.StudentSchool_schQicLikSect__sL7xN p').contains('Grades & Stream')
+    getSideMenuAdminSchoolImg() {
+        return cy.get('div.side-nav-icon img[src="/static/media/company.e1656b4d.svg"]')
     }
 
-    getGradesAndSubjectBtn(){
-        return  cy.get('button#scrollable-auto-tab-1')
-    }   
-
-    getEditableGradeBtn(){
-        return  cy.get('tbody.MuiTableBody-root td button.sectionsBtn').eq(0)
+    getGradesAndDepartmentQuickLink() {
+        return cy.get('div.StudentSchool_schQicLikSect__sL7xN p').contains('Grades & Stream')
     }
 
-    getEditableGradePopUpTxt(){
-        return  cy.get('div.add-section-form span')
+    getGradesAndSubjectBtn() {
+        return cy.get('button#scrollable-auto-tab-1')
     }
 
-    getEditableGradeSection(){
-        return  cy.get('input.MuiOutlinedInput-input')
+    getEditableGradeBtn() {
+        return cy.get('tbody.MuiTableBody-root td button.sectionsBtn').eq(0)
     }
 
-    getEditableGradeOptionalSubDropdown(){
-        return  cy.get('div[data-testid="subjectSelect"]')
-    }
- 
-    getEditableGradeOptionalSubCheckBox(){
-        return  cy.get('div.MuiPaper-root input.PrivateSwitchBase-input')
+    getEditableGradePopUpTxt() {
+        return cy.get('div.add-section-form span')
     }
 
-    getEditableGradePopUpSaveBtn(){
-        return  cy.get('button.sectionSaveBtn')
+    getEditableGradeSection() {
+        return cy.get('input.MuiOutlinedInput-input')
     }
 
-    getEditableGradePopUpSaveSuccessMeg(){
-        return  cy.get('div.MuiAlert-message')
+    getEditableGradeOptionalSubDropdown() {
+        return cy.get('div[data-testid="subjectSelect"]')
     }
 
-    getLisOfGrades(){
-        return  cy.get('div._1EEDX')
+    getEditableGradeOptionalSubCheckBox() {
+        return cy.get('div.MuiPaper-root input.PrivateSwitchBase-input')
     }
 
-    getLisOfSection(){
-        return  cy.get('tbody.MuiTableBody-root td button.sectionsBtn')
+    getEditableGradePopUpSaveBtn() {
+        return cy.get('button.sectionSaveBtn')
     }
 
-    getAddNewGradeBtn(){
-        return  cy.get('button.sectionAddBtn').eq(0)
+    getEditableGradePopUpSaveSuccessMeg() {
+        return cy.get('div.MuiAlert-message')
     }
 
-    getAddNewGradePopupTxt(){
-        return  cy.get('div.pop-header')
+    getLisOfGrades() {
+        return cy.get('div._1EEDX')
     }
 
-    getAddNewGradePopupCancelBtn(){
-        return  cy.get('button.sectionCancelBtn ')
+    getLisOfSection() {
+        return cy.get('tbody.MuiTableBody-root td button.sectionsBtn')
     }
 
-    getClassDetailsBtn(){
-        return  cy.get('span.class-label')
+    getAddNewGradeBtn() {
+        return cy.get('button.sectionAddBtn').eq(0)
     }
 
-    getClassDetailsBackBtn(){
-        return  cy.get('img[style="cursor: pointer;"]')
+    getAddNewGradePopupTxt() {
+        return cy.get('div.pop-header')
     }
 
-    getClassDetailsDashboardClassName(){
-        return  cy.get('div.header-container-out div')
+    getAddNewGradePopupCancelBtn() {
+        return cy.get('button.sectionCancelBtn ')
     }
 
-    getClassDetailsClassTitle(){
-        return  cy.get('div.inner-header-container div.class-font')
+    getClassDetailsBtn() {
+        return cy.get('span.class-label')
     }
 
-    getClassDetailsSubjectFilter(){
-        return  cy.get('div#demo-simple-select-0')
+    getClassDetailsBackBtn() {
+        return cy.get('img[style="cursor: pointer;"]')
     }
 
-    getClassDetailsCurrentDate(){
-        return  cy.get('div.ClassDashboard_classDashboardDate__1CYTt')
+    getClassDetailsDashboardClassName() {
+        return cy.get('div.header-container-out div')
     }
 
-    getClassDetailsStudentPresentCount(){
-        return  cy.get('div.ClassDashboard_addUserIcon__l2hkx p')
+    getClassDetailsClassTitle() {
+        return cy.get('div.inner-header-container div.class-font')
     }
 
-    getClassDetailsSessionCompletedSec(){
-        return  cy.get('div.overViewCardItem p.cardTitle').contains('Sessions Completed')
+    getClassDetailsSubjectFilter() {
+        return cy.get('div#demo-simple-select-0')
     }
 
-    getClassDetailsPendingTaskSec(){
-        return  cy.get('div.overViewCardItem p.cardTitle').contains('Pending Tasks')
+    getClassDetailsCurrentDate() {
+        return cy.get('div.ClassDashboard_classDashboardDate__1CYTt')
     }
 
-    getClassDetailsAverageAttendenceSec(){
-        return  cy.get('div.overViewCardItem p.cardTitle').contains('Average Attendance')
+    getClassDetailsStudentPresentCount() {
+        return cy.get('div.ClassDashboard_addUserIcon__l2hkx p')
     }
 
-    getClassDetailsMilestoneSection(){
-        return  cy.get('div.milestone-grid-container p')
-    }
-    
-    getClassDetailsTopPerformerBtn(){
-        return  cy.get('button[value="top performers"]')
+    getClassDetailsSessionCompletedSec() {
+        return cy.get('div.overViewCardItem p.cardTitle').contains('Sessions Completed')
     }
 
-    getClassDetailsNoNeedAttentionBtn(){
-        return  cy.get('button[value="needs attention"]')
+    getClassDetailsPendingTaskSec() {
+        return cy.get('div.overViewCardItem p.cardTitle').contains('Pending Tasks')
     }
 
-    getClassDetailsListOfTopPerformer(){
-        return  cy.get('tr.MuiTableRow-root')
+    getClassDetailsAverageAttendenceSec() {
+        return cy.get('div.overViewCardItem p.cardTitle').contains('Average Attendance')
     }
 
-    getClassDetailsTopPerformerCommingSoonTag(){
-        return  cy.get('div.cmgSoonOverLaySect p')
+    getClassDetailsMilestoneSection() {
+        return cy.get('div.milestone-grid-container p')
+    }
+
+    getClassDetailsTopPerformerBtn() {
+        return cy.get('button[value="top performers"]')
+    }
+
+    getClassDetailsNoNeedAttentionBtn() {
+        return cy.get('button[value="needs attention"]')
+    }
+
+    getClassDetailsListOfTopPerformer() {
+        return cy.get('tr.MuiTableRow-root')
+    }
+
+    getClassDetailsTopPerformerCommingSoonTag() {
+        return cy.get('div.cmgSoonOverLaySect p')
     }
 }
-export default AdminDashboardPage
+module.exports = new AdminDashboardPage() 

@@ -1,5 +1,3 @@
-
-
 const forgotPasswordPage = require('../../../../support/pageObjects/LMS-1/ForgotPasswordPage')
 const indexPage = require('../../../../support/pageObjects/LMS-1/IndexPage')
 const loginPage = require('../../../../support/pageObjects/LMS-1/LoginPage')

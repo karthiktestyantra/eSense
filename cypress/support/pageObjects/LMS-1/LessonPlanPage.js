@@ -213,4 +213,4 @@ class LessonPlanPage {
     }
 }
 
-export default LessonPlanPage
+module.exports = new LessonPlanPage()

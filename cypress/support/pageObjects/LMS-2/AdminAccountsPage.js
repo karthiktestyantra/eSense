@@ -44,4 +44,4 @@ class AdminAccountsPage{
     }
     
 }
-export default AdminAccountsPage;
+module.exports = new AdminAccountsPage() 

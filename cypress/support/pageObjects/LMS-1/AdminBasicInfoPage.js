@@ -261,4 +261,4 @@ class AdminBasicInfoPage{
     }
 
 }
-export default AdminBasicInfoPage
+module.exports = new AdminBasicInfoPage() 

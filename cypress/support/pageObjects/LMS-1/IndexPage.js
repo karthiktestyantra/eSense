@@ -11,4 +11,4 @@ class IndexPage {
     return cy.get("div.home-btn-container button.MuiButton-root").eq(2);
   }
 }
-export default IndexPage
+module.exports = new IndexPage()

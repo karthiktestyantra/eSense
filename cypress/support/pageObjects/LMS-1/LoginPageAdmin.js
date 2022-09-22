@@ -39,5 +39,5 @@ class LoginPageAdmin {
       return cy.get(".text-danger");
     }
   }
-  export default LoginPageAdmin;
+  module.exports = new LoginPageAdmin() 
   

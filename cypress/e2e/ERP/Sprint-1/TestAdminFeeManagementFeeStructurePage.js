@@ -133,15 +133,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   })
 
   it('EE-79/ERP_TC_013,015 - Validate the user is able to enter deatils in the Add New Fee Structure details popup', { tags: '@somke' }, function () {
-    feeManagementFeeStructurePage.validateAddNewFeeStructureNameTextField(this.feeManagement.feeStructureString, this.feeManagement.feeStructureStringLength, this.feeManagement.feeStructureName)
-    feeManagementFeeStructurePage.verifyAddNewFeeStructureDescriptionTextareafield(this.feeManagement.feeStructureDescription)
-
+    feeManagementFeeStructurePage.enterAllFeeStructureDetails(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription, Number(dayjs().format('D')), Number(dayjs().format('D')))
   })
-
-
-
-
-
-
 
 })

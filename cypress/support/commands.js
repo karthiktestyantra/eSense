@@ -99,8 +99,9 @@ Cypress.Commands.add('checkAndVerify', (element) => {
 
 //This command is used to uncheck and verify the checkbox
 Cypress.Commands.add('unCheckAndVerify', (element) => {
-  element.uncheck().should('not.be.checked')
+  element.uncheck({ force: true }).should('not.be.checked')
 })
+
 
 
 

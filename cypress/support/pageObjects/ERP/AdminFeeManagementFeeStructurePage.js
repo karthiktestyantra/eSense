@@ -101,11 +101,11 @@ class AdminFeeManagementFeeStructurePage {
     }
 
     getStartDateIcon() {
-        return cy.get('[class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-slyssw"]').eq(0)
+        return cy.get('.MuiIconButton-edgeEnd').eq(0)
     }
 
     getEndDateIcon() {
-        return cy.get('[class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-slyssw"]').eq(1)
+        return cy.get('.MuiIconButton-edgeEnd').eq(1)
     }
 
     getStartDate(StartDate) {
@@ -113,11 +113,15 @@ class AdminFeeManagementFeeStructurePage {
     }
 
     getEndDate(EndDate) {
-        return cy.xpath('//div[@class="css-mvmu1r"]//button[text()="' + EndDate + '"]')
+        return cy.xpath('//button[text()="' + EndDate + '"]')
+    }
+
+    getEndDateRightArrowIcon() {
+        return cy.get('[data-testid="ArrowRightIcon"]')
     }
 
     getNewStudentCheckBox() {
-        return cy.xpath('//input[@class="muicheck"]')
+        return cy.get('[data-testid="newStudent"]')
     }
 
     getExisitingCheckBox() {
@@ -212,19 +216,22 @@ class AdminFeeManagementFeeStructurePage {
         this.getOnSetUpFeeMastersOrAddNewButton().click()
     }
 
-    enterAllDetails(FeeStructureName, Description, StartDate, EndDate) {
+    enterAllFeeStructureDetails(FeeStructureName, Description, StartDate, EndDate) {
         this.getFeeStructureNameTextfield().type(FeeStructureName)
         this.getDescriptionTextAreaField().type(Description)
         this.getStartDateIcon().click()
-        this.getStartDate(StartDate).click()
+        cy.forceClick(this.getStartDate(StartDate))
         cy.wait(1000)
-        this.getEndDateIcon().click()
-        this.getEndDate(EndDate).click()
-        cy.checkAndVerify(this.getExisitingCheckBox())
+        cy.forceClick(this.getEndDateIcon())
+        cy.forceClick(this.getEndDateRightArrowIcon())
+        cy.wait(1000)
+        this.getEndDate(EndDate).click({ waitForAnimations: false })
+        this.verifyApplicableForStudentCheckbox()
+        cy.unCheckAndVerify(this.getNewStudentCheckBox())
         this.getSelectGrade().click()
         this.getGrade3().click()
         this.clickOnOutSide()
-        this.getContinueButton().click({ force: true })
+        cy.forceClick(this.getContinueButton())
     }
 
     verifyElementsInAddNewFeeStructurePage() {
@@ -256,7 +263,7 @@ class AdminFeeManagementFeeStructurePage {
         this.getFeeStructureNameErrorMessage().should('have.text', FeeStructureNameRequired)
     }
 
-    validateAddNewFeeStructureNameTextField(feestuctureString, lengthnumber, feeStructureName, ) {
+    validateAddNewFeeStructureNameTextField(feestuctureString, lengthnumber, feeStructureName) {
         this.getFeeStructureNameTextfield().type(feestuctureString).invoke('val').should('have.length', lengthnumber)
         this.getFeeStructureNameTextfield().clear().type(feeStructureName)
     }
@@ -269,7 +276,7 @@ class AdminFeeManagementFeeStructurePage {
     verifyFeesStructureContinueBtnEveryTab() {
         this.getFeeStructureTabsTitle().each(($e1, index, $list) => {
             cy.wrap($e1).click()
-            cy.isEnabled(this.getFeeStructureContinueBtn())
+            cy.isDisabled(this.getFeeStructureContinueBtn())
         })
         this.getFeeStructureTabsTitle().eq(0).click()
     }

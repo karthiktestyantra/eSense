@@ -92,7 +92,7 @@ describe("Verify Admin student grade book functionalities", function () {
 
    it("Validate user is abel to select Number from 0 to 100 in multiple of 5/EL-4151/ES4151_15", function () {
       home.getReportsSectionLnk().click({ force: true })
-      gradebook.getStudentGradebookLnk({ force: true }).click()
+      gradebook.getStudentGradebookLnk().click({force:true})
       gradebook.getCreateTemplateBtn().click()
       gradebook.getAddTestBtn().click({ force: true })
       cy.wait(1000)
@@ -224,10 +224,10 @@ describe("Verify Admin student grade book functionalities", function () {
 
    it("Validate whether user is able to view the details present in the  preview gradebook screen(Scholastic, co-scholastic details)/EL-3974/ES3974_03", function () {
       gradebook.getNoOfTermsDrpDwn().should('have.text', "1")
-      gradebook.getAddTheoryTheoryFld().should('have.value', "20")
-      gradebook.getPracticalFld().should('have.value', "0")
+      gradebook.getAddTheoryTheoryFld().should('have.value', "50")
+      gradebook.getPracticalFld().should('have.value', "50")
       gradebook.getAddTestTypeDrpDwnInAddTheory().should('have.text', "Half Yearly")
-      gradebook.getActivityDrpDwn().should('have.value', "123aws")
+      gradebook.getActivityDrpDwn().should('have.value', "abc")
    })
 
    it("Validate user is able to click on 'Edit' button/EL-3974/ES3974_04", function () {
@@ -253,5 +253,21 @@ describe("Verify Admin student grade book functionalities", function () {
    it("Validate user clicking on 'create new' button, rediredted to create template screen/EL-3974/ES3974_07", function () {
       cy.contains("Create New Template").should('be.visible')
    })
+
+   //pre_Condition
+   it("Delete the created previous grade template",function(){
+      home.getReportsSectionLnk().click({ force: true })
+      gradebook.getStudentGradebookLnk().click({ force: true })
+      cy.wait(1000)
+   gradebook.getGradesLstInTemplate().each(($e1, index, $list) => {
+      const txt = $e1.text()
+      if (txt.includes("Grade 1")) {
+         gradebook.getDltBtnLstForTemplatePage().eq(index).click()
+         return false
+      }
+   })
+   gradebook.getDeleteConfirmationBtnInTemplate().click()
+})
+
 })
 

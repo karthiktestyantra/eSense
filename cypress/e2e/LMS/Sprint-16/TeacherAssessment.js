@@ -222,14 +222,15 @@ describe("Verify techer assessment functionalities", function () {
     teacherELA.getExcellentRankChckBxLst().eq(3).should('be.enabled').click()
   })
 
-  it.skip("To verify that after evaluation the rank is automatically saved/EL-4045/ES4045_14", function () {
-    teacherELA.getELACardSubmitBtn().click()
-    cy.contains("Successfully Evaluated").should('be.visible')
-    teacherELA.getELAQuestionsSidePanelCloseIcn().click()
-    teacherELA.getELACardFilterDrpDwn().click()
-    teacherELA.getELACardFilterDrpDwnLst().contains("Evaluated").click()
-    teacherELA.getExcellentRankChckBxLst().should('be.checked')
-  })
+  // it("To verify that after evaluation the rank is automatically saved/EL-4045/ES4045_14", function () {
+  //   teacherELA.getELACardSubmitBtn().click()
+  //   cy.contains("Successfully Evaluated").should('be.visible')
+  //   teacherELA.getELAQuestionsSidePanelCloseIcn().click()
+  //   teacherELA.getELACardFilterDrpDwn().click()
+  //   teacherELA.getELACardFilterDrpDwnLst().contains("Evaluated").click()
+  //   teacherELA.getExcellentRankChckBxLst().should('be.checked')
+  // })
+  //This script is commented due to continues run in scripts without saving this
 
   it("To verify that Tabs for different ELA groups are created by the teacher while assigning the ELA/EL-4045/ES4045_15", function () {
     teacherELA.getELACardLst().each(($e1, index, $list) => {

@@ -123,5 +123,11 @@ class AdminGradeBookPage {
     getAddSubdrpDwnInAddSub(){
         return cy.get('#mui-component-select-subject')
     }
+    getDltBtnLstForTemplatePage(){
+        return cy.get('div.action-btn-container img[aria-label="Delete"]')
+    }
+    getDeleteConfirmationBtnInTemplate(){
+        return cy.get('div[class="delete-button"]')
+    }
   }
   export default AdminGradeBookPage;

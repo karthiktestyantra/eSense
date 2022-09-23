@@ -205,7 +205,7 @@ describe("Verify admin 360 report functionalities", function () {
     cy.wait(2000)
     report.getNameLstIn360report().each(($e1, index, $list) => {
       const text = $e1.text()
-      if (text.includes("beckam")) {
+      if (text.includes("pele")) {
         report.getViewReportLst().eq(index).click()
       }
     })

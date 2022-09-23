@@ -2,6 +2,7 @@ const indexPage = require('../../../../support/pageObjects/LMS-1/IndexPage')
 const sprint10Regression = require('../../../../support/pageObjects/LMS-1/Sprint10Regression')
 
 describe("Verify Sprint 10 related functionalities", function () {
+  
   before(function () {
     cy.visit(Cypress.env('urlQAPreSetup'))
     indexPage.getAdmin().click();

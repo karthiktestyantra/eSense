@@ -3,16 +3,13 @@ const loginPageAdmin = require('../../../../support/pageObjects/LMS-1/LoginPageA
 const adminBasicInfoPage = require('../../../../support/pageObjects/LMS-1/AdminBasicInfoPage')
 
 describe("Verify Login Page Functionalities", function () {
+
   beforeEach(function () {
     cy.visit(Cypress.env('urlQAPreSetup'))
     indexPage.getAdmin().click();
-    cy.fixture("LMS/invalidAdminLoginCredentials").then(function (invalidAdminLoginData) {
-      this.invalidAdminLoginData = invalidAdminLoginData;
-      cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
-        this.validAdminLoginData = validAdminLoginData;
-      });
-    });
-  });
+    cy.fixture("LMS/invalidAdminLoginCredentials").as("invalidAdminLoginData")
+    cy.fixture("LMS/validAdminLoginCredentials").as("validAdminLoginData")
+  })
 
   //admin login 
   it("Verify that the Admin login page should be by clicking Admin login in Index Page", function () {

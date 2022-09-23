@@ -2,6 +2,7 @@ const adminpages = require('../../../../support/pageObjects/LMS-1/adminpages')
 const sprint11Pages = require('../../../../support/pageObjects/LMS-1/sprint11Pages')
 
 describe("Verify Sprint 11 related functionalities", function () {
+  
   before(function () {
     cy.visit(Cypress.env('urlQAPreSetup'))
     adminpages.getadminbutton().click();

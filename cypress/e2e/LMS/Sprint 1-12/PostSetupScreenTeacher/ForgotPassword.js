@@ -18,7 +18,6 @@ describe("Verify Forgot Password Functionaities", function () {
   it("Forgot Password field empty validation", function () {
     forgotPasswordPage.getSendResetInstructionsButton().click();
     forgotPasswordPage.getErrorMessage().should("have.text", "This field is required");
-
   });
 
   it("Forgot Password field validation", function () {

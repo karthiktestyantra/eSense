@@ -4,6 +4,7 @@ const teacherAccountsPage = require('../../../../support/pageObjects/LMS-1/Teach
 const userPostSetupPage = require('../../../../support/pageObjects/LMS-1/UserPostSetupPage')
 
 describe("Verify the User Menu related Functionalities", function () {
+  
   before(function () {
     cy.visit(Cypress.env('urlQAPreSetup'))
     cy.exec("npm cache clear --force");

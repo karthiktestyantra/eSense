@@ -3,6 +3,7 @@ const sprint12Regression = require('../../../../support/pageObjects/LMS-1/Sprint
 const curriculumBuilderPage = require('../../../../support/pageObjects/LMS-1/CurriculumBuilderPage')
 
 describe("Verify Sprint 12 related functionalities", function () {
+  
   before(function () {
     cy.visit(Cypress.env('urlQAPreSetup'))
     indexPage.getAdmin().click();

@@ -1,290 +1,290 @@
-class MainAdminAddELAPage{
+class MainAdminAddELAPage {
 
-    getMenuCoursesBtn(){
-        return   cy.get('div#kt_aside_menu_wrapper a span.menu-title').contains('Courses')
-       }
+    getMenuCoursesBtn() {
+        return cy.get('div#kt_aside_menu_wrapper a span.menu-title').contains('Courses')
+    }
 
-       getCoursesKebabMenu(){
-        return   cy.get('span.MuiIconButton-label svg')
-       }  
-       
-       getCoursesKebabMenuChapterListBtn(){
-        return   cy.get('div.MuiModal-root span').contains('Chapter List')
-       }  
-       
-       getChaterListKebabMenu(){
-        return   cy.get('span.MuiIconButton-label svg')
-       }  
+    getCoursesKebabMenu() {
+        return cy.get('span.MuiIconButton-label svg')
+    }
 
-       getCoursesKebabMenuAddELABtn(){
-        return   cy.get('div.MuiModal-root span').contains('Add ELA')
-       } 
-       
-       getSearchCourseNameTxtField(){
-        return   cy.get('input[placeholder="Search Course Name"]')
-       }  
+    getCoursesKebabMenuChapterListBtn() {
+        return cy.get('div.MuiModal-root span').contains('Chapter List')
+    }
 
-       getSearchListOfCourseName(){
-        return   cy.get('a[data-kt-ecommerce-product-filter="product_name"]')
-       } 
+    getChaterListKebabMenu() {
+        return cy.get('span.MuiIconButton-label svg')
+    }
 
-       getUploadQuestionsBtn(){
-        return   cy.get('button.btn').contains('Upload Questions')
-       } 
-       
-       getUploadFileBtn(){
-        return   cy.get('input#file-input')
-       } 
-          
-       getImportQuestionBtn(){
-        return   cy.get('.UploadModal_bulkImport__1mkUM')
-       }
-       
-       getTopicNameDropdown(){
-        return   cy.get('select[name="topic"]')
-       }
-       
-       getTypeTxtField(){
-        return   cy.get('div.addElaField input[name="type"]')
-       } 
+    getCoursesKebabMenuAddELABtn() {
+        return cy.get('div.MuiModal-root span').contains('Add ELA')
+    }
 
-       getConductedForTxtField(){
-        return   cy.get('div.addElaField input[name="conductFor"]')
-       } 
+    getSearchCourseNameTxtField() {
+        return cy.get('input[placeholder="Search Course Name"]')
+    }
 
-       getLearningOutcomeTxtField(){
-        return   cy.get('input[name="learningOutcome"]')
-       } 
+    getSearchListOfCourseName() {
+        return cy.get('a[data-kt-ecommerce-product-filter="product_name"]')
+    }
 
-       getObjectiveTxtField(){
-        return   cy.get('input[name="objective"]')
-       } 
+    getUploadQuestionsBtn() {
+        return cy.get('button.btn').contains('Upload Questions')
+    }
 
-       getParameterTxtField(){
-        return   cy.get('input[name="parameter"]')
-       } 
+    getUploadFileBtn() {
+        return cy.get('input#file-input')
+    }
 
-       getDomainDropdown(){
-        return   cy.get('select[name="domain"]')
-       } 
+    getImportQuestionBtn() {
+        return cy.get('.UploadModal_bulkImport__1mkUM')
+    }
 
-       getMainSkillDropdown(){
-        return   cy.get('select[name="mainSkill"]')
-       } 
+    getTopicNameDropdown() {
+        return cy.get('select[name="topic"]')
+    }
 
-       getSubSkillTxtField(){
-        return   cy.get('input[name="subSkill"]')
-       } 
+    getTypeTxtField() {
+        return cy.get('div.addElaField input[name="type"]')
+    }
 
-       getDomainExcellentTxtField(){
-        return   cy.get('input[name="domainExcellent"]')
-       } 
+    getConductedForTxtField() {
+        return cy.get('div.addElaField input[name="conductFor"]')
+    }
 
-       getDomainGoodTxtField(){
-        return   cy.get('input[name="domainGood"]')
-       } 
+    getLearningOutcomeTxtField() {
+        return cy.get('input[name="learningOutcome"]')
+    }
 
-       getDomainSatisTxtField(){
-        return   cy.get('input[name="domainSatis"]')
-       }
+    getObjectiveTxtField() {
+        return cy.get('input[name="objective"]')
+    }
 
-       getDomainBetterTxtField(){
-        return   cy.get('input[name="domainBetter"]')
-       }
+    getParameterTxtField() {
+        return cy.get('input[name="parameter"]')
+    }
 
-       getCompetencyDropdown(){
-        return   cy.get('select[name="competency"]')
-       }
+    getDomainDropdown() {
+        return cy.get('select[name="domain"]')
+    }
 
-       getSubCompetencyTxtField(){
-        return   cy.get('input[name="subCompetency"]')
-       }
+    getMainSkillDropdown() {
+        return cy.get('select[name="mainSkill"]')
+    }
 
-       getcompetencyExcellentTxtField(){
-        return   cy.get('input[name="competencyExcellent"]')
-       } 
+    getSubSkillTxtField() {
+        return cy.get('input[name="subSkill"]')
+    }
 
-       getcompetencyGoodTxtField(){
-        return   cy.get('input[name="competencyGood"]')
-       } 
+    getDomainExcellentTxtField() {
+        return cy.get('input[name="domainExcellent"]')
+    }
 
-       getCompetencySatisTxtField(){
-        return   cy.get('input[name="competencySatis"]')
-       }
+    getDomainGoodTxtField() {
+        return cy.get('input[name="domainGood"]')
+    }
 
-       getcompetencyBetterTxtField(){
-        return   cy.get('input[name="competencyBetter"]')
-       }
+    getDomainSatisTxtField() {
+        return cy.get('input[name="domainSatis"]')
+    }
 
-       getUploadRankingsBtn(){
-        return   cy.get('button.btn').contains('Upload Rankings')
-       }
+    getDomainBetterTxtField() {
+        return cy.get('input[name="domainBetter"]')
+    }
 
-       getSelectFolderUploadRankings(){
-        return   cy.get('input#file-input')
-       }
+    getCompetencyDropdown() {
+        return cy.get('select[name="competency"]')
+    }
 
-       getImportUploadRankingsBtn(){
-        return   cy.get('button.UploadModal_bulkImport__1mkUM ')
-       }
+    getSubCompetencyTxtField() {
+        return cy.get('input[name="subCompetency"]')
+    }
 
-       getSaveELABtn(){
-        return   cy.get('button.btn span').contains('Save ELA')
-       }
+    getcompetencyExcellentTxtField() {
+        return cy.get('input[name="competencyExcellent"]')
+    }
 
-       getELASuccessFullySavedMsg(){
-        return   cy.get('div.modal-content div.body')
-       }
+    getcompetencyGoodTxtField() {
+        return cy.get('input[name="competencyGood"]')
+    }
 
-       getELADeleteBtn(){
-        return   cy.get('span.indicator-label').contains('Delete ELA') 
-       }
+    getCompetencySatisTxtField() {
+        return cy.get('input[name="competencySatis"]')
+    }
 
-       getOkBtn(){
-        return   cy.get('.footer > .btn') 
-       }
+    getcompetencyBetterTxtField() {
+        return cy.get('input[name="competencyBetter"]')
+    }
 
-       getDeletePopupOkBtn(){
-        return   cy.get('button.btn-elevate') .contains('Delete')
-       }
+    getUploadRankingsBtn() {
+        return cy.get('button.btn').contains('Upload Rankings')
+    }
 
-       getBackBtn(){
-        return   cy.get('.card-body > :nth-child(1) > :nth-child(1) > .btn')
-       }
+    getSelectFolderUploadRankings() {
+        return cy.get('input#file-input')
+    }
 
-       getBackPopupBtn(){
-        return   cy.get('.modal-footer > .btn-primary')
-       }
+    getImportUploadRankingsBtn() {
+        return cy.get('button.UploadModal_bulkImport__1mkUM ')
+    }
 
-       getPopupOkBtn(){
-        return   cy.get('.modal-footer > .btn-primary')
-       }
+    getSaveELABtn() {
+        return cy.get('button.btn span').contains('Save ELA')
+    }
 
-       getErrorMsgMoreThn50(){
-        return   cy.get('span[role="alert"]')
-       }
-    
-       getOrganizationmanagementBtn(){
-        return   cy.get('div.menu-item span.menu-title').contains('Organization Management')
-       }
+    getELASuccessFullySavedMsg() {
+        return cy.get('div.modal-content div.body')
+    }
 
-       getListOfOrganizationmanagementNames(){
-        return   cy.get('a[data-kt-ecommerce-product-filter="product_name"]')
-       }
+    getELADeleteBtn() {
+        return cy.get('span.indicator-label').contains('Delete ELA')
+    }
 
-       getListOfOrganizationmanagementKababMenu(){
-        return   cy.get(':nth-child(n) > .text-center > [href="#"] > .MuiButtonBase-root > .MuiIconButton-label > .MuiSvgIcon-root')
-       }
+    getOkBtn() {
+        return cy.get('.footer > .btn')
+    }
 
-       getSchoolManagementBtn(){
-        return   cy.get(':nth-child(5) > .text-center > .menu > [style="text-align: justify;"] > .menu-link')
-       }
+    getDeletePopupOkBtn() {
+        return cy.get('button.btn-elevate').contains('Delete')
+    }
 
-       getSchoolManagementSubDomain(){
-        return   cy.get('td.text-align-left a')
-       }
+    getBackBtn() {
+        return cy.get('.card-body > :nth-child(1) > :nth-child(1) > .btn')
+    }
 
-       getListOfSchoolmanagementKababMenu(){
-        return   cy.get('button.ctgBtnSect span svg')
-       }
+    getBackPopupBtn() {
+        return cy.get('.modal-footer > .btn-primary')
+    }
 
-       getSyncNowBtn(){
-        return   cy.get(':nth-child(5) > .text-center > .menu > :nth-child(4) > .menu-link')
-       }
+    getPopupOkBtn() {
+        return cy.get('.modal-footer > .btn-primary')
+    }
 
-       getAdminUserImg(){
-        return   cy.get('div.side-nav-lists ul li a[href="/admin/teacherStudent"]')
-       }
+    getErrorMsgMoreThn50() {
+        return cy.get('span[role="alert"]')
+    }
 
-       getAdminTeacherNames(){
-        return   cy.get(':nth-child(n) > :nth-child(2) > .MuiBox-root > .TeacherDashboard_studentMeta__3kQfU > :nth-child(1)')
-       }
+    getOrganizationmanagementBtn() {
+        return cy.get('div.menu-item span.menu-title').contains('Organization Management')
+    }
 
-       getListOfTeacherEditBtn(){
-        return   cy.get('button[aria-label="Edit Teacher"]')
-       }
+    getListOfOrganizationmanagementNames() {
+        return cy.get('a[data-kt-ecommerce-product-filter="product_name"]')
+    }
 
-       getSectionAndSubBtn(){
-        return   cy.get('button#scrollable-auto-tab-2')
-       }
+    getListOfOrganizationmanagementKababMenu() {
+        return cy.get(':nth-child(n) > .text-center > [href="#"] > .MuiButtonBase-root > .MuiIconButton-label > .MuiSvgIcon-root')
+    }
 
-       getSectionName(){
-        return   cy.get('div.sectGrdClsName')
-       }
+    getSchoolManagementBtn() {
+        return cy.get(':nth-child(5) > .text-center > .menu > [style="text-align: justify;"] > .menu-link')
+    }
 
-       getSectionDropdown(){
-        return   cy.get('.section-row-ta-out > .right-cls > .MuiFormControl-root > .MuiOutlinedInput-root > #opt-subjects')
-       }
+    getSchoolManagementSubDomain() {
+        return cy.get('td.text-align-left a')
+    }
 
-       getSectionDropdownGradeName(){
-        return   cy.get('.MuiListItemText-root > .MuiTypography-root')
-       }
-       getSectionDropDwnNameLst(){
+    getListOfSchoolmanagementKababMenu() {
+        return cy.get('button.ctgBtnSect span svg')
+    }
+
+    getSyncNowBtn() {
+        return cy.get(':nth-child(5) > .text-center > .menu > :nth-child(4) > .menu-link')
+    }
+
+    getAdminUserImg() {
+        return cy.get('div.side-nav-lists ul li a[href="/admin/teacherStudent"]')
+    }
+
+    getAdminTeacherNames() {
+        return cy.get(':nth-child(n) > :nth-child(2) > .MuiBox-root > .TeacherDashboard_studentMeta__3kQfU > :nth-child(1)')
+    }
+
+    getListOfTeacherEditBtn() {
+        return cy.get('button[aria-label="Edit Teacher"]')
+    }
+
+    getSectionAndSubBtn() {
+        return cy.get('button#scrollable-auto-tab-2')
+    }
+
+    getSectionName() {
+        return cy.get('div.sectGrdClsName')
+    }
+
+    getSectionDropdown() {
+        return cy.get('.section-row-ta-out > .right-cls > .MuiFormControl-root > .MuiOutlinedInput-root > #opt-subjects')
+    }
+
+    getSectionDropdownGradeName() {
+        return cy.get('.MuiListItemText-root > .MuiTypography-root')
+    }
+    getSectionDropDwnNameLst() {
         return cy.get('div.MuiListItemText-root span')
-       }
-       getSectionDrpDwnCheckBxLst(){
+    }
+    getSectionDrpDwnCheckBxLst() {
         return cy.get('div ul[role="listbox"] li span.MuiCheckbox-root input')
-       }
+    }
 
-       getSectionDropdownGradeCheckBox(){
-        return   cy.get('input.PrivateSwitchBase-input')
-       }
+    getSectionDropdownGradeCheckBox() {
+        return cy.get('input.PrivateSwitchBase-input')
+    }
 
-       
-       getSaveChangesBtn(){
-        return   cy.get('div.section-submit-button-row button')
-       }
 
-       getMenuProfileImg(){
-        return   cy.get('div.profile-pic ')
-       }
+    getSaveChangesBtn() {
+        return cy.get('div.section-submit-button-row button')
+    }
 
-       getMenuProfileLogoutBtn(){
-        return   cy.get('div.classTitle').contains('Logout')
-       }
+    getMenuProfileImg() {
+        return cy.get('div.profile-pic ')
+    }
 
-       getTeacherMyclassGradeName(){
-        return   cy.get('div.card_roman_txt').contains('Grade 5 B')
-       }
+    getMenuProfileLogoutBtn() {
+        return cy.get('div.classTitle').contains('Logout')
+    }
 
-       getTeacherMyclassImg(){
-        return   cy.get('div.side-nav-dashboard img[src="/static/media/myClasses.e2b87f30.svg"]')
-       }
+    getTeacherMyclassGradeName() {
+        return cy.get('div.card_roman_txt').contains('Grade 5 B')
+    }
 
-       getTeacherMyclassGradeArrowBtn(){
-        return   cy.get('div.popover-arrow')
-       }
+    getTeacherMyclassImg() {
+        return cy.get('div.side-nav-dashboard img[src="/static/media/myClasses.e2b87f30.svg"]')
+    }
 
-       getTeacherAssessmentBtn(){
-        return   cy.get('button.MuiButtonBase-root').contains('Assessments')
-       }
+    getTeacherMyclassGradeArrowBtn() {
+        return cy.get('div.popover-arrow')
+    }
 
-       getTeacherAsignmentBtn(){
-        return   cy.get('button[value="assignments"]')
-       }
+    getTeacherAssessmentBtn() {
+        return cy.get('button.MuiButtonBase-root').contains('Assessments')
+    }
 
-       getTeacherAddElaBtn(){
-        return   cy.get('button[data-testid="add-icon"]')
-       }
+    getTeacherAsignmentBtn() {
+        return cy.get('button[value="assignments"]')
+    }
 
-       getElaCardNameBtn(){
-        return   cy.get('div.MuiGrid-root div.d-tree-head')
-       }
+    getTeacherAddElaBtn() {
+        return cy.get('button[data-testid="add-icon"]')
+    }
 
-       getTeacherElaCardNameTxt(){
-        return   cy.get('h4.cntLibCardTitle strong')
-       }
+    getElaCardNameBtn() {
+        return cy.get('div.MuiGrid-root div.d-tree-head')
+    }
 
-       getTeacherMyProfileBtn(){
-        return   cy.get('div.menu-txt').contains('My Profile')
-       }
+    getTeacherElaCardNameTxt() {
+        return cy.get('h4.cntLibCardTitle strong')
+    }
 
-       getEsenseAdminElaDeleteBtn(){
-        return   cy.get('span.indicator-label').contains('Delete ELA')
-       }
+    getTeacherMyProfileBtn() {
+        return cy.get('div.menu-txt').contains('My Profile')
+    }
 
-       
+    getEsenseAdminElaDeleteBtn() {
+        return cy.get('span.indicator-label').contains('Delete ELA')
+    }
+
+
 
 
 }
-    export default MainAdminAddELAPage
+module.exports = new MainAdminAddELAPage() 

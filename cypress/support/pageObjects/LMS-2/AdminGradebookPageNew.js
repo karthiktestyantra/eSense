@@ -1,195 +1,196 @@
 class AdminGradebookPageNew {
-    getSiCreateTemplateBtn(){
+
+    getSiCreateTemplateBtn() {
         return cy.get('a.templateButton')
     }
-    getSiGradeDrpDwnInCreateTemplate(){
+    getSiGradeDrpDwnInCreateTemplate() {
         return cy.get('div.MuiSelect-select').eq(0)
     }
-    getSiSectionDrpDwnInCreateTemplate(){
+    getSiSectionDrpDwnInCreateTemplate() {
         return cy.get('div.MuiSelect-select').eq(1)
     }
-    getSiNoTermsDrpDwnInCreateTemplate(){
+    getSiNoTermsDrpDwnInCreateTemplate() {
         return cy.get('div.MuiSelect-select').eq(2)
     }
-    getSiDrpDwnLstInCreateTemplate(){
+    getSiDrpDwnLstInCreateTemplate() {
         return cy.get('ul li.MuiListItem-button')
     }
-    getSiStudentGradebookLnk(){
+    getSiStudentGradebookLnk() {
         return cy.get('div.popper-sub-student div.classTitle').contains("Student Gradebook");
     }
-    getSiScholosticActivitiesTxt(){
+    getSiScholosticActivitiesTxt() {
         return cy.get('p.CreateNewTemplate_crtNewTempScholTitle__2E12Z').eq(0)
     }
-    getSiAddTestTypeInCreateTemplate(){
+    getSiAddTestTypeInCreateTemplate() {
         return cy.get('button.MuiButton-SizeMedium').contains("+ Add Test Type")
     }
-    getSiAddTestTermDrpDwn(){
+    getSiAddTestTermDrpDwn() {
         return cy.get('#mui-component-select-testType')
     }
-    getSiTestTypeDrpDwnInCreateTemplate(){
+    getSiTestTypeDrpDwnInCreateTemplate() {
         return cy.get('.MuiInputBase-root #demo-simple-select-helper').eq(2)
     }
-    getSiMaxMarksDrpDwnInCreateTemplate(){
+    getSiMaxMarksDrpDwnInCreateTemplate() {
         return cy.get('.MuiInputBase-root #demo-simple-select-helper').eq(3)
     }
-    getSiAddActivityInCreateTemplate(){
+    getSiAddActivityInCreateTemplate() {
         return cy.get('button.MuiButton-SizeMedium').contains("+ Add Activity")
     }
-    getSiAddSubjectInCreateTemplate(){
+    getSiAddSubjectInCreateTemplate() {
         return cy.get('button.MuiButton-SizeMedium').contains(" + Add Subject ")
     }
-    getSiAddTheoryInCreateTemplate(){
+    getSiAddTheoryInCreateTemplate() {
         return cy.get('button.MuiButton-SizeMedium').contains("+ Add Theory and Practical")
     }
-    getSiTestTypeDrpDwnInAddTheoryCreateTemplate(){
+    getSiTestTypeDrpDwnInAddTheoryCreateTemplate() {
         return cy.get('.MuiInputBase-root #demo-simple-select-helper').eq(4)
     }
-    getSiTheoryFldInAddTheoryCreateTemplate(){
+    getSiTheoryFldInAddTheoryCreateTemplate() {
         return cy.get('input[name="theoryMarks"]')
     }
-    getSiPracticalInAddTheoryCreateTemplate(){
+    getSiPracticalInAddTheoryCreateTemplate() {
         return cy.get('input[name="practicalMarks"]')
     }
-    getSiErrorMsgInCreateTemplate(){
+    getSiErrorMsgInCreateTemplate() {
         return cy.get('div.CreateNewTemplate_error_cls__vA6Ph')
     }
-    getSiActivityFldInCreateTemplate(){
+    getSiActivityFldInCreateTemplate() {
         return cy.get('input[name="activity"]')
     }
-    getSiSaveAsDraftBtnInCreateTemplate(){
+    getSiSaveAsDraftBtnInCreateTemplate() {
         return cy.get('button.CreateNewTemplate_templateButton__2dBPW').contains("Save As Draft")
     }
-    getSiSaveAndPreviewBtnInCreateTemplate(){
+    getSiSaveAndPreviewBtnInCreateTemplate() {
         return cy.get('button.CreateNewTemplate_templateButton__2dBPW').contains("Save And Preview")
     }
-    getSiDltBtnLstInTemplatePage(){
+    getSiDltBtnLstInTemplatePage() {
         return cy.get('img[src="/static/media/trashFill.0e6cc947.svg"]')
     }
-    getSiEditBtnLstInTemplatePage(){
+    getSiEditBtnLstInTemplatePage() {
         return cy.get('img[aria-label="Edit"]')
     }
-    getSiTemplateTitle(){
+    getSiTemplateTitle() {
         return cy.get('p.CreateNewTemplate_classDashboardTitle__33WyN')
     }
-    getSiCancelBtnInCreateTemplate(){
+    getSiCancelBtnInCreateTemplate() {
         return cy.get('button.CreateNewTemplate_cancelButton__3BtyO')
     }
-    getSiPreviewCancelBtn(){
+    getSiPreviewCancelBtn() {
         return cy.get('.StudentGradeBook_stdGrdPrevActionCanBtn__3DAlD')
     }
-    getSiStatusLstInTemplatePage(){
+    getSiStatusLstInTemplatePage() {
         return cy.get('tbody tr td button.MuiButton-textSizeMedium')
     }
-    getSiTemplateTabInTemplate(){
+    getSiTemplateTabInTemplate() {
         return cy.get('button[role="tab"]').contains("Template")
     }
-    getSiGradeLstInTemplatePage(){
+    getSiGradeLstInTemplatePage() {
         return cy.get('p.name')
     }
-    getSiDltCloseBtn(){
+    getSiDltCloseBtn() {
         return cy.get('div.closebutton-div img')
     }
-    getSiDltBtnInPopup(){
+    getSiDltBtnInPopup() {
         return cy.get('div.delete-button')
     }
-    getSiCancelBtnInPopup(){
+    getSiCancelBtnInPopup() {
         return cy.get('div.cancel-button')
     }
-    getSiTemplateTabInTemplate(){
+    getSiTemplateTabInTemplate() {
         return cy.get('button[role="tab"]').contains("GradeBook")
     }
-    getSiGradeDrpDwnInGradebook(){
+    getSiGradeDrpDwnInGradebook() {
         return cy.get('#demo-simple-select').contains("Grade")
     }
-    getSiSectionDrpDwnInGradebook(){
+    getSiSectionDrpDwnInGradebook() {
         return cy.get('#demo-simple-select').contains("Section")
     }
-    getSiDrpDwnLstInGradebook(){
+    getSiDrpDwnLstInGradebook() {
         return cy.get('div ul li.MuiMenuItem-gutters')
     }
-    getSiViewArrowIcnLstInGradebook(){
+    getSiViewArrowIcnLstInGradebook() {
         return cy.get('svg[data-testid="ArrowForwardIosIcon"]')
     }
-    getSiFirstNameLstInGradebook(){
+    getSiFirstNameLstInGradebook() {
         return cy.get('tbody tr td.MuiTableCell-alignCenter:nth-child(4)')
     }
-    getSiTitleInGradeBookPage(){
+    getSiTitleInGradeBookPage() {
         return cy.get('div.StudentGradeBook_stdGrdBkTitCntr__1k1Kv h1')
     }
-    getSiEditBtnInViewPageInGradebook(){
+    getSiEditBtnInViewPageInGradebook() {
         return cy.get('button.StudentGradeBook_stdGrdActionGoBkSavEdt__2Geb6')
     }
-    getSiRemarksfldInViewPageInGradebook(){
+    getSiRemarksfldInViewPageInGradebook() {
         return cy.get('#outlined-multiline-static')
     }
-    getSiSubDetailsInViewPageInGradebook(){
+    getSiSubDetailsInViewPageInGradebook() {
         return cy.get('tbody tr td.schlTbleRptCell2')
     }
-    getSiScholosticsMarksfldLst(){
+    getSiScholosticsMarksfldLst() {
         return cy.get('div.schTableInputFoc')
     }
-    getSiSubDrpDwnInAddSub(){
+    getSiSubDrpDwnInAddSub() {
         return cy.get('#mui-component-select-subject')
     }
-    getSiActivitiesTermTxtBx(){
+    getSiActivitiesTermTxtBx() {
         return cy.get('div.coScholTableIntData')
     }
-    getSiCoScholosticGradeTxtBx(){
+    getSiCoScholosticGradeTxtBx() {
         return cy.get('td.coSChWidCell').eq(3)
     }
-    getSiPeriodicTestTerm1(){
+    getSiPeriodicTestTerm1() {
         return cy.get('table tr td p').eq(0)
     }
-    getSiPeriodicTestTerm2(){
+    getSiPeriodicTestTerm2() {
         return cy.get('table tr td p').eq(3)
     }
-    getSiShowGradingSystemBtnInEditGradebookPage(){
+    getSiShowGradingSystemBtnInEditGradebookPage() {
         return cy.get('button.MuiButtonBase-root').contains(" Grading System")
     }
-    getSiSaveBtnInEditGradebookPage(){
+    getSiSaveBtnInEditGradebookPage() {
         return cy.get('button.MuiButtonBase-root').contains("Save")
     }
-    getSiTotalGradeLst(){
+    getSiTotalGradeLst() {
         return cy.get(':nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(2) > table > tr > td')
     }
-    getSiRemarksTxtareaFld(){
+    getSiRemarksTxtareaFld() {
         return cy.get('div textarea#outlined-multiline-static')
     }
-    getSiTotalPercntTxtInViewPage(){
+    getSiTotalPercntTxtInViewPage() {
         return cy.get('div.StudentGradeBook_stdGrdBkCrdStatSectInfoCnt__1IGxO').eq(0)
     }
-    getSiTotalGradeTxtInViewPage(){
+    getSiTotalGradeTxtInViewPage() {
         return cy.get('div.StudentGradeBook_stdGrdBkCrdStatSectInfoCnt__1IGxO').eq(1)
     }
-    getSiTotalAttendanceTxtInViewPage(){
+    getSiTotalAttendanceTxtInViewPage() {
         return cy.get('div.StudentGradeBook_stdGrdBkCrdStatSectInfoCnt__1IGxO').eq(2)
     }
-    getSiResultInViewPage(){
+    getSiResultInViewPage() {
         return cy.get('div.StudentGradeBook_stdGrdBkCrdStatSectInfoCnt__1IGxO').eq(3)
     }
-    getSiStudentGradebookPageTitle(){
+    getSiStudentGradebookPageTitle() {
         return cy.get('p.GradeBook_classDashboardTitle__HNF4O')
     }
-    getSiCancelBtnInViewPage(){
+    getSiCancelBtnInViewPage() {
         return cy.get('button.StudentGradeBook_stdGrdActionCanBtn__2wuUA')
     }
-    getSiScholasticActivInShowGradebkPage(){
+    getSiScholasticActivInShowGradebkPage() {
         return cy.get('th.schSCtTh:visible')
     }
-    getSiCoScholosticActivInShowGradeBkPage(){
+    getSiCoScholosticActivInShowGradeBkPage() {
         return cy.get('div.CoScholasticTable_coSchTblSectHeadTit__2_1xW h1')
     }
-    getSiPreviewAndPrintBtn(){
+    getSiPreviewAndPrintBtn() {
         return cy.get('button.StudentGradeBook_stdGrdBkTitCntSectBtn__1tKqF')
     }
-    getSiTopSchlRadioBtnInCreateTemplatePage(){
+    getSiTopSchlRadioBtnInCreateTemplatePage() {
         return cy.get('input[type="radio"]').eq(1)
     }
-    getSiEditBtnInCreateTemplatePageInTopschool(){
+    getSiEditBtnInCreateTemplatePageInTopschool() {
         return cy.get('button.CreateNewTemplate_templateButton__2dBPW')
     }
-    getSiCreateNwCreateTemplatePageInTopSchl(){
+    getSiCreateNwCreateTemplatePageInTopSchl() {
         return cy.get('button.CreateNewTemplate_createNewButton__28cfS')
     }
 }
-export default AdminGradebookPageNew;
+module.exports = new AdminGradebookPageNew() 

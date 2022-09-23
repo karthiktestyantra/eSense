@@ -15,33 +15,33 @@ class TeacherCalenderPage {
     getClassesCheckbox() {
         return cy.get('[name="Classes"]')
     }
-    getForwordWeekButton(){
+    getForwordWeekButton() {
         return cy.get('button.cal-header-next')
     }
-    getGreade3A(){
+    getGreade3A() {
         return cy.get('.md-custom-event-title')
     }
-    getStartSessionButton(){
+    getStartSessionButton() {
         return cy.get('div .viewLiveFields').contains('Start Session')
     }
-    getClassResourcesButton(){
+    getClassResourcesButton() {
         return cy.contains('Class Resources')
     }
 
     //Buiness logic
-    
-    clickOnStartSessionBtn(){
+
+    clickOnStartSessionBtn() {
         this.getStartSessionButton().click()
     }
-    clickOnClassCheckbox(){
-        this.getClassesCheckbox().check({force:true})
+    clickOnClassCheckbox() {
+        this.getClassesCheckbox().check({ force: true })
     }
-    clickOnForwordBtn(){
+    clickOnForwordBtn() {
         this.getForwordWeekButton().click()
     }
-    clickOnGrade(){
+    clickOnGrade() {
         cy.wait(1000)
-        this.getGreade3A().click({force:true})
+        this.getGreade3A().click({ force: true })
     }
 }
 module.exports = new TeacherCalenderPage() 

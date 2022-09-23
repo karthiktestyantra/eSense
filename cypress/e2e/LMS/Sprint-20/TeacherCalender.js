@@ -58,6 +58,9 @@ describe("Verify Admin student grade book functionalities", function () {
     it('To valiadte Attendance tab consist of total count of students invited/added to the class/EL-6986/ES6986-02',function () {
         TeacherClassGrade.validateAttendenceTablebody()
     })
+    it('To validate user is able to view homework details by click on""Homework tab/EL-6984/ES6984-01',function () {
+        cy.get('#simple-tab-2').contains('Homework')
+    })
     it('To vlaidate that lesson plan pop-up is populated after user clicks on view lesson plan/EL-6982/ES6982-03',function () {
         TeacherClassGrade.clickOnViewLessonPlanPage()
         TeacherClassGrade.validateLessonPlanPage()

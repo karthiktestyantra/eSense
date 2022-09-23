@@ -4,12 +4,49 @@ class AdminDashboardPage {
         return cy.get('div.side-nav-icon img[src="/static/media/company.e1656b4d.svg"]')
     }
 
+    getSideMenuAdminUserImg() {
+        return cy.get('div.side-nav-icon img[src="/static/media/users.d209b37f.svg"]')
+    }
+
+    getStudentBtn() {
+        return cy.get('button.MuiButtonBase-root').contains('Students')
+    }
+
+    getAdminsBtn() {
+        return cy.get('#scrollable-auto-tab-1')
+    }
+
+    getSideMenuAdminDashboardImg() {
+        return cy.get('div.side-nav-icon img[src="/static/media/barChart.5474dbcd.svg"]')
+    }
+
     getGradesAndDepartmentQuickLink() {
         return cy.get('div.StudentSchool_schQicLikSect__sL7xN p').contains('Grades & Stream')
     }
 
+    getAdminAccountsQuickLink() {
+        return cy.get('div.StudentSchool_schQicLikSect__sL7xN p').contains('Admin Accounts')
+    }
+
+    getStudentNameCount() {
+        return cy.xpath('//div[@class="UserDashBoard_studentMeta__12OmY"]/p[@class="MuiTypography-root MuiTypography-body1 css-9l3uo3"]')
+    }
+
+    getAdminNameCount() {
+        return cy.get('span.adminRoles_userName__20cUY')
+    }
+
+    
+    getTeachertNameCount() {
+        return cy.xpath('//div[@class="TeacherDashboard_studentMeta__3kQfU"]/p[@class="MuiTypography-root MuiTypography-body1 css-9l3uo3"]')
+    }
+
     getGradesAndSubjectBtn() {
         return cy.get('button#scrollable-auto-tab-1')
+    }
+
+    getGobackBnt() {
+        return cy.get('div.font-cls')
     }
 
     getEditableGradeBtn() {
@@ -119,5 +156,35 @@ class AdminDashboardPage {
     getClassDetailsTopPerformerCommingSoonTag() {
         return cy.get('div.cmgSoonOverLaySect p')
     }
+
+    getCountOfTeacherWidget() {
+        return cy.get('div.Dashboard_tchDshTimelineSect__292Ho div.Dashboard_tchDshTimelineCntBg__3tz_h')
+    }
+
+    getCountOfGrades() {
+        return cy.get('button.sectionsBtn')
+    }
+
+    getDashboardCountOfTotalClass() {
+        return cy.get('div.MuiBox-root h4 span').eq(0)
+    }
+
+    getDashboardCountOfTotalStudent() {
+        return cy.get('div.MuiBox-root h4 span').eq(1)
+    }
+
+    getDashboardCountOfTotalTeacher() {
+        return cy.get('div.MuiBox-root h4 span').eq(2)
+    }
+
+    getDashboardCountOfTotalAdmin() {
+        return cy.get('div.MuiBox-root h4 span').eq(3)
+    }
+
+
+
+
+
+    
 }
 module.exports = new AdminDashboardPage() 

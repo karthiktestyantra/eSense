@@ -1,336 +1,336 @@
-class EsenseAdminCurriculamPlanPage{
+class EsenseAdminCurriculamPlanPage {
 
-    getCurriculamPlanBtn(){
+    getCurriculamPlanBtn() {
         return cy.get('div.menu-item a span.menu-title').contains('Curriculum Plan')
-       }
-
-    getCurriculumListOfCourseCard(){
-     return cy.get(':nth-child(2) > .d-flex > .text-gray-800:visible')
-    }
-    
-    getCurriculumSearchTxtField(){
-     return cy.get('input[placeholder="Search Course Name"]')
     }
 
-    getAddCurriculamPlanBtn(){
+    getCurriculumListOfCourseCard() {
+        return cy.get(':nth-child(2) > .d-flex > .text-gray-800:visible')
+    }
+
+    getCurriculumSearchTxtField() {
+        return cy.get('input[placeholder="Search Course Name"]')
+    }
+
+    getAddCurriculamPlanBtn() {
         return cy.get('tr td button')
     }
 
-    getAddCurriculamTitle(){
+    getAddCurriculamTitle() {
         return cy.get('div#kt_toolbar_container h1')
     }
 
-    getListOfAddThemesOrUnitandChaptersBtn(){
+    getListOfAddThemesOrUnitandChaptersBtn() {
         return cy.get('button.MuiButton-root')
     }
 
-    getAddCurriculamBtn(){
+    getAddCurriculamBtn() {
         return cy.get('td.text-end button')
     }
 
 
-    getCloseIcon(){
+    getCloseIcon() {
         return cy.get('div svg[data-testid="CloseIcon"]')
     }
 
-    getAddNewThemeOrUnitPopupTitle(){
+    getAddNewThemeOrUnitPopupTitle() {
         return cy.get('div.create_curriculum-content h1')
     }
 
-    getListOfCurriculamGradeTxt(){
+    getListOfCurriculamGradeTxt() {
         return cy.get('.fw-bold > :nth-child(n) > :nth-child(2) > .d-flex > .text-gray-800')
     }
 
-    getAddNewChapterPopupTitle(){
+    getAddNewChapterPopupTitle() {
         return cy.get('div.create_curriculum-content h1')
     }
 
-    getChapterNumberTxtField(){
+    getChapterNumberTxtField() {
         return cy.get('div input[placeholder="Enter chapter number"]')
     }
-     
-    getChapterNameDropdown(){
+
+    getChapterNameDropdown() {
         return cy.get('div select[name="chapterId"]')
     }
 
-    getChapterDiscription(){
+    getChapterDiscription() {
         return cy.get('textarea[name="chapterDescription"]')
     }
 
-    getChapterTotalSession(){
+    getChapterTotalSession() {
         return cy.get('[name="totalSession"]')
     }
-    
-    getAddTopicBtn(){
+
+    getAddTopicBtn() {
         return cy.get('div button[aria-label="Add Topic"]')
     }
-    getAddTopicInPopUpBtn(){
+    getAddTopicInPopUpBtn() {
         return cy.get('button.create_curriculum-btn').contains("Add Topic")
     }
 
-    getTopicNameDropDown(){
+    getTopicNameDropDown() {
         return cy.get('div select[name="topicId"]')
     }
 
-    getTopicDescription(){
+    getTopicDescription() {
         return cy.get('div textarea[placeholder="Type topic description"]')
     }
 
-    getSaveTopicbtn(){
+    getSaveTopicbtn() {
         return cy.get('#create_curriculum-topic-Form > .create_curriculum-btn_container > .MuiButton-contained')
     }
 
 
-    getAddObjectiveBtn(){
+    getAddObjectiveBtn() {
         return cy.get('div button[aria-label="Add Objective"]')
     }
 
-    getObjectiveDiscription(){
+    getObjectiveDiscription() {
         return cy.get('div textarea[placeholder="Type objective description"]')
     }
 
-    getSaveObjectiveBtn(){
+    getSaveObjectiveBtn() {
         return cy.get('#create_curriculum-objective-Form > .create_curriculum-btn_container > .MuiButton-contained')
     }
 
-    getSaveOutcomeBtn(){
+    getSaveOutcomeBtn() {
         return cy.get('#create_curriculum-outcome-Form > .create_curriculum-btn_container > .MuiButton-contained')
     }
 
-    getAddOutComeBtn(){
+    getAddOutComeBtn() {
         return cy.get('div button[aria-label="Add Outcome"]')
     }
 
-    getOutComeDiscription(){
+    getOutComeDiscription() {
         return cy.get('div textarea[placeholder="Type outcome description"]')
     }
 
-    getLearningOutComeTitleTxt(){
+    getLearningOutComeTitleTxt() {
         return cy.get(':nth-child(4) > .MuiPaper-root > :nth-child(1) > .MuiCardHeader-content > .MuiTypography-root > div')
     }
 
-    getOutComeCancelBtn(){
-        return cy.get('button.MuiButton-root').contains('Cancel')   
+    getOutComeCancelBtn() {
+        return cy.get('button.MuiButton-root').contains('Cancel')
     }
 
-    getOutComeCreatedTitleHeader(){
+    getOutComeCreatedTitleHeader() {
         return cy.get(':nth-child(4) > .MuiPaper-root > .MuiCollapse-root > .MuiCollapse-wrapper > .MuiCollapse-wrapperInner > .MuiCardContent-root > .MuiCardHeader-root > .MuiCardHeader-content > .MuiTypography-root')
     }
 
-    getChapterEndDate(){
+    getChapterEndDate() {
         return cy.get('button.MuiPickersDay-dayWithMargin span')
     }
 
-    getSaveDraftbtn(){
+    getSaveDraftbtn() {
         return cy.get('button[form="create_curriculumForm"]')
     }
 
-    getSaveDraftOnlyThemeBtn(){
+    getSaveDraftOnlyThemeBtn() {
         return cy.get('.MuiButton-contained')
     }
 
-    getChapterEndNextArrowBtn(){
+    getChapterEndNextArrowBtn() {
         return cy.get('div button[aria-label="Next month"]')
     }
 
-    getOnlyThemeAddedWithoutChapterTxt(){
+    getOnlyThemeAddedWithoutChapterTxt() {
         return cy.get('div.adminThmeAddeTxt')
     }
 
-    getCalenderIcon(){
+    getCalenderIcon() {
         return cy.get('button.MuiIconButton-edgeEnd')
     }
 
-    getThemeAddChapterBtn(){
+    getThemeAddChapterBtn() {
         return cy.get(':nth-child(3) > :nth-child(2) > .create_curriculum-content > .create_curriculum-btn_container > .MuiButton-contained')
     }
 
-    getAddThemePopupCloseBtn(){
+    getAddThemePopupCloseBtn() {
         return cy.get('[data-testid="CloseIcon"]')
     }
 
-    getReattemptAddChapterBtn(){
+    getReattemptAddChapterBtn() {
         return cy.get('div button.MuiButton-containedPrimary').contains('Chapter')
     }
 
-    getReattemptAddThemeBtn(){
+    getReattemptAddThemeBtn() {
         return cy.get('div.MuiContainer-maxWidthLg button').contains('Theme')
     }
 
-    getChapterDeleteBtn(){
+    getChapterDeleteBtn() {
         return cy.get('span.delBtnBasicInfo')
     }
 
-    getThemeDeleteBtn(){
+    getThemeDeleteBtn() {
         return cy.get('span.delBtnBasicInfo')
     }
 
-    getDeleteChapterPopupBtn(){
+    getDeleteChapterPopupBtn() {
         return cy.get('.delete_reminder-btn_container > .MuiButton-contained')
     }
 
-    getDeleteThemerPopupBtn(){
+    getDeleteThemerPopupBtn() {
         return cy.get('.delete_reminder-btn_container > .MuiButton-contained')
     }
 
-    getChapterDescriptionName(){
-        return  cy.get('div.container-fluid strong')
+    getChapterDescriptionName() {
+        return cy.get('div.container-fluid strong')
     }
 
-    getThemeEndDescription(){
+    getThemeEndDescription() {
         return cy.get('div.panel-heading div.card_material')
     }
 
-    getThemeName(){
+    getThemeName() {
         return cy.get('div input[name="themeName"]')
     }
 
-    getThemeDiscription(){
+    getThemeDiscription() {
         return cy.get('div textarea[name="themeDescription"]')
     }
 
-    getAddNewChapterBtn(){
+    getAddNewChapterBtn() {
         return cy.get('section button[aria-label="Add New Chapter"]')
     }
 
-    getEndAddChapterBtn(){
+    getEndAddChapterBtn() {
         return cy.get('button[form="create_curriculumForm"]')
     }
 
-    getThemeSaveDraft(){
+    getThemeSaveDraft() {
         return cy.get('.MuiButton-contained')
     }
 
-    getAddChapterDraftSuccessMsg(){
+    getAddChapterDraftSuccessMsg() {
         return cy.get('div.MuiAlert-message')
     }
 
-    getAddChapterDraftedHeader(){
+    getAddChapterDraftedHeader() {
         return cy.get('.panel-heading h6')
     }
 
-    getAddChapterNameDropdownText(){
+    getAddChapterNameDropdownText() {
         return cy.get('select[name="chapterId"] option:nth-child(2)')
     }
 
-    getAddTopicCancelBtn(){
+    getAddTopicCancelBtn() {
         return cy.get('button.MuiButton-root').contains('Cancel')
     }
 
-    getAddObjectiveCancelBtn(){
+    getAddObjectiveCancelBtn() {
         return cy.get('button.MuiButton-root').contains('Cancel')
     }
 
-    getAddThemePopupHeaderTitle(){
+    getAddThemePopupHeaderTitle() {
         return cy.get('div.create_curriculum-content h1')
     }
 
-    getLearningObjectiveTitleheader(){
+    getLearningObjectiveTitleheader() {
         return cy.get(':nth-child(3) > .MuiPaper-root > .MuiCardHeader-root > .MuiCardHeader-content > .MuiCardHeader-title')
     }
 
-    getCreatedChapterHeaderTitle(){
-        return  cy.get('div.flex-grow-1 h6')
+    getCreatedChapterHeaderTitle() {
+        return cy.get('div.flex-grow-1 h6')
     }
 
-    getCurriculumPlanHeaderTxt(){
-       return cy.get('.fw-bold > :nth-child(n) > :nth-child(1) > .d-flex > .text-gray-800')
+    getCurriculumPlanHeaderTxt() {
+        return cy.get('.fw-bold > :nth-child(n) > :nth-child(1) > .d-flex > .text-gray-800')
     }
 
-    getTopicTitleHeader(){
+    getTopicTitleHeader() {
         return cy.get('span.MuiCardHeader-title').contains('Topics')
     }
 
-    getMax50CharexeedMsg(){
+    getMax50CharexeedMsg() {
         return cy.get('div.text-danger span')
     }
 
-    getObjectiveCreated(){
+    getObjectiveCreated() {
         return cy.get('.MuiCardContent-root .MuiCardHeader-root .MuiCardHeader-content .MuiTypography-root')
     }
 
-    getThisFieldReqMes(){
+    getThisFieldReqMes() {
         return cy.get('div.text-danger span')
     }
 
-    getMax100CharexeedMsg(){
+    getMax100CharexeedMsg() {
         return cy.get('div.text-danger span')
     }
 
-    getDisabledDatePickerBtn(){
+    getDisabledDatePickerBtn() {
         return cy.get('button.Mui-disabled:visible').eq(1)
     }
-    getGradeLst(){
+    getGradeLst() {
         return cy.get('tbody tr td:nth-child(1) div.d-flex a.fw-bolder')
     }
-    getChapterCloseIcon(){
+    getChapterCloseIcon() {
         return cy.get('div.create_curriculum-wrapper svg.close-icon_create_curriculum')
     }
-    getChapterEditBtn(){
+    getChapterEditBtn() {
         return cy.get('div.themeAction span.editBtnBasicInfo')
     }
-    getPublishBtn(){
+    getPublishBtn() {
         return cy.get('.save-draft-container > .MuiButton-contained')
     }
-    getAddChapterInPopup(){
+    getAddChapterInPopup() {
         return cy.get('button[aria-label="Add New Chapter"]')
     }
-    getAddTopicBtnInPopup(){
+    getAddTopicBtnInPopup() {
         return cy.get('#create_curriculum-topic-Form > .create_curriculum-btn_container > .MuiButton-contained')
     }
-    getHourTopicDurationFld(){
+    getHourTopicDurationFld() {
         return cy.get('div input[name="topicHour"]')
     }
-    getMinutesTopicDurationFld(){
+    getMinutesTopicDurationFld() {
         return cy.get('div input[name="topicMinute"]')
     }
-    getTopicDurationTitle(){
+    getTopicDurationTitle() {
         return cy.get('.font-cls-topic-duration')
     }
-    getHourTopicDurationTxt(){
+    getHourTopicDurationTxt() {
         return cy.get('fieldset legend span').contains("Hour")
     }
-    getMinuteTopicDurationTxt(){
+    getMinuteTopicDurationTxt() {
         return cy.get('fieldset legend span').contains("Minutes")
     }
-    getTopicDropdown(){
+    getTopicDropdown() {
         return cy.get('select[name="topicId"]')
     }
-    getTopicDescriptiontextarea(){
+    getTopicDescriptiontextarea() {
         return cy.get('textarea[name="topicDescription"]')
     }
 
-    getThumbnailViewTable(){
+    getThumbnailViewTable() {
         return cy.get('table#kt_ecommerce_products_table')
     }
 
- getCurriculamRecordList(){
+    getCurriculamRecordList() {
         return cy.get('tbody.fw-bold tr')
     }
 
-getCurriculamNextPagePagination(){
+    getCurriculamNextPagePagination() {
         return cy.get('button[aria-label="Go to next page"]')
     }
 
-  getCurriculamPreviousPagePagination(){
+    getCurriculamPreviousPagePagination() {
         return cy.get('svg[data-testid="NavigateBeforeIcon"]')
     }
 
- getCurriculamViewDetailsStatus(){
+    getCurriculamViewDetailsStatus() {
         return cy.get('div.milestoneAccordStatus span')
     }
 
-    getCurriculamEditStatus(){
+    getCurriculamEditStatus() {
         return cy.get('span.editBtnBasicInfo')
     }
-    
-    getCurriculamDeleteStatus(){
+
+    getCurriculamDeleteStatus() {
         return cy.get('span.delBtnBasicInfo')
     }
 
- getCurriculamNextPagePagination(){
+    getCurriculamNextPagePagination() {
         return cy.get('button[aria-label="Go to next page"]')
     }
 
 }
-    export default EsenseAdminCurriculamPlanPage;
+module.exports = new EsenseAdminCurriculamPlanPage() 

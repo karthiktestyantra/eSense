@@ -1,132 +1,127 @@
-import EsenseAdminCurriculumPlanPage from "../../../support/pageObjects/LMS-2/EsenseAdminCurriculumPlanPage";
-import AdminPostSetupCurriculumBuilderPage from "../../../support/pageObjects/LMS-2/AdminPostSetupCurriculumBuilderPage";
-
-const esenseAdminCurriculamPlanPage = new EsenseAdminCurriculumPlanPage();
-const curriculumBuilder = new AdminPostSetupCurriculumBuilderPage();
+const esenseAdminCurriculumPlanPage = require("../../../support/pageObjects/LMS-2/EsenseAdminCurriculumPlanPage")
+const adminPostSetupCurriculumBuilderPage = require("../../../support/pageObjects/LMS-2/AdminPostSetupCurriculumBuilderPage")
 
 describe("Verify admin Curriculum Plan Page functionalities", function () {
+
   before(function () {
     cy.visit(Cypress.env("url"))
+    cy.viewport(1920, 1080)
     cy.fixture("LMS/mainAdminLoginCredentials").then(function (validAdminLoginData) {
       cy.Mainlogin(validAdminLoginData.username, validAdminLoginData.password)
     })
   })
+
   beforeEach(function () {
-    cy.viewport(1920, 1080)
-    cy.fixture("LMS/EsenseAdminCurriculumPageCredentials").then(function (curriculumPage) {
-      cy.fixture("LMS/sprint14CurriculumBuilder").then(function (curriculumBuilder) {
-        this.curriculumBuilder = curriculumBuilder;
-      })
-      this.curriculumPage = curriculumPage;
-    })
+    cy.fixture("LMS/EsenseAdminCurriculumPageCredentials").as("curriculumPage")
+    cy.fixture("LMS/sprint14CurriculumBuilder").as("curriculumBuilder")
   })
 
   it("To validate that when user Click on 'Start with Chapter' button it's navigating to 'Add New Chapter' pop-up page/EL-4957/ES4957_01", function () {
-    esenseAdminCurriculamPlanPage.getCurriculamPlanBtn().click()
+    esenseAdminCurriculumPlanPage.getCurriculamPlanBtn().click()
     //it("To validate that in one page only 50 Curiculum list or records is dispalyed/EL-4157/ES4157_02",function(){
     cy.wait(2000)
-    esenseAdminCurriculamPlanPage.getCurriculumListOfCourseCard().should('have.length.lte', 50)
-    esenseAdminCurriculamPlanPage.getCurriculumSearchTxtField().type(this.curriculumPage.searchCourseName)
+    esenseAdminCurriculumPlanPage.getCurriculumListOfCourseCard().should('have.length.lte', 50)
+    esenseAdminCurriculumPlanPage.getCurriculumSearchTxtField().type(this.curriculumPage.searchCourseName)
     cy.wait(3000)
-    // esenseAdminCurriculamPlanPage.getCurriculumListOfCourseCard().should('contain.text',this.curriculumPage.searchCourseName)
-    esenseAdminCurriculamPlanPage.getGradeLst().each(($e1, index, $list) => {
+    // esenseAdminCurriculumPlanPage.getCurriculumListOfCourseCard().should('contain.text',this.curriculumPage.searchCourseName)
+    esenseAdminCurriculumPlanPage.getGradeLst().each(($e1, index, $list) => {
       const txt = $e1.text()
       if (txt.includes("Grade 9")) {
-        esenseAdminCurriculamPlanPage.getAddCurriculamPlanBtn().eq(index).click()
+        esenseAdminCurriculumPlanPage.getAddCurriculamPlanBtn().eq(index).click()
         return false;
       }
     })
-    curriculumBuilder.getAddThemeBtn().contains("Start With Theme / Unit").click() || curriculumBuilder.getAddThemeBtn().contains("Add").click()
-    curriculumBuilder.getAddChaptertitle().should('be.visible')
+    adminPostSetupCurriculumBuilderPage.getAddThemeBtn().contains("Start With Theme / Unit").click() || adminPostSetupCurriculumBuilderPage.getAddThemeBtn().contains("Add").click()
+    adminPostSetupCurriculumBuilderPage.getAddChaptertitle().should('be.visible')
     //})
 
     // it("To validate that user cannot change the format once chosen/EL-4957/ES4957_02",function(){
-    curriculumBuilder.getEsenseAdminTotalSessionsTxtFld().clear().type(this.curriculumBuilder.ValidTotalSessionsNum)
-    curriculumBuilder.getEsenseAdminThemeNameFld().type(this.curriculumBuilder.ChapterName)
-    curriculumBuilder.getAdminThemeDescription().type(this.curriculumBuilder.ChapterDescription)
-    curriculumBuilder.getSaveDraftBtn().click()
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminTotalSessionsTxtFld().clear().type(this.adminPostSetupCurriculumBuilderPage.ValidTotalSessionsNum)
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminThemeNameFld().type(this.adminPostSetupCurriculumBuilderPage.ChapterName)
+    adminPostSetupCurriculumBuilderPage.getAdminThemeDescription().type(this.adminPostSetupCurriculumBuilderPage.ChapterDescription)
+    adminPostSetupCurriculumBuilderPage.getSaveDraftBtn().click()
     cy.contains("successfully_added").should('be.visible')
     cy.wait(1000)
-    curriculumBuilder.getAddThemeAddedBtn().should('be.visible')
+    adminPostSetupCurriculumBuilderPage.getAddThemeAddedBtn().should('be.visible')
 
     //   it("To validate that when user click on 'Save Draft' button, user is able add more Themes, units or chapters based on format choosed/EL-4957/ES4957_03",function(){
-    curriculumBuilder.getAddThemeAddedBtn().click()
-    curriculumBuilder.getAddChaptertitle().contains("Add New Theme / Unit").should('be.visible')
-    esenseAdminCurriculamPlanPage.getChapterCloseIcon().click()
+    adminPostSetupCurriculumBuilderPage.getAddThemeAddedBtn().click()
+    adminPostSetupCurriculumBuilderPage.getAddChaptertitle().contains("Add New Theme / Unit").should('be.visible')
+    esenseAdminCurriculumPlanPage.getChapterCloseIcon().click()
 
     //it("To validate that user is able to move Curriculam draft to publish among Schools / view as public by clicking 'Publish' button/EL-4957/ES4957_05",function(){
-    esenseAdminCurriculamPlanPage.getChapterEditBtn().click({ force: true })
-    curriculumBuilder.getEsenseAdminThemeNameFld().clear().type(this.curriculumBuilder.EditedChapterName)
-    curriculumBuilder.getSaveDraftBtn().click()
+    esenseAdminCurriculumPlanPage.getChapterEditBtn().click({ force: true })
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminThemeNameFld().clear().type(this.adminPostSetupCurriculumBuilderPage.EditedChapterName)
+    adminPostSetupCurriculumBuilderPage.getSaveDraftBtn().click()
     cy.wait(1000)
-    esenseAdminCurriculamPlanPage.getPublishBtn().should('be.enabled').click()
+    esenseAdminCurriculumPlanPage.getPublishBtn().should('be.enabled').click()
     //})
 
     //})
     // it("delete the created chapter",function(){
-    esenseAdminCurriculamPlanPage.getCurriculumSearchTxtField().type(this.curriculumPage.searchCourseName)
+    esenseAdminCurriculumPlanPage.getCurriculumSearchTxtField().type(this.curriculumPage.searchCourseName)
     cy.wait(3000)
-    esenseAdminCurriculamPlanPage.getGradeLst().each(($e1, index, $list) => {
+    esenseAdminCurriculumPlanPage.getGradeLst().each(($e1, index, $list) => {
       const txt = $e1.text()
       if (txt.includes("Grade 9")) {
-        esenseAdminCurriculamPlanPage.getAddCurriculamPlanBtn().eq(index).click()
+        esenseAdminCurriculumPlanPage.getAddCurriculamPlanBtn().eq(index).click()
         return false;
       }
     })
-    curriculumBuilder.getEsenseAdminChapterLst().each(($e2, index, $list) => {
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminChapterLst().each(($e2, index, $list) => {
       const txt = $e2.text()
-      if (txt.includes(this.curriculumBuilder.EditedChapterName)) {
-        curriculumBuilder.getChapterDltBtn().click()
+      if (txt.includes(this.adminPostSetupCurriculumBuilderPage.EditedChapterName)) {
+        adminPostSetupCurriculumBuilderPage.getChapterDltBtn().click()
       }
     })
-    curriculumBuilder.getDeleteThemeBtn().click()
+    adminPostSetupCurriculumBuilderPage.getDeleteThemeBtn().click()
     // })
 
     // it("To validate that 'Topic Duration' field is provided in the 'Topic' section/EL-4978/EL4978_01",function(){
     cy.wait(3000)
-    curriculumBuilder.getAddThemeBtn().contains("Start With Theme / Unit").click() || curriculumBuilder.getAddThemeBtn().contains("Add").click()
-    curriculumBuilder.getEsenseAdminTotalSessionsTxtFld().clear().type(this.curriculumBuilder.ValidTotalSessionsNum)
-    curriculumBuilder.getEsenseAdminThemeNameFld().type(this.curriculumBuilder.ChapterName)
-    curriculumBuilder.getAdminThemeDescription().type(this.curriculumBuilder.ChapterDescription)
-    esenseAdminCurriculamPlanPage.getAddChapterInPopup().click()
-    esenseAdminCurriculamPlanPage.getChapterNumberTxtField().type("02")
-    esenseAdminCurriculamPlanPage.getChapterNameDropdown().select("measure")
-    esenseAdminCurriculamPlanPage.getAddTopicBtn().click()
-    esenseAdminCurriculamPlanPage.getTopicDurationTitle().should('be.visible')
+    adminPostSetupCurriculumBuilderPage.getAddThemeBtn().contains("Start With Theme / Unit").click() || adminPostSetupCurriculumBuilderPage.getAddThemeBtn().contains("Add").click()
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminTotalSessionsTxtFld().clear().type(this.adminPostSetupCurriculumBuilderPage.ValidTotalSessionsNum)
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminThemeNameFld().type(this.adminPostSetupCurriculumBuilderPage.ChapterName)
+    adminPostSetupCurriculumBuilderPage.getAdminThemeDescription().type(this.adminPostSetupCurriculumBuilderPage.ChapterDescription)
+    esenseAdminCurriculumPlanPage.getAddChapterInPopup().click()
+    esenseAdminCurriculumPlanPage.getChapterNumberTxtField().type("02")
+    esenseAdminCurriculumPlanPage.getChapterNameDropdown().select("measure")
+    esenseAdminCurriculumPlanPage.getAddTopicBtn().click()
+    esenseAdminCurriculumPlanPage.getTopicDurationTitle().should('be.visible')
     //it("To validate that "Topic Duration" field is Accepting the values in the form of HH:MM/EL-4978/EL4978_02",function(){
-    esenseAdminCurriculamPlanPage.getHourTopicDurationFld().should('have.attr', 'placeholder', '00')
-    esenseAdminCurriculamPlanPage.getMinutesTopicDurationFld().should('have.attr', 'placeholder', '00')
+    esenseAdminCurriculumPlanPage.getHourTopicDurationFld().should('have.attr', 'placeholder', '00')
+    esenseAdminCurriculumPlanPage.getMinutesTopicDurationFld().should('have.attr', 'placeholder', '00')
     // })
     //it("To validate that by default 00:00 values are displayed/EL-4978/EL4978_03",function(){
-    esenseAdminCurriculamPlanPage.getHourTopicDurationTxt().should('be.exist')
-    esenseAdminCurriculamPlanPage.getMinuteTopicDurationTxt().should('be.exist')
-    esenseAdminCurriculamPlanPage.getTopicDropdown().select("atoms")
-    esenseAdminCurriculamPlanPage.getTopicDescriptiontextarea().type(this.curriculumBuilder.ChapterDescription)
-    esenseAdminCurriculamPlanPage.getHourTopicDurationFld().type(10)
-    esenseAdminCurriculamPlanPage.getMinutesTopicDurationFld().type(30)
-    esenseAdminCurriculamPlanPage.getAddTopicBtnInPopup().click()
-    esenseAdminCurriculamPlanPage.getSaveDraftbtn().click()
-    esenseAdminCurriculamPlanPage.getThemeSaveDraft().click()
-    esenseAdminCurriculamPlanPage.getPublishBtn().click()
+    esenseAdminCurriculumPlanPage.getHourTopicDurationTxt().should('be.exist')
+    esenseAdminCurriculumPlanPage.getMinuteTopicDurationTxt().should('be.exist')
+    esenseAdminCurriculumPlanPage.getTopicDropdown().select("atoms")
+    esenseAdminCurriculumPlanPage.getTopicDescriptiontextarea().type(this.adminPostSetupCurriculumBuilderPage.ChapterDescription)
+    esenseAdminCurriculumPlanPage.getHourTopicDurationFld().type(10)
+    esenseAdminCurriculumPlanPage.getMinutesTopicDurationFld().type(30)
+    esenseAdminCurriculumPlanPage.getAddTopicBtnInPopup().click()
+    esenseAdminCurriculumPlanPage.getSaveDraftbtn().click()
+    esenseAdminCurriculumPlanPage.getThemeSaveDraft().click()
+    esenseAdminCurriculumPlanPage.getPublishBtn().click()
     cy.wait(2000)
     //})
     // it("delete the created chapter",function(){
-    esenseAdminCurriculamPlanPage.getCurriculumSearchTxtField().type(this.curriculumPage.searchCourseName)
+    esenseAdminCurriculumPlanPage.getCurriculumSearchTxtField().type(this.curriculumPage.searchCourseName)
     cy.wait(3000)
-    esenseAdminCurriculamPlanPage.getGradeLst().each(($e1, index, $list) => {
+    esenseAdminCurriculumPlanPage.getGradeLst().each(($e1, index, $list) => {
       const txt = $e1.text()
       if (txt.includes("Grade 9")) {
-        esenseAdminCurriculamPlanPage.getAddCurriculamPlanBtn().eq(index).click()
+        esenseAdminCurriculumPlanPage.getAddCurriculamPlanBtn().eq(index).click()
         return false;
       }
     })
-    curriculumBuilder.getEsenseAdminChapterLst().each(($e2, index, $list) => {
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminChapterLst().each(($e2, index, $list) => {
       const txt = $e2.text()
-      if (txt.includes(this.curriculumBuilder.ChapterName)) {
-        curriculumBuilder.getChapterDltBtn().eq(index).click()
+      if (txt.includes(this.adminPostSetupCurriculumBuilderPage.ChapterName)) {
+        adminPostSetupCurriculumBuilderPage.getChapterDltBtn().eq(index).click()
       }
     })
-    curriculumBuilder.getDeleteThemeBtn().click()
+    adminPostSetupCurriculumBuilderPage.getDeleteThemeBtn().click()
     // })
 
   })

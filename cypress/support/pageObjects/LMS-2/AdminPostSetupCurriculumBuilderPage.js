@@ -8,15 +8,15 @@ class AdminPostSetupCurriculumBuilderPage {
         return cy.get('tbody.MuiTableBody-root tr th strong');
     }
 
-    getSubLstUnderGrade(){
+    getSubLstUnderGrade() {
         return cy.get('tbody tr th.logo-course')
     }
 
-    getEditCurriculumBtnLst(){
+    getEditCurriculumBtnLst() {
         return cy.get('.editBtnBasicInfo:visible')
     }
 
-    getAddChaptertitle(){
+    getAddChaptertitle() {
         return cy.get('h1.create_curriculum-title')
     }
 
@@ -31,7 +31,7 @@ class AdminPostSetupCurriculumBuilderPage {
     getTotalSessionsTxtFld() {
         return cy.get('input[placeholder="Enter total sessions"]');
     }
-    getEsenseAdminTotalSessionsTxtFld(){
+    getEsenseAdminTotalSessionsTxtFld() {
         return cy.get('input[placeholder="Total number of session"]')
     }
 
@@ -43,11 +43,11 @@ class AdminPostSetupCurriculumBuilderPage {
         return cy.get('button[type="button"]').contains("Start With Theme / Unit");
     }
 
-    getAddThemeAddedBtn(){
+    getAddThemeAddedBtn() {
         return cy.get('button.MuiButton-containedSizeMedium').contains("Add Theme")
     }
 
-    getAlert () {
+    getAlert() {
         return cy.get('span[role="alert"]')
     }
 
@@ -58,20 +58,20 @@ class AdminPostSetupCurriculumBuilderPage {
     getChapterName() {
         return cy.get('div.MuiOutlinedInput-root input[placeholder="Enter Chapter Name"]')
     }
-    getSubAdminChapterName(){
+    getSubAdminChapterName() {
         return cy.get('div input[placeholder="Enter Chapter Name"]')
     }
-    getEsenseAdminThemeNameFld(){
+    getEsenseAdminThemeNameFld() {
         return cy.get('input[placeholder="Type theme name"]')
     }
 
     getChapterDescription() {
         return cy.get('div.MuiOutlinedInput-root textarea[placeholder="Enter Chapter Description"]')
     }
-    getSubAdminChapterDescription(){
+    getSubAdminChapterDescription() {
         return cy.get('div.MuiOutlinedInput-root textarea[placeholder="Enter Description"]')
     }
-    getAdminThemeDescription(){
+    getAdminThemeDescription() {
         return cy.get('textarea[placeholder="Type theme description"]')
     }
 
@@ -87,101 +87,101 @@ class AdminPostSetupCurriculumBuilderPage {
         return cy.get('.MuiSnackbar-root > .MuiPaper-root')
     }
 
-    getSubAdminViewDtlsDrpDwnLst(){
+    getSubAdminViewDtlsDrpDwnLst() {
         return cy.get('tbody tr td button.details-button')
     }
 
-    getSubAdminViewDtlsSubjectLst(){
+    getSubAdminViewDtlsSubjectLst() {
         return cy.get('tbody tr th.logo-course')
     }
 
-    getSubAdminViewDtlsViewIconLst(){
+    getSubAdminViewDtlsViewIconLst() {
         return cy.get('.courseList-actions > :nth-child(3) > span > img')
     }
 
-    getSubAdminApproveBtn(){
+    getSubAdminApproveBtn() {
         return cy.get('button[form="bi-submit"]').contains("Approve")
     }
-    
-    getSubAdminEditBtn(){
+
+    getSubAdminEditBtn() {
         return cy.get('button[form="bi-submit"]').contains("Edit")
     }
 
-    getSubAdminRejectBtn(){
+    getSubAdminRejectBtn() {
         return cy.get('button[form="bi-submit"]').contains("Reject")
     }
 
-    getGoBackBtn(){
+    getGoBackBtn() {
         return cy.get('div.crtCurrTryBckBtn')
     }
 
-    getApprovalPendingLst(){
+    getApprovalPendingLst() {
         return cy.get('tbody tr td div.ApprovalPending')
     }
 
-    getCurriculumPageTitle(){
+    getCurriculumPageTitle() {
         return cy.get('h1').contains("Curriculum")
     }
 
-    getApprovalCurriculumMsg(){
+    getApprovalCurriculumMsg() {
         return cy.get('.footereSecMsg span').contains("if you like to revert click on “ Undo” button")
     }
 
-    getApprovalUndoBtn(){
+    getApprovalUndoBtn() {
         return cy.get('button[form="bi-submit"]').contains("Undo")
     }
 
-    getEditAndDeleteIconsLst(){
+    getEditAndDeleteIconsLst() {
         return cy.get('span.right-cls-out')
     }
 
-    getMarkCurriculumCheckbox(){
+    getMarkCurriculumCheckbox() {
         return cy.get('span.MuiCheckbox-root')
     }
 
-    getSubmitForApprovalBtn(){
+    getSubmitForApprovalBtn() {
         return cy.get('button').contains("submit for approval")
     }
 
-    getApprovalListName(){
+    getApprovalListName() {
         return cy.get('div.approver-list-name')
     }
 
-    getSubmitApprovalSubmitBtn(){
+    getSubmitApprovalSubmitBtn() {
         return cy.get('button.sectionSaveBtn')
     }
 
-    getChapterDltBtn(){
+    getChapterDltBtn() {
         return cy.get('.delBtnBasicInfo')
     }
-    getEsenseAdminChapterLst(){
+    getEsenseAdminChapterLst() {
         return cy.get('h4.text-uppercase')
     }
-    getDeleteThemeBtn(){
+    getDeleteThemeBtn() {
         return cy.get('button.delete_reminder-btn').contains("Delete")
     }
 
-    getChapterLst(){
+    getChapterLst() {
         return cy.get('.text-uppercase')
     }
-    getSubAdminChapterLst(){
+    getSubAdminChapterLst() {
         return cy.get('h4.card_theme')
     }
 
-    getSaveProgressBtn(){
+    getSaveProgressBtn() {
         return cy.get('.continue-btn')
     }
 
-    getDeleteChapterBtn(){
+    getDeleteChapterBtn() {
         return cy.get('.MuiButton-contained')
     }
-    getSaveDraftBtn(){
+    getSaveDraftBtn() {
         return cy.get('.MuiButton-contained').contains("Save Draft")
     }
 
-    getAddThemeBtn(){
+    getAddThemeBtn() {
         return cy.get('.crtCurrBtnAct .MuiButton-root')
     }
 
-  }
-  export default AdminPostSetupCurriculumBuilderPage;
+}
+module.exports = new AdminPostSetupCurriculumBuilderPage() 

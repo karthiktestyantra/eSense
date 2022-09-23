@@ -1,18 +1,18 @@
 class MainAdminUserManagementPage {
 
-    getTitle(){
-      return cy.get('div.page-title h1');
+    getTitle() {
+        return cy.get('div.page-title h1');
     }
 
-    getAddNewBtn(){
+    getAddNewBtn() {
         return cy.contains('Add User')
     }
 
-    getAddNewUserPopUpTitle(){
+    getAddNewUserPopUpTitle() {
         return cy.get('div.modal-title')
     }
 
-    getAddNewRolePopUpTitle(){
+    getAddNewRolePopUpTitle() {
         return cy.get('div.modal-title')
     }
 
@@ -40,175 +40,174 @@ class MainAdminUserManagementPage {
         return cy.get('button[type="submit"] span').contains('Submit');
     }
 
-    getUserAddedPopup(){
+    getUserAddedPopup() {
         return cy.get('.body');
     }
 
-    getUserAddedPopupBtn(){
+    getUserAddedPopupBtn() {
         return cy.get('.footer .btn');
     }
 
-    getActionsLst(){
+    getActionsLst() {
         return cy.get('button.float-end span svg[focusable="false"] path');
     }
 
-    getEditBtn(){
+    getEditBtn() {
         return cy.get(':nth-child(5) div.menu-item a.menu-link:visible').contains("Edit");
     }
 
-    getDeleteBtn(){
+    getDeleteBtn() {
         return cy.get(':nth-child(5) div.menu-item a.menu-link:visible').contains("Delete");
     }
 
-    getEditPopupTitle(){
+    getEditPopupTitle() {
         return cy.get('div.h4');
     }
 
-    getEditUserFrstName(){
+    getEditUserFrstName() {
         return cy.get('input[name="firstName"]')
     }
 
-    getEditUserLstName(){
+    getEditUserLstName() {
         return cy.get('input[name="lastName"]')
     }
 
-    getUsersLst(){
+    getUsersLst() {
         return cy.get('div.table-name-email-column-cls-out span.fw-bolder')
     }
 
-    getUserIdLst(){
+    getUserIdLst() {
         return cy.get('div.table-name-email-column-cls-out span.email-font-cls')
     }
 
-    getEditedEmailFld(){
+    getEditedEmailFld() {
         return cy.get('input[name="email"]')
     }
 
-    geteditUserCancelBtn(){
+    geteditUserCancelBtn() {
         return cy.get('#category_form .me-2 .btn')
     }
 
-    getAddUsercloseIcon(){
+    getAddUsercloseIcon() {
         return cy.get('button.btn-close')
     }
 
-    getUserDeleteBtn(){
+    getUserDeleteBtn() {
         return cy.get('button.btn-primary').contains("Delete")
     }
 
-    getRolesTabLnk(){
+    getRolesTabLnk() {
         return cy.get('div.card-header a').contains("Roles")
     }
 
-    getRolesLst(){
+    getRolesLst() {
         return cy.get('tbody tr td[data-order="46"] span.fw-bolder')
     }
 
-    getRolesLstInRoleTab(){
+    getRolesLstInRoleTab() {
         return cy.get('tbody tr td div a.fw-bolder')
     }
 
-    getUsersTabLnk(){
+    getUsersTabLnk() {
         return cy.get('div.card-header a').contains("Users")
     }
 
-    getRoleLstInUsers(){
+    getRoleLstInUsers() {
         return cy.get('[data-order="46"]  .fw-bolder')
     }
 
-    getPrivilegesLst(){
+    getPrivilegesLst() {
         return cy.get('div.badge-light-success')
     }
 
-    getPrivilegesLstInRoles(){
+    getPrivilegesLstInRoles() {
         return cy.get('span.cursor-pointer')
     }
 
-    getAdminCountInRole(){
+    getAdminCountInRole() {
         return cy.get('tbody tr td.min-w-300px span.badge-light-primary')
     }
 
-    getActionsLstInRole(){
+    getActionsLstInRole() {
         return cy.get('.text-center .MuiButtonBase-root > .MuiIconButton-label > .MuiSvgIcon-root > path')
     }
 
-    getEditBtnInRole(){
+    getEditBtnInRole() {
         return cy.get('div.MuiPaper-root .menu-item span.menu-link').contains("Edit")
     }
 
-    getDeleteBtnInRole(){
+    getDeleteBtnInRole() {
         return cy.get('div.MuiPaper-root .menu-item span.menu-link').contains("Delete")
     }
 
-    getRoleNameFld(){
+    getRoleNameFld() {
         return cy.get('input[name="userCustomRole"]')
     }
 
-    getRoleSubmitBtn(){
+    getRoleSubmitBtn() {
         return cy.get('button.btn-primary span').contains("Submit")
     }
 
-    getRoleCancelBtn(){
+    getRoleCancelBtn() {
         return cy.get('.me-2 .btn').contains("Cancel")
     }
 
-    getAddRoleBtn(){
+    getAddRoleBtn() {
         return cy.get('div a.btn-primary').contains("Add Role")
     }
 
-    getActionsAllowedCheckbxs(){
+    getActionsAllowedCheckbxs() {
         return cy.get('div.form-check input[type="checkbox"]')
     }
 
-    getAlertMsg(){
+    getAlertMsg() {
         return cy.get('span[role="alert"]')
     }
-    getELADomainMappingCreateCheckBx(){
+    getELADomainMappingCreateCheckBx() {
         return cy.get('div.form-check input[name="13.isCreatable"]')
     }
-    getELADomainMappingUpdateCheckBx(){
+    getELADomainMappingUpdateCheckBx() {
         return cy.get('div.form-check input[name="13.isUpdatable"]')
     }
-    getELADomainMappingReadCheckBx(){
+    getELADomainMappingReadCheckBx() {
         return cy.get('div.form-check input[name="13.isReadable"]')
     }
-    getELADomainMappingDeleteCheckBx(){
+    getELADomainMappingDeleteCheckBx() {
         return cy.get('div.form-check input[name="13.isDeletable"]')
     }
-    getELACompetencyCreateCheckBx(){
+    getELACompetencyCreateCheckBx() {
         return cy.get('div.form-check input[name="14.isCreatable"]')
     }
-    getELACompetencyReadCheckBx(){
+    getELACompetencyReadCheckBx() {
         return cy.get('div.form-check input[name="14.isReadable"]')
     }
-    getUsersAndRolesCreateCheckBx(){
+    getUsersAndRolesCreateCheckBx() {
         return cy.get('div.form-check input[name="9.isCreatable"]')
     }
-    getUsersAndRolesReadCheckBx(){
+    getUsersAndRolesReadCheckBx() {
         return cy.get('div.form-check input[name="9.isReadable"]')
     }
-    getUsersAndRolesUpdateCheckBx(){
+    getUsersAndRolesUpdateCheckBx() {
         return cy.get('div.form-check input[name="9.isUpdatable"]')
     }
-    getContentTypeCreateCheckBx(){
+    getContentTypeCreateCheckBx() {
         return cy.get('div.form-check input[name="12.isCreatable"]')
     }
-    getContentTypeUpdateCheckBx(){
+    getContentTypeUpdateCheckBx() {
         return cy.get('div.form-check input[name="12.isUpdatable"]')
     }
-    getContentTypeReadCheckBx(){
+    getContentTypeReadCheckBx() {
         return cy.get('div.form-check input[name="12.isReadable"]')
     }
-    getProfileImg(){
+    getProfileImg() {
         return cy.get('.cursor-pointer > img')
     }
-    getSignOutBtn(){
+    getSignOutBtn() {
         return cy.get('div a.px-5')
     }
-    getDomainMappingMainSkillLst(){
+    getDomainMappingMainSkillLst() {
         return cy.get('div.d-flex a[data-kt-ecommerce-product-filter="product_name"]')
     }
-    
 
 }
-export default MainAdminUserManagementPage;
+module.exports = new MainAdminUserManagementPage() 

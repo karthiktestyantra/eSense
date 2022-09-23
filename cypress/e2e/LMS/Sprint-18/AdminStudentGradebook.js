@@ -1,74 +1,71 @@
-import AdminPostSetupHomePage from "../../../support/pageObjects/LMS-2/AdminPostSetupHomePage";
-import AdminGradebookPageNew from "../../../support/pageObjects/LMS-2/AdminGradebookPageNew";
-
-const home = new AdminPostSetupHomePage();
-const gradebook = new AdminGradebookPageNew();
+const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
+const adminGradebookPageNew = require("../../../support/pageObjects/LMS-2/AdminGradebookPageNew")
 
 describe("Verify Admin student grade book functionalities", function () {
+
   before(function () {
     cy.visit(Cypress.env("urlMain"))
     cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
     })
   })
+
   beforeEach(function () {
-    cy.fixture("LMS/AdminReports").then(function (report) {
-      this.report = report;
-    })
+    cy.fixture("LMS/AdminReports").as("report")
   })
 
   //pre-condition
   it("Validate user is able to create Gradebook by clicking TopSchool option in the “Create Template” screen/EL-5358/ES5358_01", function () {
-    home.getReportsSectionLnk().click({ force: true })
-    gradebook.getSiStudentGradebookLnk().click()
-    gradebook.getSiCreateTemplateBtn().click()
-    gradebook.getSiGradeDrpDwnInCreateTemplate().click()
-    gradebook.getSiDrpDwnLstInCreateTemplate().contains(this.report.Grade).click()
-    gradebook.getSiSectionDrpDwnInCreateTemplate().click()
-    gradebook.getSiDrpDwnLstInCreateTemplate().contains(this.report.Section).click()
-    gradebook.getSiNoTermsDrpDwnInCreateTemplate().click({ force: true })
-    gradebook.getSiDrpDwnLstInCreateTemplate().contains(this.report.Terms).click()
-    gradebook.getSiAddTestTypeInCreateTemplate().click({ force: true })
+    adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
+    adminGradebookPageNew.getSiStudentGradebookLnk().click()
+    adminGradebookPageNew.getSiCreateTemplateBtn().click()
+    adminGradebookPageNew.getSiGradeDrpDwnInCreateTemplate().click()
+    adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.Grade).click()
+    adminGradebookPageNew.getSiSectionDrpDwnInCreateTemplate().click()
+    adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.Section).click()
+    adminGradebookPageNew.getSiNoTermsDrpDwnInCreateTemplate().click({ force: true })
+    adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.Terms).click()
+    adminGradebookPageNew.getSiAddTestTypeInCreateTemplate().click({ force: true })
     cy.wait(1000)
-    gradebook.getSiAddTestTermDrpDwn().click({ force: true })
-    gradebook.getSiDrpDwnLstInCreateTemplate().contains(this.report.Terms).click({ force: true })
-    gradebook.getSiTestTypeDrpDwnInCreateTemplate().click({ force: true })
-    gradebook.getSiDrpDwnLstInCreateTemplate().contains(this.report.TestType).click({ force: true })
-    gradebook.getSiMaxMarksDrpDwnInCreateTemplate().click({ force: true })
-    gradebook.getSiDrpDwnLstInCreateTemplate().contains(this.report.MaxMarks).click({ force: true })
-    gradebook.getSiAddSubjectInCreateTemplate().click({ force: true })
-    gradebook.getSiSubDrpDwnInAddSub().click({ force: true })
-    gradebook.getSiDrpDwnLstInGradebook().contains(this.report.Subject).click({ force: true })
-    gradebook.getSiAddTheoryInCreateTemplate().click({ force: true })
-    gradebook.getSiTestTypeDrpDwnInAddTheoryCreateTemplate().click({ force: true })
-    gradebook.getSiDrpDwnLstInCreateTemplate().contains(this.report.TestType).click({ force: true })
-    gradebook.getSiTheoryFldInAddTheoryCreateTemplate().type(this.report.TheoryMark, { force: true })
-    gradebook.getSiErrorMsgInCreateTemplate().should('be.visible')
-    gradebook.getSiPracticalInAddTheoryCreateTemplate().type(this.report.PracticalMark, { force: true })
-    gradebook.getSiErrorMsgInCreateTemplate().should('not.be.visible')
+    adminGradebookPageNew.getSiAddTestTermDrpDwn().click({ force: true })
+    adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.Terms).click({ force: true })
+    adminGradebookPageNew.getSiTestTypeDrpDwnInCreateTemplate().click({ force: true })
+    adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.TestType).click({ force: true })
+    adminGradebookPageNew.getSiMaxMarksDrpDwnInCreateTemplate().click({ force: true })
+    adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.MaxMarks).click({ force: true })
+    adminGradebookPageNew.getSiAddSubjectInCreateTemplate().click({ force: true })
+    adminGradebookPageNew.getSiSubDrpDwnInAddSub().click({ force: true })
+    adminGradebookPageNew.getSiDrpDwnLstInGradebook().contains(this.report.Subject).click({ force: true })
+    adminGradebookPageNew.getSiAddTheoryInCreateTemplate().click({ force: true })
+    adminGradebookPageNew.getSiTestTypeDrpDwnInAddTheoryCreateTemplate().click({ force: true })
+    adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.TestType).click({ force: true })
+    adminGradebookPageNew.getSiTheoryFldInAddTheoryCreateTemplate().type(this.report.TheoryMark, { force: true })
+    adminGradebookPageNew.getSiErrorMsgInCreateTemplate().should('be.visible')
+    adminGradebookPageNew.getSiPracticalInAddTheoryCreateTemplate().type(this.report.PracticalMark, { force: true })
+    adminGradebookPageNew.getSiErrorMsgInCreateTemplate().should('not.be.visible')
     cy.scrollTo('bottom')
-    gradebook.getSiAddActivityInCreateTemplate().click({ force: true })
-    gradebook.getSiActivityFldInCreateTemplate().type(this.report.Activity, { force: true })
-    gradebook.getSiSaveAndPreviewBtnInCreateTemplate().should('be.enabled')
+    adminGradebookPageNew.getSiAddActivityInCreateTemplate().click({ force: true })
+    adminGradebookPageNew.getSiActivityFldInCreateTemplate().type(this.report.Activity, { force: true })
+    adminGradebookPageNew.getSiSaveAndPreviewBtnInCreateTemplate().should('be.enabled')
   })
 
   it("Validate user selects “TopSchool” radio button the preloaded template for the selected grade will be listed/EL-5358/ES5358_02", function () {
     cy.go('back')
     cy.wait(1000)
-    gradebook.getSiCreateTemplateBtn().click()
-    gradebook.getSiTopSchlRadioBtnInCreateTemplatePage().click({ force: true })
-    gradebook.getSiGradeDrpDwnInCreateTemplate().click()
-    gradebook.getSiDrpDwnLstInCreateTemplate().contains(this.report.Grade).click()
-    gradebook.getSiActivityFldInCreateTemplate().should('have.length', 2)
+    adminGradebookPageNew.getSiCreateTemplateBtn().click()
+    adminGradebookPageNew.getSiTopSchlRadioBtnInCreateTemplatePage().click({ force: true })
+    adminGradebookPageNew.getSiGradeDrpDwnInCreateTemplate().click()
+    adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.Grade).click()
+    adminGradebookPageNew.getSiActivityFldInCreateTemplate().should('have.length', 2)
   })
 
   it("Validate whether in the preview gradebook template, the following option is available for the user -Edit and create new/EL-5358/ES5358_05", function () {
-    gradebook.getSiEditBtnInCreateTemplatePageInTopschool().should('be.enabled').and('be.visible')
-    gradebook.getSiCreateNwCreateTemplatePageInTopSchl().should('be.enabled').and('be.visible')
+    adminGradebookPageNew.getSiEditBtnInCreateTemplatePageInTopschool().should('be.enabled').and('be.visible')
+    adminGradebookPageNew.getSiCreateNwCreateTemplatePageInTopSchl().should('be.enabled').and('be.visible')
   })
 
   it("Validate user click on “Edit” button, navigate to preview the gradebook template/EL-5358/ES5358_04", function () {
-    gradebook.getSiEditBtnInCreateTemplatePageInTopschool().click()
+    adminGradebookPageNew.getSiEditBtnInCreateTemplatePageInTopschool().click()
     cy.contains("Edit Gradebook undefined").should('be.visible')
   })
 })

@@ -1,35 +1,31 @@
-import sprint11Pages from "../../../../support/pageObjects/LMS-1/sprint11Pages";
-
-const sp11 = new sprint11Pages();
+const sprint11Pages = require("../../../../support/pageObjects/LMS-1/sprint11Pages")
 
 describe("Verify School Teacher Basic Info Functionalities", function () {
+  
   before(function () {
     cy.visit(Cypress.env("urlMain"));
     cy.wait(3000)
-    sp11.getTeacher().eq(1).click();
+    sprint11Pages.getTeacher().eq(1).click();
     cy.fixture("LMS/TeacherLoginCredentials").then(function (validTeacherLoginData) {
       this.validTeacherLoginData = validTeacherLoginData;
-      
     });
   });
 
   beforeEach(function () {
-    cy.fixture("LMS/addHomework").then(function (validhomeworkdata) {
-      this.validhomeworkdata = validhomeworkdata;
-    });
-  });
+    cy.fixture("LMS/addHomework").as("validhomeworkdata)")
+  })
 
   it("Verify that teacher able to login with valid credentials", function () {
-    sp11.getUserName().clear().type(this.validTeacherLoginData.user2);
-    sp11.getPassword().clear().type(this.validTeacherLoginData.password);
-    sp11.getLogin().click();
-    sp11.getdashboarddetailstext().should("be.visible");
+    sprint11Pages.getUserName().clear().type(this.validTeacherLoginData.user2);
+    sprint11Pages.getPassword().clear().type(this.validTeacherLoginData.password);
+    sprint11Pages.getLogin().click();
+    sprint11Pages.getdashboarddetailstext().should("be.visible");
   });
 
   it("To verify that when user clicks on Time Table button time table page should be displayed", function () {
-    sp11.getcalendarbutton().should("be.visible").click();
+    sprint11Pages.getcalendarbutton().should("be.visible").click();
     cy.wait(1000);
-    sp11.getnextweekbutton().should("be.visible").click();
+    sprint11Pages.getnextweekbutton().should("be.visible").click();
     cy.wait(1000);
     sp11
       .getclassincalendar()
@@ -37,14 +33,14 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
       .should("be.visible")
       .click();
     // cy.wait(1000);
-    sp11.getstartsessionbutton().click({ force: true });
+    sprint11Pages.getstartsessionbutton().click({ force: true });
     cy.wait(1000);
-    sp11.gettimetablebutton().should("be.visible").click();
-    sp11.gettimetablevaue().contains("Timetable 2021 - 2022");
+    sprint11Pages.gettimetablebutton().should("be.visible").click();
+    sprint11Pages.gettimetablevaue().contains("Timetable 2021 - 2022");
   });
 
   it("To verify that when user clicks on MileStones button, MileStones page should be displayed.", function () {
-    sp11.getmilestonebutton().should("be.visible").click();
+    sprint11Pages.getmilestonebutton().should("be.visible").click();
     cy.wait(1000);
     sp11
       .getmilestonevalue()
@@ -53,7 +49,7 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
   });
 
   it("To verify that when user clicks on Content Library button, Content Library page should be displayed.", function () {
-    sp11.getlibrarybutton().should("be.visible").click();
+    sprint11Pages.getlibrarybutton().should("be.visible").click();
     cy.wait(1000);
     sp11
       .getlibraryvalue()
@@ -62,7 +58,7 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
   });
 
   it("To verify that when user clicks on White Board button, White Board tool should be displayed.", function () {
-    sp11.getwhiteboardbutton().should("be.visible").click();
+    sprint11Pages.getwhiteboardbutton().should("be.visible").click();
     cy.wait(1000);
     sp11
       .getwhiteboardvalue()
@@ -71,18 +67,18 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
   });
 
   it("To verify that drawing tools are provided in White Board tool", function () {
-    sp11.getwhiteboardsquare().should("be.visible");
-    sp11.getwhiteboardiamond().should("be.visible");
-    sp11.getwhiteboardround().should("be.visible");
+    sprint11Pages.getwhiteboardsquare().should("be.visible");
+    sprint11Pages.getwhiteboardiamond().should("be.visible");
+    sprint11Pages.getwhiteboardround().should("be.visible");
   });
 
   it("To verify that the work load toggle will be disabled defaultly or not", function () {
-    sp11.getcalendarbutton().should("be.visible").click();
+    sprint11Pages.getcalendarbutton().should("be.visible").click();
     cy.wait(1000);
-    sp11.gettogglebutton().should("exist").should("not.be.selected");
+    sprint11Pages.gettogglebutton().should("exist").should("not.be.selected");
   });
 
   it("To verify that the work load toggle able to select or not", function () {
-    sp11.gettogglebutton().check().should("be.checked");
+    sprint11Pages.gettogglebutton().check().should("be.checked");
   });
 });

@@ -7,6 +7,5 @@ class TeacherHomePage{
         return cy.get('h4 span').eq(0);
     }
   
-
 }
-export default TeacherHomePage
+module.exports = new TeacherHomePage() 

@@ -1,8 +1,7 @@
-import TeacherELAPage2 from "../../../support/pageObjects/LMS-2/TeacherELAPage2";
-
-const teacherELAPage = new TeacherELAPage2()
+const teacherELAPage = require("../../../support/pageObjects/LMS-2/TeacherELAPage")
 
 describe("Verify Teacher ELA Page functionalities", function () {
+
     before(function () {
         cy.visit(Cypress.env('urlStaging'))
         cy.fixture('LMS/TeacherLoginCredentials').then(function (validTeacherLoginData) {
@@ -11,9 +10,7 @@ describe("Verify Teacher ELA Page functionalities", function () {
     })
 
     beforeEach(function () {
-        cy.fixture('LMS/TeacherELACredentials').then(function (teacherELA) {
-            this.teacherELA = teacherELA;
-        })
+        cy.fixture("LMS/TeacherELACredentials").as("teacherELA")
     })
 
     it("Validate teacher clicks on Assign button Successfully assigned pop up will appear with the notification/EL-4203/ES4203_01", function () {

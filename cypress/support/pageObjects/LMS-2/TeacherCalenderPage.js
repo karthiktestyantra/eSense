@@ -1,31 +1,47 @@
-class TeacherCalenderPage{
-    getExamScheduledDay(){
+class TeacherCalenderPage {
+
+    getExamScheduledDay() {
         return cy.get('.mbsc-calendar-labels .mbsc-calendar-text:visible')
     }
-    getCalendarTitle(){
+    getCalendarTitle() {
         return cy.get('div.calendarTopSect').contains("Calendar")
     }
-    getMonthTitleTxt(){
+    getMonthTitleTxt() {
         return cy.get('div.md-custom-header-nav')
     }
-    getCalenderRange(){
+    getCalenderRange() {
         return cy.get('div.mbsc-range-day:visible')
     }
-    getClassesCheckbox(){
+    getClassesCheckbox() {
         return cy.get('[name="Classes"]')
     }
-
-    getForwordWeekButton(){
-        return cy.get('[class="mbsc-calendar-button cal-header-next mbsc-reset mbsc-font mbsc-button mbsc-windows mbsc-ltr mbsc-button-flat mbsc-icon-button"]')
+    getForwordWeekButton() {
+        return cy.get('button.cal-header-next')
     }
-
-    getGreade3A(){
-        return cy.xpath('//strong[text()="Grade 3"]')
+    getGreade3A() {
+        return cy.get('.md-custom-event-title')
     }
-
-    getStartSessionButton(){
+    getStartSessionButton() {
         return cy.get('div .viewLiveFields').contains('Start Session')
     }
+    getClassResourcesButton() {
+        return cy.contains('Class Resources')
+    }
 
+    //Buiness logic
+
+    clickOnStartSessionBtn() {
+        this.getStartSessionButton().click()
+    }
+    clickOnClassCheckbox() {
+        this.getClassesCheckbox().check({ force: true })
+    }
+    clickOnForwordBtn() {
+        this.getForwordWeekButton().click()
+    }
+    clickOnGrade() {
+        cy.wait(1000)
+        this.getGreade3A().click({ force: true })
+    }
 }
-export default TeacherCalenderPage;
+module.exports = new TeacherCalenderPage() 

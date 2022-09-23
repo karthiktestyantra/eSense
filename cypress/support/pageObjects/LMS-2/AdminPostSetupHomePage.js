@@ -1,22 +1,23 @@
-class AdminPostSetupHomePage{
-    getSchoolLnk(){
+class AdminPostSetupHomePage {
+
+    getSchoolLnk() {
         return cy.get('.side-nav-dashboard .menu-txt').contains("School")
     }
-    getGradesAndDeptSectionBtn(){
+    getGradesAndDeptSectionBtn() {
         return cy.get('div div p:visible').contains("Grades & Stream")
     }
-    getGradesAndDeptSectionBtn2(){
+    getGradesAndDeptSectionBtn2() {
         return cy.get('.MuiButtonBase-root:visible').contains("Grades and subject")
     }
-    getCurriculumBuilderSectionLnk(){
+    getCurriculumBuilderSectionLnk() {
         return cy.get('div div p:visible').contains("Curriculum")
     }
-    getAdminAccountsSectionLnk(){
+    getAdminAccountsSectionLnk() {
         return cy.get('div div p:visible').contains("Admin Accounts")
     }
-    getReportsSectionLnk(){
+    getReportsSectionLnk() {
         return cy.get('.side-nav-dashboard .menu-txt').contains("Reports")
     }
 
 }
-export default AdminPostSetupHomePage;
+module.exports = new AdminPostSetupHomePage() 

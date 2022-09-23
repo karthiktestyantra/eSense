@@ -1,18 +1,16 @@
-import EsenseAdminGradePage from "../../../support/pageObjects/LMS-2/EsenseAdminGradePage";
-
-const esenseAdminGradePage = new EsenseAdminGradePage();
+const esenseAdminGradePage = require("../../../support/pageObjects/LMS-2/EsenseAdminGradePage")
 
 describe("Verify admin edit grade book template", function () {
+
    before(function () {
       cy.visit(Cypress.env("url"))
       cy.fixture("LMS/mainAdminLoginCredentials").then(function (validAdminLoginData) {
          cy.Mainlogin(validAdminLoginData.username, validAdminLoginData.password)
       })
    })
+
    beforeEach(function () {
-      cy.fixture('LMS/mainAdminGradebookCredentials').then(function (EsenseAdminGradesCredentials) {
-         this.esenseAdminGradesCredentials = EsenseAdminGradesCredentials;
-      })
+      cy.fixture("LMS/mainAdminGradebookCredentials").as("esenseAdminGradesCredentials")
    })
 
    it("To validate Edit option is present in  Action column in the template list screen. /EL-5594/ES5594-02", function () {

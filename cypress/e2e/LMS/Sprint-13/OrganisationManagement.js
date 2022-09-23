@@ -1,8 +1,5 @@
-import MainAdminHomePage from "../../../support/pageObjects/LMS-2/MainAdminHomePage"
-import MainAdminOrganisationManagementPage from "../../../support/pageObjects/LMS-2/MainAdminOrganisationManagementPage";
-
-const home = new MainAdminHomePage();
-const OrgManage = new MainAdminOrganisationManagementPage();
+const mainAdminHomePage = require("../../../support/pageObjects/LMS-2/MainAdminHomePage")
+const mainAdminOrganisationManagementPage = require("../../../support/pageObjects/LMS-2/MainAdminOrganisationManagementPage")
 
 describe("Verify Organisation Page functionalities", function () {
   before(function () {
@@ -12,26 +9,25 @@ describe("Verify Organisation Page functionalities", function () {
       cy.Mainlogin(validAdminLoginData.username, validAdminLoginData.password)
     })
   })
+
   beforeEach(function () {
-    cy.fixture("LMS/mainAdminOrganisationManagementCredentials").then(function (OrgCredentials) {
-      this.OrgCredentials = OrgCredentials;
-    })
+    cy.fixture("LMS/mainAdminOrganisationManagementCredentials").as("OrgCredentials")
   })
 
   it("To validate esense admin is able to go to Organisation Management page", function () {
-    home.getOrganisationManagementLnk().click()
-    OrgManage.getTitle().should('have.text', this.OrgCredentials.PageTitle)
+    mainAdminHomePage.getOrganisationManagementLnk().click()
+    mainAdminOrganisationManagementPage.getTitle().should('have.text', this.OrgCredentials.PageTitle)
     // })
 
     //it("To validate esense admin is able to view the replaced 'Registered Date' text/EL-4139/ES4139_01",function () {
-    OrgManage.getRegDateTitle().should('have.text', this.OrgCredentials.SubTitleDate)
+    mainAdminOrganisationManagementPage.getRegDateTitle().should('have.text', this.OrgCredentials.SubTitleDate)
     //})
 
     //it("To validate esense admin is able to view the renamed 'Sub Domain' column name instead of 'Code'/EL-4140/ES4140_01",function (){
     cy.wait(1000)
-    OrgManage.getActionsBtn().click({ force: true })
-    OrgManage.getSchoolManagementLnk().click({ force: true })
-    OrgManage.getSubDomainTitle().should('have.text', this.OrgCredentials.SubTitleDomain)
+    mainAdminOrganisationManagementPage.getActionsBtn().click({ force: true })
+    mainAdminOrganisationManagementPage.getSchoolManagementLnk().click({ force: true })
+    mainAdminOrganisationManagementPage.getSubDomainTitle().should('have.text', this.OrgCredentials.SubTitleDomain)
     // })
   })
 

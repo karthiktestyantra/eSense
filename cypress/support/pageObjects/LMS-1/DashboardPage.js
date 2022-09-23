@@ -1,26 +1,26 @@
 class DashboardPage {
 
-  getDashboard(){
+  getDashboard() {
     return cy.contains('Dashboard')
   }
 
-  getMyClasses(){
+  getMyClasses() {
     return cy.contains('My Classes')
   }
 
-  getMyCalendar(){
+  getMyCalendar() {
     return cy.contains('My Calendar')
   }
 
-  getReports(){
+  getReports() {
     return cy.contains('Reports')
   }
 
-  getCurriculum(){
+  getCurriculum() {
     return cy.contains('Curriculum')
   }
 
-  getContentLibrary(){
+  getContentLibrary() {
     return cy.get('.side-nav-icon').eq(3)
   }
 
@@ -32,4 +32,4 @@ class DashboardPage {
     return cy.contains('Logout');
   }
 }
-export default DashboardPage
+module.exports = new DashboardPage()

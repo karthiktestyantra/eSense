@@ -1,87 +1,82 @@
-class EsenseAdminLessonPlanPage{
+class EsenseAdminLessonPlanPage {
 
-    getSideBarLessonPlanBtn(){
-           return  cy.get('div.menu-item a span.menu-title').contains('Lesson Plan')
-       }
+    getSideBarLessonPlanBtn() {
+        return cy.get('div.menu-item a span.menu-title').contains('Lesson Plan')
+    }
 
-       getLessonPlanHeaderTxt(){
-           return cy.get('div#kt_page_title h1').contains('Lesson Plan')
-       }
+    getLessonPlanHeaderTxt() {
+        return cy.get('div#kt_page_title h1').contains('Lesson Plan')
+    }
 
-       getAddLessonPlanBtn(){
+    getAddLessonPlanBtn() {
         return cy.get('button.MuiButton-textPrimary:visible')
     }
 
-    getAddLessonPlanName(){
+    getAddLessonPlanName() {
         return cy.get('tbody.fw-bold tr td span.fw-bolder')
     }
 
-    getAddLessonChapterName(){
+    getAddLessonChapterName() {
         return cy.get('div.bg-gray:visible')
     }
 
-    getLessonPlanChapterAddNewBtn(){
+    getLessonPlanChapterAddNewBtn() {
         return cy.get('div.lessonplan svg')
     }
 
-    getLessonPlanSearchTxtFieldBtn(){
+    getLessonPlanSearchTxtFieldBtn() {
         return cy.get('input[placeholder="Search Courses"]')
     }
 
-    getLessonPlanSubjectTxt(){
+    getLessonPlanSubjectTxt() {
         return cy.get('.fw-bold :nth-child(1) > .fw-bolder')
 
     }
 
-    getNoDataFoundTxt(){
+    getNoDataFoundTxt() {
         return cy.get('.fw-bold.text-center')
 
     }
 
-    getFilterBtn(){
+    getFilterBtn() {
         return cy.get('button.filterBtn')
 
     }
 
-    getFilterPopupHeaderTxt(){
+    getFilterPopupHeaderTxt() {
         return cy.get('#contained-modal-title-vcenter')
 
     }
 
-    getFilterPopupCheckBox(){
+    getFilterPopupCheckBox() {
         return cy.get('div.d-tree input[type="checkbox"]')
 
     }
 
-    getFilterPopupCheckBoxClearBtn(){
+    getFilterPopupCheckBoxClearBtn() {
         return cy.get('button.clearBtn')
 
     }
 
-    getLessonPlanGradeTab(){
+    getLessonPlanGradeTab() {
         return cy.get('li.nav-item a').contains('Grade')
 
     }
 
-    getLessonPlanGradeCheckBox(){
+    getLessonPlanGradeCheckBox() {
         return cy.get('#gradeCheck-0')
 
     }
 
-    getLessonPlanGradeCheckBoxOkBtn(){
+    getLessonPlanGradeCheckBoxOkBtn() {
         return cy.get('button.okBtn')
 
     }
 
-    getLessonPlanFilterPopupCloseBtn(){
+    getLessonPlanFilterPopupCloseBtn() {
         return cy.get('button.btn-close')
 
     }
 
-
-    
-
-
-    }
-
-       export default EsenseAdminLessonPlanPage;
+}
+module.exports = new EsenseAdminLessonPlanPage() 

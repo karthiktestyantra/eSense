@@ -71,14 +71,14 @@ class Admin360ReportPage {
    verifyGradeDropDownIsVisible() {
       cy.isVisible(this.getGradeDrpDwn())
    }
-   verifySectionDropDownIsVisible(){
+   verifySectionDropDownIsVisible() {
       cy.isVisible(this.getSectionDrpDwn())
    }
-   clickOnGradeDrpDwn(){
+   clickOnGradeDrpDwn() {
       this.getGradeDrpDwn().click()
    }
-   clickOnNothingGradeInGradeDropDownList(){
+   clickOnNothingGradeInGradeDropDownList() {
       this.getGradeDrpDwnLst()
    }
 }
-export default Admin360ReportPage;
+module.exports = new Admin360ReportPage() 

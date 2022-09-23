@@ -1,36 +1,36 @@
-class RequestChange{
+class RequestChange {
 
-    getChangeDropdown(){
+    getChangeDropdown() {
         return cy.get('#rc_screen')
     }
 
-    getIssueTextBox(){
+    getIssueTextBox() {
         return cy.get('#rc_content')
     }
 
-    getCloseIcon(){
-       return cy.get('.model-wrapper > [data-testid=CloseIcon] > path')
+    getCloseIcon() {
+        return cy.get('.model-wrapper > [data-testid=CloseIcon] > path')
     }
 
-    getSendRequest(){
+    getSendRequest() {
         return cy.get('button[type="submit"]')
     }
 
-    getErrorMessage(){
+    getErrorMessage() {
         return cy.get('.text-danger.mb-3')
     }
 
-    getSuccessfulMessage(){
+    getSuccessfulMessage() {
         return cy.get('.request_success')
     }
 
-    getSuccessfulMessageScreenCloseIcon(){
-        return cy.get('.model-wrapper > [data-testid=CloseIcon]')   
+    getSuccessfulMessageScreenCloseIcon() {
+        return cy.get('.model-wrapper > [data-testid=CloseIcon]')
     }
 
-    getRequestType(){
+    getRequestType() {
         return cy.get('.request_para')
     }
 }
 
-export default RequestChange;
+module.exports = new RequestChange() 

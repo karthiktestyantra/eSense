@@ -1,8 +1,5 @@
-import MainAdminHomePage from "../../../support/pageObjects/LMS-2/MainAdminHomePage"
-import MainAdminMasterManagementPage from "../../../support/pageObjects/LMS-2/MainAdminMasterManagementPage";
-
-const home = new MainAdminHomePage();
-const masterManage = new MainAdminMasterManagementPage();
+const mainAdminHomePage = require("../../../support/pageObjects/LMS-2/MainAdminHomePage")
+const mainAdminMasterManagementPage = require("../../../support/pageObjects/LMS-2/MainAdminMasterManagementPage")
 
 describe("Verify Master Management Page functionalities", function () {
   before(function () {
@@ -12,126 +9,126 @@ describe("Verify Master Management Page functionalities", function () {
       cy.Mainlogin(validAdminLoginData.username, validAdminLoginData.password)
     })
   })
+
   beforeEach(function () {
-    cy.fixture("LMS/mainAdminMasterManagementCredentials").then(function (masterManagementCredentials) {
-      this.masterManagementCredentials = masterManagementCredentials;
-    })
+    cy.fixture("LMS/mainAdminMasterManagementCredentials").as("masterManagementCredentials")
   })
+
   //pre-condition before execution
   it("Navigate to Master Management page", function () {
-    home.getSystemConfigDrpDwn().click()
-    home.getMasterManagementLnk().click()
-    masterManage.getTitle().should('have.text', this.masterManagementCredentials.Title)
+    mainAdminHomePage.getSystemConfigDrpDwn().click()
+    mainAdminHomePage.getMasterManagementLnk().click()
+    mainAdminMasterManagementPage.getTitle().should('have.text', this.masterManagementCredentials.Title)
     //  })
 
     //it("To validate that 'Publications' tab is provided in the 'Master Management'/EL-4138/ES4138_01",function () {
-    masterManage.getPublicationTabLnk().should('be.visible').should('have.text', this.masterManagementCredentials.PublicationTabTitle)
+    mainAdminMasterManagementPage.getPublicationTabLnk().should('be.visible').should('have.text', this.masterManagementCredentials.PublicationTabTitle)
     // })
 
     // it("To validate that when user clicks on 'Publications' Tab, Publications list exist in the masters DB is displayed/EL-4138/ES4138_02",function(){
-    masterManage.getPublicationTabLnk().click()
-    masterManage.getPublicationNameLst().should('be.visible')
+    mainAdminMasterManagementPage.getPublicationTabLnk().click()
+    mainAdminMasterManagementPage.getPublicationNameLst().should('be.visible')
     // })
 
     //it("To validate that 'Add New' Button is provided in the 'Publications' tab/EL-4138/ES4138_03",function(){
-    masterManage.getBottomAddNewBtn().should('be.visible')
+    mainAdminMasterManagementPage.getBottomAddNewBtn().should('be.visible')
     //})
 
     // it("To validate that when user click on 'Add New' button it's navigating to 'Add Publication' pop-up/EL-4138/ES4138_04",function(){
-    masterManage.getBottomAddNewBtn().click()
-    masterManage.getAddPublicationTitleTxt().should('have.text', this.masterManagementCredentials.AddNewPublicationTitle)
+    mainAdminMasterManagementPage.getBottomAddNewBtn().click()
+    mainAdminMasterManagementPage.getAddPublicationTitleTxt().should('have.text', this.masterManagementCredentials.AddNewPublicationTitle)
     // })
 
     // it("To validate that 'Publication' and 'Display Name' Text box is provided in the 'Add Publication' pop-up/EL-4138/ES4138_05",function(){
-    masterManage.getPublicationNameTxtFld().should('be.enabled').should('be.visible')
-    masterManage.getDisplayNameTxtFld().should('be.enabled').should('be.visible')
+    mainAdminMasterManagementPage.getPublicationNameTxtFld().should('be.enabled').should('be.visible')
+    mainAdminMasterManagementPage.getDisplayNameTxtFld().should('be.enabled').should('be.visible')
     //  })
 
     // it("To validate that 'Status' toggle is provided in the 'Add Publication' pop-up/EL-4138/ES4138_06",function(){
-    masterManage.getStatusToggleBtn().should('be.enabled').should('be.visible')
+    mainAdminMasterManagementPage.getStatusToggleBtn().should('be.enabled').should('be.visible')
     //})
 
     //  it("To validate that 'Submit' and 'Cancel' buttons is provided the 'Add Publication' pop-up/EL-4138/ES4138_07",function(){
-    masterManage.getAddPublicationSubmitBtn().should('be.visible')
-    masterManage.getAddPublicationCancenBtn().should('be.visible')
+    mainAdminMasterManagementPage.getAddPublicationSubmitBtn().should('be.visible')
+    mainAdminMasterManagementPage.getAddPublicationCancenBtn().should('be.visible')
     // })
 
     // it("To validate that 'Type Publication Name' Place holder is provided in the 'Publication' Text box/EL-4138/ES4138_08",function(){
-    masterManage.getPublicationNameTxtFld().invoke('attr', 'placeholder').should('eq', this.masterManagementCredentials.PublicationPlaceHolderText)
+    mainAdminMasterManagementPage.getPublicationNameTxtFld().invoke('attr', 'placeholder').should('eq', this.masterManagementCredentials.PublicationPlaceHolderText)
     // })
 
     // it("To validate that user is able to enter alphanumeric charecters into 'Publication' Textbox/EL-4138/ES4138_09",function(){
-    masterManage.getPublicationNameTxtFld().type(this.masterManagementCredentials.AlphanumericCharectors)
+    mainAdminMasterManagementPage.getPublicationNameTxtFld().type(this.masterManagementCredentials.AlphanumericCharectors)
     // })
 
     //it("To validate that 'Type Display Name' Place holder is provided in the 'Display Name' Text box/EL-4138/ES4138_10",function(){
-    masterManage.getDisplayNameTxtFld().invoke('attr', 'placeholder').should('eq', this.masterManagementCredentials.DisplayPlaceHolderText)
+    mainAdminMasterManagementPage.getDisplayNameTxtFld().invoke('attr', 'placeholder').should('eq', this.masterManagementCredentials.DisplayPlaceHolderText)
     // })
 
     //it("To validate that user is able to enter alphanumeric charecters into 'Display Name' Textbox/EL-4138/ES4138_11",function(){
-    masterManage.getDisplayNameTxtFld().type(this.masterManagementCredentials.AlphanumericCharectors)
+    mainAdminMasterManagementPage.getDisplayNameTxtFld().type(this.masterManagementCredentials.AlphanumericCharectors)
     // })
 
     //it("To validate that user is able to Switch on  and off the 'Status' toggle/EL-4138/ES4138_12",function(){
-    masterManage.getStatusToggleBtn().should('have.attr', 'value', 'false')
-    masterManage.getStatusToggleBtn().click()
-    masterManage.getStatusToggleBtn().should('have.attr', 'value', 'true')
+    mainAdminMasterManagementPage.getStatusToggleBtn().should('have.attr', 'value', 'false')
+    mainAdminMasterManagementPage.getStatusToggleBtn().click()
+    mainAdminMasterManagementPage.getStatusToggleBtn().should('have.attr', 'value', 'true')
     //})
 
     // it("To validate that when user click on 'Submit' button it's navigating back to 'Publications' Tab/EL-4138/ES4138_13",function(){
-    masterManage.getAddPublicationSubmitBtn().click()
-    masterManage.getPublicationAddedTxt().should('have.text', this.masterManagementCredentials.PublicationAddPopupText)
-    masterManage.getPublicationAddedbtn().click()
-    masterManage.getPublicationNameLst().contains(this.masterManagementCredentials.AlphanumericCharectors)
+    mainAdminMasterManagementPage.getAddPublicationSubmitBtn().click()
+    mainAdminMasterManagementPage.getPublicationAddedTxt().should('have.text', this.masterManagementCredentials.PublicationAddPopupText)
+    mainAdminMasterManagementPage.getPublicationAddedbtn().click()
+    mainAdminMasterManagementPage.getPublicationNameLst().contains(this.masterManagementCredentials.AlphanumericCharectors)
     // })
 
     //it("To verify that when user Switch on the 'Status' toggle and click on 'Submit' button then the status is show as Active in 'Publications' Tab/EL-4138/ES4138_14",function(){
-    masterManage.getPublicationNameLst().each(($e1, index, $list) => {
+    mainAdminMasterManagementPage.getPublicationNameLst().each(($e1, index, $list) => {
       const name = $e1.text()
       if (name.includes(this.masterManagementCredentials.AlphanumericCharectors)) {
-        masterManage.getStatusLst().eq(index).scrollIntoView().should('have.text', "Active")
+        mainAdminMasterManagementPage.getStatusLst().eq(index).scrollIntoView().should('have.text', "Active")
       }
     })
     //})
 
     // it("To verify that when user Switch off the 'Status' toggle and click on 'Submit' button then the status is show as Inactive in 'Publications' Tab/EL-4138/ES4138_15",function(){
-    masterManage.getPublicationNameLst().each(($e1, index, $list) => {
+    mainAdminMasterManagementPage.getPublicationNameLst().each(($e1, index, $list) => {
       const name = $e1.text()
       if (name.includes(this.masterManagementCredentials.AlphanumericCharectors)) {
-        masterManage.getActionsLst().eq(index).scrollIntoView().click()
+        mainAdminMasterManagementPage.getActionsLst().eq(index).scrollIntoView().click()
       }
     })
-    masterManage.getEditBtn().click()
-    masterManage.getStatusToggleBtn().click()
-    masterManage.getStatusToggleBtn().should('have.attr', 'value', 'false')
-    masterManage.getAddPublicationSubmitBtn().click()
-    masterManage.getPublicationAddedbtn().click()
-    masterManage.getPublicationNameLst().each(($e1, index, $list) => {
+    mainAdminMasterManagementPage.getEditBtn().click()
+    mainAdminMasterManagementPage.getStatusToggleBtn().click()
+    mainAdminMasterManagementPage.getStatusToggleBtn().should('have.attr', 'value', 'false')
+    mainAdminMasterManagementPage.getAddPublicationSubmitBtn().click()
+    mainAdminMasterManagementPage.getPublicationAddedbtn().click()
+    mainAdminMasterManagementPage.getPublicationNameLst().each(($e1, index, $list) => {
       const name = $e1.text()
       if (name.includes(this.masterManagementCredentials.AlphanumericCharectors)) {
-        masterManage.getStatusLst().eq(index).scrollIntoView().should('have.text', "Inactive")
+        mainAdminMasterManagementPage.getStatusLst().eq(index).scrollIntoView().should('have.text', "Inactive")
       }
     })
     // })
 
     //it("To validate that when user click on 'Cancel' button, it's navigating to 'Publications' Tab/EL-4138/ES4138_16",function(){
-    masterManage.getBottomAddNewBtn().click()
-    masterManage.getAddPublicationCancenBtn().click()
-    masterManage.getPublicationTabLnk().should('be.visible')
+    mainAdminMasterManagementPage.getBottomAddNewBtn().click()
+    mainAdminMasterManagementPage.getAddPublicationCancenBtn().click()
+    mainAdminMasterManagementPage.getPublicationTabLnk().should('be.visible')
     //})
 
     //post-condition
     // it("Delete the created publication",function(){
-    masterManage.getPublicationNameLst().each(($e1, index, $list) => {
+    mainAdminMasterManagementPage.getPublicationNameLst().each(($e1, index, $list) => {
       const name = $e1.text()
       if (name.includes(this.masterManagementCredentials.AlphanumericCharectors)) {
-        masterManage.getActionsLst().eq(index).scrollIntoView()
-        masterManage.getActionsLst().eq(index).click({ force: true })
+        mainAdminMasterManagementPage.getActionsLst().eq(index).scrollIntoView()
+        mainAdminMasterManagementPage.getActionsLst().eq(index).click({ force: true })
       }
     })
-    masterManage.getDeleteBtn().click()
-    masterManage.getPublicationPopupDltBtn().click()
-    masterManage.getPublicationAddedbtn().click()
+    mainAdminMasterManagementPage.getDeleteBtn().click()
+    mainAdminMasterManagementPage.getPublicationPopupDltBtn().click()
+    mainAdminMasterManagementPage.getPublicationAddedbtn().click()
   })
 })
 

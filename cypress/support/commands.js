@@ -1,5 +1,4 @@
 import 'cypress-file-upload';
-
 after(function () {
   cy.window().then(win => win.sessionStorage.clear());
   cy.clearCookies();
@@ -52,7 +51,6 @@ Cypress.Commands.add('TeacherPostSetupLogin', (email, password) => {
 })
 
 Cypress.Commands.add("requestAPI", (url, body, aliasName, methodType) => {
-  //cy.log(Cypress.env("apiURL")+url)
   cy.request({
     method: methodType,
     url: Cypress.env("apiURL") + url,

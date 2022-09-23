@@ -20,16 +20,14 @@ class RescheduleClassPage {
     return cy.get('input[placeholder="h:mm (a|p)m"]').eq(1);
   }
 
-  getSendRequest(){
-      return cy.get("button[type='submit']");
+  getSendRequest() {
+    return cy.get("button[type='submit']");
   }
 
-  getCloseIcon(){
-      return cy.get('svg[data-testid="CloseIcon"]').eq(1);
+  getCloseIcon() {
+    return cy.get('svg[data-testid="CloseIcon"]').eq(1);
   }
-
-
 
 }
 
-export default RescheduleClassPage;
+module.exports = new RescheduleClassPage() 

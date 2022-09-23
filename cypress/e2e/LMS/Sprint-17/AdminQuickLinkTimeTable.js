@@ -1,18 +1,16 @@
-import AdminQuickLinksPage from "../../../support/pageObjects/LMS-2/AdminQuickLinksPage";
-
-const adminQuickLinksPage = new AdminQuickLinksPage();
+const adminQuickLinksPage = require("../../../support/pageObjects/LMS-2/AdminQuickLinksPage")
 
 describe("Verify admin quick link time table functionalities", function () {
+
     before(function () {
         cy.visit(Cypress.env('urlStaging'))
         cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
             cy.AdminPostSetup(validAdminLoginData.boysUser, validAdminLoginData.password)
         })
     })
+
     beforeEach(function () {
-        cy.fixture('LMS/AdminQuickLink').then(function (adminQuickLink) {
-            this.adminQuickLink = adminQuickLink;
-        })
+        cy.fixture("LMS/AdminQuickLink").as("adminQuickLink")
     })
 
     it("To validate that Timetable Management button is provided in School Quick Links page/EL-4096/ES4096_01", function () {

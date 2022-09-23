@@ -1,8 +1,7 @@
-import AdminDashboardPage from "../../../support/pageObjects/LMS-2/AdminDashboardPage";
-
-const adminDashboardPage = new AdminDashboardPage()
+const adminDashboardPage = require("../../../support/pageObjects/LMS-2/AdminDashboardPage")
 
 describe("Verify admin dashboard functionalities", function () {
+
     before(function () {
         cy.visit(Cypress.env('urlQAPreSetup'))
         cy.fixture('LMS/AdminLoginCredentials').then(function (validAdminLoginData) {
@@ -10,9 +9,7 @@ describe("Verify admin dashboard functionalities", function () {
         })
     })
     beforeEach(function () {
-        cy.fixture('LMS/AdminDashboardCredentials').then(function (adminDashboard) {
-            this.adminDashboard = adminDashboard;
-        })
+        cy.fixture("LMS/AdminDashboardCredentials").as("adminDashboard")
     })
 
     it("Validate admin click on Quick link, “Grade and Departments” page with Academic Setup Grades and Department page in an editable mode with pagination./EL-4063/ES4063_01", function () {
@@ -28,7 +25,6 @@ describe("Verify admin dashboard functionalities", function () {
         adminDashboardPage.getEditableGradeOptionalSubCheckBox().check()
         adminDashboardPage.getEditableGradePopUpSaveBtn().click({ force: true })
         adminDashboardPage.getEditableGradePopUpSaveSuccessMeg().should('contain.text', 'Section updated successfully!')
-
     })
 
     it("Validate admin Click on “Grades and subject ” Tab, Will show all list of Grades along with its section./EL-4063/ES4063_02", function () {
@@ -84,7 +80,5 @@ describe("Verify admin dashboard functionalities", function () {
         adminDashboardPage.getClassDetailsTopPerformerCommingSoonTag().should('have.text', this.adminDashboard.CommingsoonTxt)
 
     })
-
-
 
 })

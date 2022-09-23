@@ -1,214 +1,211 @@
-class EsenseAdminGradePage{
+class EsenseAdminGradePage {
 
-    getHarMenuGradebookTemplateBtn(){
-     return   cy.get('span.menu-title').contains('Gradebook Template')
-    }
-
-    getHarCreateTemplateBtn(){
-      return   cy.get('a.MuiButton-root').contains('Create Template')
+   getHarMenuGradebookTemplateBtn() {
+      return cy.get('span.menu-title').contains('Gradebook Template')
    }
 
-   getHarPublishBtn(){
-      return   cy.get('.stdGrdActionCnt > :nth-child(2)')
-   }
-   
-   getHarPublishPopupYesBtn(){
-      return   cy.get('.pub_temp-btn_container > .MuiButton-contained')
+   getHarCreateTemplateBtn() {
+      return cy.get('a.MuiButton-root').contains('Create Template')
    }
 
-   getHaUnPublishPopupYesBtn(){
-      return   cy.get('.unpublish-button > span')
+   getHarPublishBtn() {
+      return cy.get('.stdGrdActionCnt > :nth-child(2)')
    }
 
-   getHarCreateNewTemplateBtn(){
-      return   cy.get('a[href="/template/create-template"]')
-   }
-    
-    getHarListOfEditBtn(){
-      return   cy.get('img[aria-label="Edit"]')
+   getHarPublishPopupYesBtn() {
+      return cy.get('.pub_temp-btn_container > .MuiButton-contained')
    }
 
-   getHarListOfGradeName(){
-      return   cy.get('p.name')
+   getHaUnPublishPopupYesBtn() {
+      return cy.get('.unpublish-button > span')
    }
 
-   getHarListOfDraft(){
-      return   cy.get('button.MuiButton-root')
+   getHarCreateNewTemplateBtn() {
+      return cy.get('a[href="/template/create-template"]')
    }
 
-   getHarDeletePopupTxt(){
-      return   cy.get('div.delete-poc-confirmation-font-cls')
+   getHarListOfEditBtn() {
+      return cy.get('img[aria-label="Edit"]')
    }
 
-   getHarPopupDeleteCancelBtn(){
-      return   cy.get('div.cancel-button')
+   getHarListOfGradeName() {
+      return cy.get('p.name')
    }
 
-   getHarPopupDeleteBtn(){
-      return   cy.get('div.delete-button')
+   getHarListOfDraft() {
+      return cy.get('button.MuiButton-root')
    }
 
-   getHarPopupDeleteSuccessMesg(){
-      return   cy.get('.font-cls')
+   getHarDeletePopupTxt() {
+      return cy.get('div.delete-poc-confirmation-font-cls')
    }
 
-   getHarListOfPublished(){
-      return   cy.get('button.MuiButton-root').contains('Published')
+   getHarPopupDeleteCancelBtn() {
+      return cy.get('div.cancel-button')
    }
 
-   getHarAddTestTypeLink(){
-      return   cy.get('button.MuiButton-root').contains('+ Add Test Type')
-   }
-   
-   getHarAddActivityLink(){
-      return   cy.get('button.MuiButton-root').contains('+ Add Activity')
+   getHarPopupDeleteBtn() {
+      return cy.get('div.delete-button')
    }
 
-   getHarAddActivityDeleteBtn(){
-      return   cy.get('[aria-label="Delete Activity"]')
+   getHarPopupDeleteSuccessMesg() {
+      return cy.get('.font-cls')
    }
 
-   getHarListOfTemplateEnableAndDisabledBtn(){
-      return  cy.get('span.MuiSwitch-root')
-  }
-
-   getHarAddSubjectLink(){
-      return   cy.get('button.MuiButton-root').contains('+ Add Subject ')
+   getHarListOfPublished() {
+      return cy.get('button.MuiButton-root').contains('Published')
    }
 
-   getHarAddTheoryandPracticalLink(){
-      return   cy.get('button.MuiButton-root').contains('+ Add Theory and Practical')
+   getHarAddTestTypeLink() {
+      return cy.get('button.MuiButton-root').contains('+ Add Test Type')
    }
 
-   getHarEditBtn(){
-      return   cy.get('button.MuiButton-root').contains('Edit')
+   getHarAddActivityLink() {
+      return cy.get('button.MuiButton-root').contains('+ Add Activity')
    }
 
-   getHarCreateNewBtn(){
-      return   cy.get('.CreateNewTemplate_createNewButton__2pDmp')
+   getHarAddActivityDeleteBtn() {
+      return cy.get('[aria-label="Delete Activity"]')
    }
 
-   getHarGradeDropdown(){
-      return   cy.get('div.MuiSelect-root')
+   getHarListOfTemplateEnableAndDisabledBtn() {
+      return cy.get('span.MuiSwitch-root')
    }
 
-   getHarNumOfThemeDropdown(){
-      return   cy.get('div.MuiSelect-root')
+   getHarAddSubjectLink() {
+      return cy.get('button.MuiButton-root').contains('+ Add Subject ')
    }
 
-   getHarTermDropdown(){
-      return   cy.get('div.MuiSelect-root')
+   getHarAddTheoryandPracticalLink() {
+      return cy.get('button.MuiButton-root').contains('+ Add Theory and Practical')
    }
 
-   getHarTermDropdownValue(){
-      return   cy.get('ul.MuiList-root li')
+   getHarEditBtn() {
+      return cy.get('button.MuiButton-root').contains('Edit')
    }
 
-   getHarAddTestTypeDeleteBtn(){
-      return   cy.get('button[aria-label="Delete Test"]')
+   getHarCreateNewBtn() {
+      return cy.get('.CreateNewTemplate_createNewButton__2pDmp')
    }
 
-   getHarNumOfThemeDropdownValue(){
-      return   cy.get('ul.MuiList-root li')
+   getHarGradeDropdown() {
+      return cy.get('div.MuiSelect-root')
    }
 
-   getHarMandatoryGradeTxt(){
-      return   cy.get('#demo-simple-select-helper')
+   getHarNumOfThemeDropdown() {
+      return cy.get('div.MuiSelect-root')
    }
 
-   getHarMaxMarksDrpDwn(){
+   getHarTermDropdown() {
+      return cy.get('div.MuiSelect-root')
+   }
+
+   getHarTermDropdownValue() {
+      return cy.get('ul.MuiList-root li')
+   }
+
+   getHarAddTestTypeDeleteBtn() {
+      return cy.get('button[aria-label="Delete Test"]')
+   }
+
+   getHarNumOfThemeDropdownValue() {
+      return cy.get('ul.MuiList-root li')
+   }
+
+   getHarMandatoryGradeTxt() {
+      return cy.get('#demo-simple-select-helper')
+   }
+
+   getHarMaxMarksDrpDwn() {
       return cy.get('div.MuiInputBase-formControl #demo-simple-select-helper').eq(3)
-  }
-
-  getHarSectionsLst(){
-   return cy.get('div ul li.MuiListItem-gutters:visible')
-}
-
-   getHarGradeValue(){
-      return   cy.get('ul.MuiList-root li')
    }
 
-   getHarNumOfTesttypeDropdown(){
-      return   cy.get('div.MuiSelect-root')
+   getHarSectionsLst() {
+      return cy.get('div ul li.MuiListItem-gutters:visible')
    }
 
-   getHarNumOfMaxMarksDropdown(){
-      return   cy.get('div.MuiSelect-root')
+   getHarGradeValue() {
+      return cy.get('ul.MuiList-root li')
    }
 
-   getHarSubjectDropdown(){
-      return   cy.get('div.MuiSelect-root')
+   getHarNumOfTesttypeDropdown() {
+      return cy.get('div.MuiSelect-root')
    }
 
-   getHarPracTestTypeDropdown(){
-      return   cy.get('div.MuiSelect-root')
+   getHarNumOfMaxMarksDropdown() {
+      return cy.get('div.MuiSelect-root')
    }
 
-   getHarPrcTestTypeDropdownValue(){
-      return   cy.get('ul.MuiList-root li')
+   getHarSubjectDropdown() {
+      return cy.get('div.MuiSelect-root')
    }
 
-   getHarPracTheoryTxtField(){
-      return   cy.get('.CreateNewTemplate_theo_prac_out_cls__1ViAo > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input')
+   getHarPracTestTypeDropdown() {
+      return cy.get('div.MuiSelect-root')
    }
 
-   getHarPracPracticalTxtField(){
-      return   cy.get('.CreateNewTemplate_crtNewTempCodeSubInner__Kq2t3 > :nth-child(3) > .MuiInputBase-root > .MuiInputBase-input')
+   getHarPrcTestTypeDropdownValue() {
+      return cy.get('ul.MuiList-root li')
    }
 
-
-   getHarMaxMarksDropdownValue(){
-      return   cy.get('ul.MuiList-root li')
+   getHarPracTheoryTxtField() {
+      return cy.get('.CreateNewTemplate_theo_prac_out_cls__1ViAo > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input')
    }
 
-   getHarSubjectDropdownValue(){
-      return   cy.get('ul.MuiList-root li')
+   getHarPracPracticalTxtField() {
+      return cy.get('.CreateNewTemplate_crtNewTempCodeSubInner__Kq2t3 > :nth-child(3) > .MuiInputBase-root > .MuiInputBase-input')
    }
 
 
-   getHarNumOfTesttypeDropdownValue(){
-      return   cy.get('ul.MuiList-root li')
+   getHarMaxMarksDropdownValue() {
+      return cy.get('ul.MuiList-root li')
    }
 
-   getHarActivity1(){
-      return   cy.get('input[name="activity"]')
+   getHarSubjectDropdownValue() {
+      return cy.get('ul.MuiList-root li')
    }
 
-   getHarSaveDraftBtn(){
-      return   cy.get('button.MuiButton-root').contains('Save As Draft')
+
+   getHarNumOfTesttypeDropdownValue() {
+      return cy.get('ul.MuiList-root li')
    }
 
-   getHarCancelBtn(){
-      return   cy.get('button.MuiButton-root').contains('Cancel')
+   getHarActivity1() {
+      return cy.get('input[name="activity"]')
    }
 
-   getHarCreateTemplatePgeHeader(){
-      return   cy.get('div#kt_page_title')
+   getHarSaveDraftBtn() {
+      return cy.get('button.MuiButton-root').contains('Save As Draft')
    }
 
-   getHarDeleteBtn(){
-      return   cy.get(':nth-child(n) > :nth-child(6) > .action-btn-container > [src="/static/media/trashFill.0e6cc947.svg"]')
+   getHarCancelBtn() {
+      return cy.get('button.MuiButton-root').contains('Cancel')
    }
 
-   
-   getHarListOfGradebookColumnHeadername(){
-      return   cy.get('th.MuiTableCell-root')
+   getHarCreateTemplatePgeHeader() {
+      return cy.get('div#kt_page_title')
    }
 
-   getHarListOfGradebookTableCheckBx(){
-      return   cy.get('div.logoDisplay span.MuiCheckbox-root')
+   getHarDeleteBtn() {
+      return cy.get(':nth-child(n) > :nth-child(6) > .action-btn-container > [src="/static/media/trashFill.0e6cc947.svg"]')
    }
 
-   getHarListOfGradebookTableViewBtn(){
-      return   cy.get('button img[src="/static/media/rightViewImg.a97b7807.svg"]')
+
+   getHarListOfGradebookColumnHeadername() {
+      return cy.get('th.MuiTableCell-root')
    }
 
-   getHarGoBackBtn(){
-      return  cy.get('.viewTempGoBackBtn')
-  }
+   getHarListOfGradebookTableCheckBx() {
+      return cy.get('div.logoDisplay span.MuiCheckbox-root')
+   }
 
+   getHarListOfGradebookTableViewBtn() {
+      return cy.get('button img[src="/static/media/rightViewImg.a97b7807.svg"]')
+   }
 
-   
+   getHarGoBackBtn() {
+      return cy.get('.viewTempGoBackBtn')
+   }
 
 }
- export default EsenseAdminGradePage;
+module.exports = new EsenseAdminGradePage() 

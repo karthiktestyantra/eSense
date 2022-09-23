@@ -1,40 +1,40 @@
 class MainAdminHomePage {
 
-    getHomePageTitle(){
-      return cy.get('div.page-title h1').eq(0);
-    }
+  getHomePageTitle() {
+    return cy.get('div.page-title h1').eq(0);
+  }
 
-    getSystemConfigDrpDwn(){
-      return cy.get('div span.menu-title').contains("System Configuration");
-    }
+  getSystemConfigDrpDwn() {
+    return cy.get('div span.menu-title').contains("System Configuration");
+  }
 
-    getRolesManagementLnk(){
-      return cy.get('div span.menu-title').contains("Users/Roles Management");
-    }
+  getRolesManagementLnk() {
+    return cy.get('div span.menu-title').contains("Users/Roles Management");
+  }
 
-    getOrganisationManagementLnk(){
-      return cy.get('div span.menu-title').contains("Organization Management");
-    }
+  getOrganisationManagementLnk() {
+    return cy.get('div span.menu-title').contains("Organization Management");
+  }
 
-    getMasterManagementLnk(){
-      return cy.get('div span.menu-title').contains("Masters Management");
-    }
+  getMasterManagementLnk() {
+    return cy.get('div span.menu-title').contains("Masters Management");
+  }
 
-    getCurriculumPlanLnk(){
-      return cy.get('div span.menu-title').contains("Curriculum Plan");
-    }
+  getCurriculumPlanLnk() {
+    return cy.get('div span.menu-title').contains("Curriculum Plan");
+  }
 
-    getGradeManagementLnk(){
-      return cy.get('div span.menu-title').contains("Grades");
-    }
+  getGradeManagementLnk() {
+    return cy.get('div span.menu-title').contains("Grades");
+  }
 
-    getCourseLnk(){
-      return cy.get('div span.menu-title').contains('Courses')
-    }
+  getCourseLnk() {
+    return cy.get('div span.menu-title').contains('Courses')
+  }
 
-    getGradebookTemplateLnk(){
-      return cy.get('div span.menu-title').contains("Gradebook Template")
-    }
+  getGradebookTemplateLnk() {
+    return cy.get('div span.menu-title').contains("Gradebook Template")
+  }
 
 }
-export default MainAdminHomePage;
+module.exports = new MainAdminHomePage() 

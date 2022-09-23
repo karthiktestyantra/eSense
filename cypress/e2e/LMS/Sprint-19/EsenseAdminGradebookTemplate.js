@@ -5,13 +5,13 @@ describe("Verify admin grade book template functionalities", function () {
 
     before(function () {
         cy.visit(Cypress.env("url"))
-        cy.viewport(1920, 1080)
         cy.fixture("LMS/mainAdminLoginCredentials").then(function (validAdminLoginData) {
             cy.Mainlogin(validAdminLoginData.username, validAdminLoginData.password)
         })
     })
 
     beforeEach(function () {
+        cy.viewport(1920, 1080)
         cy.fixture("LMS/mainAdminGradebookCredentials").as("gradebook")
     })
 

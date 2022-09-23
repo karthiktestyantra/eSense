@@ -1,50 +1,50 @@
-class AdminGradesAndStreamPage{
-    
-    getGradePageTitle(){
+class AdminGradesAndStreamPage {
+
+    getGradePageTitle() {
         return cy.get('div.header-font-cls')
     }
-    getEditIcnsLst(){
+    getEditIcnsLst() {
         return cy.get('button.departmentEditIcon')
     }
-    getStreamNameTxtFld(){
+    getStreamNameTxtFld() {
         return cy.get('input[type="text"]').eq(0)
     }
-    getStreamGradeDrpDwn(){
+    getStreamGradeDrpDwn() {
         return cy.get('input[type="text"]').eq(1)
     }
-    getDeptcancelBtn(){
+    getDeptcancelBtn() {
         return cy.get('button.deptCancelbtn')
     }
-    getAddStreamBtn(){
+    getAddStreamBtn() {
         return cy.get('button.addDepartmentPopup')
     }
-    getGradesLstInGradeDrpDwn(){
+    getGradesLstInGradeDrpDwn() {
         return cy.get('#checkboxes-listbox')
     }
-    getmandatorySubdrpdwn(){
+    getmandatorySubdrpdwn() {
         return cy.get('div.MuiInputBase-adornedEnd input[type="text"]').eq(1)
     }
-    getMandatorySubLst(){
+    getMandatorySubLst() {
         return cy.get('#checkboxes-tags-demo-listbox')
     }
-    getSubmitBtnInAddStream(){
+    getSubmitBtnInAddStream() {
         return cy.get('button[type="submit"]:visible').contains("Add")
     }
-    getStreamLst(){
+    getStreamLst() {
         return cy.get('tbody tr td.MuiTableCell-body:nth-child(1)')
     }
-    getDltBtnLst(){
+    getDltBtnLst() {
         return cy.get('button.departmentDeleteIcon')
     }
-    getDltBtnInDltSect(){
+    getDltBtnInDltSect() {
         return cy.get('button.deptDeletebtn')
     }
-    getGradesAndSubTab(){
+    getGradesAndSubTab() {
         return cy.get('button[role="tab"]').contains("Grades and subject")
     }
-    getGradescheckBxInGradesAndSub(){
+    getGradescheckBxInGradesAndSub() {
         return cy.get('input[type="checkbox"]').eq(0)
     }
-    
+
 }
-export default AdminGradesAndStreamPage;
+module.exports = new AdminGradesAndStreamPage() 

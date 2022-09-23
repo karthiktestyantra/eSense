@@ -4,12 +4,12 @@ const myCalendarPage = require('../../../../support/pageObjects/LMS-1/MyCalendar
 const lessonPlanPage = require('../../../../support/pageObjects/LMS-1/LessonPlanPage')
 
 describe("Verify Lesson Plan Functionalities", function () {
+  
   before(function () {
     cy.fixture("LMS/TeacherLoginCredentials").then(function (validLoginData) {
       this.validLoginData = validLoginData;
       cy.visit(Cypress.env("urlMain"));
       indexPage.getTeacher().click();
-      cy.reload();
       cy.login(this.validLoginData.user2, this.validLoginData.password);
       timeTableOverviewPage
         .getDashboardTitle()

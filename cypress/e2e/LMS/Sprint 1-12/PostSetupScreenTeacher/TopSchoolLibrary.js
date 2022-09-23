@@ -6,14 +6,12 @@ const topSchoolLibraryPage = require('../../../../support/pageObjects/LMS-1/TopS
 describe("Verify TopSchool Library Functionalities", function () {
 
   before(function () {
-    cy.visit('https://wwe.staging.topschool.co.in/');
+    cy.visit(Cypress.env("urlMain"));
     indexPage.getTeacher().click();
     cy.fixture("LMS/TeacherLoginCredentials").then(function (validLoginData) {
       this.validLoginData = validLoginData;
       cy.login(this.validLoginData.user2, this.validLoginData.password);
-      timeTableOverviewPage
-        .getDashboardTitle()
-        .should("have.text", "Your Dashboard");
+      timeTableOverviewPage.getDashboardTitle().should("have.text", "Your Dashboard");
     });
   });
 

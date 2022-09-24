@@ -11,9 +11,25 @@ class AdminDashboardPage {
     getStudentBtn() {
         return cy.get('button.MuiButtonBase-root').contains('Students')
     }
+    
+    getTeacherBtn() {
+        return cy.get('button.MuiButtonBase-root').contains('Teacher')
+    }
 
     getAdminsBtn() {
         return cy.get('#scrollable-auto-tab-1')
+    }
+
+    getAdminsTableHeader() {
+        return cy.get('.MuiTableCell-head').contains('Name & Email')
+    }
+
+    getStudentTableHeader() {
+        return cy.get('.MuiTableCell-head').contains('Name & Admission No')
+    }
+
+    getTeacherTableHeader() {
+        return cy.get('.MuiTableCell-head').contains('NAME & USER ID')
     }
 
     getSideMenuAdminDashboardImg() {

@@ -34,7 +34,7 @@ describe("Verify Admin student grade book functionalities", function () {
         })
     })
 
-    it('EL-4745/ES4745_3 Validate whether the counts mentioned in "Total Teachers" is dependent on total number of teachers onboarded (pre-setup and post-setup) in the school', function () {
+    it('EL-4745/ES4745_4 Validate whether the counts mentioned in "Total Students" is dependent on total number of students onboarded for all the classes in the school.', function () {
         adminDashboardPage.getSideMenuAdminUserImg().click()
         adminDashboardPage.getStudentBtn().click()
         var studentNameLen = 0;
@@ -55,7 +55,7 @@ describe("Verify Admin student grade book functionalities", function () {
 
     })
 
-    it('EL-4745/ES4745_4 Validate whether the counts mentioned in "Total Students" is dependent on total number of students onboarded for all the classes in the school.', function () {
+        it('EL-4745/ES4745_3 Validate whether the counts mentioned in "Total Teachers" is dependent on total number of teachers onboarded (pre-setup and post-setup) in the school', function () {
         adminDashboardPage.getSideMenuAdminUserImg().click()
         var teacherNameLen = 0;
         adminDashboardPage.getTeachertNameCount().each(($e1, index, $list) => {
@@ -75,7 +75,7 @@ describe("Verify Admin student grade book functionalities", function () {
         adminDashboardPage.getSideMenuAdminSchoolImg().click()
         adminDashboardPage.getAdminAccountsQuickLink().click()
         adminDashboardPage.getAdminsBtn().click({force: true})
-        var adminNameLen = 0;
+        var adminNameLen = 1;
         adminDashboardPage.getAdminNameCount().each(($e1, index, $list) => {
             adminNameLen = adminNameLen + $e1.length
             cy.wrap(adminNameLen).as('adminNameLen')
@@ -90,9 +90,33 @@ describe("Verify Admin student grade book functionalities", function () {
 
         })
 
+    })
+
+    it('EL-4745/ES4745_6 Validate user clicks on "Total Classes", user is re-directed to “Academic Setup> Grades and Subjects tab".', function () {
+        adminDashboardPage.getDashboardCountOfTotalClass().click() 
+        cy.isVisible(adminDashboardPage.getGradesAndSubjectBtn())
+    })
+
+    it('EL-4745/ES4745_7 Validate user clicks on "Total Teachers", user is re-directed to “Users > Teachers tab”.', function () {
+        adminDashboardPage.getGobackBnt().click()
+        adminDashboardPage.getSideMenuAdminDashboardImg().click()
+        adminDashboardPage.getDashboardCountOfTotalTeacher().click()
+        cy.isVisible(adminDashboardPage.getTeacherTableHeader())
+    })
+    it('EL-4745/ES4745_8 Validate user clicks on "Total Students", user is re-directed to “Users > Students tab”.”.', function () {
+        adminDashboardPage.getSideMenuAdminDashboardImg().click()
+        adminDashboardPage.getDashboardCountOfTotalStudent().click()
+        cy.isVisible(adminDashboardPage. getStudentTableHeader())
+
+    })
+
+    it('EL-4745/ES4745_9 Validate user clicks on "Admins", user is re-directed to the “Admin Accounts > Admins".', function () {
+        cy.go('back')
+        adminDashboardPage.getSideMenuAdminDashboardImg().click()
+        adminDashboardPage.getDashboardCountOfTotalAdmin().click()
+        cy.isVisible(adminDashboardPage.getAdminsTableHeader())
 
 
     })
 
 })
-

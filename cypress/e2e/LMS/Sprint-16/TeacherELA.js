@@ -1,4 +1,4 @@
-const teacherELAPage = require("../../../support/pageObjects/LMS-2/TeacherELAPage")
+const teacherELAPage = require("../../../support/pageObjects/LMS-2/TeacherELAPage2")
 
 describe("Verify Teacher ELA Page functionalities", function () {
 
@@ -156,8 +156,8 @@ describe("Verify Teacher ELA Page functionalities", function () {
     })
 
     it("Validate teacher is able to select Each column “Q1”, “Q2”, “Q3”, “Q4” will have a “check box” in the column and allow teacher to click on the check box, to select questions for the group./EL-4220/ES4220_08", function () {
-
-        teacherELAPage.getViewELABtn().scrollIntoView().click()
+        cy.get('button.cntLibCardBtn').eq(0).click()    
+       // teacherELAPage.getViewELABtn().scrollIntoView().click()
         teacherELAPage.getViewELAQuestionCheckBx().click({ multiple: true })
         teacherELAPage.getELAAssignBtn().click()
         cy.wait(5000)

@@ -5,7 +5,7 @@ class TeacherELAPage {
    }
 
    getMyClassSubName() {
-      return cy.get('div.card_roman_txt')
+      return cy.get('div.card_roman_txt').contains('Grade 5 B')
    }
 
    getAssessmentTab() {

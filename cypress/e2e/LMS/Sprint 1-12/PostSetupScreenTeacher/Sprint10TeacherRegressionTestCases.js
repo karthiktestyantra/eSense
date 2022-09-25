@@ -60,11 +60,11 @@ describe("Verify Sprint 10 related functionalities", function () {
     sprint10Regression.getPendingActionsHomework().should("be.visible");
   });
 
-  it.skip("Validate Teacher is able to click on 'Mark complete' button", function () {
+  it("Validate Teacher is able to click on 'Mark complete' button", function () {
     sprint10Regression.getClassMarkCompleteButton().click({ force: true });
   });
 
-  it.skip("Validate Teacher is able to click on 'Mark attendance' button", function () {
+  it("Validate Teacher is able to click on 'Mark attendance' button", function () {
     sprint10Regression.getClassMarkAttendanceButton().click({ force: true });
   });
 
@@ -72,7 +72,7 @@ describe("Verify Sprint 10 related functionalities", function () {
     sprint10Regression.getClassAssignHomeworkButton().click({ force: true });
   });
 
-  it("Validate teacher is able to view the class performance chart with subjects and classes section", function () {
+  it.skip("Validate teacher is able to view the class performance chart with subjects and classes section", function () {
     sprint10Regression.getClassPerformanceChart().should("be.visible");
   });
 

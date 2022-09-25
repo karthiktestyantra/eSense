@@ -13,4 +13,7 @@ require('cypress-grep')()
 //for allure report
 import "@shelex/cypress-allure-plugin";
 
+//for mouse pointer location
+import 'cypress-mouse-position/commands';
+
 

@@ -1,5 +1,6 @@
 const { defineConfig } = require('cypress')
 const allureWriter = require('@shelex/cypress-allure-plugin/writer'); //for allure report
+const initCypressMousePositionPlugin = require('cypress-mouse-position/plugin'); //for mouse pointer location
 
 module.exports = defineConfig({
   projectId: 'opzyxc',
@@ -35,6 +36,7 @@ module.exports = defineConfig({
   },
   e2e: {
     setupNodeEvents(on, config) {
+      initCypressMousePositionPlugin(on);
       allureWriter(on, config);
       return config;
       require('cypress-mochawesome-reporter/plugin')(on);

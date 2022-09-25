@@ -119,5 +119,18 @@ class AdminDashboardPage {
     getClassDetailsTopPerformerCommingSoonTag() {
         return cy.get('div.cmgSoonOverLaySect p')
     }
+    
+    getSideMenuContentLibraryImg() {
+        return cy.get('div.side-nav-icon img[src="/static/media/book.3c851275.svg"]')
+    }
+
+    getSideMenuReportsImg() {
+        return cy.get('div.side-nav-icon img[src="/static/media/report.d1121fb6.svg"]')
+    }
+
+    getSideMenuStudentGradebookLink() {
+        return cy.xpath('//div[.="Student Gradebook"]')
+    }
+    
 }
 module.exports = new AdminDashboardPage() 

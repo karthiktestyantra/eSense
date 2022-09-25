@@ -123,5 +123,8 @@ class AdminGradeBookPage {
     getAddSubdrpDwnInAddSub() {
         return cy.get('#mui-component-select-subject')
     }
+    getStudentGradeBookTitle() {
+        return cy.get('p[class*=classDashboardTitle]')
+    }
 }
 module.exports = new AdminGradeBookPage() 

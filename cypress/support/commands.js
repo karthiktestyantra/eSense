@@ -89,6 +89,16 @@ Cypress.Commands.add('isDisabled', (element) => {
   element.should('be.disabled')
 })
 
+//This command is to verify the attribute value
+Cypress.Commands.add('verifyAttributeValue', (element, attr, text) => {
+  element.invoke('attr', attr).should('contain', text)
+})
+
+//This command is to set and verify the attribute value
+Cypress.Commands.add('setAndVerifyAttributeValue', (element, attr, newValue) => {
+  element.invoke('attr', attr, newValue).should('have.attr', attr, newValue)
+})
+
 //This command is used to do Force click on a element
 Cypress.Commands.add('forceClick', (element) => {
   element.click({ force: true })

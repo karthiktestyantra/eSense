@@ -12,7 +12,7 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
   });
 
   beforeEach(function () {
-    cy.fixture("LMS/addHomework").as("validhomeworkdata)")
+    cy.fixture("LMS/addHomework").as("validhomeworkdata")
   })
 
   it("Verify that teacher able to login with valid credentials", function () {
@@ -27,7 +27,7 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
     cy.wait(1000);
     sprint11Pages.getnextweekbutton().should("be.visible").click();
     cy.wait(1000);
-    sp11
+    sprint11Pages
       .getclassincalendar()
       .contains(this.validhomeworkdata.subject)
       .should("be.visible")
@@ -42,7 +42,7 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
   it("To verify that when user clicks on MileStones button, MileStones page should be displayed.", function () {
     sprint11Pages.getmilestonebutton().should("be.visible").click();
     cy.wait(1000);
-    sp11
+    sprint11Pages
       .getmilestonevalue()
       .should("be.visible")
       .contains("Milestone completed");
@@ -51,7 +51,7 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
   it("To verify that when user clicks on Content Library button, Content Library page should be displayed.", function () {
     sprint11Pages.getlibrarybutton().should("be.visible").click();
     cy.wait(1000);
-    sp11
+    sprint11Pages
       .getlibraryvalue()
       .should("be.visible")
       .contains("Browse our content library");
@@ -60,7 +60,7 @@ describe("Verify School Teacher Basic Info Functionalities", function () {
   it("To verify that when user clicks on White Board button, White Board tool should be displayed.", function () {
     sprint11Pages.getwhiteboardbutton().should("be.visible").click();
     cy.wait(1000);
-    sp11
+    sprint11Pages
       .getwhiteboardvalue()
       .should("be.visible")
       .contains("Switch to Dark Theme");

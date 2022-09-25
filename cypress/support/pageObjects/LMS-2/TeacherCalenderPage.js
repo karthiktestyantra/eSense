@@ -27,6 +27,7 @@ class TeacherCalenderPage {
     getClassResourcesButton() {
         return cy.contains('Class Resources')
     }
+    
 
     //Buiness logic
 
@@ -40,8 +41,8 @@ class TeacherCalenderPage {
         this.getForwordWeekButton().click()
     }
     clickOnGrade() {
-        cy.wait(1000)
         this.getGreade3A().click({ force: true })
     }
+
 }
 module.exports = new TeacherCalenderPage() 

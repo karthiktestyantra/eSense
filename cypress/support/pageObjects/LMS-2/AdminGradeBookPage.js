@@ -126,5 +126,12 @@ class AdminGradeBookPage {
     getStudentGradeBookTitle() {
         return cy.get('p[class*=classDashboardTitle]')
     }
+    getDltBtnLstForTemplatePage() {
+        return cy.get('div.action-btn-container img[aria-label="Delete"]')
+    }
+    getDeleteConfirmationBtnInTemplate() {
+        return cy.get('div[class="delete-button"]')
+    }
 }
+
 module.exports = new AdminGradeBookPage() 

@@ -218,14 +218,14 @@ describe("Verify techer assessment functionalities", function () {
     teacherELAPage.getExcellentRankChckBxLst().eq(3).should('be.enabled').click()
   })
 
-  it.skip("To verify that after evaluation the rank is automatically saved/EL-4045/ES4045_14", function () {
-    teacherELAPage.getELACardSubmitBtn().click()
-    cy.contains("Successfully Evaluated").should('be.visible')
-    teacherELAPage.getELAQuestionsSidePanelCloseIcn().click()
-    teacherELAPage.getELACardFilterDrpDwn().click()
-    teacherELAPage.getELACardFilterDrpDwnLst().contains("Evaluated").click()
-    teacherELAPage.getExcellentRankChckBxLst().should('be.checked')
-  })
+  // it("To verify that after evaluation the rank is automatically saved/EL-4045/ES4045_14", function () {
+  //   teacherELAPage.getELACardSubmitBtn().click()
+  //   cy.contains("Successfully Evaluated").should('be.visible')
+  //   teacherELAPage.getELAQuestionsSidePanelCloseIcn().click()
+  //   teacherELAPage.getELACardFilterDrpDwn().click()
+  //   teacherELAPage.getELACardFilterDrpDwnLst().contains("Evaluated").click()
+  //   teacherELAPage.getExcellentRankChckBxLst().should('be.checked')
+  // })
 
   it("To verify that Tabs for different ELA groups are created by the teacher while assigning the ELA/EL-4045/ES4045_15", function () {
     teacherELAPage.getELACardLst().each(($e1, index, $list) => {

@@ -2,7 +2,7 @@ const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/Teacher
 const teacherCalenderPage = require("../../../support/pageObjects/LMS-2/TeacherCalenderPage")
 const teacherClassGradePage = require("../../../support/pageObjects/LMS-2/TeacherClassGradePage")
 
-describe("Verify Admin student grade book functionalities", function () {
+describe("Verify Teacher Calender functionalities", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlQAPreSetup'))
@@ -57,7 +57,36 @@ describe("Verify Admin student grade book functionalities", function () {
         teacherClassGradePage.validateAttendenceTablebody()
     })
     it('To validate user is able to view homework details by click on""Homework tab/EL-6984/ES6984-01',function () {
-        cy.get('#simple-tab-2').contains('Homework')
+        teacherClassGradePage.clickOnHomeworkTab()
+        teacherClassGradePage.valiadteHomeworkPageTitle()
+    })
+    it('To validate Homework tab consist of total count of homework assingned for the class/EL-6984/ES6984-02',function () {
+        teacherClassGradePage.validateCountOfHomework()
+    })
+    it('To validate preview and Downalod options is displayed against each file/EL-6984/ES6984-04',function () {
+        teacherClassGradePage.validateHomeworkPreviewIcon()
+        teacherClassGradePage.validateHomeworkDownloadIcon()
+    })
+    it('To validate Homework attachment list consist of Homework title,created date ,count of attachments/EL-6984/ES6984-05',function () {
+        teacherClassGradePage.validateHomeworkTitle()
+        teacherClassGradePage.validateHomeworkDate()
+        teacherClassGradePage.validateHomeworkAttachement()
+    })
+    it('To validate user is able to view the"Homework" after clickig on preview icon/EL-6984/ES6984-06',function () {
+        teacherClassGradePage.clickOnHomeworkPreviewIcon()
+        teacherClassGradePage.validateHomeworkPreviewPage()
+        cy.go('back')
+        teacherCalenderPage.clickOnClassCheckbox()
+        teacherCalenderPage.clickOnForwordBtn()
+        teacherCalenderPage.clickOnGrade()
+        teacherCalenderPage.clickOnStartSessionBtn()
+    })
+    it('To validate individual resources is downloaded after user clicks on download/EL-6984/ES6984-07',function () {
+        teacherClassGradePage.clickOnHomeworkTab()
+        teacherClassGradePage.getHomeworkDownloadIcon().click()
+    })
+    it('To validate Download all button is available in homeworktab and user is able to download the homework/EL-6984/ES6984-03',function () {
+        teacherClassGradePage.getHomeworkDownloadAllBtn().click()
     })
     it('To vlaidate that lesson plan pop-up is populated after user clicks on view lesson plan/EL-6982/ES6982-03', function () {
         teacherClassGradePage.clickOnViewLessonPlanPage()
@@ -68,4 +97,6 @@ describe("Verify Admin student grade book functionalities", function () {
     })
 
 
-})
+})//precondition  
+    // resource should be present
+    // homework should be present

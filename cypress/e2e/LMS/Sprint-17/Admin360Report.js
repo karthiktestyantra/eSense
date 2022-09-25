@@ -199,8 +199,8 @@ describe("Verify admin 360 report functionalities", function () {
     cy.wait(2000)
     teacher360ReportPage.getNameLstIn360report().each(($e1, index, $list) => {
       const text = $e1.text()
-      if (text.includes("beckam")) {
-        teacher360ReportPage.getViewReportLst().eq(index).click()
+      if (text.includes("pele")) {
+        report.getViewReportLst().eq(index).click()
       }
     })
     teacher360ReportPage.getSubContentsLstInReport().contains("My Yearly Performance").should('not.exist')

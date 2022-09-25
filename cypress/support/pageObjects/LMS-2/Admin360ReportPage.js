@@ -57,6 +57,18 @@ class Admin360ReportPage {
    getDisableCheckBxForFlagImg() {
       return cy.xpath("//div//img[@class='alertImgcls']/ancestor::tr[@class='MuiTableRow-root css-1gqug66']/descendant::span[contains(@class,'chk')]")
    }
+   get360reporttTableLst(){
+      return cy.get('tbody tr td')
+   }
+   getViewReportsLst(){
+      return cy.get('button.viewBtn')
+   }
+   getReportPageTitle(){
+      return cy.get('h2.MuiTypography-root')
+   }
+   getPreviewAndPrintBtnInReportPageTitle(){
+      return cy.xpath("//button[contains(@class,'StudentDetails_stdPrvPrntBtn')]")
+   }
 
 
    //Business Logic

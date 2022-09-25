@@ -28,21 +28,21 @@ describe("Verify Domain Mapping functionalities", function () {
 
   it("Validate whether list of students are displayed as per drop down selection/EL-4124/ELS4124_3", function () {
     admin360ReportPage.clickOnGradeDrpDwn()
-    admin360ReportPage.getGradeDrpDwnLst().contains(this.admin360ReportPage.NothingGrade).click()
+    admin360ReportPage.getGradeDrpDwnLst().contains(this.report.NothingGrade).click()
     admin360ReportPage.getSectionDrpDwn().click()
-    admin360ReportPage.getSectionDrpDwnLst().contains(this.admin360ReportPage.ProperSection).click()
+    admin360ReportPage.getSectionDrpDwnLst().contains(this.report.ProperSection).click()
     admin360ReportPage.getFrstNameLst().should('not.exist')
     admin360ReportPage.getGradeDrpDwn().click()
-    admin360ReportPage.getGradeDrpDwnLst().contains(this.admin360ReportPage.ProperGrade).click()
+    admin360ReportPage.getGradeDrpDwnLst().contains(this.report.ProperGrade).click()
     admin360ReportPage.getSectionDrpDwn().click()
-    admin360ReportPage.getSectionDrpDwnLst().contains(this.admin360ReportPage.ProperSection).click()
+    admin360ReportPage.getSectionDrpDwnLst().contains(this.report.ProperSection).click()
     admin360ReportPage.getFrstNameLst().should('be.visible')
   })
   //Added An extra grade for running purpose
 
   it("Validate whether user is able to search a name using “Search” bar/EL-4124/ELS4124_4", function () {
-    admin360ReportPage.getSearchStudentSearchBar().type(this.admin360ReportPage.Student1FrstName)
-    admin360ReportPage.getFrstNameLst().should('have.text', this.admin360ReportPage.Student1FrstName)
+    admin360ReportPage.getSearchStudentSearchBar().type(this.report.Student1FrstName)
+    admin360ReportPage.getFrstNameLst().should('have.text', this.report.Student1FrstName)
   })
   //created a new student in same grade and section
 
@@ -51,7 +51,7 @@ describe("Verify Domain Mapping functionalities", function () {
     admin360ReportPage.getCheckbxLst().eq(0).check()
     admin360ReportPage.getFrstNameLst().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.admin360ReportPage.Student1FrstName) {
+      if (txt === this.report.Student1FrstName) {
         admin360ReportPage.getCheckbxLst().eq(index + 1).should('be.checked')
       }
     })
@@ -78,6 +78,27 @@ describe("Verify Domain Mapping functionalities", function () {
   })
 
   it("Validate user clicks on the bulk, the student with the flag option is not selected/EL-4124/ELS4124_10", function () {
-    admin360ReportPage.getDisableCheckBxForFlagImg().should
+    admin360ReportPage.getDisableCheckBxForFlagImg().should('not.be.checked')
   })
-})
+
+  //23-9
+  it("EL-4124/ELS4124_12 Validate each column “Roll No” of student, next column is having student “Profile picture”, then next column “First Name”, next column “Last Name”, next column “Last Active”, and at last “View reports”", function () {
+    admin360ReportPage.get360reporttTableLst().eq(1).should('have.text', this.report.Student1RollNo)
+    admin360ReportPage.get360reporttTableLst().eq(2).should('have.text', this.report.Student1FrstName)
+    admin360ReportPage.get360reporttTableLst().eq(3).should('be.visible')
+    admin360ReportPage.get360reporttTableLst().eq(4).should('be.visible')
+  })
+
+  it("EL-4124/ELS4124_13 Validate user clicks on “View reports” user is able to see the individual report of the student", function () {
+    admin360ReportPage.getFrstNameLst().each(($e1, index, $list) => {
+      const txt = $e1.text()
+      if (txt === this.report.Student1FrstName) {
+        admin360ReportPage.getViewReportsLst().eq(index).click()
+      }
+    })
+    admin360ReportPage.getReportPageTitle().should('have.text', this.report.ReportPageTitleForStudent1)
+  })
+
+  it("")
+
+  })

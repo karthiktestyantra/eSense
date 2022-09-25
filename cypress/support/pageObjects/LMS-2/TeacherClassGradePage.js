@@ -50,6 +50,30 @@ class TeacherClassGradePage {
     getSaveBtn() {
         return cy.get('.attendSubBtn')
     }
+    getHomeworkTab(){
+        return cy.contains('Homework')
+    }
+    getHomeworkpageTitle(){
+        return cy.get('div.homeworkContentSect h3')
+    }
+    getHomeworkPreviewIcon(){
+        return cy.get('.vc_resources_dwn_btn img').eq(0)
+    }
+    getHomeworkDownloadIcon(){
+        return cy.get('.vc_resources_dwn_btn img').eq(1)
+    }
+    getHomeworkTitle(){
+        return cy.get('.homeworkDetails h3')
+    }
+    getHomeworkDate(){
+        return cy.get('.date')
+    }
+    getHomeworkPreviewPage(){
+        return cy.get('.add_homework_class-content')
+    }
+    getHomeworkDownloadAllBtn(){
+        return  cy.contains('Download All')
+    }
 
     //Buiness logic
 
@@ -60,7 +84,6 @@ class TeacherClassGradePage {
 
     validateCountOfTotalResourcesAttached() {
         this.getClassGradeResourceList().each(($e1, index, $list) => {
-            this.getResourceCount().invoke('text').length
             const divText = Cypress.$('div.classDetailResouceHead h1').text()
             const count = divText.split(" ")
             $list.length == count[0]
@@ -119,6 +142,39 @@ class TeacherClassGradePage {
     validateSaveBtn() {
         this.getSaveBtn().scrollIntoView().should('be.enabled').and('be.visible')
     }
-
+    clickOnHomeworkTab(){
+        this.getHomeworkTab().click()
+    }
+    valiadteHomeworkPageTitle(){
+        this.getHomeworkpageTitle().should('contain'," Homeworks Attached")
+    }
+    validateCountOfHomework(){
+        const divText = Cypress.$('div.homeworkContentSect h3').text()
+        const count = divText.split(" ")
+        cy.log(count[0])
+    }
+    validateHomeworkPreviewIcon(){
+        this.getHomeworkPreviewIcon().should('exist').and('be.visible')
+    }
+    validateHomeworkDownloadIcon(){
+        this.getHomeworkDownloadIcon().should('exist').and('be.visible')
+    }
+    validateHomeworkTitle(){
+        this.getHomeworkTitle().should('be.visible')
+    }
+    validateHomeworkDate(){
+        this.getHomeworkDate().should('be.visible')
+    }
+    validateHomeworkAttachement(){
+        const divText = Cypress.$('.attachment span').text() 
+        const count = divText.split(" ")
+        cy.log(count[0])
+    }
+    clickOnHomeworkPreviewIcon(){
+        this.getHomeworkPreviewIcon().click()
+    }
+    validateHomeworkPreviewPage(){
+        this.getHomeworkPreviewPage().should('be.visible')
+    }
 }
 module.exports = new TeacherClassGradePage() 

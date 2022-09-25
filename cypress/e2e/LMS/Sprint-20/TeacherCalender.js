@@ -19,6 +19,9 @@ describe("Verify Teacher Calender functionalities", function () {
         teacherClassGradePage.validateClassDetailBtn()
         teacherClassGradePage.validateTimetableBtn()
     })
+    it('To validate user is redirected to class details screen upon clicking on ""Start session"" button/EL-6982/ES6982-02',function () {
+        teacherClassGradePage.validateClassDetailBtn()
+    })
     it('To validate user is able to view class resources details after clicking on "Class resources tab"/EL-6983/ES6983-01.', function () {
         teacherClassGradePage.validateResourceTable()
     })

@@ -16,8 +16,8 @@ describe("Verify Sprint 10 related functionalities", function () {
   });
 
   beforeEach(function () {
-    cy.fixture("LMS/addHomework").as("addHomeworkData)")
-    cy.fixture("LMS/calendarClasses").as("classesData)")
+    cy.fixture("LMS/addHomework").as("addHomeworkData")
+    cy.fixture("LMS/calendarClasses").as("classesData")
   })
 
   it("Validate teacher is able to login for the second time, landed on dashboard screen", function () {
@@ -64,7 +64,7 @@ describe("Verify Sprint 10 related functionalities", function () {
     sprint10Regression.getClassMarkCompleteButton().click({ force: true });
   });
 
-  it("Validate Teacher is able to click on 'Mark attendance' button", function () {
+  it.skip("Validate Teacher is able to click on 'Mark attendance' button", function () {
     sprint10Regression.getClassMarkAttendanceButton().click({ force: true });
   });
 

@@ -41,6 +41,7 @@ class TeacherCalenderPage {
         this.getForwordWeekButton().click()
     }
     clickOnGrade() {
+        cy.wait(4000)
         this.getGreade3A().click({ force: true })
     }
 

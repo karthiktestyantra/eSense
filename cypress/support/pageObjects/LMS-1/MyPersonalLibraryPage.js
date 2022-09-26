@@ -100,5 +100,5 @@ class MyPersonalLibraryPage {
 
   }
   
-  export default MyPersonalLibraryPage;
+  module.exports=new  MyPersonalLibraryPage();
   

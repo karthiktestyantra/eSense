@@ -13,7 +13,7 @@ describe("Verify admin 360 report functionalities", function () {
 
   beforeEach(function () {
     cy.fixture("LMS/TeacherELACredentials").as("report")
-    cy.fixture("LMS/Admin360report").as("repo")
+    cy.fixture("LMS/Admin360Report").as("repo")
   })
 
   //pre-condition

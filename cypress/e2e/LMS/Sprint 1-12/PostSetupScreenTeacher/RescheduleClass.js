@@ -16,7 +16,7 @@ describe("Verify Reschedule class Functionalities", function () {
   });
 
   beforeEach(function () {
-    cy.fixture("LMS/rescheduleClassDetails").as("classDetails)")
+    cy.fixture("LMS/rescheduleClassDetails").as("classDetails")
   });
 
   it("Navigate to My Calendar page", function () {

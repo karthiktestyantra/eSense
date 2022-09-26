@@ -131,8 +131,8 @@ describe("Verify admin student grade book temp functionalities", function () {
   })
 
   it("Validate user click on Filter option, based on TopSchool/My School, The list should be populated based on the search or filter applied by the user/EL-4150/ES4150_16", function () {
-    adminStudentGradebookPage.getHarTemplateSearchTxtField().type(this.adminReports.TemplateSearchValue)
-    adminStudentGradebookPage.getHarStudentGradeName().should('have.text', this.adminReports.TemplateSearchValue)
+    adminStudentGradebookPage.getHarTemplateSearchTxtField().type(this.AdminReports.TemplateSearchValue)
+    adminStudentGradebookPage.getHarStudentGradeName().should('have.text', this.AdminReports.TemplateSearchValue)
   })
 
   it("Validate whether sort option is available for the following columns (Grade/Last Edited), where users can sort and view the list/EL-4150/ES4150_17", function () {
@@ -176,7 +176,7 @@ describe("Verify admin student grade book temp functionalities", function () {
 
       })
       cy.wait(2000)
-      adminStudentGradebookPage.getHarGradeBookStudentNameTxt().eq(0).should('contain.text', sometext)
+      adminStudentGradebookPage.getHarGradeBookStudentNameTxt().eq(0).should('include', sometext)
 
     })
 

@@ -120,7 +120,7 @@ describe("Verify Esense Admin Main add ELA functionalities", function () {
         mainAdminAddELAPage.getSelectFolderUploadRankings().attachFile('LMS/SampleRankings.xlsx')
         mainAdminAddELAPage.getImportUploadRankingsBtn().click()
         mainAdminAddELAPage.getSaveELABtn().should('be.visible').click()
-        mainAdminAddELAPage.getELASuccessFullySavedMsg().should('have.text', 'Saved Successfully')
+        mainAdminAddELAPage.getELASuccessFullySavedMsg().should('have.text', 'Updated Successfully')
         mainAdminAddELAPage.getOkBtn().click()
         mainAdminAddELAPage.getOrganizationmanagementBtn().click()
         mainAdminAddELAPage.getListOfOrganizationmanagementNames().each(($e2, index, $lis) => {

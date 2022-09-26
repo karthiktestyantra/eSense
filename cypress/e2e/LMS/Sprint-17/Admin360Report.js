@@ -63,7 +63,7 @@ describe("Verify admin 360 report functionalities", function () {
         teacher360ReportPage.getViewReportLst().eq(index).click()
       }
     })
-    teacher360ReportPage.getNameInReport().should('have.text', this.report.student1 + " " + this.report.student1Init)
+    teacher360ReportPage.getNameInReport().should('have.text', this.report.student1+this.report.student1Init)
     teacher360ReportPage.getClassSectInReport().should('contain.text', this.report.GradeDrpDwn)
     teacher360ReportPage.getDetailsInReport().should('be.visible')
   })
@@ -200,7 +200,7 @@ describe("Verify admin 360 report functionalities", function () {
     teacher360ReportPage.getNameLstIn360report().each(($e1, index, $list) => {
       const text = $e1.text()
       if (text.includes("pele")) {
-        report.getViewReportLst().eq(index).click()
+        teacher360ReportPage.getViewReportLst().eq(index).click()
       }
     })
     teacher360ReportPage.getSubContentsLstInReport().contains("My Yearly Performance").should('not.exist')

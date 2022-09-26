@@ -50,29 +50,29 @@ class TeacherClassGradePage {
     getSaveBtn() {
         return cy.get('.attendSubBtn')
     }
-    getHomeworkTab(){
+    getHomeworkTab() {
         return cy.contains('Homework')
     }
-    getHomeworkpageTitle(){
+    getHomeworkpageTitle() {
         return cy.get('div.homeworkContentSect h3')
     }
-    getHomeworkPreviewIcon(){
+    getHomeworkPreviewIcon() {
         return cy.get('.vc_resources_dwn_btn img').eq(0)
     }
-    getHomeworkDownloadIcon(){
+    getHomeworkDownloadIcon() {
         return cy.get('.vc_resources_dwn_btn img').eq(1)
     }
-    getHomeworkTitle(){
+    getHomeworkTitle() {
         return cy.get('.homeworkDetails h3')
     }
-    getHomeworkDate(){
+    getHomeworkDate() {
         return cy.get('.date')
     }
-    getHomeworkPreviewPage(){
+    getHomeworkPreviewPage() {
         return cy.get('.add_homework_class-content')
     }
-    getHomeworkDownloadAllBtn(){
-        return  cy.contains('Download All')
+    getHomeworkDownloadAllBtn() {
+        return cy.contains('Download All')
     }
 
     //Buiness logic
@@ -93,7 +93,7 @@ class TeacherClassGradePage {
         this.getLessonPlanDropdown().should('be.visible')
     }
     clickOnViewLessonPlanPage() {
-        this.getViewLessonPlaneButton().click()
+        this.getViewLessonPlaneButton().click({ force: true })
     }
     validateLessonPlanPage() {
         this.getlessonPage().should('be.visible')
@@ -142,39 +142,69 @@ class TeacherClassGradePage {
     validateSaveBtn() {
         this.getSaveBtn().scrollIntoView().should('be.enabled').and('be.visible')
     }
-    clickOnHomeworkTab(){
+    clickOnHomeworkTab() {
         this.getHomeworkTab().click()
     }
-    valiadteHomeworkPageTitle(){
-        this.getHomeworkpageTitle().should('contain'," Homeworks Attached")
+    valiadteHomeworkPageTitle() {
+        this.getHomeworkpageTitle().should('contain', " Homeworks Attached")
     }
-    validateCountOfHomework(){
+    validateCountOfHomework() {
         const divText = Cypress.$('div.homeworkContentSect h3').text()
         const count = divText.split(" ")
         cy.log(count[0])
     }
-    validateHomeworkPreviewIcon(){
+    validateHomeworkPreviewIcon() {
         this.getHomeworkPreviewIcon().should('exist').and('be.visible')
     }
-    validateHomeworkDownloadIcon(){
+    validateHomeworkDownloadIcon() {
         this.getHomeworkDownloadIcon().should('exist').and('be.visible')
     }
-    validateHomeworkTitle(){
+    validateHomeworkTitle() {
         this.getHomeworkTitle().should('be.visible')
     }
-    validateHomeworkDate(){
+    validateHomeworkDate() {
         this.getHomeworkDate().should('be.visible')
     }
-    validateHomeworkAttachement(){
-        const divText = Cypress.$('.attachment span').text() 
+    validateHomeworkAttachement() {
+        const divText = Cypress.$('.attachment span').text()
         const count = divText.split(" ")
         cy.log(count[0])
     }
-    clickOnHomeworkPreviewIcon(){
+    clickOnHomeworkPreviewIcon() {
         this.getHomeworkPreviewIcon().click()
     }
-    validateHomeworkPreviewPage(){
+    validateHomeworkPreviewPage() {
         this.getHomeworkPreviewPage().should('be.visible')
+    }
+    createResource(filePath) {
+        if (cy.get('.view_classes_count').eq(0).invoke('text') == 0) {
+            cy.get('[type="file"]').attachFile(filePath)
+        }
+    }
+    createHomework() {
+        if (cy.get('.view_classes_count').eq(2).invoke('text') == 0) {
+            cy.get('.noteAttViewBtn').eq(1).click()
+            cy.get('div.css-1v4ccyo').eq(0).type('Automation Test')
+            cy.get('[placeholder="dd/mm/yyyy"]').click({ force: true })
+            cy.wait(2000)
+            cy.get('.css-sldnni').click({ force: true })
+            cy.wait(2000)
+            cy.contains('2024').click({ force: true })
+            cy.wait(2000)
+            cy.contains('24').click({ force: true })
+            cy.wait(2000)
+            cy.get('#mui-12').click({ force: true })
+            cy.wait(2000)
+            cy.get('[class="MuiTypography-root MuiTypography-caption css-1v2gfp5"]').eq(1).click({ force: true })
+            cy.wait(2000)
+            cy.get('body').click({ force: true })
+            cy.wait(2000)
+            cy.get('div.css-qiwgdb').click({ force: true })
+            cy.wait(2000)
+            cy.contains('30-60 mins').click({ force: true })
+            cy.wait(2000)
+            cy.contains('Save').click({ force: true })
+        }
     }
 }
 module.exports = new TeacherClassGradePage() 

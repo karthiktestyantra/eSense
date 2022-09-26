@@ -21,10 +21,10 @@ describe("Verify Sub Admin Curriculum Page functionalities", function () {
   it("To create Curriculum", function () {
     adminPostSetupHomePage.getSchoolLnk().click({ force: true })
     adminPostSetupHomePage.getCurriculumBuilderSectionLnk().click()
-    adminPostSetupCurriculumBuilderPage.getTitle().should('have.text', this.adminPostSetupCurriculumBuilderPage.Title)
+    adminPostSetupCurriculumBuilderPage.getTitle().should('have.text', this.curriculumBuilder.Title)
     adminPostSetupCurriculumBuilderPage.getGradeLst().each(($e1, index, $list) => {
       const text = $e1.text()
-      if (text.includes(this.adminPostSetupCurriculumBuilderPage.Grade)) {
+      if (text.includes(this.curriculumBuilder.Grade)) {
         cy.get('td button').eq(index).click()
       }
     })

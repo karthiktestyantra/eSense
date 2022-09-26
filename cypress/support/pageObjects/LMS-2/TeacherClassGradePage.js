@@ -78,7 +78,7 @@ class TeacherClassGradePage {
     //Buiness logic
 
     validateResourceTable() {
-        cy.wait(2000)
+        cy.wait(3000)
         this.getResourceTable().should('be.visible')
     }
 

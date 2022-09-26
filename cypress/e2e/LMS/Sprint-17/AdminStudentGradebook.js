@@ -204,7 +204,7 @@ describe("Verify Admin student grade book functionalities", function () {
    it("Validate user is able to view the details of the gradebook template by clicking the “View” icon in the template list screen/EL-3974/ES3974_01", function () {
       adminGradeBookPage.getGradesLstInTemplate().each(($e1, index, $list) => {
          const txt = $e1.text()
-         if (txt.includes("Grade 10")) {
+         if (txt.includes("Grade 1")) {
             adminGradeBookPage.getViewIconsLst().eq(index).click()
             return false
          }
@@ -216,15 +216,15 @@ describe("Verify Admin student grade book functionalities", function () {
    })
 
    it(" Validate User is able to redirected to the “Preview Gradebook(Grade)” screen/EL-3974/ES3974_02", function () {
-      cy.contains("Preview Gradebook Grade 10").should('be.visible')
+      cy.contains("Preview Gradebook Grade 1").should('be.visible')
    })
 
    it("Validate whether user is able to view the details present in the  preview gradebook screen(Scholastic, co-scholastic details)/EL-3974/ES3974_03", function () {
-      gradebook.getNoOfTermsDrpDwn().should('have.text', "1")
-      gradebook.getAddTheoryTheoryFld().should('have.value', "50")
-      gradebook.getPracticalFld().should('have.value', "50")
-      gradebook.getAddTestTypeDrpDwnInAddTheory().should('have.text', "Half Yearly")
-      gradebook.getActivityDrpDwn().should('have.value', "abc")
+      adminGradeBookPage.getNoOfTermsDrpDwn().should('have.text', "1")
+      adminGradeBookPage.getAddTheoryTheoryFld().should('have.value', "50")
+      adminGradeBookPage.getPracticalFld().should('have.value', "50")
+      adminGradeBookPage.getAddTestTypeDrpDwnInAddTheory().should('have.text', "Half Yearly")
+      adminGradeBookPage.getActivityDrpDwn().should('have.value', "123aws")
    })
 
    it("Validate user is able to click on 'Edit' button/EL-3974/ES3974_04", function () {
@@ -232,14 +232,14 @@ describe("Verify Admin student grade book functionalities", function () {
    })
 
    it("Validate user clicking on Edit button, redirected to Edit Gradebook screen/EL-3974/ES3974_05", function () {
-      cy.contains("Edit Gradebook Grade 10").should('be.visible')
+      cy.contains("Edit Gradebook Grade 1").should('be.visible')
    })
 
    it("Validate user is able to click on 'Create new' button/EL-3974/ES3974_06", function () {
       adminGradeBookPage.getGoBackBtn().click()
       adminGradeBookPage.getGradesLstInTemplate().each(($e1, index, $list) => {
          const txt = $e1.text()
-         if (txt.includes("Grade 10")) {
+         if (txt.includes("Grade 1")) {
             adminGradeBookPage.getViewIconsLst().eq(index).click()
             return false
          }
@@ -253,17 +253,17 @@ describe("Verify Admin student grade book functionalities", function () {
 
    //pre_Condition
    it("Delete the created previous grade template",function(){
-      home.getReportsSectionLnk().click({ force: true })
-      gradebook.getStudentGradebookLnk().click({ force: true })
+      adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
+      adminGradeBookPage.getStudentGradebookLnk().click({ force: true })
       cy.wait(1000)
-   gradebook.getGradesLstInTemplate().each(($e1, index, $list) => {
+      adminGradeBookPage.getGradesLstInTemplate().each(($e1, index, $list) => {
       const txt = $e1.text()
       if (txt.includes("Grade 1")) {
-         gradebook.getDltBtnLstForTemplatePage().eq(index).click()
+         adminGradeBookPage.getDltBtnLstForTemplatePage().eq(index).click()
          return false
       }
    })
-   gradebook.getDeleteConfirmationBtnInTemplate().click()
+   adminGradeBookPage.getDeleteConfirmationBtnInTemplate().click()
 })
 
 })

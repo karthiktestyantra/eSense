@@ -36,9 +36,9 @@ describe("Verify admin Curriculum Plan Page functionalities", function () {
     //})
 
     // it("To validate that user cannot change the format once chosen/EL-4957/ES4957_02",function(){
-    adminPostSetupCurriculumBuilderPage.getEsenseAdminTotalSessionsTxtFld().clear().type(this.adminPostSetupCurriculumBuilderPage.ValidTotalSessionsNum)
-    adminPostSetupCurriculumBuilderPage.getEsenseAdminThemeNameFld().type(this.adminPostSetupCurriculumBuilderPage.ChapterName)
-    adminPostSetupCurriculumBuilderPage.getAdminThemeDescription().type(this.adminPostSetupCurriculumBuilderPage.ChapterDescription)
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminTotalSessionsTxtFld().clear().type(this.curriculumBuilder.ValidTotalSessionsNum)
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminThemeNameFld().type(this.curriculumBuilder.ChapterName)
+    adminPostSetupCurriculumBuilderPage.getAdminThemeDescription().type(this.curriculumBuilder.ChapterDescription)
     adminPostSetupCurriculumBuilderPage.getSaveDraftBtn().click()
     cy.contains("successfully_added").should('be.visible')
     cy.wait(1000)
@@ -51,7 +51,7 @@ describe("Verify admin Curriculum Plan Page functionalities", function () {
 
     //it("To validate that user is able to move Curriculam draft to publish among Schools / view as public by clicking 'Publish' button/EL-4957/ES4957_05",function(){
     esenseAdminCurriculumPlanPage.getChapterEditBtn().click({ force: true })
-    adminPostSetupCurriculumBuilderPage.getEsenseAdminThemeNameFld().clear().type(this.adminPostSetupCurriculumBuilderPage.EditedChapterName)
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminThemeNameFld().clear().type(this.curriculumBuilder.EditedChapterName)
     adminPostSetupCurriculumBuilderPage.getSaveDraftBtn().click()
     cy.wait(1000)
     esenseAdminCurriculumPlanPage.getPublishBtn().should('be.enabled').click()
@@ -70,7 +70,7 @@ describe("Verify admin Curriculum Plan Page functionalities", function () {
     })
     adminPostSetupCurriculumBuilderPage.getEsenseAdminChapterLst().each(($e2, index, $list) => {
       const txt = $e2.text()
-      if (txt.includes(this.adminPostSetupCurriculumBuilderPage.EditedChapterName)) {
+      if (txt.includes(this.curriculumBuilder.EditedChapterName)) {
         adminPostSetupCurriculumBuilderPage.getChapterDltBtn().click()
       }
     })
@@ -80,9 +80,9 @@ describe("Verify admin Curriculum Plan Page functionalities", function () {
     // it("To validate that 'Topic Duration' field is provided in the 'Topic' section/EL-4978/EL4978_01",function(){
     cy.wait(3000)
     adminPostSetupCurriculumBuilderPage.getAddThemeBtn().contains("Start With Theme / Unit").click() || adminPostSetupCurriculumBuilderPage.getAddThemeBtn().contains("Add").click()
-    adminPostSetupCurriculumBuilderPage.getEsenseAdminTotalSessionsTxtFld().clear().type(this.adminPostSetupCurriculumBuilderPage.ValidTotalSessionsNum)
-    adminPostSetupCurriculumBuilderPage.getEsenseAdminThemeNameFld().type(this.adminPostSetupCurriculumBuilderPage.ChapterName)
-    adminPostSetupCurriculumBuilderPage.getAdminThemeDescription().type(this.adminPostSetupCurriculumBuilderPage.ChapterDescription)
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminTotalSessionsTxtFld().clear().type(this.curriculumBuilder.ValidTotalSessionsNum)
+    adminPostSetupCurriculumBuilderPage.getEsenseAdminThemeNameFld().type(this.curriculumBuilder.ChapterName)
+    adminPostSetupCurriculumBuilderPage.getAdminThemeDescription().type(this.curriculumBuilder.ChapterDescription)
     esenseAdminCurriculumPlanPage.getAddChapterInPopup().click()
     esenseAdminCurriculumPlanPage.getChapterNumberTxtField().type("02")
     esenseAdminCurriculumPlanPage.getChapterNameDropdown().select("measure")
@@ -96,7 +96,7 @@ describe("Verify admin Curriculum Plan Page functionalities", function () {
     esenseAdminCurriculumPlanPage.getHourTopicDurationTxt().should('be.exist')
     esenseAdminCurriculumPlanPage.getMinuteTopicDurationTxt().should('be.exist')
     esenseAdminCurriculumPlanPage.getTopicDropdown().select("atoms")
-    esenseAdminCurriculumPlanPage.getTopicDescriptiontextarea().type(this.adminPostSetupCurriculumBuilderPage.ChapterDescription)
+    esenseAdminCurriculumPlanPage.getTopicDescriptiontextarea().type(this.curriculumBuilder.ChapterDescription)
     esenseAdminCurriculumPlanPage.getHourTopicDurationFld().type(10)
     esenseAdminCurriculumPlanPage.getMinutesTopicDurationFld().type(30)
     esenseAdminCurriculumPlanPage.getAddTopicBtnInPopup().click()
@@ -117,7 +117,7 @@ describe("Verify admin Curriculum Plan Page functionalities", function () {
     })
     adminPostSetupCurriculumBuilderPage.getEsenseAdminChapterLst().each(($e2, index, $list) => {
       const txt = $e2.text()
-      if (txt.includes(this.adminPostSetupCurriculumBuilderPage.ChapterName)) {
+      if (txt.includes(this.curriculumBuilder.ChapterName)) {
         adminPostSetupCurriculumBuilderPage.getChapterDltBtn().eq(index).click()
       }
     })

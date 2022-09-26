@@ -18,7 +18,7 @@ describe("Verify Reports - Student Gradebook", function () {
   });
 
   beforeEach(function () {
-    cy.fixture("LMS/reportGradebookStudentCount").as("studentCountData)")
+    cy.fixture("LMS/reportGradebookStudentCount").as("studentCountData")
   });
 
   it("Verify that the Teacher is able to login the application and navigate to Reports > Student gradebook", function () {

@@ -1,5 +1,5 @@
-/// <reference types="Cypress-iframe" />
 import 'cypress-iframe'
+/// <reference types="Cypress-iframe" />
 
 const adminDashboardPage = require("../../../support/pageObjects/LMS-2/AdminDashboardPage")
 const adminContentLibraryPage = require("../../../support/pageObjects/LMS-2/AdminContentLibraryPage")

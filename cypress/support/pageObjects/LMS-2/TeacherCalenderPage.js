@@ -18,7 +18,7 @@ class TeacherCalenderPage {
     getForwordWeekButton() {
         return cy.get('button.cal-header-next')
     }
-    getGreade3A() {
+    getGrade3A() {
         return cy.get('.md-custom-event-title')
     }
     getStartSessionButton() {
@@ -27,7 +27,7 @@ class TeacherCalenderPage {
     getClassResourcesButton() {
         return cy.contains('Class Resources')
     }
-    
+
 
     //Buiness logic
 
@@ -42,7 +42,7 @@ class TeacherCalenderPage {
     }
     clickOnGrade() {
         cy.wait(4000)
-        this.getGreade3A().click({ force: true })
+        this.getGrade3A().eq(0).click({ force: true })
     }
 
 }

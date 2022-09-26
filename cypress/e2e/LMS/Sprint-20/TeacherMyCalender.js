@@ -118,6 +118,12 @@ describe("Verify Teacher Calender functionalities", function () {
         teacherClassGradePage.valiadteLessonDropdown()
     })
 
+    it('EL-5686/EL5686_1 Validate teacher is able to create “Lesson plans”', function () {
+        teacherClassGradePage.valiadteLessonDropdown()
+    })
+
+
+
 
 })//precondition  
     // resource should be present

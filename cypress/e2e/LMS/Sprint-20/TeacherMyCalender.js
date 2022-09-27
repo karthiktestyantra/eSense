@@ -52,13 +52,44 @@ describe("Verify Teacher Calender functionalities", function () {
     it('To validate user is able to view the file after clickig on preview icon/EL-6983/ES6983-05', function () {
         teacherClassGradePage.validatepreviewPage()
         cy.go('back')
-        teacherCalenderPage.clickOnClassCheckbox()
+    })
+
+    it('EL-5686/EL5686_1 Validate teacher is able to create “Lesson plans”', function () {
         teacherCalenderPage.clickOnForwordBtn()
         teacherCalenderPage.clickOnGrade()
-        teacherCalenderPage.clickOnStartSessionBtn()
+        cy.wait(2000)
+        teacherCalenderPage.getAddLessonPlanButton().click()
+        teacherCalenderPage.getCreateNewBtnAddLessonPlan().click()
+    })
+
+    it('EL-5686/EL5686_2,EL5686_6 Validate topic field is multi-select and user can select multiple topics for selected Grade, Subject, Theme, and chapter.', function () {
+        teacherCalenderPage.getThemeDropdownCreateLessonPlan().click()
+        teacherCalenderPage.getDropdownListCreateLessonPlan().click()
+        teacherCalenderPage.getChapterDropdownCreateLessonPlan().click()
+        teacherCalenderPage.getDropdownListCreateLessonPlan().click()
+        teacherCalenderPage.getTopicDropdownCreateLessonPlan().click()
+        teacherCalenderPage.getDropdownListCreateLessonPlan().click()
+        cy.get('body').click(0, 0)
+        teacherCalenderPage.getLearnObjectiveTextfieldCreateLessonPlan().type('Testing')
+    })
+
+    it('EL-5686/EL5686_3,EL5686_5 Validate change is implemented in the Create and Edit Lesson Plan.', function () {
+        teacherCalenderPage.getSaveBtnCreateLessonPlan().click()
+        cy.wait(3000)
+        teacherCalenderPage.getViewLessonPlanInPopUp().then(($el) => {
+            var len = $el.length
+            if (len > 1) {
+                teacherCalenderPage.getDeleteButtonLessonPlan().click()
+                teacherCalenderPage.getDeleteConfirmationButtonLessonPlan().click()
+            }
+        })
+        teacherCalenderPage.getViewLessonPlanInPopUp().eq(0).click()
+        cy.isVisible(teacherCalenderPage.getEditLessonPlanTitle())
+        teacherCalenderPage.getGoBackButton().click()
     })
 
     it('To validate user is able to view and take attendance on clciking Attendance tab/EL-6986/ES6986-01', function () {
+        teacherCalenderPage.clickOnStartSessionBtn()
         teacherClassGradePage.clickOnAttendenceTab()
         teacherClassGradePage.validatePresentRadioBtn()
         teacherClassGradePage.validateAbsentRadioBtn()
@@ -126,37 +157,7 @@ describe("Verify Teacher Calender functionalities", function () {
         teacherClassGradePage.valiadteLessonDropdown()
     })
 
-    it('EL-5686/EL5686_1 Validate teacher is able to create “Lesson plans”', function () {
-        cy.go('back')
-        teacherCalenderPage.clickOnForwordBtn()
-        teacherCalenderPage.clickOnGrade()
-        cy.wait(2000)
-        teacherCalenderPage.getAddLessonPlanButton().click()
-        teacherCalenderPage.getCreateNewBtnAddLessonPlan().click()
-    })
-
-    it('EL-5686/EL5686_2,EL5686_6 Validate topic field is multi-select and user can select multiple topics for selected Grade, Subject, Theme, and chapter.', function () {
-        teacherCalenderPage.getThemeDropdownCreateLessonPlan().click()
-        teacherCalenderPage.getDropdownListCreateLessonPlan().click()
-        teacherCalenderPage.getChapterDropdownCreateLessonPlan().click()
-        teacherCalenderPage.getDropdownListCreateLessonPlan().click()
-        teacherCalenderPage.getTopicDropdownCreateLessonPlan().click()
-        teacherCalenderPage.getDropdownListCreateLessonPlan().click()
-        cy.get('body').click(0, 0)
-        teacherCalenderPage.getLearnObjectiveTextfieldCreateLessonPlan().type('Testing')
-    })
-
-    it('EL-5686/EL5686_3,EL5686_5 Validate change is implemented in the Create and Edit Lesson Plan.', function () {
-        teacherCalenderPage.getSaveBtnCreateLessonPlan().click()
-        cy.wait(3000)
-        teacherCalenderPage.getDeleteButtonLessonPlan().click()
-        teacherCalenderPage.getDeleteConfirmationButtonLessonPlan().click()
-        teacherCalenderPage.getViewLessonPlanInPopUp().eq(0).click()
-        cy.isVisible(teacherCalenderPage.getEditLessonPlanTitle())
-        cy.go('back')
-    })
-
 })//precondition  
     // resource should be present
     // homework should be present
-    // 1 lesson plan should be always present
+    // lesson plan should be present

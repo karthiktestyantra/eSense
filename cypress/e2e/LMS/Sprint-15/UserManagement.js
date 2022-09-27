@@ -1,6 +1,6 @@
 const mainAdminHomePage = require("../../../support/pageObjects/LMS-2/MainAdminHomePage")
 const mainAdminUserManagementPage = require("../../../support/pageObjects/LMS-2/MainAdminUserManagementPage")
-const mainAdminMasterManagementPage = require("../../../support/pageObjects/LMS-2/mainAdminMasterManagementPage")
+const mainAdminMasterManagementPage = require("../../../support/pageObjects/LMS-2/MainAdminMasterManagementPage")
 
 describe("Verify User Management Page functionalities/Sprint-15", function () {
 

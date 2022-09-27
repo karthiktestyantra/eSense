@@ -69,6 +69,37 @@ class Admin360ReportPage {
    getPreviewAndPrintBtnInReportPageTitle(){
       return cy.xpath("//button[contains(@class,'StudentDetails_stdPrvPrntBtn')]")
    }
+   getGoBackBtn(){
+      return cy.get('.prevStudDetaInfoNavBtn > .d-flex')
+   }
+   get360ReportMajorTabs(){
+      return cy.get('button[role="tab"]')
+   }
+   getStudentsTabInUsersPage(){
+      return cy.get('button[role="tab"]').contains("Students")
+   }
+   getEveryStudentDetailInUsersPage(){
+      return cy.get('tbody tr')
+   }
+   getMajorHeadTabInUsersPage(){
+      return cy.get('table thead th')
+   }
+   getScoresDataInPreviewAndPrintPage(){
+      return cy.get('div h3')
+   }
+   getMyGradesPageContents(){
+      return cy.get('h4.MuiTypography-root')
+   }
+   getMyGradeTeacherProfilePicLst(){
+      return cy.get('div div.MuiAvatar-root img')
+   }
+   getMyGradeTeacherNameLst(){
+      return cy.get('div.StudentDetails_myGradeUserPic__2eq9a div.MuiBox-root p.MuiTypography-root')
+   }
+   getAssessmentNameForStudentInMyGradePage(){
+      return cy.get('div.StudentDetails_prevStdMyGradeCardItemsCnt__3kY6Q div p')
+   }
+
 
 
    //Business Logic

@@ -229,6 +229,9 @@ describe("Verify Sprint 10 related functionalities", function () {
     cy.go('forward')
     myCalendarPage.getCalendarRightSideForwardIcon().click({ force: true });
     cy.wait(2000);
+    cy.get('input[name="Classes"]').uncheck()
+    cy.wait(1000)
+    cy.get('input[name="Classes"]').check()
     myCalendarPage.getSampleClass()
       .contains(this.classesData.class)
       .click({ force: true });
@@ -348,7 +351,7 @@ describe("Verify Sprint 10 related functionalities", function () {
         myCalendarPage.getHomeworkTitle(i).then((el) => {
           cy.log(el.text());
           if (el.text() === this.addHomeworkData.title) {
-            myCalendarPage.getHomeworkDeleteIcon(i).click();
+            myCalendarPage.getHomeworkDeleteIcon(i).click({force:true});
             cy.wait(1000);
             cy.get('.delete_reminder-btn_container > .MuiButton-contained').click();
             myCalendarPage.getDeletedHomeworkMessagePopup().should("contain", "Homework deleted!");

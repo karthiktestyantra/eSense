@@ -61,16 +61,87 @@ class TeacherDashboardPage {
     }
 
     getMarkattendeceSubmitBtn() {
-        return cy.get('button[type="button"]').contains('submit')
+        return cy.get('button.attendSubBtn').contains('submit')
+    }
+
+    getMarkattendeceSubmitPopupMesg() {
+        return cy.get('h1.mainRcdTitle')
+    }
+
+    getMarkattendeceSubmitPopupStudentCountDetails() {
+        return cy.get('div[data-test-id="CircularProgressbarWithChildren__children"]')
+    }
+
+    getMarkattendeceSubmitPopupSubmitBtn() {
+        return cy.get('button.prime_btn').contains('Yes,Submit')
+    }
+
+    getMarkattendeceGoBackBtn() {
+        return cy.get('p.back').eq(1).contains('Go Back')
+    }
+
+    getMarkattendeceSubmitPopupCancelBtn() {
+        return cy.get('.mainRcdAction > .MuiButton-outlined')
+    }
+
+    getMarkattendecePageTitle() {
+        return cy.get('p.attendTableTit')
+    }
+
+    getMarkattendeceCancelBtn() {
+        return cy.get('button.attendCancellBtn')
+    }
+
+    
+    getMarkAsAbsentRadioBtn() {
+        return cy.get('[data-testid="absent"]')
+    }
+
+    getMarkpresentRadioBtn() {
+        return cy.get('[data-testid="present"]')
+    }
+
+    
+    getMarkattendeceUploadCsvBtn() {
+        return cy.get('button.attendUplCSVBtn')
+    }
+
+    getMarkattendeceUploadCsvPopupCloseBtn() {
+        return cy.get('svg[data-testid="CloseIcon"]')
+    }
+
+    getSideMenuTeacherDashboardImg() {
+        return cy.get('.active > .side-nav-dashboard > .menu-txt')
+    }
+
+    getMarkattendeceStudentList() {
+        return cy.get('p.resources_student_name')
+    }
+
+    getMarkattendeceUploadSampleFile() {
+        return cy.get('button.BulkUpload_downloadSampleTxt__1UJTp')
     }
 
     getAssignHomeworkPopupSaveBtn() {
         return cy.get('.MuiButton-contained')
     }
 
+    getMarkClassAttendenceBtn() {
+        return cy.get('button.pendActBtn')
+    }
+
 
     getAttendenceCardMarkAttendanceBtn() {
         return cy.get('div.Dashboard_tchDshPendActFlexSect__E8rdD button.MuiButton-root')
+    }
+
+    
+    getMarkAttendanceBtn() {
+        return cy.get('button.prime_btn')
+    }
+
+    getBulkuploadImportBtn() {
+        return cy.get('button.BulkUpload_bulkImport__spFpc')
     }
 
     getProvideFeedbackBtn() {
@@ -79,6 +150,10 @@ class TeacherDashboardPage {
 
     getAttendenceCardCloseIcon() {
         return cy.get('[data-testid="CloseIcon"]')
+    }
+
+    getAttachsamplefile() {
+        return cy.get('input#file-input')
     }
 
     getAddLessonPlanCardTxt() {
@@ -211,6 +286,10 @@ class TeacherDashboardPage {
         return cy.get('div p.attendTableTit')
     }
 
+    getMarkAttendenceCardSubName() {
+        return cy.get('div.Dashboard_tchDshPendActText__2_6js h6')
+    }
+
     getMarkAttendenceImg() {
         return cy.get('div.MuiGrid-root img[src="/static/media/attendMark.0f5cfd41.svg"]')
     }
@@ -221,6 +300,10 @@ class TeacherDashboardPage {
 
     getMarkAttendencePageSubmitBtn() {
         return cy.get('div button.attendSubBtn')
+    }
+
+    getMarkAttendenceBtn() {
+        return cy.get('button.Dashboard_tchDshPendActBtn__3PCld').contains('MARK ATTENDANCE')
     }
 
     getHomeworkPendingCardDate() {
@@ -266,6 +349,14 @@ class TeacherDashboardPage {
 
     getMyCalenderLink() {
         return cy.contains('My Calendar')
+    }
+
+    getSideMenuReportsImg() {
+        return cy.get('div.side-nav-icon img[src="/static/media/report.d1121fb6.svg"]')
+    }
+
+    getSideMenuStudentGradebookLink() {
+        return cy.xpath('//div[.="Student Gradebook"]')
     }
 
     //Buiness logic

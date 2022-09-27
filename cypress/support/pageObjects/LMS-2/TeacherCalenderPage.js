@@ -69,11 +69,15 @@ class TeacherCalenderPage {
     }
 
     getViewLessonPlanInPopUp() {
-        return cy.get('li[class="lessonPlan-item"] p')
+        return cy.xpath('//li[@class="lessonPlan-item"]/p')
     }
 
     getEditLessonPlanTitle() {
         return cy.xpath('//h3')
+    }
+
+    getGoBackButton() {
+        return cy.get('.mt-0')
     }
 
     //Buiness logic
@@ -85,7 +89,7 @@ class TeacherCalenderPage {
         this.getClassesCheckbox().check({ force: true })
     }
     clickOnForwordBtn() {
-        this.getForwordWeekButton().click()
+        this.getForwordWeekButton().click({ force: true })
     }
     clickOnGrade() {
         cy.wait(4000)

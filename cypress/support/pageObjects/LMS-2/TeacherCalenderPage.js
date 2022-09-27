@@ -28,6 +28,53 @@ class TeacherCalenderPage {
         return cy.contains('Class Resources')
     }
 
+    getAddLessonPlanButton() {
+        return cy.get('.view_lesson_btn.css-1ujsas3')
+    }
+
+    getCreateNewBtnAddLessonPlan() {
+        return cy.get('.MuiTypography-h6').eq(0)
+    }
+
+    getThemeDropdownCreateLessonPlan() {
+        return cy.get('#theme')
+    }
+
+    getChapterDropdownCreateLessonPlan() {
+        return cy.get('#chapter')
+    }
+
+    getTopicDropdownCreateLessonPlan() {
+        return cy.get('#mui-component-select-topic')
+    }
+
+    getDropdownListCreateLessonPlan() {
+        return cy.get('.MuiButtonBase-root.css-1km1ehz').eq(0)
+    }
+
+    getLearnObjectiveTextfieldCreateLessonPlan() {
+        return cy.get('.MuiInputBase-input.css-1x5jdmq').eq(1)
+    }
+
+    getSaveBtnCreateLessonPlan() {
+        return cy.get('.sectionSaveBtn')
+    }
+
+    getDeleteButtonLessonPlan() {
+        return cy.get('span[class="deleteIcon"]').eq(0)
+    }
+
+    getDeleteConfirmationButtonLessonPlan() {
+        return cy.get('[data-testid="delete"]')
+    }
+
+    getViewLessonPlanInPopUp() {
+        return cy.get('li[class="lessonPlan-item"] p')
+    }
+
+    getEditLessonPlanTitle() {
+        return cy.xpath('//h3')
+    }
 
     //Buiness logic
 

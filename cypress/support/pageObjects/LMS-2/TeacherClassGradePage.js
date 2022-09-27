@@ -177,34 +177,39 @@ class TeacherClassGradePage {
         this.getHomeworkPreviewPage().should('be.visible')
     }
     createResource(filePath) {
-        if (cy.get('.view_classes_count').eq(0).invoke('text') == 0) {
-            cy.get('[type="file"]').attachFile(filePath)
-        }
+        cy.get('.view_classes_count').eq(0).then((text) => {
+            if (text.text() == 0) {
+                cy.get('[type="file"]').attachFile(filePath)
+            }
+        })
     }
     createHomework() {
-        if (cy.get('.view_classes_count').eq(2).invoke('text') == 0) {
-            cy.get('.noteAttViewBtn').eq(1).click()
-            cy.get('div.css-1v4ccyo').eq(0).type('Automation Test')
-            cy.get('[placeholder="dd/mm/yyyy"]').click({ force: true })
-            cy.wait(2000)
-            cy.get('.css-sldnni').click({ force: true })
-            cy.wait(2000)
-            cy.contains('2024').click({ force: true })
-            cy.wait(2000)
-            cy.contains('24').click({ force: true })
-            cy.wait(2000)
-            cy.get('#mui-12').click({ force: true })
-            cy.wait(2000)
-            cy.get('[class="MuiTypography-root MuiTypography-caption css-1v2gfp5"]').eq(1).click({ force: true })
-            cy.wait(2000)
-            cy.get('body').click({ force: true })
-            cy.wait(2000)
-            cy.get('div.css-qiwgdb').click({ force: true })
-            cy.wait(2000)
-            cy.contains('30-60 mins').click({ force: true })
-            cy.wait(2000)
-            cy.contains('Save').click({ force: true })
-        }
+        cy.get('.view_classes_count').eq(2).then((text) => {
+            if (text.text() == 0) {
+                cy.get('.noteAttViewBtn').eq(1).click()
+                cy.get('div.css-1v4ccyo').eq(0).type('Automation Test')
+                cy.get('[placeholder="dd/mm/yyyy"]').click({ force: true })
+                cy.wait(2000)
+                cy.get('.css-sldnni').click({ force: true })
+                cy.wait(2000)
+                cy.contains('2024').click({ force: true })
+                cy.wait(2000)
+                cy.contains('24').click({ force: true })
+                cy.wait(2000)
+                cy.get('#mui-12').click({ force: true })
+                cy.wait(2000)
+                cy.get('[class="MuiTypography-root MuiTypography-caption css-1v2gfp5"]').eq(1).click({ force: true })
+                cy.wait(2000)
+                cy.get('body').click({ force: true })
+                cy.wait(2000)
+                cy.get('div.css-qiwgdb').click({ force: true })
+                cy.wait(2000)
+                cy.contains('30-60 mins').click({ force: true })
+                cy.wait(2000)
+                cy.contains('Save').click({ force: true })
+                cy.wait(6000)
+            }
+        })
     }
 }
 module.exports = new TeacherClassGradePage() 

@@ -15,15 +15,16 @@ describe("Verify Teacher Calender functionalities", function () {
         teacherCalenderPage.clickOnClassCheckbox()
         teacherCalenderPage.clickOnForwordBtn()
         teacherCalenderPage.clickOnGrade()
+        cy.wait(2000)
         teacherClassGradePage.createResource('LMS/SampleDocs-sample-pdf-file.pdf')
-        cy.wait(4000)
+        cy.wait(6000)
         teacherClassGradePage.createHomework()
         teacherCalenderPage.clickOnStartSessionBtn()
         teacherClassGradePage.validateClassDetailBtn()
         teacherClassGradePage.validateTimetableBtn()
     })
 
-    it('To validate user is redirected to class details screen upon clicking on ""Start session"" button/EL-6982/ES6982-02',function () {
+    it('To validate user is redirected to class details screen upon clicking on ""Start session"" button/EL-6982/ES6982-02', function () {
         teacherClassGradePage.validateClassDetailBtn()
     })
 
@@ -73,27 +74,27 @@ describe("Verify Teacher Calender functionalities", function () {
         teacherClassGradePage.validateAttendenceTablebody()
     })
 
-    it('To validate user is able to view homework details by click on""Homework tab/EL-6984/ES6984-01',function () {
+    it('To validate user is able to view homework details by click on""Homework tab/EL-6984/ES6984-01', function () {
         teacherClassGradePage.clickOnHomeworkTab()
         teacherClassGradePage.valiadteHomeworkPageTitle()
     })
 
-    it('To validate Homework tab consist of total count of homework assingned for the class/EL-6984/ES6984-02',function () {
+    it('To validate Homework tab consist of total count of homework assingned for the class/EL-6984/ES6984-02', function () {
         teacherClassGradePage.validateCountOfHomework()
     })
 
-    it('To validate preview and Downalod options is displayed against each file/EL-6984/ES6984-04',function () {
+    it('To validate preview and Downalod options is displayed against each file/EL-6984/ES6984-04', function () {
         teacherClassGradePage.validateHomeworkPreviewIcon()
         teacherClassGradePage.validateHomeworkDownloadIcon()
     })
 
-    it('To validate Homework attachment list consist of Homework title,created date ,count of attachments/EL-6984/ES6984-05',function () {
+    it('To validate Homework attachment list consist of Homework title,created date ,count of attachments/EL-6984/ES6984-05', function () {
         teacherClassGradePage.validateHomeworkTitle()
         teacherClassGradePage.validateHomeworkDate()
         teacherClassGradePage.validateHomeworkAttachement()
     })
 
-    it('To validate user is able to view the"Homework" after clickig on preview icon/EL-6984/ES6984-06',function () {
+    it('To validate user is able to view the"Homework" after clickig on preview icon/EL-6984/ES6984-06', function () {
         teacherClassGradePage.clickOnHomeworkPreviewIcon()
         teacherClassGradePage.validateHomeworkPreviewPage()
         cy.go('back')
@@ -103,30 +104,57 @@ describe("Verify Teacher Calender functionalities", function () {
         teacherCalenderPage.clickOnStartSessionBtn()
     })
 
-    it('To validate individual resources is downloaded after user clicks on download/EL-6984/ES6984-07',function () {
+    it('To validate individual resources is downloaded after user clicks on download/EL-6984/ES6984-07', function () {
         teacherClassGradePage.clickOnHomeworkTab()
         teacherClassGradePage.getHomeworkDownloadIcon().click()
     })
 
-    it('To validate Download all button is available in homeworktab and user is able to download the homework/EL-6984/ES6984-03',function () {
+    it('To validate Download all button is available in homeworktab and user is able to download the homework/EL-6984/ES6984-03', function () {
         teacherClassGradePage.getHomeworkDownloadAllBtn().click()
     })
-    
-    it('To vlaidate that lesson plan pop-up is populated after user clicks on view lesson plan/EL-6982/ES6982-03', function () {
+
+    it('To validate Download all button is available in homeworktab and user is able to download the homework/EL-6984/ES6984-03', function () {
+        teacherClassGradePage.getHomeworkDownloadAllBtn().click()
+    })
+
+    it('To validate that lesson plan pop-up is populated after user clicks on view lesson plan/EL-6982/ES6982-03', function () {
         teacherClassGradePage.clickOnViewLessonPlanPage()
         teacherClassGradePage.validateLessonPlanPage()
     })
-    
+
     it('To valiadte dropdown is availabe in view lesson plan popup if there are multiple lesson plans/EL-6982/ES6982-04', function () {
         teacherClassGradePage.valiadteLessonDropdown()
     })
 
     it('EL-5686/EL5686_1 Validate teacher is able to create “Lesson plans”', function () {
-        teacherClassGradePage.valiadteLessonDropdown()
+        cy.go('back')
+        teacherCalenderPage.clickOnForwordBtn()
+        teacherCalenderPage.clickOnGrade()
+        cy.wait(2000)
+        teacherCalenderPage.getAddLessonPlanButton().click()
+        teacherCalenderPage.getCreateNewBtnAddLessonPlan().click()
     })
 
+    it('EL-5686/EL5686_2,EL5686_6 Validate topic field is multi-select and user can select multiple topics for selected Grade, Subject, Theme, and chapter.', function () {
+        teacherCalenderPage.getThemeDropdownCreateLessonPlan().click()
+        teacherCalenderPage.getDropdownListCreateLessonPlan().click()
+        teacherCalenderPage.getChapterDropdownCreateLessonPlan().click()
+        teacherCalenderPage.getDropdownListCreateLessonPlan().click()
+        teacherCalenderPage.getTopicDropdownCreateLessonPlan().click()
+        teacherCalenderPage.getDropdownListCreateLessonPlan().click()
+        cy.get('body').click(0, 0)
+        teacherCalenderPage.getLearnObjectiveTextfieldCreateLessonPlan().type('Testing')
+    })
 
-
+    it('EL-5686/EL5686_3,EL5686_5 Validate change is implemented in the Create and Edit Lesson Plan.', function () {
+        teacherCalenderPage.getSaveBtnCreateLessonPlan().click()
+        cy.wait(3000)
+        teacherCalenderPage.getDeleteButtonLessonPlan().click()
+        teacherCalenderPage.getDeleteConfirmationButtonLessonPlan().click()
+        teacherCalenderPage.getViewLessonPlanInPopUp().eq(0).click()
+        cy.isVisible(teacherCalenderPage.getEditLessonPlanTitle())
+        cy.go('back')
+    })
 
 })//precondition  
     // resource should be present

@@ -159,3 +159,4 @@ describe("Verify Teacher Calender functionalities", function () {
 })//precondition  
     // resource should be present
     // homework should be present
+    // 1 lesson plan should be always present

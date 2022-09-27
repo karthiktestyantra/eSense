@@ -74,6 +74,45 @@ class TeacherClassGradePage {
     getHomeworkDownloadAllBtn() {
         return cy.contains('Download All')
     }
+    getResourceAttachfile(){
+        return cy.get('[type="file"]')
+    }
+    getResourceCount(){
+        return cy.get('.view_classes_count').eq(0)
+    }
+    getHomeworkCount(){
+        return cy.get('.view_classes_count').eq(2)
+    }
+    getHomeworkTitle(){
+        return cy.get('div.css-1v4ccyo').eq(0)
+    }
+    getHomeworkAddBtn(){
+        return  cy.get('.noteAttViewBtn').eq(1)
+    }
+    getHomeworkDateTextfield(){
+        return cy.get('[placeholder="dd/mm/yyyy"]')
+    }
+    getHomeworkDatedownBtn(){
+        return cy.get('.css-sldnni')
+    }
+    getHomeworkYear(){
+        return cy.contains('2024')
+    }
+    getHomeworkCreateDate(){
+        return cy.contains('2024')
+    }
+    getHomeworkDueDate(){
+        return cy.get('#mui-12')
+    }
+    getHomeworkDueDatePM(){
+        return cy.get('[class="MuiTypography-root MuiTypography-caption css-1v2gfp5"]').eq(1)
+    }
+    getHomeworkSaveBtn(){
+        return cy.contains('Save')
+    }
+    getHomeworkApproxTimeRequireTextfield(){
+        return cy.get('div.css-qiwgdb')
+    }
 
     //Buiness logic
 
@@ -177,36 +216,37 @@ class TeacherClassGradePage {
         this.getHomeworkPreviewPage().should('be.visible')
     }
     createResource(filePath) {
-        cy.get('.view_classes_count').eq(0).then((text) => {
+        this.getResourceCount().then((text) => {
             if (text.text() == 0) {
-                cy.get('[type="file"]').attachFile(filePath)
+                this.getResourceAttachfile().attachFile(filePath)
             }
         })
     }
+   
     createHomework() {
-        cy.get('.view_classes_count').eq(2).then((text) => {
+        this.getHomeworkCount().then((text) => {
             if (text.text() == 0) {
-                cy.get('.noteAttViewBtn').eq(1).click()
-                cy.get('div.css-1v4ccyo').eq(0).type('Automation Test')
-                cy.get('[placeholder="dd/mm/yyyy"]').click({ force: true })
+                this.getHomeworkAddBtn().click()
+                this.getHomeworkTitle().type('Automation Test')
+                this.getHomeworkDateTextfield().click({ force: true })
                 cy.wait(2000)
-                cy.get('.css-sldnni').click({ force: true })
+                this.getHomeworkDatedownBtn().click({ force: true })
                 cy.wait(2000)
-                cy.contains('2024').click({ force: true })
+                this.getHomeworkYear().click({ force: true })
                 cy.wait(2000)
-                cy.contains('24').click({ force: true })
+                this.getHomeworkCreateDate().click({ force: true })
                 cy.wait(2000)
-                cy.get('#mui-12').click({ force: true })
+                this.getHomeworkDueDate().click({ force: true })
                 cy.wait(2000)
-                cy.get('[class="MuiTypography-root MuiTypography-caption css-1v2gfp5"]').eq(1).click({ force: true })
+                this.getHomeworkDueDatePM().click({ force: true })
                 cy.wait(2000)
                 cy.get('body').click({ force: true })
                 cy.wait(2000)
-                cy.get('div.css-qiwgdb').click({ force: true })
+                this.getHomeworkApproxTimeRequireTextfield().click({ force: true })
                 cy.wait(2000)
                 cy.contains('30-60 mins').click({ force: true })
                 cy.wait(2000)
-                cy.contains('Save').click({ force: true })
+                this.getHomeworkSaveBtn().click({ force: true })
                 cy.wait(6000)
             }
         })

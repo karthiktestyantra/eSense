@@ -16,6 +16,10 @@ class AdminHomePage {
         return cy.get('div.menu-txt').contains("Reports")
     }
 
+    getUsersLnk(){
+        return cy.get('div.menu-txt').contains("Users")
+    }
+
     //Business Logic
     clickOnReportLnk() {
         cy.forceClick(this.getReportLnk())

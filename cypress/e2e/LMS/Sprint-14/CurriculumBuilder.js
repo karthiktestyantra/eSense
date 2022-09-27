@@ -95,10 +95,9 @@ describe("Verify Curriculum Builder pagefunctionalities", function () {
   it("To delete the created theme", function () {
     adminPostSetupCurriculumBuilderPage.getSubLstUnderGrade().each(($e2, index, $list) => {
       const sub = $e2.text()
-      if (sub.includes(this.curriculumBuilder.SubjectName)) {
+      if (sub === (this.curriculumBuilder.SubjectName)) {
         adminPostSetupCurriculumBuilderPage.getEditCurriculumBtnLst().eq(index).click()
       }
-      return false;
     })
     adminPostSetupCurriculumBuilderPage.getChapterLst().each(($e1, index, $list) => {
       const text = $e1.text()

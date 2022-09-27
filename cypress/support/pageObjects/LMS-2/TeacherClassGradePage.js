@@ -83,7 +83,7 @@ class TeacherClassGradePage {
     getHomeworkCount(){
         return cy.get('.view_classes_count').eq(2)
     }
-    getHomeworkTitle(){
+    getHomeworkCreateTitle(){
         return cy.get('div.css-1v4ccyo').eq(0)
     }
     getHomeworkAddBtn(){
@@ -227,7 +227,7 @@ class TeacherClassGradePage {
         this.getHomeworkCount().then((text) => {
             if (text.text() == 0) {
                 this.getHomeworkAddBtn().click()
-                this.getHomeworkTitle().type('Automation Test')
+                this.getHomeworkCreateTitle().type('Automation Test')
                 this.getHomeworkDateTextfield().click({ force: true })
                 cy.wait(2000)
                 this.getHomeworkDatedownBtn().click({ force: true })

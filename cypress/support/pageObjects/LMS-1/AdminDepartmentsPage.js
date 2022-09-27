@@ -106,4 +106,4 @@ class AdminDepartmentsPage {
 
 }
 
-export default AdminDepartmentsPage
+module.exports= new AdminDepartmentsPage()

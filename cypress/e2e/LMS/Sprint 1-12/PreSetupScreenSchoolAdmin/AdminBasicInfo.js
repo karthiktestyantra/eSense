@@ -1,16 +1,16 @@
-// import IndexPage from "../../../../support/pageObjects/LMS-1/IndexPage";
-// import LoginPageAdmin from "../../../../support/pageObjects/LMS-1/LoginPageAdmin";
-// import AdminBasicInfoPage from "../../../../support/pageObjects/LMS-1/AdminBasicInfoPage";
-// import AdminDepartmentsPage from "../../../../support/pageObjects/LMS-1/AdminDepartmentsPage";
+// // import IndexPage from "../../../../support/pageObjects/LMS-1/IndexPage";
+// // import LoginPageAdmin from "../../../../support/pageObjects/LMS-1/LoginPageAdmin";
+// // import AdminBasicInfoPage from "../../../../support/pageObjects/LMS-1/AdminBasicInfoPage";
+// // import AdminDepartmentsPage from "../../../../support/pageObjects/LMS-1/AdminDepartmentsPage";
 
-// const ip = new IndexPage();
-// const lpa = new LoginPageAdmin();
-// const abip = new AdminBasicInfoPage();
-// const adp = new AdminDepartmentsPage();
+// const ip = require('../../../../support/pageObjects/LMS-1/IndexPage');
+// const lpa = require('../../../../support/pageObjects/LMS-1/LoginPageAdmin');
+// const abip = require('../../../../support/pageObjects/LMS-1/AdminBasicInfoPage');
+// const adp = require('../../../../support/pageObjects/LMS-1/AdminDepartmentsPage');
 
 // describe("Verify School Admin Basic Info Functionalities", function () {
 //   before(function () {
-//    cy.visit('https://liverpool.topschool.co.in');
+//    cy.visit('https://prashanti.staging.topschool.co.in');
 //    //cy.visit("https://gvhss.thetopschool.com")
 //     ip.getAdmin().click();
 //     cy.reload();
@@ -30,8 +30,8 @@
 //     lpa.getLoginTitle().should("have.text", "Hello Admin");
 //     cy.title().should("contain", "Top School");
 //     cy.login(
-//       this.validAdminLoginData.username,
-//       this.validAdminLoginData.password
+//       "harshithkumar",
+//         "Test@12345"
 //     );
 //     abip.getBasicInfoTitle().should("have.text", "Basic Information");
 //   });
@@ -41,18 +41,18 @@
 //       .getMySChoolSectionTitle()
 //       .should("have.text", "My School")
 //       .should("be.visible");
-//     abip
-//       .getCurriculumBuilderSectionTitle()
-//       .should("have.text", "Curriculum Builder")
-//       .should("be.visible");
+//     // abip
+//     //   .getCurriculumBuilderSectionTitle()
+//     //   .should("have.text", "Curriculum Builder")
+//     //   .should("be.visible");
 //     abip
 //       .getTeacherAccountsTitle()
 //       .should("have.text", "Teacher Accounts")
 //       .should("be.visible");
-//     abip
-//       .getTimetableBuilderTitle()
-//       .should("have.text", "Timetable Builder")
-//       .should("be.visible");
+//     // abip
+//     //   .getTimetableBuilderTitle()
+//     //   .should("have.text", "Timetable Builder")
+//     //   .should("be.visible");
 //   });
 
 //   it("Verify that the My school should have following Sub steps", function () {

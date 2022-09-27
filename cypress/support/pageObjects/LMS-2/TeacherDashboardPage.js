@@ -351,6 +351,14 @@ class TeacherDashboardPage {
         return cy.contains('My Calendar')
     }
 
+    getSideMenuReportsImg() {
+        return cy.get('div.side-nav-icon img[src="/static/media/report.d1121fb6.svg"]')
+    }
+
+    getSideMenuStudentGradebookLink() {
+        return cy.xpath('//div[.="Student Gradebook"]')
+    }
+
     //Buiness logic
 
     clickOnMyCalenderLink() {

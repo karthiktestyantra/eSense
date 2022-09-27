@@ -114,6 +114,10 @@ class TeacherDashboardPage {
         return cy.get('.active > .side-nav-dashboard > .menu-txt')
     }
 
+    getMarkClassAttendeceButton() {
+        return cy.get('MuiButtonBase-root.pendActBtn')
+    }
+
     getMarkattendeceStudentList() {
         return cy.get('p.resources_student_name')
     }

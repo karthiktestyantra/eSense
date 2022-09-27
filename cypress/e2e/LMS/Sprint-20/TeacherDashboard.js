@@ -98,4 +98,6 @@ describe("Verify Teacher Calender functionalities", function () {
         teacherDashboardPage.getMarkattendeceGoBackBtn().click()
      })
 
+     it('/EL-5053/ES5053-14 To To validate that user is able to view attendance list by clicking on "Mark Class attendence". ', function () {
+
 })

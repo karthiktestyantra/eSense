@@ -80,6 +80,80 @@ class TeacherDashboardPage {
         return cy.get('p.back').eq(1).contains('Go Back')
     }
 
+    getMarkattendeceCalenderIcon() {
+        return cy.get('img.calendar-icon')
+    }
+    
+    getMarkattendeceCalenderFromTxtField() {
+        return cy.get('div.markAttDateRangFild').eq(0)
+    }
+
+    getMarkattendeceCalenderFromDateRange(StartDate) {
+        return cy.xpath("(//div[contains(@class,'PrivatePickersSlideTransition-root')])[1]//button[text()="+StartDate+"]")
+    }
+
+    getMarkattendeceCalenderToDateRange(EndDate) {
+        return cy.xpath("(//div[contains(@class,'PrivatePickersSlideTransition-root')])[1]//button[text()="+EndDate+"]")
+    }
+
+    getMarkattendeceStudentNameList() {
+        return cy.get('p.resources_student_name ')
+    }
+
+    getMarkscard() {
+        return cy.get('div.markAttCard')
+    }
+
+    
+    getMarkAttendenceDateAndTime() {
+        return cy.get('div.markAttTimeSect')
+    }
+
+    getMarkAttendenceGradeAndSection() {
+        return cy.get('div.markAttCntTextArea')
+    }
+
+    
+    getMarkAttendenceTodayDate() {
+        return cy.get('div.markAttTimeSect h6').eq(0)
+    }
+
+    getMarkAttendenceListOfTodayDate() {
+        return cy.get('div.markAttTimeSect h6')
+    }
+
+    getMarkAttendenceSearchField() {
+        return cy.get('input[placeholder="Search a student..."]')
+    }
+
+    getMarkAttendenceListOfGrade() {
+        return cy.get('div.markAttCntTextArea h6')
+    }
+
+    getMarkAttendencePastDate() {
+        return cy.get('div.markAttCntTextTitle p').contains('PAST CLASS')
+    }
+
+    getMarkAttendenceTodayDateText() {
+        return cy.get('div.markAttCntTextTitle p').contains('Today')
+    }
+
+    getMarkAttendenceTableRowRollnoTxt() {
+        return cy.get('tr.MuiTableRow-head th').contains('ROLL NO')
+    }
+
+    getMarkAttendenceTableRowSudentnameTxt() {
+        return cy.get('tr.MuiTableRow-head th').contains('STUDENT NAME')
+    }
+
+    getMarkAttendenceTableRowPresentTxt() {
+        return cy.get('tr.MuiTableRow-head th').contains('PRESENT')
+    }
+
+    getMarkAttendenceTableRowAbsentTxt() {
+        return cy.get('tr.MuiTableRow-head th').contains('ABSENT')
+    }
+
     getMarkattendeceSubmitPopupCancelBtn() {
         return cy.get('.mainRcdAction > .MuiButton-outlined')
     }
@@ -104,6 +178,10 @@ class TeacherDashboardPage {
     
     getMarkattendeceUploadCsvBtn() {
         return cy.get('button.attendUplCSVBtn')
+    }
+
+    getMarkattendeceDownloadSampleFileLink() {
+        return cy.get('button.BulkUpload_downloadSampleTxt__1UJTp')
     }
 
     getMarkattendeceUploadCsvPopupCloseBtn() {
@@ -158,6 +236,10 @@ class TeacherDashboardPage {
 
     getAttachsamplefile() {
         return cy.get('input#file-input')
+    }
+
+    getAttachsamplefileDeleteBtn() {
+        return cy.get('span.BulkUpload_deleteIcon__Aq6ef img')
     }
 
     getAddLessonPlanCardTxt() {

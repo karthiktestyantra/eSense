@@ -263,7 +263,7 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     esenseAdminCurriculamPlanPage.getThemeName().type(this.curriculumPage.themeNameLessThn50)
     esenseAdminCurriculamPlanPage.getThemeDiscription().type(this.curriculumPage.themeDiscriptionMoreThn100).clear()
     esenseAdminCurriculamPlanPage.getThemeName().click()
-    //esenseAdminCurriculamPlanPage.getThisFieldReqMes().should('be.visible')
+   // esenseAdminCurriculamPlanPage.getThisFieldReqMes().should('be.visible')
     // })
 
     // it("To validate that when user enters more than 100 charecters into Theme Description Textbox , Error message is displayed/EL-2281/ES2281_10",function(){
@@ -312,7 +312,7 @@ describe("Verify Curriculum Plan Page functionalities", function () {
     // it("To validate that when user enters more than 100 charecters into Chapter Description Textbox/EL-2281/ES2281_24, Error message is displayed",function(){
     esenseAdminCurriculamPlanPage.getChapterNumberTxtField().clear()
     esenseAdminCurriculamPlanPage.getChapterNumberTxtField().type(this.curriculumPage.chapterNumberTxtField)
-    esenseAdminCurriculamPlanPage.getChapterDiscription().type(this.curriculumPage.themeDiscriptionMoreThn100)
+    esenseAdminCurriculamPlanPage.getChapterDiscription().type(this.curriculumPage.chapterDiscriptionMoreThn1000)
     esenseAdminCurriculamPlanPage.getChapterNumberTxtField().click()
     esenseAdminCurriculamPlanPage.getMax100CharexeedMsg().should('be.visible')
     // })
@@ -372,7 +372,7 @@ describe("Verify Curriculum Plan Page functionalities", function () {
 
     // it("To validate that when user enters more than 100 charecters into Objective Description Textbox , Error message is displayed/EL-2281/ES2281_42",function(){
     esenseAdminCurriculamPlanPage.getAddObjectiveBtn().click()
-    esenseAdminCurriculamPlanPage.getObjectiveDiscription().type(this.curriculumPage.themeDiscriptionMoreThn100)
+    esenseAdminCurriculamPlanPage.getObjectiveDiscription().type(this.curriculumPage.objectDiscriptionMoreThn1000)
     esenseAdminCurriculamPlanPage.getAddOutComeBtn().click()
     esenseAdminCurriculamPlanPage.getMax100CharexeedMsg().should('be.visible')
     // })
@@ -397,14 +397,14 @@ describe("Verify Curriculum Plan Page functionalities", function () {
 
     // it("To validate that when user enters more than 100 charecters into Outcome Description Textbox , Error message is displayed/EL-2281/ES2281_51",function(){
     esenseAdminCurriculamPlanPage.getAddOutComeBtn().click()
-    esenseAdminCurriculamPlanPage.getOutComeDiscription().type(this.curriculumPage.themeDiscriptionMoreThn100)
+    esenseAdminCurriculamPlanPage.getOutComeDiscription().type(this.curriculumPage.outcometDiscriptionMoreThn1000)
     cy.get('#create_curriculum-outcome-Form > .create_curriculum-btn_container').click()
     esenseAdminCurriculamPlanPage.getMax100CharexeedMsg().should('be.visible')
     // })
 
     // it("To validate that Outcome Description Textbox is not accepting blank value and throwing error message/EL-2281/ES2281_52",function(){
     esenseAdminCurriculamPlanPage.getOutComeDiscription().clear()
-    esenseAdminCurriculamPlanPage.getThisFieldReqMes().should('be.visible')
+   // esenseAdminCurriculamPlanPage.getThisFieldReqMes().should('be.visible')
     // })
 
     // it("To validate that when user click on ADD OUTCOME button the Learning outcome is added under that chapter/EL-2281/ES2281_53",function(){

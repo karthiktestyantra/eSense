@@ -16,6 +16,10 @@ class AdminDashboardPage {
         return cy.get('button.MuiButtonBase-root').contains('Teacher')
     }
 
+    getSchoolBtn(){
+        return cy.get('.menu-txt ').contains('School')
+    }
+
     getAdminsBtn() {
         return cy.get('#scrollable-auto-tab-1')
     }

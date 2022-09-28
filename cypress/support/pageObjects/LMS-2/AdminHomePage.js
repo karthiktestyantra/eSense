@@ -19,6 +19,18 @@ class AdminHomePage {
     getUsersLnk(){
         return cy.get('div.menu-txt').contains("Users")
     }
+    getGradeWiseAttendanceTab(){
+        return cy.get('div[role="tablist"] button').contains("Grade-Wise Attendance")
+    }
+    getGradeDrpDwnInGradeWiseAttendance(){
+        return cy.get('div.gradeWiseWidgetFilterSect div div div[role="button"]').eq(0)
+    }
+    getSectionDrpDwnInGradeWiseAttendance(){
+        return cy.get('div.gradeWiseWidgetFilterSect div div div[role="button"]').eq(1)
+    }
+    getSectionDrpDwnLstInGradeWiseAttendance(){
+        return cy.get('div ul li.MuiMenuItem-gutters')
+    }
 
     //Business Logic
     clickOnReportLnk() {

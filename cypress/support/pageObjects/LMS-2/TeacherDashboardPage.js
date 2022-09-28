@@ -445,6 +445,14 @@ class TeacherDashboardPage {
         return cy.xpath('//div[.="Student Gradebook"]')
     }
 
+    getSubLstTxtInMyClass(){
+        return cy.get('div.classTitle')
+    }
+
+    getsubLstInMyClass(){
+        return cy.get('.content-popover_border')
+    }
+
     //Buiness logic
 
     clickOnMyCalenderLink() {

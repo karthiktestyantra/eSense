@@ -1,7 +1,7 @@
 const adminHomePage = require("../../../support/pageObjects/LMS-2/AdminHomePage")
 const admin360ReportPage = require("../../../support/pageObjects/LMS-2/Admin360ReportPage")
 
-describe("Verify Domain Mapping functionalities", function () {
+describe("Verify 360 Report functionalities", function () {
 
   before(function () {
     cy.visit(Cypress.env("urlQAPreSetup"))

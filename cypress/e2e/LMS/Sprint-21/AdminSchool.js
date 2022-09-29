@@ -1,14 +1,15 @@
 const adminDashboardPage = require('../../../support/pageObjects/LMS-2/AdminDashboardPage')
 const quickLinksPage = require('../../../support/pageObjects/LMS-2/QuickLinksPage')
 
-describe("Verify admin school functionalities", function () {
+describe("Verify admin school functionalities - Sprint 21(EL-6151)", function () {
 
     before(function () {
-        cy.visit(Cypress.env('urlQAPreSetup'))
+        cy.visit(Cypress.env('urlMain'))
         cy.fixture('LMS/AdminLoginCredentials').then(function (validAdminLoginData) {
-            cy.AdminPostSetup(validAdminLoginData.fNew, validAdminLoginData.password)
+            cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
         })
     })
+<<<<<<< Updated upstream
     it('EL-6151/ES6151_1 /Validate user is able to view the "Edit" icon in the “Action” column in the School Notice Board/ Private Notice Board screen.', function () {
         adminDashboardPage.getSchoolBtn().click({ force: true })
         quickLinksPage.getAddNoticeBtn().click()
@@ -23,6 +24,28 @@ describe("Verify admin school functionalities", function () {
     })
     it('EL-6151/ES6151_2 Validate user click on "Edit" option "Save & Send" button, "Cancel" button and "X" icon is displayed', function () {
         cy.wait(20000)
+=======
+    beforeEach(function () {
+        cy.viewport(1920, 1080)
+        cy.fixture("LMS/AdminNotice.json").as("Notice")
+    })
+    it('EL-6151/ES6151_1 /Validate user is able to view the "Edit" icon in the “Action” column in the School Notice Board/ Private Notice Board screen.', function () {
+        adminDashboardPage.getSchoolBtn().click({ force: true })
+        for (let i = 0; i <= 2; i++) {
+            quickLinksPage.getAddNoticeBtn().click()
+            quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
+            quickLinksPage.getCreateNewNoticeTypeDropdown().click()
+            quickLinksPage.getCreateNewNoticeTypeGeneralOpt().click()
+            quickLinksPage.getCreateNewNoticeDescriptionTextareafield().type(this.Notice.NoticeDescription)
+            quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().check()
+            quickLinksPage.getCreateNewNoticeEntireSchoolRedioBtn().check()
+            quickLinksPage.getCreateNewNoticeSendBtn().click()
+            quickLinksPage.getEditBtn().should('be.visible')
+        }
+    })
+    it('EL-6151/ES6151_2 Validate user click on "Edit" option "Save & Send" button, "Cancel" button and "X" icon is displayed', function () {
+        cy.wait(2000)
+>>>>>>> Stashed changes
         quickLinksPage.getEditBtn().click()
         cy.wait(2000)
         quickLinksPage.getCreateNewNoticeSaveAndSendBtn().scrollIntoView().should('be.visible')
@@ -35,10 +58,17 @@ describe("Verify admin school functionalities", function () {
         quickLinksPage.getCreateNewNoticeDescriptionTextareafield().should('be.visible')
     })
     it('EL-6151/ES6151_4 Validate "Description" text box is accepting Alphabet,Numbers and Special Characters', function () {
+<<<<<<< Updated upstream
         quickLinksPage.getCreateNewNoticeDescriptionTextareafield().scrollIntoView().clear().type('asdfghjjj12345!@#$%^&')
     })
     it('EL-6151/ES6151_5 Validate "Notice Title" text field is accepting Alphabet,Numbers and Special Characters', function () {
         quickLinksPage.getCreateNewNoticeTitle().scrollIntoView().clear().type('zxcvbnm,1234567890!@#$%^&*(+_)(*&^')
+=======
+        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().scrollIntoView().clear().type(this.Notice.Alphanumaric)
+    })
+    it('EL-6151/ES6151_5 Validate "Notice Title" text field is accepting Alphabet,Numbers and Special Characters', function () {
+        quickLinksPage.getCreateNewNoticeTitle().scrollIntoView().clear().type(this.Notice.Alphanumaric)
+>>>>>>> Stashed changes
     })
     it('EL-6151/ES6151_6 Validate when clicked on drop down next to "Notice Type" is displaying Tags', function () {
         quickLinksPage.getCreateNewNoticeTypeDropdown().click()
@@ -85,7 +115,7 @@ describe("Verify admin school functionalities", function () {
     })
     it('EL-6151/ES6151_15 Validate the Radio button for "Entire School" attribute is selected and when user click on "Save & Send", all school members of the notice are notified of the update', function () {
         quickLinksPage.getCreateNewNoticeSaveAndSendBtn().click()
-        quickLinksPage.getCreateNewNoticeSchoolNoticeBoardBtn().click()
+        quickLinksPage.getSchoolNoticeBoardTab().click()
     })
     it('EL-6151/ES6151_17 Validate user click on "Save & Send", the notice details is displayed on the School notice board/ Private Notice Board for the user/ attendees.', function () {
         quickLinksPage.getEditBtn().click()
@@ -101,56 +131,129 @@ describe("Verify admin school functionalities", function () {
         quickLinksPage.getCreateNewNoticeSaveAndSendBtn().click()
     })
     it('EL-6151/ES6151_18 Validate user click on "Save & Send", a successful pop-up is displayed saying “Notice published successfully” and, the user is redirected to the School notice board.', function () {
+<<<<<<< Updated upstream
         cy.contains("Notice Published Successfully").should('be.visible')
         cy.wait(4000)
+=======
+        cy.contains(this.Notice.ConformetionMessage).should('be.visible')
+        cy.wait(2000)
+>>>>>>> Stashed changes
     })
     it('EL-6151/ES6151_19 Validate user clicks on "Cancel" button no changes are saved and the user is re-directed to the School notice board.', function () {
         quickLinksPage.getEditBtn().click()
-        quickLinksPage.getCreateNewNoticeCancelBtn().click()
-        quickLinksPage.getCreateNewNoticeSchoolNoticeBoardBtn().should('be.visible')
+        cy.wait(2000)
+        quickLinksPage.getCreateNewNoticeCancelBtn().scrollIntoView().click()
+        quickLinksPage.getSchoolNoticeBoardTab().should('be.visible')
     })
     it('EL-6151/ES6151_20 Validate user clicks on X, user is re-directed to the School Notice Board..', function () {
         cy.wait(2000)
         quickLinksPage.getEditBtn().click()
+        cy.wait(2000)
         quickLinksPage.getCreateNewNoticeXBtn().click()
-        quickLinksPage.getCreateNewNoticeSchoolNoticeBoardBtn().should('be.visible')
+        quickLinksPage.getSchoolNoticeBoardTab().should('be.visible')
     })
     it('EL-6152/ES6152_1 Validate user is able to view the "Delete" icon in the “Action” column in the School Notice Board/ Private Notice Board screen.', function () {
         quickLinksPage.getDeleteBtn().should('be.visible')
     })
     it('EL-6152/ES6152_3 Validate user clicks on delete, a confirmation pop-up is displayed stating “Are you sure you want to delete the notice?”', function () {
+<<<<<<< Updated upstream
         cy.contains('Are you sure you want to delete the notice').should('be.visible')
     })
     it('EL-6152/ES6152_4 Validate the user clicks on "Delete Notice" button ,notice is removed from the School Notice Board/ Private Notice Board screen for the user/ attendees', function () {
         cy.get('Test automation').should('not.be.visible')
     })
+=======
+        quickLinksPage.getDeleteBtn().click()
+        cy.contains(this.Notice.DeleteMessage).should('be.visible')
+        quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
+    })
+>>>>>>> Stashed changes
     it('EL-6152/ES6152_5 Validate the user clicks on "Cancel" button user is re-directed to the School Notice Board/ Private Notice Board screen.', function () {
         quickLinksPage.getAddNoticeBtn().click()
-        quickLinksPage.getCreateNewNoticeTitle().type('Test automation')
+        quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
         quickLinksPage.getCreateNewNoticeTypeDropdown().click()
         quickLinksPage.getCreateNewNoticeTypeGeneralOpt().click()
-        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().type('Automation testdata')
+        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().type(this.Notice.NoticeDescription)
         quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().check()
         quickLinksPage.getCreateNewNoticeEntireSchoolRedioBtn().check()
         quickLinksPage.getCreateNewNoticeSendBtn().click()
-        quickLinksPage.getCreateNewNoticeSchoolNoticeBoardBtn().click()
-        quickLinksPage.getDeleteBtn()
+        quickLinksPage.getSchoolNoticeBoardTab().click()
+        quickLinksPage.getDeleteBtn().click()
         quickLinksPage.getCreateNewNoticeDeletePopupCancelBtn().click()
-        quickLinksPage.getCreateNewNoticeSchoolNoticeBoardBtn().should('be.visible')
+        quickLinksPage.getSchoolNoticeBoardTab().should('be.visible')
     })
     it('EL-6152/ES6152_6 Validate the user clicks on "X" icon user is re-directed to the School Notice Board/ Private Notice Board screen.', function () {
         quickLinksPage.getAddNoticeBtn().click()
-        quickLinksPage.getCreateNewNoticeTitle().type('Test automation')
+        quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
         quickLinksPage.getCreateNewNoticeTypeDropdown().click()
         quickLinksPage.getCreateNewNoticeTypeGeneralOpt().click()
-        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().type('Automation testdata')
+        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().type(this.Notice.NoticeDescription)
         quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().check()
         quickLinksPage.getCreateNewNoticeEntireSchoolRedioBtn().check()
         quickLinksPage.getCreateNewNoticeSendBtn().click()
-        quickLinksPage.getCreateNewNoticeSchoolNoticeBoardBtn().click()
-        quickLinksPage.getDeleteBtn()
+        quickLinksPage.getSchoolNoticeBoardTab().click()
+        quickLinksPage.getDeleteBtn().click()
         quickLinksPage.getCreateNewNoticeDeletePopupXBtn().click()
-        quickLinksPage.getCreateNewNoticeSchoolNoticeBoardBtn().should('be.visible')
+        quickLinksPage.getSchoolNoticeBoardTab().should('be.visible')
     })
+    it('EL-6044/ES6044_1 Validate user is able to view the list of notices below the Quick Links section on the School screen', function () {
+        quickLinksPage.getSchoolNoticeBoardTab().click()
+        quickLinksPage.getNoticeList().should('be.visible')
+    })
+    it('EL-6044/ES6044_2 Validate Month and Date is displayed on the notice card.', function () {
+        quickLinksPage.getNoticeListDate().should('be.visible')
+        quickLinksPage.getNoticeListMonth().should('be.visible')
+    })
+    it('EL-6044/ES6044_3 Validate Title of the notice is displayed on the notice card', function () {
+        quickLinksPage.getNoticeListTitle().should('be.visible')
+    })
+    it('EL-6044/ES6044_4 Validate tags are displayed on the notice card as Important / General/ Other Tags(as per the input by the user)', function () {
+        quickLinksPage.getNoticeListTags().should('be.visible')
+    })
+    it('EL-6044/ES6044_5 Validate Public with icon is displayed for School Notice Board', function () {
+        quickLinksPage.getNoticeListPublicWithIcon().should('be.visible')
+    })
+    it('EL-6044/ES6044_7 Validate Private (counts) with icon is displayed for the Private Notice Board', function () {
+        quickLinksPage.getPrivateNoticeBoardTab().click()
+        quickLinksPage.getNoticeListPrivateWithIcon().should('be.visible')
+    })
+    it('EL-6044/ES6044_8 Validate On clicking “Private (counts)" icon the user is able to view all the members.', function () {
+        quickLinksPage.getNoticeListPrivateWithIcon().eq(0).click()
+        quickLinksPage.getNoticeListPrivateMembers().should('be.visible')
+        cy.get('body').click()
+    })
+    it('EL-6044/ES6044_12 Validate Action button (Edit/ Delete) is present in the each card', function () {
+        quickLinksPage.getSchoolNoticeBoardTab().click()
+        quickLinksPage.getDeleteBtn().should('be.visible')
+        quickLinksPage.getEditBtn().should('be.visible')
+    })
+    it('EL-6044/ES6044_13 Validate user clicks on "Sort by Dropdown arrow" (All/ General / Important) is displaying', function () {
+        quickLinksPage.getSortDropdown().click()
+        quickLinksPage.getSortDropdownALLOpt().should('be.visible')
+        quickLinksPage.getSortDropdownGeneralOpt().should('be.visible')
+        quickLinksPage.getSortDropdownImportantOpt().should('be.visible')
+        cy.get('body').click()
+    })
+    it('EL-6044/ES6044_14 Validate Search textbox is present with a placeholder "Search Notice"', function () {
+        quickLinksPage.getSearchBox().should('be.visible')
+        quickLinksPage.getCalenderIcon().should('be.visible')
+    })
+    it('EL-6044/ES6044_17 Validate only 3 Notice Cards are displayed per page(Pagination should be there).', function () {
+        quickLinksPage.getNoticeList().should('have.length', 3)
+    })
+    it('delete notice', function () {
+        quickLinksPage.getEditBtn().clear().click()
+        quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
+        quickLinksPage.getCreateNewNoticeSaveAndSendBtn().click()
+
+        quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
+            const txt = $e1.text()
+            if (txt.includes("Test automation")) {
+                quickLinksPage.getDeleteBtn().eq(index).click()
+                quickLinksPage.getCreateNewNoticeDeletePopupCancelBtn().click()
+            }
+        })
+    })
+
 
 })

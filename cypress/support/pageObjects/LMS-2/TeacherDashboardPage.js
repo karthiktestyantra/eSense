@@ -64,6 +64,10 @@ class TeacherDashboardPage {
         return cy.get('button.attendSubBtn').contains('submit')
     }
 
+    getMarkattendeceEditBtn() {
+        return cy.get('button.attendSubBtn')
+    }
+
     getMarkattendeceSubmitPopupMesg() {
         return cy.get('h1.mainRcdTitle')
     }
@@ -158,6 +162,10 @@ class TeacherDashboardPage {
         return cy.get('.mainRcdAction > .MuiButton-outlined')
     }
 
+    getMarkattendeceYesSubmitPopupBtn() {
+        return cy.get('[class="mainRcdAction"] button').eq(0)
+    }
+
     getMarkattendecePageTitle() {
         return cy.get('p.attendTableTit')
     }
@@ -212,6 +220,13 @@ class TeacherDashboardPage {
         return cy.get('button.pendActBtn')
     }
 
+    getDateInMarkClassAttendence() {
+        return cy.get('[class*="markAttTimeSect"] h6')
+    }
+
+    getDateIndexInMarkClassAttendence() {
+        return cy.get('[class*="markAttCard"] button')
+    }
 
     getAttendenceCardMarkAttendanceBtn() {
         return cy.get('div.Dashboard_tchDshPendActFlexSect__E8rdD button.MuiButton-root')

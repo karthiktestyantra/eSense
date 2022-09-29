@@ -1,0 +1,19 @@
+{
+  "fullName": "Tester",
+  "studentContactNumber": 9876543210,
+  "gender": "Male",
+  "studentEmail": "tester@automation.com",
+  "bloodGroup": "O+",
+  "relation": "Father",
+  "addressLine": "TestYantra",
+  "guardianName": "Automation",
+  "guardianContactNumber": "6383994670",
+  "pinCode": 632312,
+  "dobYear": 2000,
+  "academicYear": "Year 2022-2023",
+  "admissionYear": "2022",
+  "admissionNumber":"003",
+  "grade":"Grade 3",
+  "section":"A",
+  "rollNumber": "10"
+}

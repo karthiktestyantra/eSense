@@ -4,9 +4,9 @@ const teacherGradeBookPage = require("../../../support/pageObjects/LMS-2/Teacher
 describe("Verify Admin Student GradeBook functionalities", function () {
 
     before(function () {
-        cy.visit(Cypress.env('urlBhsSchool'))
+        cy.visit(Cypress.env('urlStaging'))
         cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
-            cy.TeacherPostSetupLogin(validAdminLoginData.user5, validAdminLoginData.password)
+            cy.TeacherPostSetupLogin(validAdminLoginData.user3, validAdminLoginData.password)
         })
     })
 
@@ -40,7 +40,7 @@ describe("Verify Admin Student GradeBook functionalities", function () {
         teacherDashboardPage.getSideMenuReportsImg().click()
         cy.forceClick(teacherDashboardPage.getSideMenuStudentGradebookLink())
         cy.isVisible(teacherGradeBookPage.getStudentGradeBookTitle())
-        teacherGradeBookPage.getGradeTabStudentGradeBook().click()
+        //teacherGradeBookPage.getGradeTabStudentGradeBook().click()
         teacherGradeBookPage.getStudentForwardArrow().eq(0).click()
         cy.isVisible(teacherGradeBookPage.getAttendancePercentageStudentGradeBook())
     })

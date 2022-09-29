@@ -71,5 +71,9 @@ describe("Verify Admin Content Library functionalities", function () {
         // cy.forceClick(adminContentLibraryPage.getContentLibraryDocumentFullScreenBtn())
     })
 
+    it('EL-4736/ES4736_8 Validate user is getting refreshed page if clicks on the “cross button” or “Go Back” button.', function () {
+        adminContentLibraryPage.getContentLibraryViewDocumentBackIcon().click()
+        cy.isVisible(adminContentLibraryPage.getElaAssignmentsTab())
+    })
 
 })

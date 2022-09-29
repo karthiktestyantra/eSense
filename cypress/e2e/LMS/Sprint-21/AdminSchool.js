@@ -9,22 +9,6 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
             cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
         })
     })
-<<<<<<< Updated upstream
-    it('EL-6151/ES6151_1 /Validate user is able to view the "Edit" icon in the “Action” column in the School Notice Board/ Private Notice Board screen.', function () {
-        adminDashboardPage.getSchoolBtn().click({ force: true })
-        quickLinksPage.getAddNoticeBtn().click()
-        quickLinksPage.getCreateNewNoticeTitle().type('Test automation')
-        quickLinksPage.getCreateNewNoticeTypeDropdown().click()
-        quickLinksPage.getCreateNewNoticeTypeGeneralOpt().click()
-        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().type('Automation testdata')
-        quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().check()
-        quickLinksPage.getCreateNewNoticeEntireSchoolRedioBtn().check()
-        quickLinksPage.getCreateNewNoticeSendBtn().click()
-        quickLinksPage.getEditBtn().should('be.visible')
-    })
-    it('EL-6151/ES6151_2 Validate user click on "Edit" option "Save & Send" button, "Cancel" button and "X" icon is displayed', function () {
-        cy.wait(20000)
-=======
     beforeEach(function () {
         cy.viewport(1920, 1080)
         cy.fixture("LMS/AdminNotice.json").as("Notice")
@@ -45,7 +29,6 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
     })
     it('EL-6151/ES6151_2 Validate user click on "Edit" option "Save & Send" button, "Cancel" button and "X" icon is displayed', function () {
         cy.wait(2000)
->>>>>>> Stashed changes
         quickLinksPage.getEditBtn().click()
         cy.wait(2000)
         quickLinksPage.getCreateNewNoticeSaveAndSendBtn().scrollIntoView().should('be.visible')
@@ -58,17 +41,10 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
         quickLinksPage.getCreateNewNoticeDescriptionTextareafield().should('be.visible')
     })
     it('EL-6151/ES6151_4 Validate "Description" text box is accepting Alphabet,Numbers and Special Characters', function () {
-<<<<<<< Updated upstream
-        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().scrollIntoView().clear().type('asdfghjjj12345!@#$%^&')
-    })
-    it('EL-6151/ES6151_5 Validate "Notice Title" text field is accepting Alphabet,Numbers and Special Characters', function () {
-        quickLinksPage.getCreateNewNoticeTitle().scrollIntoView().clear().type('zxcvbnm,1234567890!@#$%^&*(+_)(*&^')
-=======
         quickLinksPage.getCreateNewNoticeDescriptionTextareafield().scrollIntoView().clear().type(this.Notice.Alphanumaric)
     })
     it('EL-6151/ES6151_5 Validate "Notice Title" text field is accepting Alphabet,Numbers and Special Characters', function () {
         quickLinksPage.getCreateNewNoticeTitle().scrollIntoView().clear().type(this.Notice.Alphanumaric)
->>>>>>> Stashed changes
     })
     it('EL-6151/ES6151_6 Validate when clicked on drop down next to "Notice Type" is displaying Tags', function () {
         quickLinksPage.getCreateNewNoticeTypeDropdown().click()
@@ -131,13 +107,8 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
         quickLinksPage.getCreateNewNoticeSaveAndSendBtn().click()
     })
     it('EL-6151/ES6151_18 Validate user click on "Save & Send", a successful pop-up is displayed saying “Notice published successfully” and, the user is redirected to the School notice board.', function () {
-<<<<<<< Updated upstream
-        cy.contains("Notice Published Successfully").should('be.visible')
-        cy.wait(4000)
-=======
         cy.contains(this.Notice.ConformetionMessage).should('be.visible')
         cy.wait(2000)
->>>>>>> Stashed changes
     })
     it('EL-6151/ES6151_19 Validate user clicks on "Cancel" button no changes are saved and the user is re-directed to the School notice board.', function () {
         quickLinksPage.getEditBtn().click()
@@ -156,18 +127,10 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
         quickLinksPage.getDeleteBtn().should('be.visible')
     })
     it('EL-6152/ES6152_3 Validate user clicks on delete, a confirmation pop-up is displayed stating “Are you sure you want to delete the notice?”', function () {
-<<<<<<< Updated upstream
-        cy.contains('Are you sure you want to delete the notice').should('be.visible')
-    })
-    it('EL-6152/ES6152_4 Validate the user clicks on "Delete Notice" button ,notice is removed from the School Notice Board/ Private Notice Board screen for the user/ attendees', function () {
-        cy.get('Test automation').should('not.be.visible')
-    })
-=======
         quickLinksPage.getDeleteBtn().click()
         cy.contains(this.Notice.DeleteMessage).should('be.visible')
         quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
     })
->>>>>>> Stashed changes
     it('EL-6152/ES6152_5 Validate the user clicks on "Cancel" button user is re-directed to the School Notice Board/ Private Notice Board screen.', function () {
         quickLinksPage.getAddNoticeBtn().click()
         quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)

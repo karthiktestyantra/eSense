@@ -86,5 +86,11 @@ class QuickLinksPage{
     getCreateNewNoticeDeletePopupCancelBtn(){
         return cy.get('button.css-79xub')
     }
+    getTimeTableManagementBtn(){
+        return cy.xpath('//p[.="Timetable Management"]')
+    }
+    getQuickLinksTitle(){
+        return cy.get('[class*="schQicLikTitle"]')
+    }
 }
 module.exports=new QuickLinksPage()

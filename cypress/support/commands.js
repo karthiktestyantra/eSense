@@ -114,6 +114,11 @@ Cypress.Commands.add('unCheckAndVerify', (element) => {
   element.uncheck({ force: true }).should('not.be.checked')
 })
 
+//This command is used to click on the body
+Cypress.Commands.add('clickOnBody', () => {
+  cy.get('body').click(0, 0)
+})
+
 
 
 

@@ -136,6 +136,86 @@ class AdminUsersStudentPage {
         return cy.get('#RollNo')
     }
 
+    getEmailAddressAddStudentText() {
+        return cy.xpath('//span[.="Email Address"]')
+    }
+
+    getBloodGroupAddStudentText() {
+        return cy.xpath('//label[.="Blood Group"]')
+    }
+
+    getDOBAddStudentText() {
+        return cy.xpath('//label[.="Date of Birth"]')
+    }
+
+    getStateAddStudentText() {
+        return cy.xpath('//span[.="State"]')
+    }
+
+    getCityAddStudentText() {
+        return cy.xpath('//span[.="City"]')
+    }
+
+    //Business Logic
+
+    verifyTextFieldsAreNotPresent() {
+        cy.get('body')
+            .children()
+            .should('not.contain', "Last Name")
+            .and('not.contain', "Father's Name")
+            .and('not.contain', "Father's Email")
+            .and('not.contain', "Father's Occupation")
+            .and('not.contain', "Father's Contact")
+            .and('not.contain', "Mother's Name")
+            .and('not.contain', "Mother's Email")
+            .and('not.contain', "Mother's Occupation")
+            .and('not.contain', "Mother's Contact")
+            .and('not.contain', "Competencies")
+            .and('not.contain', "Skills Acquired")
+            .and('not.contain', "Extra Curricular Activities")
+            .and('not.contain', "Teacher Remarks")
+    }
+
+    verifyBasicDetailsMandatoryFieldsArePresent() {
+        cy.get('body')
+            .children()
+            .should('contain', "Full Name*")
+            .and('contain', "Gender*")
+            .and('contain', "Contact Number*")
+            .and('contain', "Select Relation*")
+            .and('contain', "Guardian Name*")
+            .and('contain', "Address Line 1*")
+            .and('contain', "Pincode*")
+    }
+
+    verifyAcademicDetailsMandatoryFieldsArePresent() {
+        cy.get('body')
+            .children()
+            .should('contain', "Academic Year*")
+            .and('contain', "Admission Year*")
+            .and('contain', "Admission No*")
+            .and('contain', "Grade*")
+            .and('contain', "Section*")
+            .and('contain', "Roll No*")
+    }
+
+    verifyBasicDetailsNonMandatoryFieldsArePresent() {
+        this.getEmailAddressAddStudentText().invoke('text').should('not.contain', '*')
+        this.getBloodGroupAddStudentText().invoke('text').should('not.contain', '*')
+        this.getDOBAddStudentText().invoke('text').should('not.contain', '*')
+        this.getStateAddStudentText().invoke('text').should('not.contain', '*')
+        this.getCityAddStudentText().invoke('text').should('not.contain', '*')
+    }
+
+    verifyBasicDetailsFieldsAreVisible() {
+        cy.isVisible(this.getFullNameTextFieldAddStudent())
+        cy.isVisible(this.getGenderDropdownAddStudent())
+        cy.isVisible(this.getGuardianNameTextFieldAddStudent())
+        cy.isVisible(this.getStudentContactNumberTextFieldAddStudent())
+        cy.isVisible(this.getStudentEmailTextFieldAddStudent())
+        cy.isVisible(this.getBloodGroupDropdownAddStudent())
+        cy.isVisible(this.getDOBIconAddStudent())
+    }
 
 }
 module.exports = new AdminUsersStudentPage() 

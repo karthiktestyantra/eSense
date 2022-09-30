@@ -4,9 +4,9 @@ const dayjs = require('dayjs')
 describe("Verify Teacher Dashboard functionalities", function () {
 
    before(function () {
-      cy.visit(Cypress.env('urlStaging'))
+      cy.visit(Cypress.env('urlBhsSchool'))
       cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
-         cy.TeacherPostSetupLogin(validAdminLoginData.user3, validAdminLoginData.password)
+         cy.TeacherPostSetupLogin(validAdminLoginData.user5, validAdminLoginData.password)
       })
    })
 
@@ -166,7 +166,7 @@ describe("Verify Teacher Dashboard functionalities", function () {
 
    it('/EL-4955/ES4955-11 To validate that by default all the attendance data of the class is displayed based on the date selected .', function () {
       teacherDashboardPage.getMarkAttendenceListOfTodayDate().each(($e1,index,$list)=>{
-         teacherDashboardPage.getMarkAttendenceListOfGrade().eq(index).should('have.text','Grade 5 - B')
+         teacherDashboardPage.getMarkAttendenceListOfGrade().eq(index).should('have.text','Grade 1 - A')
    
         
       })

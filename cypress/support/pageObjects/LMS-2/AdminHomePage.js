@@ -22,6 +22,9 @@ class AdminHomePage {
     getGradeWiseAttendanceTab(){
         return cy.get('div[role="tablist"] button').contains("Grade-Wise Attendance")
     }
+    getStudentRegistrationTab(){
+        return cy.get('div[role="tablist"] button').contains("Student Registrations")
+    }
     getGradeDrpDwnInGradeWiseAttendance(){
         return cy.get('div.gradeWiseWidgetFilterSect div div div[role="button"]').eq(0)
     }
@@ -30,6 +33,22 @@ class AdminHomePage {
     }
     getSectionDrpDwnLstInGradeWiseAttendance(){
         return cy.get('div ul li.MuiMenuItem-gutters')
+    }
+    getBarGraphInGradewiseSection(){
+        return cy.get('span[style="height: 50%; opacity: 0.5;"]')
+    }
+    getGradeDrpDwnLstInGradeWiseSection(){
+        return cy.get('div.MuiPaper-elevation8 ul li')
+    }
+    //Student Reg
+    getDrpdwnInStudentRegistrationTab(){
+        return cy.get('div.MuiInputBase-root input[value="monthly"]')
+    }
+    getDrpDwnLstInStudentRegistrationTab(){
+        return cy.get('div ul li.MuiMenuItem-gutters')
+    }
+    getCountLstInStudentRegistrationTab(){
+        return cy.get('g.recharts-layer text[orientation="left"]')
     }
 
     //Business Logic

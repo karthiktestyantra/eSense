@@ -140,6 +140,9 @@ class QuickLinksPage{
     getSortDropdownImportantOpt(){
         return cy.get('li.css-1km1ehz').contains('Important')
     }
+    getDeleteList(){
+        return cy.xpath('//div[@class="StudentSchool_schNotBordList__3ggOt MuiBox-root css-0"]//button[2]')
+    }
 
 }
 module.exports=new QuickLinksPage()

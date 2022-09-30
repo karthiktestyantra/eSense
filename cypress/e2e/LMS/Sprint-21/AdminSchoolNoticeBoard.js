@@ -205,18 +205,29 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
         quickLinksPage.getNoticeList().should('have.length', 3)
     })
     it('delete notice', function () {
-        quickLinksPage.getEditBtn().clear().click()
-        quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
+        quickLinksPage.getEditBtn().click()
+        quickLinksPage.getCreateNewNoticeTitle().clear().type(this.Notice.NoticeTitle)
         quickLinksPage.getCreateNewNoticeSaveAndSendBtn().click()
+        cy.wait(2000)
 
         quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
             const txt = $e1.text()
             if (txt.includes("Test automation")) {
-                quickLinksPage.getDeleteBtn().eq(index).click()
-                quickLinksPage.getCreateNewNoticeDeletePopupCancelBtn().click()
+                quickLinksPage.getDeleteBtn().click({force:true})
+                cy.wait(2000)
+                quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
+                cy.wait(4000)
+            }
+        })
+        cy.wait(4000)
+        quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
+            const txt = $e1.text()
+            if (txt.includes("Test automation")) {
+                quickLinksPage.getDeleteBtn().click({force:true})
+                cy.wait(2000)
+                quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
+                cy.wait(4000)
             }
         })
     })
-
-
 })

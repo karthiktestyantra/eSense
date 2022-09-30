@@ -1,0 +1,8 @@
+{
+    "TeacherdefaultThresholdsMaxhours" : "9 Hours",
+    "GreenWorkingHours" : "Less than 8 Hours",
+    "StudentDefaultMaxHours" : "2 Hours",
+    "onehourgreenvalue" : "Less than 30 Minutes",
+    "onehouryellowvalue" : "More than 30 Minutes",
+    "onehourredvalue" : "More than 1 Hour"
+}

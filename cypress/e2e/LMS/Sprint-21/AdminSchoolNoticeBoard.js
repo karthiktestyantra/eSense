@@ -203,8 +203,6 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
     })
     it('EL-6044/ES6044_17 Validate only 3 Notice Cards are displayed per page(Pagination should be there).', function () {
         quickLinksPage.getNoticeList().should('have.length', 3)
-    })
-    it('delete notice', function () {
         quickLinksPage.getEditBtn().click()
         quickLinksPage.getCreateNewNoticeTitle().clear().type(this.Notice.NoticeTitle)
         quickLinksPage.getCreateNewNoticeSaveAndSendBtn().click()
@@ -245,8 +243,7 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
     it('EL-6044/ES6044_11 Validate when user clicks on "read more", he is able to read the full description on the same card.', function () {
         quickLinksPage.getReadMoreLink().click()
         quickLinksPage.getNoticeDescription().should('be.visible')
-    })
-    it('delete school notice board', function () {
+        quickLinksPage.getSchoolNoticeBoardTab().click()
         quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
             const txt = $e1.text()
             if (txt.includes("Test automation")) {
@@ -256,8 +253,6 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
                 cy.wait(4000)
             }
         })
-    })
-    it('delete private notice board', function () {
         quickLinksPage.getPrivateNoticeBoardTab().click()
         quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
             const txt = $e1.text()
@@ -269,8 +264,7 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
             }
         })
     })
-    it.only('EL-6044/ES6044_9 Validate Notices created for the Specific members is displayed in Private Notice board', function () {
-        adminDashboardPage.getSchoolBtn().click({ force: true })
+    it('EL-6044/ES6044_9 Validate Notices created for the Specific members is displayed in Private Notice board', function () {
         quickLinksPage.getAddNoticeBtn().click()
         quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
         quickLinksPage.getCreateNewNoticeTypeDropdown().click()
@@ -283,9 +277,36 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
         cy.wait(1000)
         var txt= []
         cy.get(".noticeStdName").eq(0).then(function($elem) {txt.push($elem.text())})
-        var tx=txt[0]
         quickLinksPage.getCreateNewNoticeAddBtn().click()
         quickLinksPage.getCreateNewNoticeSaveBtn().click()
-        quickLinksPage.getCreateNewNoticeSaveAndSendBtn().click()
+        quickLinksPage.getCreateNewNoticeSendBtn().click()
+        quickLinksPage.getPrivateNoticeBoardTab().click()
+        quickLinksPage.getNoticeListPublicWithIcon().click()
+        cy.get('.top-cls').then(function($elem) {txt.push($elem.text())})
+        txt[0]==txt[1]
+        cy.get('body').click()
+        quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
+            const txt = $e1.text()
+            if (txt.includes("Test automation")) {
+                quickLinksPage.getDeleteBtn().click({ force: true })
+                cy.wait(2000)
+                quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
+                cy.wait(4000)
+            }
+        })
+    })
+    it('EL-6044/ES6044_16 Validate user select the particular date, user is able to view notices on that particular date', function () {
+        adminDashboardPage.getSchoolBtn().click({ force: true })
+        quickLinksPage.getSchoolNoticeBoardTab().click()
+        quickLinksPage.getAddNoticeBtn().click()
+        quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
+        quickLinksPage.getCreateNewNoticeTypeDropdown().click()
+        quickLinksPage.getCreateNewNoticeTypeGeneralOpt().click()
+        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().type(this.Notice.NoticeDescription)
+        quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().check()
+        quickLinksPage.getCreateNewNoticeEntireSchoolRedioBtn().check()
+        quickLinksPage.getCreateNewNoticeSendBtn().click()
+        quickLinksPage.getCalenderIcon().click()
+        quickLinksPage.getCalenderIconDate().contains('20').click()
     })
 })

@@ -149,6 +149,9 @@ class QuickLinksPage{
     getNoticeDescription(){
         return cy.get('p.StudentSchool_schNotBordListDesc__2TvCM p.text')
     }
+    getCalenderIconDate(){
+        return cy.get('.MuiPickersDay-dayWithMargin')
+    }
 
 }
 module.exports=new QuickLinksPage()

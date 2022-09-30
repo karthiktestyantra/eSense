@@ -1,16 +1,38 @@
 const adminHomePage = require("../../../support/pageObjects/LMS-2/AdminHomePage")
+const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
+const dayjs = require('dayjs')
 
 describe("Verify 360 Report functionalities - Sprint 21(EL-4791)", function () {
 
     before(function () {
         cy.visit(Cypress.env("urlMain"))
-        cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
-            cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
+        cy.fixture("LMS/TeacherLoginCredentials").then(function (validLoginData) {
+            cy.TeacherPostSetupLogin(validLoginData.user2, validLoginData.password)
         })
     })
 
     beforeEach(function () {
         cy.fixture("LMS/AdminDashboardCredentials").as("dashboard")
+    })
+
+    it.only("To mention created mark attendace in dashboard", function () {
+        teacherDashboardPage.getMarkClassAttendenceBtn().click()
+        cy.wait(4000)
+        teacherDashboardPage.getDateInMarkClassAttendence().each(($el, index) => {
+            var sysDate = dayjs().format('D MMM').toUpperCase()
+            if ($el.text() === sysDate) {
+                teacherDashboardPage.getDateIndexInMarkClassAttendence().eq(index).click()
+                cy.wait(1500)
+                teacherDashboardPage.getMarkattendeceEditBtn().then(($el) => {
+                    if ($el.text() == 'Edit') {
+                        teacherDashboardPage.getMarkattendeceEditBtn().click()
+                    }
+                })
+                teacherDashboardPage.getMarkAsAbsentRadioBtn().eq(1).click()
+                teacherDashboardPage.getMarkattendeceSubmitBtn().click()
+                teacherDashboardPage.getMarkattendeceYesSubmitPopupBtn().click()
+            }
+        })
     })
 
     it("EL-4791/ES4791-07 To valiadte by default grade wise performance graph is displayed for the user", function () {

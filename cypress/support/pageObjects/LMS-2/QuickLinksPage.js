@@ -143,6 +143,12 @@ class QuickLinksPage{
     getDeleteList(){
         return cy.xpath('//div[@class="StudentSchool_schNotBordList__3ggOt MuiBox-root css-0"]//button[2]')
     }
+    getReadMoreLink(){
+        return cy.get('p.StudentSchool_schNotBordListDesc__2TvCM span')
+    }
+    getNoticeDescription(){
+        return cy.get('p.StudentSchool_schNotBordListDesc__2TvCM p.text')
+    }
 
 }
 module.exports=new QuickLinksPage()

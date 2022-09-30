@@ -3,5 +3,6 @@
     "NoticeDescription":"Automation testdata",
     "Alphanumaric":"asdfghjjj12345!@#$%^&",
     "ConformetionMessage":"Notice Published Successfully",
-    "DeleteMessage":"Are you sure you want to delete the notice"
+    "DeleteMessage":"Are you sure you want to delete the notice",
+    "NoticeDescriptionMoreThen100Charecters":"1234567890qwertyuiopasdfghjkl;zxcvbnmqwertyuiopasdfghjkl0987654321asdfghjklzxcvbnmasdfghjkasdfghjkkkasdfghjkl"
 }

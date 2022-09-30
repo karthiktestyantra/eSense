@@ -86,6 +86,7 @@ class TeacherCalenderPage {
         this.getStartSessionButton().click()
     }
     clickOnClassCheckbox() {
+        this.getClassesCheckbox().uncheck({ force: true }).scrollIntoView()
         this.getClassesCheckbox().check({ force: true })
     }
     clickOnForwordBtn() {

@@ -213,7 +213,7 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
         quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
             const txt = $e1.text()
             if (txt.includes("Test automation")) {
-                quickLinksPage.getDeleteBtn().click({force:true})
+                quickLinksPage.getDeleteBtn().click({ force: true })
                 cy.wait(2000)
                 quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
                 cy.wait(4000)
@@ -223,11 +223,69 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151)", function ()
         quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
             const txt = $e1.text()
             if (txt.includes("Test automation")) {
-                quickLinksPage.getDeleteBtn().click({force:true})
+                quickLinksPage.getDeleteBtn().click({ force: true })
                 cy.wait(2000)
                 quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
                 cy.wait(4000)
             }
         })
+    })
+    it('EL-6044/ES6044_10 Validate "read more" option is displayed when the description is more than 100 characters', function () {
+        quickLinksPage.getAddNoticeBtn().click()
+        quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
+        quickLinksPage.getCreateNewNoticeTypeDropdown().click()
+        quickLinksPage.getCreateNewNoticeTypeGeneralOpt().click()
+        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().type(this.Notice.NoticeDescriptionMoreThen100Charecters)
+        quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().check()
+        quickLinksPage.getCreateNewNoticeEntireSchoolRedioBtn().check()
+        quickLinksPage.getCreateNewNoticeSendBtn().click()
+        quickLinksPage.getSchoolNoticeBoardTab()
+        quickLinksPage.getReadMoreLink().should('be.visible')
+    })
+    it('EL-6044/ES6044_11 Validate when user clicks on "read more", he is able to read the full description on the same card.', function () {
+        quickLinksPage.getReadMoreLink().click()
+        quickLinksPage.getNoticeDescription().should('be.visible')
+    })
+    it('delete school notice board', function () {
+        quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
+            const txt = $e1.text()
+            if (txt.includes("Test automation")) {
+                quickLinksPage.getDeleteBtn().click({ force: true })
+                cy.wait(2000)
+                quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
+                cy.wait(4000)
+            }
+        })
+    })
+    it('delete private notice board', function () {
+        quickLinksPage.getPrivateNoticeBoardTab().click()
+        quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
+            const txt = $e1.text()
+            if (txt.includes("Test automation")) {
+                quickLinksPage.getDeleteBtn().click({ force: true })
+                cy.wait(2000)
+                quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
+                cy.wait(4000)
+            }
+        })
+    })
+    it.only('EL-6044/ES6044_9 Validate Notices created for the Specific members is displayed in Private Notice board', function () {
+        adminDashboardPage.getSchoolBtn().click({ force: true })
+        quickLinksPage.getAddNoticeBtn().click()
+        quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
+        quickLinksPage.getCreateNewNoticeTypeDropdown().click()
+        quickLinksPage.getCreateNewNoticeTypeGeneralOpt().click()
+        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().type(this.Notice.NoticeDescription)
+        quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().check()
+        quickLinksPage.getCreateNewNoticeSpecificMembersRedioBtn().check()
+        quickLinksPage.getCreateNewNoticeAddMembersBtn().click()
+        quickLinksPage.getCreateNewNoticeTeacherTab().click()
+        cy.wait(1000)
+        var txt= []
+        cy.get(".noticeStdName").eq(0).then(function($elem) {txt.push($elem.text())})
+        var tx=txt[0]
+        quickLinksPage.getCreateNewNoticeAddBtn().click()
+        quickLinksPage.getCreateNewNoticeSaveBtn().click()
+        quickLinksPage.getCreateNewNoticeSaveAndSendBtn().click()
     })
 })

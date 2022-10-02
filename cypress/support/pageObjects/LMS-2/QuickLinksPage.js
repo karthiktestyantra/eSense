@@ -36,10 +36,10 @@ class QuickLinksPage{
         return cy.get('button.css-1hw9j7s').contains('Send')
     }
     getEditBtn(){
-        return cy.get('button.css-1ujsas3').eq(0)
+        return cy.get('button.css-1ujsas3').eq(1)
     }
     getDeleteBtn(){
-        return cy.get('button.css-1ujsas3').eq(1)
+        return cy.get('button.css-1ujsas3').eq(2)
     }
     getCreateNewNoticeSaveAndSendBtn(){
         return cy.get('button.css-1hw9j7s').contains('Save & Send')

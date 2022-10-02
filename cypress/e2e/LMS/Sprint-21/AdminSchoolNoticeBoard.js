@@ -4,9 +4,9 @@ const quickLinksPage = require('../../../support/pageObjects/LMS-2/QuickLinksPag
 describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-6044)", function () {
 
     before(function () {
-        cy.visit(Cypress.env('urlMain'))
+        cy.visit(Cypress.env('urlQAPreSetup'))
         cy.fixture('LMS/AdminLoginCredentials').then(function (validAdminLoginData) {
-            cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
+            cy.AdminPostSetup(validAdminLoginData.fNew, validAdminLoginData.password)
         })
     })
     beforeEach(function () {
@@ -265,6 +265,7 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         })
     })
     it('EL-6044/ES6044_9 Validate Notices created for the Specific members is displayed in Private Notice board', function () {
+        quickLinksPage.getSchoolBtn()
         quickLinksPage.getAddNoticeBtn().click()
         quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
         quickLinksPage.getCreateNewNoticeTypeDropdown().click()
@@ -275,15 +276,15 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         quickLinksPage.getCreateNewNoticeAddMembersBtn().click()
         quickLinksPage.getCreateNewNoticeTeacherTab().click()
         cy.wait(1000)
-        var txt= []
-        cy.get(".noticeStdName").eq(0).then(function($elem) {txt.push($elem.text())})
+        var txt = []
+        cy.get(".noticeStdName").eq(0).then(function ($elem) { txt.push($elem.text()) })
         quickLinksPage.getCreateNewNoticeAddBtn().click()
         quickLinksPage.getCreateNewNoticeSaveBtn().click()
         quickLinksPage.getCreateNewNoticeSendBtn().click()
         quickLinksPage.getPrivateNoticeBoardTab().click()
         quickLinksPage.getNoticeListPublicWithIcon().click()
-        cy.get('.top-cls').then(function($elem) {txt.push($elem.text())})
-        txt[0]==txt[1]
+        cy.get('.top-cls').then(function ($elem) { txt.push($elem.text()) })
+        txt[0] == txt[1]
         cy.get('body').click()
         quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
             const txt = $e1.text()

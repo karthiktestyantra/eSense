@@ -4,9 +4,9 @@ const quickLinksPage = require('../../../support/pageObjects/LMS-2/QuickLinksPag
 describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-6044)", function () {
 
     before(function () {
-        cy.visit(Cypress.env('urlQAPreSetup'))
+        cy.visit(Cypress.env('urlMain'))
         cy.fixture('LMS/AdminLoginCredentials').then(function (validAdminLoginData) {
-            cy.AdminPostSetup(validAdminLoginData.fNew, validAdminLoginData.password)
+            cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
         })
     })
     beforeEach(function () {

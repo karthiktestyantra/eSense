@@ -57,55 +57,53 @@ class Admin360ReportPage {
    getDisableCheckBxForFlagImg() {
       return cy.xpath("//div//img[@class='alertImgcls']/ancestor::tr[@class='MuiTableRow-root css-1gqug66']/descendant::span[contains(@class,'chk')]")
    }
-   get360reporttTableLst(){
+   get360reporttTableLst() {
       return cy.get('tbody tr td')
    }
-   getViewReportsLst(){
+   getViewReportsLst() {
       return cy.get('button.viewBtn')
    }
-   getReportPageTitle(){
+   getReportPageTitle() {
       return cy.get('h2.MuiTypography-root')
    }
-   getPreviewAndPrintBtnInReportPageTitle(){
+   getPreviewAndPrintBtnInReportPageTitle() {
       return cy.xpath("//button[contains(@class,'StudentDetails_stdPrvPrntBtn')]")
    }
-   getGoBackBtn(){
+   getGoBackBtn() {
       return cy.get('.prevStudDetaInfoNavBtn > .d-flex')
    }
-   get360ReportMajorTabs(){
+   get360ReportMajorTabs() {
       return cy.get('button[role="tab"]')
    }
-   getStudentsTabInUsersPage(){
+   getStudentsTabInUsersPage() {
       return cy.get('button[role="tab"]').contains("Students")
    }
-   getEveryStudentDetailInUsersPage(){
+   getEveryStudentDetailInUsersPage() {
       return cy.get('tbody tr')
    }
-   getMajorHeadTabInUsersPage(){
+   getMajorHeadTabInUsersPage() {
       return cy.get('table thead th')
    }
-   getScoresDataInPreviewAndPrintPage(){
+   getScoresDataInPreviewAndPrintPage() {
       return cy.get('div h3')
    }
-   getMyGradesPageContents(){
+   getMyGradesPageContents() {
       return cy.get('h4.MuiTypography-root')
    }
-   getMyGradeTeacherProfilePicLst(){
+   getMyGradeTeacherProfilePicLst() {
       return cy.get('div div.MuiAvatar-root img')
    }
-   getMyGradeTeacherNameLst(){
+   getMyGradeTeacherNameLst() {
       return cy.get('div.StudentDetails_myGradeUserPic__2eq9a div.MuiBox-root p.MuiTypography-root')
    }
-   getAssessmentNameForStudentInMyGradePage(){
+   getAssessmentNameForStudentInMyGradePage() {
       return cy.get('div.StudentDetails_prevStdMyGradeCardItemsCnt__3kY6Q div p')
    }
-
-
 
    //Business Logic
 
    clickOn360ReportLnk() {
-      this.get360ReportLnk().click()
+      this.get360ReportLnk().click({ force: true })
    }
    verify360ReportContents() {
       this.get360ReportContents().should('contain.text', "ROLL NO").and('contain.text', "FULL NAME").

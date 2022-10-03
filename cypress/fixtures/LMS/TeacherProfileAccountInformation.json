@@ -1,4 +1,15 @@
 {
-    "username": "harshitha",
-    "password": "Test@123"
+    "fullName": "ronaldo",
+    "emailAddress": "tester@gmail.com",
+    "dob": "03/08/2001",
+    "gender": "Male",
+    "contactNumber": "9876543210",
+    "bloodGroup": "B+",
+    "employeeID": "90876",
+    "designation": "Teacher",
+    "addressLine1": "L2",
+    "addressLine2": "L3",
+    "pinCode": "560087",
+    "state": "Karnataka",
+    "city": "Bangalore"
 }

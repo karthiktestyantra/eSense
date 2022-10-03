@@ -1,7 +1,7 @@
 class TeacherProfileAccountInformationPage{
 
-    getAssessmentTxt(){
-        return cy.get('h4').eq(0);
+    getAccountAndSupportTitle(){
+        return cy.xpath('//p[.=" Account & Support"]')
     }
     
   

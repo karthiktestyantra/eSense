@@ -1,4 +1,6 @@
 import 'cypress-file-upload';
+import 'cypress-wait-until';
+
 after(function () {
   cy.window().then(win => win.sessionStorage.clear());
   cy.clearCookies();

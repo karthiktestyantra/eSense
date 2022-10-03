@@ -14,10 +14,15 @@ describe("Verify Teacher Profile Account Information Functionalities - Sprint 22
         cy.fixture("LMS/TeacherProfileAccountInformation").as("teacherProfileAccountInformation")
     })
 
-    it("EL-6285/ES6285-01 To validate user is able  to view account information by clicking on Account Information option avialable in profile menu", function () {
+    it("EL-6285/ES6285-01 Validate user is able  to view account information by clicking on Account Information option avialable in profile menu", function () {
+        cy.forceClick(teacherDashboardPage.getMyProfileLink())
+        cy.wait(1000)
+        cy.isVisible(teacherDashboardPage.getMyProfileAccountInformationLink())
+    })
 
-
-
+    it("EL-6285/ES6285-02 Validate user is redirected to Account and Support screen if user clicks on Account information tab", function () {
+        cy.forceClick(teacherDashboardPage.getMyProfileAccountInformationLink())
+        cy.waitFor(cy.isVisible(teacherProfileAccountInformationPage.getAccountAndSupportTitle()))
     })
 
 })

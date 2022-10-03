@@ -27,6 +27,8 @@
     "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.1.0",
     "cypress-mouse-position": "^1.0.0",
+    "cypress-wait-until": "^1.7.2",
+    "cypress-waitfor": "^1.1.0",
     "cypress-xpath": "^2.0.1",
     "mochawesome": "^7.1.3",
     "moment": "^2.29.4",

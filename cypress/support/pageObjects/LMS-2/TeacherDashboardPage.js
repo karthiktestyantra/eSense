@@ -468,6 +468,14 @@ class TeacherDashboardPage {
         return cy.get('.content-popover_border')
     }
 
+    getMyProfileLink() {
+        return cy.get('div.menu-txt').contains("My Profile")
+    }
+
+    getMyProfileAccountInformationLink() {
+        return cy.xpath('//div[text()="Account Information"]')
+    }
+
     //Buiness logic
 
     clickOnMyCalenderLink() {

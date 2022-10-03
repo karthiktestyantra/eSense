@@ -4,9 +4,9 @@ const dayjs = require('dayjs')
 describe("Verify Teacher Dashboard functionalities", function () {
 
    before(function () {
-      cy.visit(Cypress.env('urlBhsSchool'))
+      cy.visit(Cypress.env('urlStaging'))
       cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
-         cy.TeacherPostSetupLogin(validAdminLoginData.user5, validAdminLoginData.password)
+         cy.TeacherPostSetupLogin(validAdminLoginData.user3, validAdminLoginData.password)
       })
    })
 

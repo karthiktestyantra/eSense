@@ -94,15 +94,29 @@ describe("Verify admin school functionalities", function () {
 
         it('EL-6568/ES6568_8 The yellow color code is displayed when work hours take “More than “Green color” hours” (for example “More than 7 hours”)',function () {
            cy.wait(2000)
-           adminThresholdsPage.getStuThresholdsMaxWorkingHoursDropdown().then((maxHoursTxt)=>{
+           adminThresholdsPage.getStudentThresholdsgreenHoursDropdown().then((maxHoursTxt)=>{
                 var stutxt = maxHoursTxt.text()
                 cy.log(stutxt)
                 var gh = stutxt.split(' ')
-                var greenhours = gh[0]
+                var greenhours = gh[2]
                  cy.log(greenhours)
-                adminThresholdsPage.getThresholdYelloWorkingHoursDropdown().should('have.text',"More than"+" "+(Number(greenhours)-1)+" "+'Hour')
+                adminThresholdsPage.getThresholdYelloWorkingHoursDropdown().should('have.text',"More than"+" "+greenhours+" "+'Hour')
         
             })
+    })
+
+    it('EL-6568/ES6568_8 The red color code is displayed when work hours take “More than “Yellow color” hours” (for example “More than 7 hours”)',function () {
+        cy.wait(2000)
+        adminThresholdsPage.getThresholdYelloWorkingHoursDropdown().then((maxHoursTxt)=>{
+             var stutxt = maxHoursTxt.text()
+             cy.log(stutxt)
+             var Yh = stutxt.split(' ')
+             var yellowHours = Yh[2]
+              cy.log(yellowHours)
+             adminThresholdsPage.gestutThresholdRedWorkingHoursDropdown().should('have.text',"More than"+" "+(Number(yellowHours)+1)+" "+'Hours')
+     
+         })
+
     })
 
     it('EL-6568/ES6568_9 Validate when user selects “Max “X” hour” as exactly 1 hour, following changes to be applied-Green color - The drop-down is displaying “30 minutes”-The yellow color code is taking “More than “30 minutes”-The red color code is taking “More than “X” hour” (for example 1 hour)',function () {

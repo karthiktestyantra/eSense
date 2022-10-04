@@ -102,7 +102,7 @@ class TeacherClassGradePage {
         return cy.contains('2024')
     }
     getHomeworkDueDate(){
-        return cy.get('#mui-12')
+        return cy.get('input.css-1uvydh2').eq(1)
     }
     getHomeworkDueDatePM(){
         return cy.get('[class="MuiTypography-root MuiTypography-caption css-1v2gfp5"]').eq(1)

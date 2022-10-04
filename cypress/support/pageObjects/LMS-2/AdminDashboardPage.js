@@ -212,6 +212,10 @@ class AdminDashboardPage {
     getDashboardCountOfTotalAdmin() {
         return cy.get('div.MuiBox-root h4 span').eq(3)
     }
+
+    getCalenderBtn(){
+        return cy.get('div.menu-txt').contains('Calendar')
+    }
     
 }
 module.exports = new AdminDashboardPage() 

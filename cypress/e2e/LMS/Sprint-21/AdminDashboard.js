@@ -2,7 +2,7 @@ const adminHomePage = require("../../../support/pageObjects/LMS-2/AdminHomePage"
 const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
 const dayjs = require('dayjs')
 
-describe("Verify 360 Report functionalities - Sprint 21(EL-4791)", function () {
+describe("Verify Admin Dashboard functionalities - Sprint 21(EL-4791)", function () {
 
     before(function () {
         cy.visit(Cypress.env("urlMain"))
@@ -15,7 +15,7 @@ describe("Verify 360 Report functionalities - Sprint 21(EL-4791)", function () {
         cy.fixture("LMS/AdminDashboardCredentials").as("dashboard")
     })
 
-    it.only("To mention created mark attendace in dashboard", function () {
+    it("To mention created mark attendace in dashboard", function () {
         teacherDashboardPage.getMarkClassAttendenceBtn().click()
         cy.wait(4000)
         teacherDashboardPage.getDateInMarkClassAttendence().each(($el, index) => {
@@ -36,6 +36,11 @@ describe("Verify 360 Report functionalities - Sprint 21(EL-4791)", function () {
     })
 
     it("EL-4791/ES4791-07 To valiadte by default grade wise performance graph is displayed for the user", function () {
+        cy.clearLocalStorage()
+        cy.visit(Cypress.env('urlMain'))
+        cy.fixture('LMS/AdminLoginCredentials').then(function (validAdminLoginData) {
+            cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
+        })
         adminHomePage.getGradeWiseAttendanceTab().should('be.enabled')
         cy.verifyAttributeValue(adminHomePage.getGradeWiseAttendanceTab(), "class", "Mui-selected")
     })
@@ -81,8 +86,6 @@ describe("Verify 360 Report functionalities - Sprint 21(EL-4791)", function () {
     })
 
     it("EL-4969/ES4969-04 To validate count is dynamic and it is restricted to only to 5 values in the y-axis(Dynamic)",function(){
-        adminHomePage.getCountLstInStudentRegistrationTab().should('be.',5)
+        adminHomePage.getCountLstInStudentRegistrationTab().should('have.length',5)
     })
-
-
 })

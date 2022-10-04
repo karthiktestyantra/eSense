@@ -42,7 +42,7 @@ class AdminHomePage {
     }
     //Student Reg
     getDrpdwnInStudentRegistrationTab(){
-        return cy.get('div.MuiInputBase-root input[value="monthly"]')
+        return cy.get('div.MuiInputBase-root div.MuiSelect-select').eq(0)
     }
     getDrpDwnLstInStudentRegistrationTab(){
         return cy.get('div ul li.MuiMenuItem-gutters')
@@ -50,6 +50,10 @@ class AdminHomePage {
     getCountLstInStudentRegistrationTab(){
         return cy.get('g.recharts-layer text[orientation="left"]')
     }
+    getDotInGraphInStudentRegistrationTab(){
+        return cy.get('div.recharts-tooltip-wrapper')
+    }
+
 
     //Business Logic
     clickOnReportLnk() {

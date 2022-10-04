@@ -1,6 +1,6 @@
 {
     "fullName": "ronaldo",
-    "emailAddress": "tester@gmail.com",
+    "emailAddress": "tester01@gmail.com",
     "dob": "03/08/2001",
     "gender": "Male",
     "contactNumber": "9876543210",
@@ -9,7 +9,19 @@
     "designation": "Teacher",
     "addressLine1": "L2",
     "addressLine2": "L3",
+    "contact1Name": "ronaldo",
+    "contact1Number": "0987654321",
+    "contact2Name": "tester",
+    "contact2Number": "9876543212",
     "pinCode": "560087",
     "state": "Karnataka",
-    "city": "Bangalore"
+    "city": "Bangalore",
+    "department": "Social Studies",
+    "branch": "English,Hindi,Tamil",
+    "qualification": "B.E Mech (2018)",
+    "grade": "Grade 3,Grade 12",
+    "section1": "Grade 3 - A",
+    "section2": "Grade 12 - A",
+    "section1Subjects": "Tamil,English I,EVS III,English I,Social Science",
+    "section2Subjects": "Tamil,Social Science,political Science Edited Now"
 }

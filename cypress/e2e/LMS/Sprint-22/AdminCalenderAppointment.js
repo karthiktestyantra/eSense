@@ -13,17 +13,44 @@ describe("Verify admin calender Appointment functionalities - Sprint 21(EL-375)"
         cy.viewport(1920, 1080)
         cy.fixture("LMS/adminCalenderAppointment.json").as("appointmentdata")
     })
-    it('EL-6267/ES6267-01 To validate school admin/teacher is able to edit  appointment so that he can mak any changes in the created  appointment .', function () {
+    it('EL-375/ES375-01 "To validate school admin/teacher is able to create ""Appointments"" by clicking on ""Appointments""option present in the calendar."',function () {
         adminDashboardPage.getCalenderBtn().click({ force: true })
         adminCalenderHomePage.getCreateNewBtn().click()
         adminCalenderHomePage.getAppointmentBtn().click()
-        adminCalenderHomePage.getEnterAppointmentTitlefield().type(this.appointmentdata.AppointmentTitle)
+        adminCalenderHomePage.getEnterAppointmentTitlefield().should('be.visible').and('be.enabled')
+    })
+    it('EL-375/ES375-02 To validate the following details are displayed for the create appointment such as Appointment Title,Add Attendees,Date,Start Time,End Time,Remind,Description,Appointment Type,Meeting Link,Location.',function () {
+        adminCalenderHomePage.getEnterAppointmentTitlefield().scrollIntoView().should('be.visible')
+        adminCalenderHomePage.getCreateApointmentAddPeopleLink().scrollIntoView().should('be.visible')
+        adminCalenderHomePage.getCreateApointmentDate().scrollIntoView().should('be.visible')
+        adminCalenderHomePage.getCreateAppointmentStartTime().scrollIntoView().should('be.visible')
+        adminCalenderHomePage.getCreateAppointmentEndTime().scrollIntoView().should('be.visible')
+        adminCalenderHomePage.getCreateAppointmentRemindDropdown().scrollIntoView().should('be.visible')
+        adminCalenderHomePage.getCreateAppointmentAddDescription().scrollIntoView().should('be.visible')
+        adminCalenderHomePage.getCreateAppointmentAppointmentType().scrollIntoView().should('be.visible')
+        adminCalenderHomePage.getCreateAppointmentMeetingLink().scrollIntoView().should('be.visible')
+    })
+    it('EL-375/ES375-03 To validate  user is able to enter only 50 max characters and alphanumeric ,Free text  in Appointment title" field.',function () {
+        adminCalenderHomePage.getEnterAppointmentTitlefield().clear().type(this.appointmentdata.Appointment50CharecterAlphanumeric)
+    })
+    it('EL-375/ES375-05 To validate "Teachers list" of the school is displayed after user clicks on"Teachers" tab.',function () {
+        adminCalenderHomePage.getEnterAppointmentTitlefield().clear().type(this.appointmentdata.AppointmentTitle)
         adminCalenderHomePage.getCreateApointmentAddPeopleLink().click()
         adminCalenderHomePage.getCreateApointmentTeacherTab().click()
         adminCalenderHomePage.getCreateAppointmentTeacherSearchField().type(this.appointmentdata.teacher+'{enter}')
         cy.wait(1000)
+        adminCalenderHomePage.getCreateAppointmentTeacherCheckbox().should('be.enabled')
+    })
+    it('EL-375/ES375-09 "To validate user is able to view the total count of attendees added with four profile picture."',function () {
         adminCalenderHomePage.getCreateAppointmentTeacherCheckbox().check()
         adminCalenderHomePage.getCreateAppointmentCloseLink().click()
+        adminCalenderHomePage.getCreateAppointmentAttendeesCount().should('be.visible')
+    })
+    it('EL-375/ES375-10 To validate user can add more people by  clicking on +Add people .',function () {
+        adminCalenderHomePage.getCreateApointmentAddPeopleLink().should('be.visible')
+    })
+
+    it('EL-6267/ES6267-01 To validate school admin/teacher is able to edit  appointment so that he can mak any changes in the created  appointment .', function () {
         adminCalenderHomePage.getCreateApointmentDate().click()
         adminCalenderHomePage.getCreateApointmentDateselect(dayjs().format("D")).click()
         adminCalenderHomePage.getCreateAppointmentStartTime().click()

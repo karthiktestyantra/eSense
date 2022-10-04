@@ -102,5 +102,8 @@ class AdminCalenderHomePage{
     getDeletePopupXBtn(){
         return cy.get('.close-icon_delete_reminder')
     }
+    getCreateAppointmentAttendeesCount(){
+        return cy.get('.crtLivePplList  span')
+    }
 }
 module.exports=new AdminCalenderHomePage()

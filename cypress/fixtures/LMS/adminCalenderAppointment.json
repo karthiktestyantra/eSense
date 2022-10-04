@@ -1,0 +1,9 @@
+{
+    "AppointmentTitle":"test automation",
+    "AppointmentMeetingLink":"automation test",
+    "AppointmentDescription":"automation",
+    "teacher":"undertaker",
+    "appointmentSaveConfermationMessage":"Appointment Saved",
+    "appiontmentDeleteConfermation":"Are you sure you want to delete the Appointment?",
+    "appointmentDeletedConfermationMessage":"The Appointment has been deleted."
+}

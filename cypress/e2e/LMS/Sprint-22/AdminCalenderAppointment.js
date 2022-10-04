@@ -11,16 +11,16 @@ describe("Verify admin calender Appointment functionalities - Sprint 21(EL-375)"
     })
     beforeEach(function () {
         cy.viewport(1920, 1080)
-        // cy.fixture("").as("")
+        cy.fixture("LMS/adminCalenderAppointment.json").as("appointmentdata")
     })
     it('EL-6267/ES6267-01 To validate school admin/teacher is able to edit  appointment so that he can mak any changes in the created  appointment .', function () {
         adminDashboardPage.getCalenderBtn().click({ force: true })
         adminCalenderHomePage.getCreateNewBtn().click()
         adminCalenderHomePage.getAppointmentBtn().click()
-        adminCalenderHomePage.getEnterAppointmentTitlefield().type('test automation')
+        adminCalenderHomePage.getEnterAppointmentTitlefield().type(this.appointmentdata.AppointmentTitle)
         adminCalenderHomePage.getCreateApointmentAddPeopleLink().click()
         adminCalenderHomePage.getCreateApointmentTeacherTab().click()
-        adminCalenderHomePage.getCreateAppointmentTeacherSearchField().type('undertaker{enter}')
+        adminCalenderHomePage.getCreateAppointmentTeacherSearchField().type(this.appointmentdata.teacher+'{enter}')
         cy.wait(1000)
         adminCalenderHomePage.getCreateAppointmentTeacherCheckbox().check()
         adminCalenderHomePage.getCreateAppointmentCloseLink().click()
@@ -39,12 +39,12 @@ describe("Verify admin calender Appointment functionalities - Sprint 21(EL-375)"
         adminCalenderHomePage.getCreateAppointmentRemindDropdown().click({ force: true })
         adminCalenderHomePage.getCreateAppointmentRemindDropdownDonotremindOpt().click({ force: true })
         cy.wait(1000)
-        adminCalenderHomePage.getCreateAppointmentAddDescription().type('automation')
+        adminCalenderHomePage.getCreateAppointmentAddDescription().type(this.appointmentdata.AppointmentDescription)
         adminCalenderHomePage.getCreateAppointmentAppointmentTypeDropdown().click({ force: true })
         cy.wait(1000)
         adminCalenderHomePage.getCreateAppointmentAppointmentType().click()
         adminCalenderHomePage.getCreateAppointmentAppointmentTypeOnlineOpt().click()
-        adminCalenderHomePage.getCreateAppointmentMeetingLink().click().type('automation test')
+        adminCalenderHomePage.getCreateAppointmentMeetingLink().click().type(this.appointmentdata.AppointmentMeetingLink)
         adminCalenderHomePage.getCreateAppointmentSaveAppointmentBtn().click()
         adminCalenderHomePage.getCreateAppointmentXBtn().click()
         adminCalenderHomePage.getAppointmentCheckbox().check()
@@ -69,7 +69,7 @@ describe("Verify admin calender Appointment functionalities - Sprint 21(EL-375)"
         adminCalenderHomePage.getAppointmentAutomation().click()
         adminCalenderHomePage.getAppointmentEditAppointmentBtn().click()
         adminCalenderHomePage.getAppointmentSaveAppointmentBtn().click()
-        cy.contains('Appointment Saved').should('be.visible')
+        cy.contains(this.appointmentdata.appointmentSaveConfermationMessage).should('be.visible')
         adminCalenderHomePage.getCreateAppointmentXBtn().click()
     })
     it('EL-6267/ES6267-06  "To validate no changes are saved and user is redirected your calendar screen if user clicks on""Cancel ""button."', function () {
@@ -85,7 +85,7 @@ describe("Verify admin calender Appointment functionalities - Sprint 21(EL-375)"
     })
     it('EL-6268/ES6268-02 "To validate ""confirmation ""pop-up is populated stating that ""Are you sure you want to delete the appointment?""  by clicking  on ""Delete ""option."', function () {
         adminCalenderHomePage.getAppointmentDeleteAppointmentBtn().click()
-        cy.contains('Are you sure you want to delete the Appointment?').should('be.visible')
+        cy.contains(this.appointmentdata.appiontmentDeleteConfermation).should('be.visible')
     })
     it('EL-6268/ES6268-03 "To validate the following details are displayed in the pop-up  if user clicks on""Delete""option such as ""Delete Appointment"" and ""Cancel ""  button ."', function () {
         adminCalenderHomePage.getDeletePopupDeleteAppointmentBtn().should('be.visible')
@@ -96,7 +96,7 @@ describe("Verify admin calender Appointment functionalities - Sprint 21(EL-375)"
     })
     it('EL-6268/ES6268-05 To validate "successful "pop-up is displayed stating  that "The Appointment has been deleted " and user is redirected  your calendar screen.', function () {
         adminCalenderHomePage.getDeletePopupDeleteAppointmentBtn().click()
-        cy.contains('The Appointment has been deleted.').should('be.visible')
+        cy.contains(this.appointmentdata.appointmentDeletedConfermationMessage).should('be.visible')
     })
     it('EL-6268/ES6268-04 "To validate respective attendees of the appointement is notified through mail about the removal of the appointment."',function () {
         adminCalenderHomePage.getAppointmentAutomation().should('not.exist')

@@ -23,5 +23,8 @@
     "section1": "Grade 3 - A",
     "section2": "Grade 12 - A",
     "section1Subjects": "Tamil,English I,EVS III,English I,Social Science",
-    "section2Subjects": "Tamil,Social Science,political Science Edited Now"
+    "section2Subjects": "Tamil,Social Science,political Science Edited Now",
+    "wordsCount": "500/500 Characters",
+    "requestSentSuccessMsg1": "Request Sent Successfully",
+    "requestSentSuccessMsg2": "Your change request for the ‘Academic Details’ has been sent to the school administration."
 }

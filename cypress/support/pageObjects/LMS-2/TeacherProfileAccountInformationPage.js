@@ -16,8 +16,36 @@ class TeacherProfileAccountInformationPage {
         return cy.get('[type="text"]')
     }
 
+    getRequestChangePopUpBody() {
+        return cy.get('.model-content')
+    }
+
+    getRequestChangePopUpCloseIcon() {
+        return cy.get('[data-testid="CloseIcon"]')
+    }
+
+    getTellUsBitMoreTextFieldRequestChangePopUp() {
+        return cy.get('#rc_content')
+    }
+
+    getRequestSentSuccessMsg() {
+        return cy.xpath('//div[@class="report-content"]/p')
+    }
+
+    getSubmitBtnRequestChangePopUp() {
+        return cy.get('[type="submit"]')
+    }
+
+    getWordsCountTextRequestChangePopUp() {
+        return cy.get('.words_count')
+    }
+
     getRequestChangeBtnInBasicAndAcademicDetails() {
         return cy.get('[class*="clickbtn"]')
+    }
+
+    getRequestChangePopUpTitle() {
+        return cy.xpath('//h1[.="Request Change"]')
     }
 
     getGradeTextFieldAcademicDetails() {

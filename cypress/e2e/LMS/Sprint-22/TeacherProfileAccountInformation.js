@@ -1,5 +1,6 @@
 const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
 const teacherProfileAccountInformationPage = require("../../../support/pageObjects/LMS-2/TeacherProfileAccountInformationPage")
+var randomstring = require("randomstring");
 
 describe("Verify Teacher Profile Account Information Functionalities - Sprint 22(EL-6285)", function () {
 
@@ -107,6 +108,52 @@ describe("Verify Teacher Profile Account Information Functionalities - Sprint 22
         teacherProfileAccountInformationPage.getBasicAndAcademicDetailsTab().eq(0).click()
         cy.isVisible(teacherProfileAccountInformationPage.getRequestChangeBtnInBasicAndAcademicDetails())
         cy.isEnabled(teacherProfileAccountInformationPage.getRequestChangeBtnInBasicAndAcademicDetails())
+    })
+
+    /*-------------------------------------------------------------------------------------------------------------*/
+
+    it("EL-6286/ES6268-02 Validate Request change pop-up screen is populated, user on clicking Request change button", function () {
+        teacherProfileAccountInformationPage.getRequestChangeBtnInBasicAndAcademicDetails().click()
+        cy.wait(1000)
+        cy.isVisible(teacherProfileAccountInformationPage.getRequestChangePopUpTitle())
+    })
+
+    it("EL-6286/ES6268-03 Validate the following details are present in pop-up sceen such as What would you like to change?(Drop down field) What do you want to change(Text Box)", function () {
+        teacherProfileAccountInformationPage.getRequestChangePopUpBody().children()
+            .should('contain', 'Raise a change request to the school administration')
+            .and('contain', 'What would you like to change?')
+            .and('contain', 'Tell us a bit more about the issue')
+    })
+
+    it("EL-6286/ES6268-04 Validate the values are auto populated if user click on the dropdwon present in the What would you like to change field.", function () {
+        teacherProfileAccountInformationPage.getRequestChangePopUpBody().children()
+            .should('contain', 'Basic Details')
+        teacherProfileAccountInformationPage.getRequestChangePopUpCloseIcon().click()
+        teacherProfileAccountInformationPage.getBasicAndAcademicDetailsTab().eq(1).click()
+        teacherProfileAccountInformationPage.getRequestChangeBtnInBasicAndAcademicDetails().click()
+        teacherProfileAccountInformationPage.getRequestChangePopUpBody().children()
+            .should('contain', 'Academic Details')
+    })
+
+    it("EL-6286/ES6268-05 Validate Text box accepts only 500 Alphanumeric characters", function () {
+        teacherProfileAccountInformationPage.getTellUsBitMoreTextFieldRequestChangePopUp().type(randomstring.generate(520))
+        cy.verifyTextEquals(teacherProfileAccountInformationPage.getWordsCountTextRequestChangePopUp(), this.teacherProfileAccountInformation.wordsCount)
+        teacherProfileAccountInformationPage.getTellUsBitMoreTextFieldRequestChangePopUp().clear().type('Automation Testing ' + '[' + randomstring.generate({
+            length: 15,
+            charset: 'numeric'
+        }) + ']')
+    })
+
+    it("EL-6286/ES6268-06 Validate Send request option is enabled after user fills all the details", function () {
+        cy.isVisible(teacherProfileAccountInformationPage.getSubmitBtnRequestChangePopUp())
+        cy.isEnabled(teacherProfileAccountInformationPage.getSubmitBtnRequestChangePopUp())
+        teacherProfileAccountInformationPage.getSubmitBtnRequestChangePopUp().click()
+    })
+
+    it("EL-6286/ES6268-07 Validate successful pop-up message is displayed as “Request Sent Successfully” followed by “Your change request for the ‘Basic/Academic details’ has been sent to the School Admin”.", function () {
+        cy.isVisible(teacherProfileAccountInformationPage.getRequestSentSuccessMsg().contains(this.teacherProfileAccountInformation.requestSentSuccessMsg1))
+        cy.isVisible(teacherProfileAccountInformationPage.getRequestSentSuccessMsg().contains(this.teacherProfileAccountInformation.requestSentSuccessMsg2))
+        teacherProfileAccountInformationPage.getRequestChangePopUpCloseIcon().click()
     })
 
 })

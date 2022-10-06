@@ -1,4 +1,4 @@
-class TeacherProfileAccountInformationPage {
+class TeacherProfileAccountInformationAndSupportPage {
 
     getAccountAndSupportTitle() {
         return cy.xpath('//p[.=" Account & Support"]')
@@ -30,6 +30,18 @@ class TeacherProfileAccountInformationPage {
 
     getSupportAndFeedbackTab() {
         return cy.get('[href="/teacher/account-info/support"]')
+    }
+
+    getRightArrowIconSupportAndFeedback() {
+        return cy.get('[data-testid="KeyboardArrowRightIcon"]')
+    }
+
+    getDateOnTicketPopUp() {
+        return cy.get('[class*="SupportList_ticketId"] p')
+    }
+
+    getTicketPopUpContents() {
+        return cy.get('h4')
     }
 
     getTicketDescriptionText() {
@@ -116,4 +128,4 @@ class TeacherProfileAccountInformationPage {
             .and('contain', "Subjects")
     }
 }
-module.exports = new TeacherProfileAccountInformationPage() 
+module.exports = new TeacherProfileAccountInformationAndSupportPage() 

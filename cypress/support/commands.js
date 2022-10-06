@@ -86,6 +86,11 @@ Cypress.Commands.add('isEnabled', (element) => {
   element.should('be.enabled')
 })
 
+//This command is to verify the length of the element
+Cypress.Commands.add('haveLength', (element, length) => {
+  element.should('have.length', length)
+})
+
 //This command is to verify the element is Disabled
 Cypress.Commands.add('isDisabled', (element) => {
   element.should('be.disabled')

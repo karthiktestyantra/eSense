@@ -25,6 +25,7 @@
     "section1Subjects": "Tamil,English I,EVS III,English I,Social Science",
     "section2Subjects": "Tamil,Social Science,political Science Edited Now",
     "wordsCount": "500/500 Characters",
-    "requestSentSuccessMsg1": "Request Sent Successfully",
-    "requestSentSuccessMsg2": "Your change request for the ‘Academic Details’ has been sent to the school administration."
+    "requestSentSuccessMsg": "Request Sent Successfully",
+    "requestSentSuccessMsgBasic": "Your change request for the ‘Basic Details’ has been sent to the school administration.",
+    "requestSentSuccessMsgAcademic": "Your change request for the ‘Academic Details’ has been sent to the school administration."
 }

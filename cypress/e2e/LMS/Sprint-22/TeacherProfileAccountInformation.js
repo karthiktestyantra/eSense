@@ -1,9 +1,10 @@
 const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
 const teacherProfileAccountInformationPage = require("../../../support/pageObjects/LMS-2/TeacherProfileAccountInformationPage")
-var randomstring = require("randomstring");
+var randomstring = require("randomstring")
 
 describe("Verify Teacher Profile Account Information Functionalities - Sprint 22(EL-6285)", function () {
 
+    let ticketDetails
     before(function () {
         cy.visit(Cypress.env("urlQAPreSetup"))
         cy.fixture("LMS/TeacherLoginCredentials").then(function (validLoginData) {
@@ -138,10 +139,11 @@ describe("Verify Teacher Profile Account Information Functionalities - Sprint 22
     it("EL-6286/ES6268-05 Validate Text box accepts only 500 Alphanumeric characters", function () {
         teacherProfileAccountInformationPage.getTellUsBitMoreTextFieldRequestChangePopUp().type(randomstring.generate(520))
         cy.verifyTextEquals(teacherProfileAccountInformationPage.getWordsCountTextRequestChangePopUp(), this.teacherProfileAccountInformation.wordsCount)
-        teacherProfileAccountInformationPage.getTellUsBitMoreTextFieldRequestChangePopUp().clear().type('Automation Testing ' + '[' + randomstring.generate({
+        ticketDetails = 'Automation Testing ' + '[' + randomstring.generate({
             length: 15,
             charset: 'numeric'
-        }) + ']')
+        }) + ']'
+        teacherProfileAccountInformationPage.getTellUsBitMoreTextFieldRequestChangePopUp().clear().type(ticketDetails)
     })
 
     it("EL-6286/ES6268-06 Validate Send request option is enabled after user fills all the details", function () {
@@ -150,10 +152,17 @@ describe("Verify Teacher Profile Account Information Functionalities - Sprint 22
         teacherProfileAccountInformationPage.getSubmitBtnRequestChangePopUp().click()
     })
 
-    it("EL-6286/ES6268-07 Validate successful pop-up message is displayed as “Request Sent Successfully” followed by “Your change request for the ‘Basic/Academic details’ has been sent to the School Admin”.", function () {
+    it("EL-6286/ES6268-07,ES6268-10,ES6268-11 Validate successful pop-up message is displayed as “Request Sent Successfully” followed by “Your change request for the ‘Basic/Academic details’ has been sent to the School Admin”.", function () {
         cy.isVisible(teacherProfileAccountInformationPage.getRequestSentSuccessMsg().contains(this.teacherProfileAccountInformation.requestSentSuccessMsg1))
         cy.isVisible(teacherProfileAccountInformationPage.getRequestSentSuccessMsg().contains(this.teacherProfileAccountInformation.requestSentSuccessMsg2))
         teacherProfileAccountInformationPage.getRequestChangePopUpCloseIcon().click()
+        cy.isVisible(teacherProfileAccountInformationPage.getRequestChangeBtnInBasicAndAcademicDetails())
+        teacherProfileAccountInformationPage.getRequestChangePopUpBody().should('not.exist')
+    })
+
+    it("EL-6286/ES6268-09 Validate the raised requests is displayed in the support ticket list with the ticket number generated.", function () {
+        teacherProfileAccountInformationPage.getSupportAndFeedbackTab().click()
+        cy.verifyTextEquals(teacherProfileAccountInformationPage.getTicketDescriptionText().eq(0), ticketDetails)
     })
 
 })

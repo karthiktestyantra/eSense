@@ -28,6 +28,14 @@ class TeacherProfileAccountInformationPage {
         return cy.get('#rc_content')
     }
 
+    getSupportAndFeedbackTab() {
+        return cy.get('[href="/teacher/account-info/support"]')
+    }
+
+    getTicketDescriptionText() {
+        return cy.xpath('//div[@class="supportAndFeedTable"]//td/div[text()]')
+    }
+
     getRequestSentSuccessMsg() {
         return cy.xpath('//div[@class="report-content"]/p')
     }

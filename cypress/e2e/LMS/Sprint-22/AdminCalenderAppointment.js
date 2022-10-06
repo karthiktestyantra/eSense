@@ -1,7 +1,7 @@
 const adminDashboardPage = require('../../../support/pageObjects/LMS-2/AdminDashboardPage')
 const adminCalenderHomePage = require('../../../support/pageObjects/LMS-2/AdminCalenderHomePage')
 const dayjs = require('dayjs')
-describe("Verify admin calender Appointment functionalities - Sprint 21(EL-375)", function () {
+describe("Verify admin calender Appointment functionalities - Sprint 21(EL-375,EL-6267,EL-6268)", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlMain'))

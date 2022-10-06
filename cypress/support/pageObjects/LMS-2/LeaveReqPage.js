@@ -30,6 +30,54 @@ class LeaveReqPage {
         return cy.get('button.MuiPickersDay-dayWithMargin')
     }
 
+    getAdminSupportTicket() {
+        return cy.get('div.side-nav-icon img[src="/static/media/teacher-inquiry.8070efbd.svg"]')
+    }
+
+    getTeacherLeaveReq() {
+        return cy.get('a.ClassDashboard_routeDesign__2n_Xy')
+    }
+
+    getTeacherLeaveReqDetails() {
+        return cy.get('tbody.MuiTableBody-root tr.MuiTableRow-root ')
+    }
+
+    getTeacherLeaveApproveStatusBtn() {
+        return cy.get('button.approve')
+    }
+
+    getTeacherLeaveApprovedStatus() {
+        return cy.get('div.supportAndFeedTableStatus button')
+    }
+
+    getTeacherLeaveRejectedStatus() {
+        return cy.get('div.supportAndFeedTableStatus button')
+    }
+
+    getTeacherSearchATicket() {
+        return cy.get('input.MuiInputBase-inputTypeSearch')
+    }
+
+    getTeacherStatusFilter() {
+        return cy.get('#demo-simple-select')
+    }
+
+    getTeacherStatusFilterDetails() {
+        return cy.get('ul.MuiList-padding li')
+    }
+
+    getTeacherLeaveRejectStatusBtn() {
+        return cy.get('button.reject')
+    }
+
+    getTeacherLeaveRejectReason() {
+        return cy.get('textarea[data-testid="reson box"]')
+    }
+
+    getTeacherLeaveRejectpopupBtn() {
+        return cy.get('div.rejForResBlkHead button.reject')
+    }
+
     getTeacherSendReqBtn() {
         return cy.get('button.leaveRqtAction').contains('Send Request')
     }

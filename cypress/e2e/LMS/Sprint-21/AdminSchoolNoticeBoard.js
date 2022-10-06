@@ -265,7 +265,6 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         })
     })
     it('EL-6044/ES6044_9 Validate Notices created for the Specific members is displayed in Private Notice board', function () {
-        quickLinksPage.getSchoolBtn()
         quickLinksPage.getAddNoticeBtn().click()
         quickLinksPage.getCreateNewNoticeTitle().type(this.Notice.NoticeTitle)
         quickLinksPage.getCreateNewNoticeTypeDropdown().click()

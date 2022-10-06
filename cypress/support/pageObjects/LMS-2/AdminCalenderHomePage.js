@@ -61,13 +61,16 @@ class AdminCalenderHomePage{
         return cy.get('.css-tzsjye').eq(1)
     }
     getCreateAppointmentAppointmentType(){
-        return cy.get('.MuiFormControl-root > :nth-child(2) > .MuiOutlinedInput-root > #demo-simple-select')
+        return cy.get('.MuiFormControl-root > :nth-child(2) > .MuiOutlinedInput-root > #demo-simple-select').eq(0)
     }
     getCreateAppointmentAppointmentTypeOnlineOpt(){
-        return cy.get('.MuiList-root > [tabindex="0"]')
+        return cy.get('li[data-value="ONLINE"]')
+    }
+    getCreateAppointmentAppointmentTypeOfflineOpt(){
+        return cy.get('li[data-value="OFFLINE"]')
     }
     getCreateAppointmentMeetingLink(){
-        return cy.get('#mui-11')
+        return cy.get('input[class="MuiOutlinedInput-input MuiInputBase-input css-1x5jdmq"]').eq(1)
     }
     getCreateAppointmentSaveAppointmentBtn(){
         return cy.contains('Save Appointment')
@@ -104,6 +107,39 @@ class AdminCalenderHomePage{
     }
     getCreateAppointmentAttendeesCount(){
         return cy.get('.crtLivePplList  span')
+    }
+    getCreateAppointmentAdminBtn(){
+        return cy.get('.MuiTab-textColorPrimary').eq(2)
+    }
+    getCreateAppoinmentAdminList(){
+        return cy.get('[class="d-flex txtcenter"]')
+    }
+    getCreateAppointmentDateTextfield(){
+        return cy.get('input.MuiInputBase-inputAdornedEnd').eq(0)
+    }
+    getCreateAppointmentStartTimeTextfield(){
+        return cy.get('input.MuiInputBase-inputAdornedEnd').eq(1)
+    }
+    getCreateAppointmentEndTimeTextfield(){
+        return cy.get('input.MuiInputBase-inputAdornedEnd').eq(2)
+    }
+    getCreateAppointmentLocationDropdown(){
+        return cy.get(':nth-child(8) > .MuiFormControl-root > :nth-child(2) > .MuiOutlinedInput-root > #demo-simple-select')
+    }
+    getCreateAppointmentLocationRoomList(){
+        return cy.get('li.MuiButtonBase-root')
+    }
+    getCreateAppointmentLocationOfficeOpt(){
+        return cy.contains('office')
+    }
+    getCreateAppointmentStudentTab(){
+        return cy.get('.MuiTab-textColorPrimary').contains('Students')
+    }
+    getCreateAppointmentGreadsDropDown(){
+        return cy.xpath('//div[@id="grouped-select"]')
+    }
+    getCreateAppointmentSectionsDropDown(){
+        return cy.get('[id="demo-simple-select"]').eq(0)
     }
 }
 module.exports=new AdminCalenderHomePage()

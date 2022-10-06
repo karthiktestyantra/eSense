@@ -24,21 +24,21 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
             quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().check()
             quickLinksPage.getCreateNewNoticeEntireSchoolRedioBtn().check()
             quickLinksPage.getCreateNewNoticeSendBtn().click()
-            quickLinksPage.getEditBtn().should('be.visible')
+            cy.isVisible(quickLinksPage.getEditBtn())
         }
     })
     it('EL-6151/ES6151_2 Validate user click on "Edit" option "Save & Send" button, "Cancel" button and "X" icon is displayed', function () {
         cy.wait(2000)
         quickLinksPage.getEditBtn().click()
         cy.wait(2000)
-        quickLinksPage.getCreateNewNoticeSaveAndSendBtn().scrollIntoView().should('be.visible')
-        quickLinksPage.getCreateNewNoticeCancelBtn().scrollIntoView().should('be.visible')
-        quickLinksPage.getCreateNewNoticeXBtn().should('be.visible')
+        cy.isVisible(quickLinksPage.getCreateNewNoticeSaveAndSendBtn().scrollIntoView())
+        cy.isVisible(quickLinksPage.getCreateNewNoticeCancelBtn().scrollIntoView())
+        cy.isVisible(quickLinksPage.getCreateNewNoticeXBtn())
     })
     it('EL-6151/ES6151_3  Validate "Notice Title" attribute with text field, "Notice Type" attribute with Drop Down Arrow and "Description" attribute is present with text box', function () {
-        quickLinksPage.getCreateNewNoticeTitle().scrollIntoView().should('be.visible')
-        quickLinksPage.getCreateNewNoticeTypeDropdown().should('be.visible')
-        quickLinksPage.getCreateNewNoticeDescriptionTextareafield().should('be.visible')
+        cy.isVisible(quickLinksPage.getCreateNewNoticeTitle().scrollIntoView())
+        cy.isVisible(quickLinksPage.getCreateNewNoticeTypeDropdown())
+        cy.isVisible(quickLinksPage.getCreateNewNoticeDescriptionTextareafield())
     })
     it('EL-6151/ES6151_4 Validate "Description" text box is accepting Alphabet,Numbers and Special Characters', function () {
         quickLinksPage.getCreateNewNoticeDescriptionTextareafield().scrollIntoView().clear().type(this.Notice.Alphanumaric)
@@ -48,9 +48,9 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
     })
     it('EL-6151/ES6151_6 Validate when clicked on drop down next to "Notice Type" is displaying Tags', function () {
         quickLinksPage.getCreateNewNoticeTypeDropdown().click()
-        quickLinksPage.getCreateNewNoticeTypeGeneralOpt().should('be.visible')
-        quickLinksPage.getCreateNewNoticeTypeImportantOpt().should('be.visible')
-        quickLinksPage.getCreateNewNoticeTypeOthersOpt().should('be.visible')
+        cy.isVisible(quickLinksPage.getCreateNewNoticeTypeGeneralOpt())
+        cy.isVisible(quickLinksPage.getCreateNewNoticeTypeImportantOpt())
+        cy.isVisible(quickLinksPage.getCreateNewNoticeTypeOthersOpt())
         quickLinksPage.getCreateNewNoticeTypeGeneralOpt().click()
     })
     it('EL-6151/ES6151_7 Validate Radio button is present for Attribute "Publish Right now" and "Publish later on"', function () {
@@ -65,7 +65,7 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
     it('EL-6151/ES6151_9 Validate when the Radio button for "Publish later on" attribute is selected calendar icon is displayed', function () {
         quickLinksPage.getCreateNewNoticePublishLaterOnRedioBtn().check()
         cy.wait(2000)
-        quickLinksPage.getCreateNewNoticeCalenderIcon().should('be.visible')
+        cy.isVisible(quickLinksPage.getCreateNewNoticeCalenderIcon())
     })
     it('EL-6151/ES6151_10 Validate the Radio button for "Publish Right now" attribute is selected no calendar icon is displayed', function () {
         quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().check()
@@ -82,7 +82,7 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
     it('EL-6151/ES6151_13 Validate user click on "+Add Member" button, list of members are displayed', function () {
         quickLinksPage.getCreateNewNoticeAddMembersBtn().click()
         quickLinksPage.getCreateNewNoticeTeacherTab().click()
-        quickLinksPage.getCreateNewNoticemembersList().should('be.visible')
+        cy.isVisible(quickLinksPage.getCreateNewNoticemembersList())
         quickLinksPage.getCreateNewNoticeSaveBtn().click()
     })
     it('EL-6151/ES6151_14 Validate the Radio button for "Entire School" attribute is selected "+Add Member" button is disabled.', function () {
@@ -107,28 +107,28 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         quickLinksPage.getCreateNewNoticeSaveAndSendBtn().click()
     })
     it('EL-6151/ES6151_18 Validate user click on "Save & Send", a successful pop-up is displayed saying “Notice published successfully” and, the user is redirected to the School notice board.', function () {
-        cy.contains(this.Notice.ConformetionMessage).should('be.visible')
+        cy.isVisible(cy.contains(this.Notice.ConformetionMessage))
         cy.wait(2000)
     })
     it('EL-6151/ES6151_19 Validate user clicks on "Cancel" button no changes are saved and the user is re-directed to the School notice board.', function () {
         quickLinksPage.getEditBtn().click()
         cy.wait(2000)
         quickLinksPage.getCreateNewNoticeCancelBtn().scrollIntoView().click()
-        quickLinksPage.getSchoolNoticeBoardTab().should('be.visible')
+        cy.isVisible(quickLinksPage.getSchoolNoticeBoardTab())
     })
     it('EL-6151/ES6151_20 Validate user clicks on X, user is re-directed to the School Notice Board..', function () {
         cy.wait(2000)
         quickLinksPage.getEditBtn().click()
         cy.wait(2000)
         quickLinksPage.getCreateNewNoticeXBtn().click()
-        quickLinksPage.getSchoolNoticeBoardTab().should('be.visible')
+        cy.isVisible(quickLinksPage.getSchoolNoticeBoardTab())
     })
     it('EL-6152/ES6152_1 Validate user is able to view the "Delete" icon in the “Action” column in the School Notice Board/ Private Notice Board screen.', function () {
-        quickLinksPage.getDeleteBtn().should('be.visible')
+        cy.isVisible(quickLinksPage.getDeleteBtn())
     })
     it('EL-6152/ES6152_3 Validate user clicks on delete, a confirmation pop-up is displayed stating “Are you sure you want to delete the notice?”', function () {
         quickLinksPage.getDeleteBtn().click()
-        cy.contains(this.Notice.DeleteMessage).should('be.visible')
+        cy.isVisible(cy.contains(this.Notice.DeleteMessage))
         quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
     })
     it('EL-6152/ES6152_5 Validate the user clicks on "Cancel" button user is re-directed to the School Notice Board/ Private Notice Board screen.', function () {
@@ -143,7 +143,7 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         quickLinksPage.getSchoolNoticeBoardTab().click()
         quickLinksPage.getDeleteBtn().click()
         quickLinksPage.getCreateNewNoticeDeletePopupCancelBtn().click()
-        quickLinksPage.getSchoolNoticeBoardTab().should('be.visible')
+        cy.isVisible(quickLinksPage.getSchoolNoticeBoardTab())
     })
     it('EL-6152/ES6152_6 Validate the user clicks on "X" icon user is re-directed to the School Notice Board/ Private Notice Board screen.', function () {
         quickLinksPage.getAddNoticeBtn().click()
@@ -157,49 +157,49 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         quickLinksPage.getSchoolNoticeBoardTab().click()
         quickLinksPage.getDeleteBtn().click()
         quickLinksPage.getCreateNewNoticeDeletePopupXBtn().click()
-        quickLinksPage.getSchoolNoticeBoardTab().should('be.visible')
+        cy.isVisible(quickLinksPage.getSchoolNoticeBoardTab())
     })
     it('EL-6044/ES6044_1 Validate user is able to view the list of notices below the Quick Links section on the School screen', function () {
         quickLinksPage.getSchoolNoticeBoardTab().click()
-        quickLinksPage.getNoticeList().should('be.visible')
+        cy.isVisible(quickLinksPage.getNoticeList())
     })
     it('EL-6044/ES6044_2 Validate Month and Date is displayed on the notice card.', function () {
-        quickLinksPage.getNoticeListDate().should('be.visible')
-        quickLinksPage.getNoticeListMonth().should('be.visible')
+        cy.isVisible(quickLinksPage.getNoticeListDate())
+        cy.isVisible(quickLinksPage.getNoticeListMonth())
     })
     it('EL-6044/ES6044_3 Validate Title of the notice is displayed on the notice card', function () {
-        quickLinksPage.getNoticeListTitle().should('be.visible')
+        cy.isVisible(quickLinksPage.getNoticeListTitle())
     })
     it('EL-6044/ES6044_4 Validate tags are displayed on the notice card as Important / General/ Other Tags(as per the input by the user)', function () {
-        quickLinksPage.getNoticeListTags().should('be.visible')
+        cy.isVisible(quickLinksPage.getNoticeListTags())
     })
     it('EL-6044/ES6044_5 Validate Public with icon is displayed for School Notice Board', function () {
-        quickLinksPage.getNoticeListPublicWithIcon().should('be.visible')
+        cy.isVisible(quickLinksPage.getNoticeListPublicWithIcon())
     })
     it('EL-6044/ES6044_7 Validate Private (counts) with icon is displayed for the Private Notice Board', function () {
         quickLinksPage.getPrivateNoticeBoardTab().click()
-        quickLinksPage.getNoticeListPrivateWithIcon().should('be.visible')
+        cy.isVisible(quickLinksPage.getNoticeListPrivateWithIcon())
     })
     it('EL-6044/ES6044_8 Validate On clicking “Private (counts)" icon the user is able to view all the members.', function () {
         quickLinksPage.getNoticeListPrivateWithIcon().eq(0).click()
-        quickLinksPage.getNoticeListPrivateMembers().should('be.visible')
+        cy.isVisible(quickLinksPage.getNoticeListPrivateMembers())
         cy.get('body').click()
     })
     it('EL-6044/ES6044_12 Validate Action button (Edit/ Delete) is present in the each card', function () {
         quickLinksPage.getSchoolNoticeBoardTab().click()
-        quickLinksPage.getDeleteBtn().should('be.visible')
-        quickLinksPage.getEditBtn().should('be.visible')
+        cy.isVisible(quickLinksPage.getDeleteBtn())
+        cy.isVisible(quickLinksPage.getEditBtn())
     })
     it('EL-6044/ES6044_13 Validate user clicks on "Sort by Dropdown arrow" (All/ General / Important) is displaying', function () {
         quickLinksPage.getSortDropdown().click()
-        quickLinksPage.getSortDropdownALLOpt().should('be.visible')
-        quickLinksPage.getSortDropdownGeneralOpt().should('be.visible')
-        quickLinksPage.getSortDropdownImportantOpt().should('be.visible')
+        cy.isVisible(quickLinksPage.getSortDropdownALLOpt())
+        cy.isVisible(quickLinksPage.getSortDropdownGeneralOpt())
+        cy.isVisible(quickLinksPage.getSortDropdownImportantOpt())
         cy.get('body').click()
     })
     it('EL-6044/ES6044_14 Validate Search textbox is present with a placeholder "Search Notice"', function () {
-        quickLinksPage.getSearchBox().should('be.visible')
-        quickLinksPage.getCalenderIcon().should('be.visible')
+        cy.isVisible(quickLinksPage.getSearchBox())
+        cy.isVisible(quickLinksPage.getCalenderIcon())
     })
     it('EL-6044/ES6044_17 Validate only 3 Notice Cards are displayed per page(Pagination should be there).', function () {
         quickLinksPage.getNoticeList().should('have.length', 3)
@@ -238,11 +238,11 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         quickLinksPage.getCreateNewNoticeEntireSchoolRedioBtn().check()
         quickLinksPage.getCreateNewNoticeSendBtn().click()
         quickLinksPage.getSchoolNoticeBoardTab()
-        quickLinksPage.getReadMoreLink().should('be.visible')
+        cy.isVisible(quickLinksPage.getReadMoreLink())
     })
     it('EL-6044/ES6044_11 Validate when user clicks on "read more", he is able to read the full description on the same card.', function () {
         quickLinksPage.getReadMoreLink().click()
-        quickLinksPage.getNoticeDescription().should('be.visible')
+        cy.isVisible(quickLinksPage.getNoticeDescription())
         quickLinksPage.getSchoolNoticeBoardTab().click()
         quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
             const txt = $e1.text()

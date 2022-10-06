@@ -6,5 +6,5 @@
     "appointmentSaveConfermationMessage":"Appointment Saved",
     "appiontmentDeleteConfermation":"Are you sure you want to delete the Appointment?",
     "appointmentDeletedConfermationMessage":"The Appointment has been deleted.",
-    "Appointment50CharecterAlphanumeric":"asdfghjkl123456789zxcvbnmasdfghfbfrvbrvvbrtbvtgrfertyuio1234567d"
+    "AppointmentCreateConfermationMassage":"Appointment Created"
 }

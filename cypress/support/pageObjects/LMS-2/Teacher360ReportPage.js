@@ -104,5 +104,8 @@ class Teacher360ReportPage {
    getSubPerformanceRanktxt() {
       return cy.get('div.StudentDetails_prevStdMyCompTableCompt__3HYpf p')
    }
+   getStudsent360ReportTitle(){
+      return cy.get('.StudentDetails_stdDetailHeadTitle__B4ncp')
+   }
 }
 module.exports = new Teacher360ReportPage() 

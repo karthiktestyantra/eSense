@@ -118,6 +118,10 @@ class TeacherCalenderPage {
         return cy.get('button.leaveRqtAction')
     }
 
+    getCreateLiveClassTitle(){
+        return cy.get('.class_title_popup')
+    }
+
     //Buiness logic
 
     clickOnStartSessionBtn() {

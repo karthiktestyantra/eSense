@@ -4,7 +4,7 @@ const teacherProfileAccountInformationAndSupportPage = require("../../../support
 var randomstring = require("randomstring")
 const dayjs = require('dayjs')
 
-describe("Verify Teacher Profile Account Information and Support&Feedback Functionalities - Sprint 22(EL-6285,EL-6286,EL-6331)", function () {
+describe("Verify Teacher Profile Account Information and Support&Feedback Functionalities - Sprint 22(EL-6285,EL-6286,EL-6331)", function () { 
 
     let accountDetails
     let ticketDetails
@@ -163,8 +163,8 @@ describe("Verify Teacher Profile Account Information and Support&Feedback Functi
         cy.get('@accountDetails').then((accDetails) => {
             accountDetails = accDetails
         })
-        //teacherProfileAccountInformationAndSupportPage.getTellUsBitMoreTextFieldRequestChangePopUp().type(randomstring.generate(520))
-        // cy.verifyTextEquals(teacherProfileAccountInformationAndSupportPage.getWordsCountTextRequestChangePopUp(), this.teacherProfileAccountInformation.wordsCount)
+        teacherProfileAccountInformationAndSupportPage.getTellUsBitMoreTextFieldRequestChangePopUp().type(randomstring.generate(520))
+        cy.verifyTextEquals(teacherProfileAccountInformationAndSupportPage.getWordsCountTextRequestChangePopUp(), this.teacherProfileAccountInformation.wordsCount)
         ticketDetails = 'Automation Testing ' + '[' + randomstring.generate({
             length: 10,
             charset: 'numeric'

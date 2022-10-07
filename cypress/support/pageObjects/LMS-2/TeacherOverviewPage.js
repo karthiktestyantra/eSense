@@ -1,3 +1,5 @@
+const cypress = require("cypress")
+
 class TeacherOverviewPage{
     getWorkloadDetailstxt(){
         return cy.get('div.containerTop p')
@@ -31,6 +33,36 @@ class TeacherOverviewPage{
     }
     getCloseIconInCreateHomeworkPopup(){
         return cy.get('div.add_homework_class-wrapper svg.close-icon_notes')
+    }
+    getElAPageTitleTxt(){
+        return cy.get('.elalistheader').contains("Extended Learning Assignment")
+    }
+    getOverviewTab(){
+        return cy.get('button[role="tab"]').contains("Overview")
+    }
+    getMonthTxtInOverviewViewFullPopup(){
+        return cy.get('div.mbsc-calendar-controls div span.mbsc-calendar-month')
+    }
+    getNxtArrowIconInCalendarPopup(){
+        return cy.get('button.mbsc-calendar-button-next:visible')
+    }
+    getPrevArrowIconInCalendarPopup(){
+        return cy.get('button.mbsc-calendar-button-prev:visible')
+    }
+    getCloseIconInCalendarPopup(){
+        return cy.get('div svg.teaViewWrkLdClose:visible')
+    }
+    getStudentsTab(){
+        return cy.get('button[role="tab"]').contains("Students")
+    }
+    getRollNoCheckBx(){
+        return cy.get('span.chk-success input[aria-label="select all desserts"]')
+    }
+    getViewDetailsIconInStudentsTab(){
+        return cy.get('svg[data-testid="ArrowForwardIosIcon"]')
+    }
+    getRecentWorkloadtxtInViewdetail(){
+        return cy.get('div.TeacherProfile_tchPrfRcnWkLod__1TH_N p.TeacherProfile_tchPrfRcnWkLodTitle__3dm1M')
     }
 }
 module.exports = new TeacherOverviewPage() 

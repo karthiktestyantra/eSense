@@ -1,3 +1,5 @@
+const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
+
 class TeacherCalenderPage {
 
     getExamScheduledDay() {
@@ -80,6 +82,42 @@ class TeacherCalenderPage {
         return cy.get('.mt-0')
     }
 
+    getRequestLeaveButton() {
+        return cy.get('button.myCalRqtLev')
+    }
+
+    getReasonForLeaveRadioButton() {
+        return cy.get('[class*="mt-4 leaveRqtLeveType"] [type="radio"]')
+    }
+
+    getReasonForLeaveRadioButtonText() {
+        return cy.get('[class*="mt-4 leaveRqtLeveType"] p')
+    }
+
+    getReasonForLeaveOthersTextField() {
+        return cy.get('[class*="MuiInputBase-inputMultiline"][aria-invalid="false"]')
+    }
+
+    getLeaveTypeRadioButton() {
+        return cy.get('[data-testid*="DayRadio"] input')
+    }
+
+    getWhichHalfDropdown() {
+        return cy.get('#demo-simple-select')
+    }
+
+    getWhichHalfDropdownList() {
+        return cy.get('[role="option"]')
+    }
+
+    getWhenAbsentDatePopUp() {
+        return cy.get('input.MuiInputBase-inputAdornedEnd')
+    }
+
+    getLeaveSendRequestButton() {
+        return cy.get('button.leaveRqtAction')
+    }
+
     //Buiness logic
 
     clickOnStartSessionBtn() {
@@ -97,5 +135,50 @@ class TeacherCalenderPage {
         this.getGrade3A().eq(0).click({ force: true })
     }
 
+    verifyRequestLeave(requestSentSuccessMsg) {
+        teacherDashboardPage.clickOnMyCalenderLink()
+        this.getRequestLeaveButton().click()
+        cy.isVisible(cy.get('body').contains('Request Absence'))
+        let leave = [];
+        this.getReasonForLeaveRadioButton().then(($el) => {
+            const uuid = () => Cypress._.random(1, $el.length)
+            const index = uuid()
+            cy.wrap($el).eq(index - 1).click()
+            this.getReasonForLeaveRadioButtonText().eq(index - 1).then(($el) => {
+                var text = $el.text()
+                leave.push(text)
+            })
+            cy.wait(1000)
+            if (index == 5) {
+                this.getReasonForLeaveOthersTextField().type('Festival')
+            }
+        })
+        this.getLeaveTypeRadioButton().then(($el) => {
+            const uuid = () => Cypress._.random(1, $el.length)
+            const index = uuid()
+            cy.wrap($el).eq(index - 1).click()
+            cy.wait(1000)
+            if (index == 1) {
+                this.getWhichHalfDropdown().click()
+                this.getWhichHalfDropdownList().then(($el) => {
+                    const uuid = () => Cypress._.random(1, $el.length)
+                    const index = uuid()
+                    cy.wrap($el).eq(index - 1).click()
+                })
+                this.getWhenAbsentDatePopUp().click()
+                cy.focused().click()
+            } else if (index == 2) {
+                this.getWhenAbsentDatePopUp().eq(0).click()
+                cy.focused().click()
+                cy.wait(1000)
+                this.getWhenAbsentDatePopUp().eq(1).click()
+                cy.focused().click()
+            }
+        })
+        this.getLeaveSendRequestButton().click()
+        cy.wait(1000)
+        cy.isVisible(cy.get('body').contains(requestSentSuccessMsg))
+        return leave;
+    }
 }
 module.exports = new TeacherCalenderPage() 

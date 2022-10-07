@@ -1,4 +1,5 @@
 const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
+const teacherCalenderPage = require("../../../support/pageObjects/LMS-2/TeacherCalenderPage")
 const teacherProfileAccountInformationAndSupportPage = require("../../../support/pageObjects/LMS-2/TeacherProfileAccountInformationAndSupportPage")
 var randomstring = require("randomstring")
 const dayjs = require('dayjs')
@@ -159,11 +160,11 @@ describe("Verify Teacher Profile Account Information and Support&Feedback Functi
                 cy.wrap(accountDetails).as('accountDetails')
             }
         })
-        cy.get('@accountDetails').then((accountDetails) => {
-            accountDetails = accountDetails
+        cy.get('@accountDetails').then((accDetails) => {
+            accountDetails = accDetails
         })
-        teacherProfileAccountInformationAndSupportPage.getTellUsBitMoreTextFieldRequestChangePopUp().type(randomstring.generate(520))
-        cy.verifyTextEquals(teacherProfileAccountInformationAndSupportPage.getWordsCountTextRequestChangePopUp(), this.teacherProfileAccountInformation.wordsCount)
+        //teacherProfileAccountInformationAndSupportPage.getTellUsBitMoreTextFieldRequestChangePopUp().type(randomstring.generate(520))
+        // cy.verifyTextEquals(teacherProfileAccountInformationAndSupportPage.getWordsCountTextRequestChangePopUp(), this.teacherProfileAccountInformation.wordsCount)
         ticketDetails = 'Automation Testing ' + '[' + randomstring.generate({
             length: 10,
             charset: 'numeric'
@@ -205,10 +206,31 @@ describe("Verify Teacher Profile Account Information and Support&Feedback Functi
         cy.verifyTextContains(teacherProfileAccountInformationAndSupportPage.getTicketPopUpContents(), ticketDetails)
         accountDetails = accountDetails.split(' ')
         cy.verifyTextContains(teacherProfileAccountInformationAndSupportPage.getTicketPopUpContents(), accountDetails[0])
+        cy.verifyTextContains(teacherProfileAccountInformationAndSupportPage.getTicketPopUpContents(), 'Pending')
     })
 
     it("EL-6331/ES6331_3 Validate the status of Ticket is in Pending, When a leave request is pending for approval by School Admin", function () {
-        cy.verifyTextContains(teacherProfileAccountInformationAndSupportPage.getTicketPopUpContents(), 'Pending')
+        let leave = teacherCalenderPage.verifyRequestLeave(this.teacherProfileAccountInformation.requestSentSuccessMsg)
+        cy.forceClick(teacherDashboardPage.getMyProfileLink())
+        cy.wait(1000)
+        cy.forceClick(teacherDashboardPage.getMyProfileAccountInformationLink())
+        cy.wait(1000)
+        teacherProfileAccountInformationAndSupportPage.getLeaveRequestTab().click()
+        cy.verifyTextEquals(teacherProfileAccountInformationAndSupportPage.getStartDateForLeaveInTab().eq(0), dayjs().format("DD" + "/" + "MM" + "/" + "YYYY"))
+        cy.verifyTextContains(teacherProfileAccountInformationAndSupportPage.getReasonForLeaveTextInTab().eq(0), leave)
+        cy.verifyTextEquals(teacherProfileAccountInformationAndSupportPage.getLeaveRequestStatusTab().eq(0), 'Pending')
+    })
+
+    it("EL-6331/ES6331_3 Validate the status of Ticket is in Pending, When a leave request is pending for approval by School Admin", function () {
+        let leave = teacherCalenderPage.verifyRequestLeave(this.teacherProfileAccountInformation.requestSentSuccessMsg)
+        cy.forceClick(teacherDashboardPage.getMyProfileLink())
+        cy.wait(1000)
+        cy.forceClick(teacherDashboardPage.getMyProfileAccountInformationLink())
+        cy.wait(1000)
+        teacherProfileAccountInformationAndSupportPage.getLeaveRequestTab().click()
+        cy.verifyTextEquals(teacherProfileAccountInformationAndSupportPage.getStartDateForLeaveInTab().eq(0), dayjs().format("DD" + "/" + "MM" + "/" + "YYYY"))
+        cy.verifyTextContains(teacherProfileAccountInformationAndSupportPage.getReasonForLeaveTextInTab().eq(0), leave)
+        cy.verifyTextEquals(teacherProfileAccountInformationAndSupportPage.getLeaveRequestStatusTab().eq(0), 'Pending')
     })
 
 })

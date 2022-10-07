@@ -40,12 +40,28 @@ class TeacherProfileAccountInformationAndSupportPage {
         return cy.get('[class*="SupportList_ticketId"] p')
     }
 
+    getStartDateForLeaveInTab() {
+        return cy.xpath('//div[@class="supportAndFeedTable"]//td[text()][2]')
+    }
+
+    getLeaveRequestStatusTab() {
+        return cy.xpath('//div[@class="supportAndFeedTableStatus"]/p')
+    }
+
     getTicketPopUpContents() {
         return cy.get('h4')
     }
 
+    getLeaveRequestTab() {
+        return cy.xpath('//a[.="Leave Request"]')
+    }
+
     getTicketDescriptionText() {
         return cy.xpath('//div[@class="supportAndFeedTable"]//td/div[text()]')
+    }
+
+    getReasonForLeaveTextInTab() {
+        return cy.xpath('//div[@class="supportAndFeedTable"]//td[text()][4]')
     }
 
     getRequestSentSuccessMsg() {

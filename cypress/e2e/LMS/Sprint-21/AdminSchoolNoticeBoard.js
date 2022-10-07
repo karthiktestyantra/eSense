@@ -55,8 +55,8 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
     })
     it('EL-6151/ES6151_7 Validate Radio button is present for Attribute "Publish Right now" and "Publish later on"', function () {
         cy.wait(2000)
-        quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().should('be.enabled')
-        quickLinksPage.getCreateNewNoticePublishLaterOnRedioBtn().should('be.enabled')
+        cy.isEnabled(quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn())
+        cy.isEnabled(quickLinksPage.getCreateNewNoticePublishLaterOnRedioBtn())
     })
     it('EL-6151/ES6151_8 Validate user is not able to select two radio buttons at a time', function () {
         quickLinksPage.getCreateNewNoticePublishRightNowRedioBtn().check().should('be.checked')
@@ -72,12 +72,12 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         quickLinksPage.getCreateNewNoticeCalenderIcon().should('not.be.enabled')
     })
     it('EL-6151/ES6151_11 Validate Radio button is present for Attribute "Entire School " and "Specific Members"', function () {
-        quickLinksPage.getCreateNewNoticeEntireSchoolRedioBtn().should('be.enabled')
-        quickLinksPage.getCreateNewNoticeSpecificMembersRedioBtn().should('be.enabled')
+        cy.isEnabled(quickLinksPage.getCreateNewNoticeEntireSchoolRedioBtn())
+        cy.isEnabled(quickLinksPage.getCreateNewNoticeSpecificMembersRedioBtn())
     })
     it('EL-6151/ES6151_12 Validate when the Radio button for "Specific Members" attribute is selected "+Add Member" button is enabled.', function () {
         quickLinksPage.getCreateNewNoticeSpecificMembersRedioBtn().check()
-        quickLinksPage.getCreateNewNoticeAddMembersBtn().should('be.enabled')
+        cy.isEnabled(quickLinksPage.getCreateNewNoticeAddMembersBtn())
     })
     it('EL-6151/ES6151_13 Validate user click on "+Add Member" button, list of members are displayed', function () {
         quickLinksPage.getCreateNewNoticeAddMembersBtn().click()
@@ -183,10 +183,10 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
     it('EL-6044/ES6044_8 Validate On clicking “Private (counts)" icon the user is able to view all the members.', function () {
         quickLinksPage.getNoticeListPrivateWithIcon().eq(0).click()
         cy.isVisible(quickLinksPage.getNoticeListPrivateMembers())
-        cy.get('body').click()
+        cy.clickOnBody()
     })
     it('EL-6044/ES6044_12 Validate Action button (Edit/ Delete) is present in the each card', function () {
-        quickLinksPage.getSchoolNoticeBoardTab().click()
+        quickLinksPage.getSchoolNoticeBoardTab().click({force:true})
         cy.isVisible(quickLinksPage.getDeleteBtn())
         cy.isVisible(quickLinksPage.getEditBtn())
     })
@@ -195,7 +195,7 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         cy.isVisible(quickLinksPage.getSortDropdownALLOpt())
         cy.isVisible(quickLinksPage.getSortDropdownGeneralOpt())
         cy.isVisible(quickLinksPage.getSortDropdownImportantOpt())
-        cy.get('body').click()
+        cy.clickOnBody()
     })
     it('EL-6044/ES6044_14 Validate Search textbox is present with a placeholder "Search Notice"', function () {
         cy.isVisible(quickLinksPage.getSearchBox())
@@ -262,6 +262,8 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
                 quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
                 cy.wait(4000)
             }
+            quickLinksPage.getSchoolNoticeBoardTab().click()
+            quickLinksPage.getPrivateNoticeBoardTab().click()
         })
     })
     it('EL-6044/ES6044_9 Validate Notices created for the Specific members is displayed in Private Notice board', function () {
@@ -282,9 +284,10 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         quickLinksPage.getCreateNewNoticeSendBtn().click()
         quickLinksPage.getPrivateNoticeBoardTab().click()
         quickLinksPage.getNoticeListPublicWithIcon().click()
+        cy.wait(10000)
         cy.get('.top-cls').then(function ($elem) { txt.push($elem.text()) })
         txt[0] == txt[1]
-        cy.get('body').click()
+        cy.clickOnBody()
         quickLinksPage.getNoticeListTitle().each(($e1, index, $list) => {
             const txt = $e1.text()
             if (txt.includes("Test automation")) {
@@ -293,6 +296,7 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
                 quickLinksPage.getCreateNewNoticeDeletePopupDeleteNoticeBtn().click()
                 cy.wait(4000)
             }
+
         })
     })
     it('EL-6044/ES6044_16 Validate user select the particular date, user is able to view notices on that particular date', function () {

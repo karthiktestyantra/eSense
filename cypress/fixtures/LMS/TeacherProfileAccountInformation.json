@@ -27,17 +27,5 @@
     "wordsCount": "500/500 Characters",
     "requestSentSuccessMsg": "Request Sent Successfully",
     "requestSentSuccessMsgBasic": "Your change request for the ‘Basic Details’ has been sent to the school administration.",
-    "requestSentSuccessMsgAcademic": "Your change request for the ‘Academic Details’ has been sent to the school administration.",
-    "month01" : "January",
-    "month02" : "February",
-    "month03" : "March",
-    "month04" : "April",
-    "month05" : "May",
-    "month06" : "June",
-    "month07" : "July",
-    "month08" : "August",
-    "month09" : "September",
-    "month10" : "October",
-    "month11" : "November",
-    "month12" : "December"
+    "requestSentSuccessMsgAcademic": "Your change request for the ‘Academic Details’ has been sent to the school administration."
 }

@@ -314,3 +314,6 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         quickLinksPage.getCalenderIconDate().contains('20').click()
     })
 })
+
+
+//Author - Manohara

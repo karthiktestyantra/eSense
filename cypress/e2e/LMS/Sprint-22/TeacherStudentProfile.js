@@ -120,3 +120,6 @@ describe("Verify Teacher Student Profile  Functionalities - Sprint 22(EL-6131)",
         teacherMyclassesStudentPage.getStudentTeacherRemarks().scrollIntoView().should('be.visible')
     })
 })
+
+
+//Author - Manohara

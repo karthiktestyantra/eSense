@@ -2,6 +2,7 @@ class TeacherMyclassesStudentPage{
     getStudentTab(){
         return cy.get('button.MuiTab-textColorPrimary').contains('Students')
     }
+    
     getStudentRightArrowBtn(){
         return cy.get('[data-testid="ArrowForwardIosIcon"]').eq(0)
     }

@@ -116,7 +116,7 @@ describe("Verify Teacher Calender functionalities", function () {
 
     it('To validate preview and Downalod options is displayed against each file/EL-6984/ES6984-04', function () {
         teacherClassGradePage.validateHomeworkPreviewIcon()
-        // teacherClassGradePage.validateHomeworkDownloadIcon()
+        teacherClassGradePage.validateHomeworkDownloadIcon()
     })
 
     it('To validate Homework attachment list consist of Homework title,created date ,count of attachments/EL-6984/ES6984-05', function () {
@@ -137,7 +137,7 @@ describe("Verify Teacher Calender functionalities", function () {
 
     it('To validate individual resources is downloaded after user clicks on download/EL-6984/ES6984-07', function () {
         teacherClassGradePage.clickOnHomeworkTab()
-        // teacherClassGradePage.getHomeworkDownloadIcon().click()
+        teacherClassGradePage.getHomeworkDownloadIcon().click()
     })
 
     it('To validate Download all button is available in homeworktab and user is able to download the homework/EL-6984/ES6984-03', function () {
@@ -161,3 +161,8 @@ describe("Verify Teacher Calender functionalities", function () {
     // resource should be present
     // homework should be present
     // lesson plan should be present
+
+
+
+
+    //Author - Manohara

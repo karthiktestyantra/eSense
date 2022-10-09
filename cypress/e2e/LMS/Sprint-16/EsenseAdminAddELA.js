@@ -44,11 +44,11 @@ describe("Verify Esense Admin Main add ELA functionalities", function () {
         // })
 
         // it("Validate that user is able to Enter alphaNumeric Characters into Type Textbox/EL-5058/ES5058_03",function () {
-        mainAdminAddELAPage.getTypeTxtField().clear().type(this.esenseAdminAddELAData.topictype).should('have.value', this.esenseAdminAddELAData.topictype)
+        mainAdminAddELAPage.getTypeTxtField().type(this.esenseAdminAddELAData.topictype).should('have.value', this.esenseAdminAddELAData.topictype)
         // })
 
         // it("Validate that user is able to Enter value more than 50 characters into Type Text field/EL-5058/ES5058_04",function () {
-        mainAdminAddELAPage.getTypeTxtField().clear()
+       // mainAdminAddELAPage.getTypeTxtField().clear()
         mainAdminAddELAPage.getTypeTxtField().type(this.esenseAdminAddELAData.topictypemorethan50)
         mainAdminAddELAPage.getConductedForTxtField().click()
         mainAdminAddELAPage.getErrorMsgMoreThn50().should('contain.text', 'Must be at most 50 characters')
@@ -62,16 +62,16 @@ describe("Verify Esense Admin Main add ELA functionalities", function () {
         // })
 
         // it("Validate that user is able to Add the parameters with the proper data validation/EL-5058/ES5058_06",function () {
-        mainAdminAddELAPage.getParameterTxtField().clear().type(this.esenseAdminAddELAData.parameter).should('have.value', this.esenseAdminAddELAData.parameter)
+        mainAdminAddELAPage.getParameterTxtField().type(this.esenseAdminAddELAData.parameter).should('have.value', this.esenseAdminAddELAData.parameter)
         // })
 
         // it("Validate that user is able to Map the learning outcome/EL-5058/ES5058_07",function () {
-        mainAdminAddELAPage.getLearningOutcomeTxtField().clear().type(this.esenseAdminAddELAData.learningoutcome).should('have.value', this.esenseAdminAddELAData.learningoutcome)
+        mainAdminAddELAPage.getLearningOutcomeTxtField().type(this.esenseAdminAddELAData.learningoutcome).should('have.value', this.esenseAdminAddELAData.learningoutcome)
         // })
 
         // it("Validate that user is able to Map the Competency/EL-5058/ES5058_08",function () {
         mainAdminAddELAPage.getCompetencyDropdown().should('be.visible').select(1)
-        mainAdminAddELAPage.getSubCompetencyTxtField().clear().type(this.esenseAdminAddELAData.subcompetency).should('have.value', this.esenseAdminAddELAData.subcompetency)
+        mainAdminAddELAPage.getSubCompetencyTxtField().type(this.esenseAdminAddELAData.subcompetency).should('have.value', this.esenseAdminAddELAData.subcompetency)
         mainAdminAddELAPage.getBackBtn().scrollIntoView().click()
         mainAdminAddELAPage.getBackPopupBtn().click()
         // })
@@ -120,7 +120,7 @@ describe("Verify Esense Admin Main add ELA functionalities", function () {
         mainAdminAddELAPage.getSelectFolderUploadRankings().attachFile('LMS/SampleRankings.xlsx')
         mainAdminAddELAPage.getImportUploadRankingsBtn().click()
         mainAdminAddELAPage.getSaveELABtn().should('be.visible').click()
-        mainAdminAddELAPage.getELASuccessFullySavedMsg().should('have.text', 'Updated Successfully')
+        mainAdminAddELAPage.getELASuccessFullySavedMsg().should('have.text', 'Saved Successfully')
         mainAdminAddELAPage.getOkBtn().click()
         mainAdminAddELAPage.getOrganizationmanagementBtn().click()
         mainAdminAddELAPage.getListOfOrganizationmanagementNames().each(($e2, index, $lis) => {
@@ -199,11 +199,16 @@ describe("Verify Esense Admin Main add ELA functionalities", function () {
         mainAdminAddELAPage.getMenuCoursesBtn().click()
         cy.wait(1000)
         mainAdminAddELAPage.getSearchCourseNameTxtField().type('hindi')
+        cy.wait(3000)
+        cy.get('button.MuiPaginationItem-rounded').eq(2).scrollIntoView().click()
         cy.wait(2000)
         mainAdminAddELAPage.getSearchListOfCourseName().each(($e1, index, $list) => {
             const CourseTxt = $e1.text()
             if (CourseTxt.includes('Hindi V')) {
-                mainAdminAddELAPage.getCoursesKebabMenu().eq(index).scrollIntoView().click({ force: true })
+                // cy.get('button.MuiPaginationItem-rounded').eq(2).scrollIntoView().click()  
+                // cy.wait(2000)
+                mainAdminAddELAPage.getCoursesKebabMenu().eq(6).scrollIntoView().click({ force: true })
+                return false;
             }
         })
         mainAdminAddELAPage.getCoursesKebabMenuChapterListBtn().click()

@@ -1,7 +1,7 @@
 const leaveReqPage = require("../../../support/pageObjects/LMS-2/LeaveReqPage")
 const dayjs = require('dayjs')
 
-describe("Verify Teacher Profile Account Information Functionalities - Sprint 22(EL-6285)", function () {
+describe("Verify Teacher LeaveRequest Functionality - Sprint 22(EL-6656,EL-6657)", function () {
 
     before(function () {
         cy.visit(Cypress.env("urlQAPreSetup"))
@@ -162,11 +162,74 @@ describe("Verify Teacher Profile Account Information Functionalities - Sprint 22
         leaveReqPage.getTeacherStatusFilter().scrollIntoView().click({force:true})
         leaveReqPage.getTeacherStatusFilterDetails().contains('Pending').click()
         leaveReqPage.getTeacherLeaveApproveStatusBtn().should('be.visible')
-        leaveReqPage.getTeacherLeaveRejectStatusBtn().should('be.visible')
+        //leaveReqPage.getTeacherLeaveRejectStatusBtn().should('be.visible')
     })
 
     it('/EL-6656/ES6656_12 Validate Pagination is handled (10 records are displayed per page)', function () {
         leaveReqPage.getTeacherLeaveReqDetails().should('have.length.lessThan',11)
     })
 
+    it('/EL-6657/ES6657_11 Validate user is able to view the details of the leave request by clicking the >(View) icon in the leave requests list. ', function () {
+        leaveReqPage.getTeacherLeaveTyppe().then((leaveType)=>{
+            var leavetype = leaveType.text()
+            cy.get('span.font-weight-bold').eq(0).then((teacherName)=>{
+                var teachername = teacherName.text()
+             leaveReqPage.getTeacherLeaveRequestPgeDetails().eq(1).then((StartDate)=>{
+                var startDate = StartDate.text()
+             leaveReqPage.getTeacherLeaveRequestPgeDetails().eq(2).then((EndDate)=>{
+                    var endDate = EndDate.text()
+                   leaveReqPage.getTeacherLeaveRequestPgeDetails().eq(3).then((TypeOfLeave)=>{
+                        var typeOfLeave= TypeOfLeave.text()
+                    leaveReqPage.getTeacherLeaveRequestPgeDetails().eq(4).then((ReasonForLeave)=>{
+                            var reasonForLeave= ReasonForLeave.text()
+            leaveReqPage.getTeacherLeaveViewStatus().eq(0).should('be.visible').click()
+            cy.wait(2000)
+            leaveReqPage.getTeacherLeaveViewLeaveType().then((viewLeaveType)=>{
+                var viewLeavetype = viewLeaveType.text()
+
+             leaveReqPage.getTeacherViewLeaveRequestStartDate().then((viewStartDate)=>{
+                    var viewstartDate = viewStartDate.text()
+
+                leaveReqPage.getTeacherViewLeaveRequestEndDate().then((viewEndDate)=>{
+                        var viewendDate = viewEndDate.text()
+
+                     leaveReqPage.getTeacherViewLeaveRequestTpePOfLeave().then((viewTypeOfLeave)=>{
+                            var viewtypeOfLeave = viewTypeOfLeave.text()
+
+                         leaveReqPage.getTeacherViewLeaveRequestTeacherName() .then((viewTeacherName)=>{
+                                var viewteacherName = viewTeacherName.text()
+                expect(leavetype).to.equal(viewLeavetype)
+                expect(teachername).to.equal(viewteacherName)
+                expect(startDate).to.equal(viewstartDate)
+                expect(endDate ).to.equal(viewendDate )
+                expect(typeOfLeave).to.equal(viewtypeOfLeave)
+
+
+                            })
+                        })
+
+                    })
+
+                })
+
+            })
+            })
+            
+            })
+
+            })
+            })
+            })
+
+        })
+       
+
+    })
+
+    it('/EL-6657/ES6657_12 Validate when user clicks on X button available on the leave request details screen, the user is redirected to the Leave Requests listing screen.', function () {
+      leaveReqPage.getTeacherLeaveViewPopupcloseBtn().should('be.visible').click()
+      leaveReqPage.getTeacherLeaveRequestHeaderTxt().should('be.visible')
+    })
+
+ 
 })

@@ -52,13 +52,13 @@ describe("Verify My Classes page functionalities", function () {
     myClassesPage.getMilestonesTab().should("have.text", "Milestones");
     myClassesPage.getTimetableTab().should("have.text", "Timetable");
     myClassesPage.getAssessmentsTab().should("have.text", "Assessments");
-    myClassesPage.getDiscussionsTab().should("have.text", "Discussions");
-    myClassesPage.getLiveClassesTab().should("have.text", "Live Classes");
+   // myClassesPage.getDiscussionsTab().should("have.text", "Discussions");
+    //myClassesPage.getLiveClassesTab().should("have.text", "Live Classes");
   });
 
   it("Verify that the Statistics in the Overview tab", function () {
     myClassesPage.getSessionsCompleted().should("have.text", "Sessions Completed");
-    myClassesPage.getPendingTasks().should("have.text", "Pending Tasks");
+    myClassesPage.getPendingTasks().should("have.text", "Pending Actions");
     myClassesPage.getAverageAttendance().should("have.text", "Average Attendance");
   });
 

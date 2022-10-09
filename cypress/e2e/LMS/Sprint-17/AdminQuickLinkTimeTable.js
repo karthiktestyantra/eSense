@@ -331,7 +331,7 @@ describe("Verify admin quick link time table functionalities", function () {
 
     it("To validate that only 1-7 Numbers are provided as  options for Periods/ Day Dropdown/EL-5163/ES5163_09", function () {
         adminQuickLinksPage.getGeneratedTimetablePeriodsDropdown().eq(1).should('be.visible').click({ force: true })
-        adminQuickLinksPage.getGeneratedTimetableDropdownValue().should('have.length', 7)
+        adminQuickLinksPage.getGeneratedTimetableDropdownValue().should('have.length', 12)
         adminQuickLinksPage.getGeneratedTimetableDropdownValue().contains('5').click()
 
     })

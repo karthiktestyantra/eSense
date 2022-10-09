@@ -8,6 +8,10 @@ class LeaveReqPage {
         return cy.get('button.myCalRqtLev')
     }
 
+    getTeacherMyCalenderLeaveReqBtn() {
+        return cy.get('button.myCalRqtLev ')
+    }
+
     getTeacherLeaveReasonForLeave() {
         return cy.get('div.leaveRqtLeveType p')
     }
@@ -42,8 +46,52 @@ class LeaveReqPage {
         return cy.get('tbody.MuiTableBody-root tr.MuiTableRow-root ')
     }
 
+    getTeacherLeaveRequestPgeDetails() {
+        return cy.get('td.MuiTableCell-root')
+    }
+
+    getTeacherViewLeaveRequestStartDate() {
+        return cy.get('.ViewLeaveRequest_viewLeaveReqBlkInfo__2rgjR > :nth-child(1) > h4')
+    }
+
+    getTeacherViewLeaveRequestEndDate() {
+        return cy.get('.ViewLeaveRequest_viewLeaveReqBlkInfo__2rgjR > :nth-child(1) > h4')
+    }
+    
+    getTeacherViewLeaveRequestTpePOfLeave() {
+        return cy.get('.ViewLeaveRequest_viewLeaveReqBlkInfo__2rgjR > :nth-child(3) > h4')
+    }
+
+        
+    getTeacherViewLeaveRequestTeacherName() {
+        return cy.get('.ViewLeaveRequest_viewLeaveReqBlkInfo__2rgjR > :nth-child(3) > h4')
+    }
+
     getTeacherLeaveApproveStatusBtn() {
         return cy.get('button.approve')
+    }
+
+    
+    getTeacherLeaveViewLeaveType() {
+        return cy.get('div.ViewLeaveRequest_viewLeaveReqBlkResLeav__rPy3J h4')
+    }
+
+    
+    getTeacherLeaveViewPopupcloseBtn() {
+        return cy.get('svg[data-testid="CloseIcon"]')
+    }
+
+    getTeacherLeaveRequestHeaderTxt() {
+        return cy.get('div.ClassDashboard_classDashboardHeader__2On97 p')
+    }
+
+    
+    getTeacherLeaveViewStatus() {
+        return cy.get('svg.arrow')
+    }
+
+    getTeacherLeaveTyppe() {
+        return cy.get('.MuiTableBody-root > :nth-child(1) > :nth-child(5)')
     }
 
     getTeacherLeaveApprovedStatus() {

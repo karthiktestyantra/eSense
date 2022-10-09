@@ -216,6 +216,16 @@ class AdminDashboardPage {
     getCalenderBtn(){
         return cy.get('div.menu-txt').contains('Calendar')
     }
+
+    getGradeWiseAttendanceInSiteAnalyticsSection(){
+        return cy.get('div.MuiTabs-scroller button[role="tab"]').contains("Grade-Wise Attendance")
+    }
+
+    getClassWisePerformanceTxtInGradeWiseAttendance(){
+        return cy.get('div.gradeWiseWidgetscroll h4')
+    }
+
+    
     
 }
 module.exports = new AdminDashboardPage() 

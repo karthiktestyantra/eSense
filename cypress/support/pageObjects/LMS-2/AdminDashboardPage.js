@@ -11,12 +11,12 @@ class AdminDashboardPage {
     getStudentBtn() {
         return cy.get('button.MuiButtonBase-root').contains('Students')
     }
-    
+
     getTeacherBtn() {
         return cy.get('button.MuiButtonBase-root').contains('Teacher')
     }
 
-    getSchoolBtn(){
+    getSchoolBtn() {
         return cy.get('.menu-txt ').contains('School')
     }
 
@@ -56,7 +56,7 @@ class AdminDashboardPage {
         return cy.get('span.adminRoles_userName__20cUY')
     }
 
-    
+
     getTeachertNameCount() {
         return cy.xpath('//div[@class="TeacherDashboard_studentMeta__3kQfU"]/p[@class="MuiTypography-root MuiTypography-body1 css-9l3uo3"]')
     }
@@ -176,7 +176,7 @@ class AdminDashboardPage {
     getClassDetailsTopPerformerCommingSoonTag() {
         return cy.get('div.cmgSoonOverLaySect p')
     }
-    
+
     getSideMenuContentLibraryImg() {
         return cy.get('div.side-nav-icon img[src="/static/media/book.3c851275.svg"]')
     }
@@ -213,19 +213,49 @@ class AdminDashboardPage {
         return cy.get('div.MuiBox-root h4 span').eq(3)
     }
 
-    getCalenderBtn(){
+    getCalenderBtn() {
         return cy.get('div.menu-txt').contains('Calendar')
     }
 
-    getGradeWiseAttendanceInSiteAnalyticsSection(){
+    getGradeWiseAttendanceInSiteAnalyticsSection() {
         return cy.get('div.MuiTabs-scroller button[role="tab"]').contains("Grade-Wise Attendance")
     }
 
-    getClassWisePerformanceTxtInGradeWiseAttendance(){
+    getClassWisePerformanceTxtInGradeWiseAttendance() {
         return cy.get('div.gradeWiseWidgetscroll h4')
     }
 
-    
-    
+    getTopPerformersDefaultDropdownText() {
+        return cy.xpath('//em[.="STUDENTS"]')
+    }
+
+    getTopPerformersDropdowns() {
+        return cy.get('[class*=TopPerformers] [aria-haspopup="listbox"]')
+    }
+
+    getTopPerformersNameList() {
+        return cy.get('[class*=TopPerformers_topPefListBlk] h4')
+    }
+
+    getTopPerformersGradeList() {
+        return cy.get('[class*="TopPerformers_topPefListItemsInfo"] h6')
+    }
+
+    getTopPerformersRankList() {
+        return cy.get('[class*="topPefListBlkLeft"] span')
+    }
+
+    getTopPerformersRankListDynamic(rank) {
+        return cy.xpath("//div[contains(@class,'topPefListBlkLeft')]//span[text()=\"" + rank + "\"]/ancestor::div[contains(@class,'TopPerformers_topPefListBlk__3')]//h4")
+    }
+
+    getTopPerformersOverallPercentageList() {
+        return cy.get('[class*="TopPerformers_topPefListMark"] h6')
+    }
+
+    getTopPerformersDropdownList() {
+        return cy.get('[role="listbox"] li')
+    }
+
 }
 module.exports = new AdminDashboardPage() 

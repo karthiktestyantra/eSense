@@ -3,6 +3,9 @@ class AdminGradeBookPage {
     getStudentGradebookLnk() {
         return cy.get('div.popper-sub-student div.classTitle').contains("Student Gradebook");
     }
+    getStudentGradebookTab() {
+        return cy.get('#simple-tab-1')
+    }
     getCreateTemplateBtn() {
         return cy.get('span.buttonArea a').contains("Create Template")
     }
@@ -132,6 +135,43 @@ class AdminGradeBookPage {
     getDeleteConfirmationBtnInTemplate() {
         return cy.get('div[class="delete-button"]')
     }
+    getShowingDropdownsForInStudentGradebook() {
+        return cy.get('[class*="gradeBookSelectField"] div')
+    }
+    getShowingDropdownListForInStudentGradebook() {
+        return cy.get('[role="listbox"] li')
+    }
+    getTotalScoreDownArrowIconStudentGradebook() {
+        return cy.xpath('//span[text()="TOTAL SCORE"]/*[@data-testid="ArrowDropDownIcon"]')
+    }
+    getFullNameListStudentGradebook() {
+        return cy.xpath('//tbody//td[3]')
+    }
+    getStudentSearchBoxStudentGradebook() {
+        return cy.get('[type="text"]')
+    }
+    getTotalScoreListStudentGradebook() {
+        return cy.xpath('//tbody//td[5]//span')
+    }
+    getTotalScoreStudentGradebookDynamic(name) {
+        return cy.xpath("//td[text()=\""+name+"\"]/ancestor::tr//td[5]//span")
+    }
+    getForwardIconForDetailsStudentGradebookDynamic(name) {
+        return cy.xpath("//td[text()=\""+name+"\"]/ancestor::tr//*[@data-testid='ArrowForwardIosIcon']")
+    }
+    getForwardIconForDetailsStudentGradebook() {
+        return cy.get('[data-testid="ArrowForwardIosIcon"]')
+    }
+    getTotalPercentageGradebookPage() {
+        return cy.xpath('(//div[contains(@class,"StudentGradeBook_stdGrdBkCrdStatSectInfoCnt")]/h1)[1]')
+    }
+    getGoBackButtonGradebookPage() {
+        return cy.get('[class*="MuiButtonBase-root StudentGradeBook_stdGrdActionGoBkBtn"]')
+    }
+    getMarksObtainedTabGradebookPage() {
+        return cy.xpath('//td[@style][3]//td')
+    }
 }
+
 
 module.exports = new AdminGradeBookPage() 

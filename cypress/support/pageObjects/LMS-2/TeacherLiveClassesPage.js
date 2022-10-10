@@ -75,7 +75,14 @@ class TeacherLiveClassesPage{
     getCreatedClassesLst(){
         return cy.get('div.todayTextTile h6')
     }
-    get
-    
+    getCalendarPagetitle(){
+        return cy.get('div.calendarTopSect').contains("Your Calendar")
+    }   
+    getClassDetailsLst(){
+        return cy.get('p.prime')
+    } 
+    getLiveClassDltBtn(){
+        return cy.get('button.liveClsMdlViewActionDeletBtn')
+    }
 }
 module.exports = new TeacherLiveClassesPage() 

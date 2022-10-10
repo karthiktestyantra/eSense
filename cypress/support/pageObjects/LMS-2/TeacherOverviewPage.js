@@ -62,5 +62,11 @@ class TeacherOverviewPage{
     getRecentWorkloadtxtInViewdetail(){
         return cy.get('div.TeacherProfile_tchPrfRcnWkLod__1TH_N p.TeacherProfile_tchPrfRcnWkLodTitle__3dm1M')
     }
+    getPercentageTxtInWorkload(){
+        return cy.get('.overvwTbWkLodSectItemSvg text')
+    }
+    getCloseBtnFrStudentProfileDetail(){
+        return cy.get('[data-testid="CloseIcon"]')
+    }
 }
 module.exports = new TeacherOverviewPage() 

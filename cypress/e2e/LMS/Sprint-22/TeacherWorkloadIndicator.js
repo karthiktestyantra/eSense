@@ -125,5 +125,15 @@ describe("Verify Teacher Profile Account Information Functionalities - Sprint 22
         overview.getRecentWorkloadtxtInViewdetail().should('have.text',"Recent Workload")
     })
 
+    it("EL-186/EL186_2 Validate next 7 day's workload with the percentage of workload is displayed",function(){
+        overview.getCloseBtnFrStudentProfileDetail().click()
+        overview.getOverviewTab().click()
+        overview.getPercentageTxtInWorkload().each(($e1)=>{
+            $e1.should('contain.text',"%")
+        })
+    })
+
+
+
 })
 //Author-Shiva

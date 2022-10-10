@@ -46,7 +46,6 @@ describe("Verify Teacher Live classes Functionalities - Sprint 22(EL-6500)", fun
         teacherLiveClassPage.getLastDateInCalendarPopup().click()
         teacherLiveClassPage.getStartTimePicker().click()
         teacherLiveClassPage.getAMStartTime().click()
-        teacherLiveClassPage.getPMStartTime().click()
         cy.clickOnBody()
         teacherLiveClassPage.getEndTimePicker().click()
         teacherLiveClassPage.getPMStartTime().click()
@@ -64,6 +63,7 @@ describe("Verify Teacher Live classes Functionalities - Sprint 22(EL-6500)", fun
     })
 
     it("EL-6500/ES6500-02 To validate user on clicking live class link is redirected to calendar page", function () {
+        teacherLiveClassPage.getCalendarPagetitle().should('be.visible')
         teacherDashboardPage.getMyclassLnk().click({ force: true })
         teacherDashboardPage.getSubLstTxtInMyClass().each(($e1, index, $list) => {
             const txt = $e1.text()
@@ -73,7 +73,16 @@ describe("Verify Teacher Live classes Functionalities - Sprint 22(EL-6500)", fun
             }
         })
         teacherLiveClassPage.getLiveClassesTab().click()
+        cy.wait(2000)
         teacherLiveClassPage.getCreatedClassesLst().should('contain.text', "Social")
+        teacherLiveClassPage.getCreatedClassesLst().each(($e1,index,$list)=>{
+            const tx = $e1.text()
+            if(tx === "Social"){
+                teacherLiveClassPage.getClassDetailsLst().eq(index).click()
+            }
+        })
+        cy.wait(1000)
+        teacherLiveClassPage.getLiveClassDltBtn().click()     
     })
 
 })

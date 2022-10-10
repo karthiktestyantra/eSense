@@ -383,5 +383,13 @@ class MyCalendarPage {
   getClassEditHomeworkPopupCloseIcon(){
     return cy.get('.close-icon_notes:visible');
   }
+
+  getDeletBtnLstInHomeWorkPage(){
+    return cy.xpath('(//div[contains(@class,"justify-content-end")]//img)[2]')
+  }
+
+  getDeleteConfirmationBtn(){
+    return cy.get('button[data-testid="delete"]')
+  }
 }
 module.exports = new MyCalendarPage

@@ -71,15 +71,15 @@ describe("Verify Sprint 11 related functionalities", function () {
     adminpages.workloadclosebutton().click();
   });
 
-  it("Validate admin is able to view all the workload of a particular teacher", function () {
-    cy.wait(1000);
-    adminpages.workloaddataclickinlist().click();
-    adminpages.viewallbutton().should("be.visible").click();
-    adminpages.monthworkloadverify().should('contain', 'Monthly Workload');
-    adminpages.monthlycloseicon().click();
-    cy.wait(1000);
-    adminpages.closebutton().click();
-  });
+  // it("Validate admin is able to view all the workload of a particular teacher", function () {
+  //   cy.wait(1000);
+  //   adminpages.workloaddataclickinlist().click();
+  //   adminpages.viewallbutton().should("be.visible").click();
+  //   adminpages.monthworkloadverify().should('contain', 'Monthly Workload');
+  //   adminpages.monthlycloseicon().click();
+  //   cy.wait(1000);
+  //   adminpages.closebutton().click();
+  // });
 
   it("Validate teacher is able to send a email to user", function () {
     cy.wait(1000);
@@ -104,30 +104,30 @@ describe("Verify Sprint 11 related functionalities", function () {
     adminpages.acedemicdetails().should("be.visible").contains("Academic Details");
   });
 
-  it("Validate admin click on forward and backward button will show next month and previous month wise data respectively as per UI", function () {
-    cy.wait(1000);
-    adminpages.workloaddataclickinlist().click({ force: true });
-    adminpages.viewallbutton().should("be.visible").click();
-    adminpages.monthworkloadverify().should('contain', 'Monthly Workload');
-    adminpages.previousmonthclick().should("be.visible").click();
-    cy.contains(this.validadmindata.Previousmonth);
-    adminpages.nextmonthclick().should("be.visible").dblclick();
-    cy.wait(500);
-    cy.contains(this.validadmindata.nextmonth);
-    adminpages.monthlycloseicon().click();
-    cy.wait(1000);
-    adminpages.closebutton().click();
-  });
+  // it("Validate admin click on forward and backward button will show next month and previous month wise data respectively as per UI", function () {
+  //   cy.wait(1000);
+  //   adminpages.workloaddataclickinlist().click({ force: true });
+  //   adminpages.viewallbutton().should("be.visible").click();
+  //   adminpages.monthworkloadverify().should('contain', 'Monthly Workload');
+  //   adminpages.previousmonthclick().should("be.visible").click();
+  //   cy.contains(this.validadmindata.Previousmonth);
+  //   adminpages.nextmonthclick().should("be.visible").dblclick();
+  //   cy.wait(500);
+  //   cy.contains(this.validadmindata.nextmonth);
+  //   adminpages.monthlycloseicon().click();
+  //   cy.wait(1000);
+  //   adminpages.closebutton().click();
+  // });
 
-  it("Validate admin is be able to view all the students Work Load Indicator on every student profile", function () {
-    cy.wait(1000);
-    adminpages.studentbutton().should("be.visible").click();
-    adminpages.studentuser().should("be.visible").click();
-    cy.contains("VIEW ALL");
-    adminpages.relativelyhigh().should("be.visible");
-    adminpages.moderate().should("be.visible");
-    adminpages.relativelylow().should("be.visible");
-  });
+  // it("Validate admin is be able to view all the students Work Load Indicator on every student profile", function () {
+  //   cy.wait(1000);
+  //   adminpages.studentbutton().should("be.visible").click();
+  //   adminpages.studentuser().should("be.visible").click();
+  //   cy.contains("VIEW ALL");
+  //   adminpages.relativelyhigh().should("be.visible");
+  //   adminpages.moderate().should("be.visible");
+  //   adminpages.relativelylow().should("be.visible");
+  // });
 
   it("Validate admin is able to view student details", function () {
     adminpages.studentdetails().should("be.visible");
@@ -135,16 +135,17 @@ describe("Verify Sprint 11 related functionalities", function () {
 
   it("Validate admin is able to view the send message to student", function () {
     adminpages.sendmessagetostudent().should("be.visible");
+    cy.get('[data-testid="CloseIcon"]').click()
   });
 
-  it("Validate admin is able to view the send message to parents/guadrians", function () {
-    adminpages.sendmessagetoparentsguadrians().scrollIntoView().should("be.visible");
-  });
+  // it("Validate admin is able to view the send message to parents/guadrians", function () {
+  //   adminpages.sendmessagetoparentsguadrians().scrollIntoView().should("be.visible");
+  // });
 
-  it("Validate admin is able to view the student report", function () {
-    adminpages.studentreports().scrollIntoView().should("be.visible");
-    adminpages.close().scrollIntoView().should("be.visible").click();
-  });
+  // it("Validate admin is able to view the student report", function () {
+  //   adminpages.studentreports().scrollIntoView().should("be.visible");
+  //   adminpages.close().scrollIntoView().should("be.visible").click();
+  // });
 
   it("To verify that when admin clicks on Create New button, it's navigating to Create your new calendar pop-up page", function () {
     cy.wait(2000);

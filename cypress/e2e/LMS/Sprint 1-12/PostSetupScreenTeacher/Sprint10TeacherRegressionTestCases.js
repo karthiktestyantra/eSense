@@ -49,36 +49,36 @@ describe("Verify Sprint 10 related functionalities", function () {
     sprint10Regression.getCalendarLink().should("be.visible");
   });
 
-  it.skip("Validate teacher is able to view No. of Assessments for this month and No of students absent yesterday will be shown on this section", function () {
-    sprint10Regression.getNoOfAssessments().should("be.visible");
-    sprint10Regression.getNoOfStudents().should("be.visible");
-  });
+  // it.skip("Validate teacher is able to view No. of Assessments for this month and No of students absent yesterday will be shown on this section", function () {
+  //   sprint10Regression.getNoOfAssessments().should("be.visible");
+  //   sprint10Regression.getNoOfStudents().should("be.visible");
+  // });
 
-  it.skip("Validate teacher is able to view Pending actions section related to classes, attendance, Homework", function () {
-    sprint10Regression.getPendingActionsClass().should("be.visible");
-    sprint10Regression.getPendingActionsAttendance().should("be.visible");
-    sprint10Regression.getPendingActionsHomework().should("be.visible");
-  });
+  // it.skip("Validate teacher is able to view Pending actions section related to classes, attendance, Homework", function () {
+  //   sprint10Regression.getPendingActionsClass().should("be.visible");
+  //   sprint10Regression.getPendingActionsAttendance().should("be.visible");
+  //   sprint10Regression.getPendingActionsHomework().should("be.visible");
+  // });
 
   it("Validate Teacher is able to click on 'Mark complete' button", function () {
     sprint10Regression.getClassMarkCompleteButton().click({ force: true });
   });
 
-  it.skip("Validate Teacher is able to click on 'Mark attendance' button", function () {
-    sprint10Regression.getClassMarkAttendanceButton().click({ force: true });
-  });
+  // it.skip("Validate Teacher is able to click on 'Mark attendance' button", function () {
+  //   sprint10Regression.getClassMarkAttendanceButton().click({ force: true });
+  // });
 
-  it.skip("Validate Teacher is able to click on 'Assign homework' button", function () {
-    sprint10Regression.getClassAssignHomeworkButton().click({ force: true });
-  });
+  // it.skip("Validate Teacher is able to click on 'Assign homework' button", function () {
+  //   sprint10Regression.getClassAssignHomeworkButton().click({ force: true });
+  // });
 
-  it.skip("Validate teacher is able to view the class performance chart with subjects and classes section", function () {
-    sprint10Regression.getClassPerformanceChart().should("be.visible");
-  });
+  // it.skip("Validate teacher is able to view the class performance chart with subjects and classes section", function () {
+  //   sprint10Regression.getClassPerformanceChart().should("be.visible");
+  // });
 
-  it.skip("Validate teacher is able to view Milestone progress chart with classes and subject section", function () {
-    sprint10Regression.getMilestoneProgressChart().should("be.visible");
-  });
+  // it.skip("Validate teacher is able to view Milestone progress chart with classes and subject section", function () {
+  //   sprint10Regression.getMilestoneProgressChart().should("be.visible");
+  // });
 
   it("Validate whether the teacher is able to navigate to 'Assessments' in My Classes Module", function () {
     myClassesPage.getMyClassesIcon().click();
@@ -553,4 +553,13 @@ describe("Verify Sprint 10 related functionalities", function () {
     sprint10Regression.getCreateNewHomeworkButton().click();
     sprint10Regression.getAddHomeworkCancelButton().click();
   });
+
+  //Post-Condition
+
+  it("To delete the created home work",function(){
+    myCalendarPage.getDeletBtnLstInHomeWorkPage().each(($e1,index,$list)=>{
+      cy.wrap($e1).click()
+      myCalendarPage.getDeleteConfirmationBtn().click()
+    })
+  })
 });

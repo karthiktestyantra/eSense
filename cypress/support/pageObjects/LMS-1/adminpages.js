@@ -117,7 +117,7 @@ class adminpages {
 
 
     sendbutton() {
-        return cy.get(':nth-child(1) > :nth-child(6) > .TeacherDashboard_EditIcons__3F3tm > :nth-child(4) > img');
+        return cy.get('div.TeacherDashboard_EditIcons__3F3tm button[aria-label="Reset"]');
     }
 
     sendtouser() {

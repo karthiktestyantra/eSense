@@ -88,11 +88,12 @@ describe("Verify the User Menu related Functionalities", function () {
   });
 
   it("Verify that the user is able to search particular student", function () {
-    userPostSetupPage.getStudentNameList().each((ele, index, $list) => {
-      userPostSetupPage.getStudentSearchBar().type(Cypress.$(ele).text());
-      userPostSetupPage.getStudentNameList().should("contain", Cypress.$(ele).text());
+      userPostSetupPage.getStudentNameList().last().then((ele)=>{
+      userPostSetupPage.getStudentSearchBar().type(ele.text().trim());
+      userPostSetupPage.getStudentNameList().should("contain",ele.text());
       userPostSetupPage.getStudentSearchBar().clear();
-    });
+    })
+      
   });
 
   it("Verify that on Click on School menu from the side menus, School page should be load", function () {

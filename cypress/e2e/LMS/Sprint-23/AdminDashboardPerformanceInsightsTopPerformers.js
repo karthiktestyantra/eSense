@@ -128,7 +128,19 @@ describe("Verify Admin Dashboard Performance Insights Top Performers - Sprint 23
             }
         })
     })
-    
+
+    it("EL-5027/ES5027_8 Validate By default, user is able to see top 3 at the Top Performer Lists", function () {
+        adminDashboardPage.getTopPerformersDropdowns().eq(0).scrollIntoView()
+        cy.isVisible(adminDashboardPage.getTopPerformersRankList().eq(0))
+        cy.isVisible(adminDashboardPage.getTopPerformersRankList().eq(1))
+        cy.isVisible(adminDashboardPage.getTopPerformersRankList().eq(2))
+    })
+
+    it("EL-5027/ES5027_9 Validate Validate On scrolling, user can view the Top 10 performers. ", function () {
+        adminDashboardPage.getTopPerformersScrollBar().scrollTo('bottom')
+        cy.isVisible(adminDashboardPage.getTopPerformersRankList())
+    })
+
 })
 
-//Karthik
+//Author - Karthik

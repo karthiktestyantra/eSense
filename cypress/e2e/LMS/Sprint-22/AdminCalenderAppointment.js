@@ -3,7 +3,7 @@ const adminCalenderHomePage = require('../../../support/pageObjects/LMS-2/AdminC
 const dayjs = require('dayjs')
 var randomstring = require("randomstring");
 
-describe("Verify admin calender Appointment functionalities - Sprint 21(EL-375,EL-6267,EL-6268)", function () {
+describe("Verify admin calender Appointment functionalities - Sprint 22(EL-375,EL-6267,EL-6268)", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlMain'))
@@ -66,7 +66,9 @@ describe("Verify admin calender Appointment functionalities - Sprint 21(EL-375,E
     })
     it('EL-375/ES375-11 "To validate user is able to select date from calendar and its mandatory."',function () {
         adminCalenderHomePage.getCreateApointmentDate().click()
-        adminCalenderHomePage.getCreateApointmentDateselect(dayjs().format("D")).click()
+        var num= dayjs().add(1,'day').format('DD')
+        cy.log(num)
+        adminCalenderHomePage.getCreateApointmentDateselect(num).click()
         cy.isVisible(adminCalenderHomePage.getCreateAppointmentDateTextfield())
     })
     it('EL-375/ES375-12 To validate user is able to select Start time and End time from clock .',function () {

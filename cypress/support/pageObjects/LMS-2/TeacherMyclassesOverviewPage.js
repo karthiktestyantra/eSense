@@ -20,5 +20,8 @@ class TeacherMyclassesOverviewPage{
     getOverviewAverageAttendanceCount(){
         return cy.get('div.card-container p.cardCount').eq(2)
     }
+    getOverviewPendingActionsCard(){
+        return cy.get('div.pendActListSect div.MuiCardContent-root')
+    }
 }
 module.exports=new TeacherMyclassesOverviewPage() 

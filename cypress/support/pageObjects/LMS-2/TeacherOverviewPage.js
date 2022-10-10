@@ -1,5 +1,3 @@
-const cypress = require("cypress")
-
 class TeacherOverviewPage{
     getWorkloadDetailstxt(){
         return cy.get('div.containerTop p')

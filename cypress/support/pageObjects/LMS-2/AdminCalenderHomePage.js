@@ -34,7 +34,7 @@ class AdminCalenderHomePage{
         return cy.get('div.css-1bn53lx').eq(1)
     }
     getCreateAppointmentStartTimeing(){
-        return cy.get('span.css-h7tmkn').contains('6')
+        return cy.get('[aria-label="6 hours"]')
     }
     getCreateAppointmentStartTimeingAM(){
         return  cy.get('span.css-1v2gfp5').contains('AM')
@@ -43,7 +43,7 @@ class AdminCalenderHomePage{
         return cy.get('div.css-1bn53lx').eq(2)
     }
     getCreateAppointmentEndTimeing(){
-        return cy.get('span.css-h7tmkn').contains('6')
+        return cy.get('[aria-label="6 hours"]')
     }
     getCreateAppointmentEndTimeingPM(){
         return  cy.get('span.css-1v2gfp5').contains('PM')

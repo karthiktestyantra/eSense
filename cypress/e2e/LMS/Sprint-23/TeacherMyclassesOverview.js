@@ -2,7 +2,7 @@ const teacherDashboardPage=require('../../../support/pageObjects/LMS-2/TeacherDa
 const teacherMyclassesOverviewPage=require('../../../support/pageObjects/LMS-2/TeacherMyclassesOverviewPage')
 
 
-describe("Verify Teacher Student Profile  Functionalities - Sprint 22(EL-6540)", function () {
+describe("Verify Teacher Student Profile  Functionalities - Sprint 22(EL-6540,ES-6674)", function () {
 
     before(function () {
         cy.visit(Cypress.env("urlQAPreSetup"))
@@ -39,6 +39,19 @@ describe("Verify Teacher Student Profile  Functionalities - Sprint 22(EL-6540)",
     })
     it('EL-6540/ES6540-04 To validate system is able to show calculated "Total "attendnace percentage of the class.',function () {
         cy.isVisible(teacherMyclassesOverviewPage.getOverviewAverageAttendanceCount())
+    })
+    it('EL-6674/ES6674-02 To validate User is able to view all the pending action cards assigned to the respective class.',function () {
+        teacherDashboardPage.getMyclassLnk().click({ force: true })
+        teacherDashboardPage.getSubLstTxtInMyClass().each(($e1, index, $list) => {
+            const txt = $e1.text()
+            if (txt === "Tamil") {
+                teacherDashboardPage.getsubLstInMyClass().eq(index).click()
+                return false;
+            }
+        })
+        teacherMyclassesOverviewPage.getOverviewTab().click()
+        teacherMyclassesOverviewPage.getOverviewPendingActionsTab().click()
+        teacherMyclassesOverviewPage.getOverviewPendingActionsCard().should('be.visible')
     })
 })
 

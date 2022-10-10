@@ -257,5 +257,9 @@ class AdminDashboardPage {
         return cy.get('[role="listbox"] li')
     }
 
+    getTopPerformersScrollBar() {
+        return cy.get('.TopPerformers_topPefListBlkList__2zdgM')
+    }
+
 }
 module.exports = new AdminDashboardPage() 

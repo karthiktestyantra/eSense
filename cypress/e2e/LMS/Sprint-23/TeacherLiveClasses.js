@@ -1,5 +1,6 @@
 const teacherDashboardPage = require('../../../support/pageObjects/LMS-2/TeacherDashboardPage')
 const teacherLiveClassPage = require('../../../support/pageObjects/LMS-2/TeacherLiveClassesPage')
+var randomstring = require("randomstring")
 
 describe("Verify Teacher Live classes Functionalities - Sprint 22(EL-6500)", function () {
 
@@ -15,7 +16,7 @@ describe("Verify Teacher Live classes Functionalities - Sprint 22(EL-6500)", fun
     })
 
     it("EL-6500/ES6500-01 To validate user is able to create live class by clicking on + Create New Live Class” button available on the live class listing screen", function () {
-        teacherDashboardPage.getMyclassLnk().click({force:true})
+        teacherDashboardPage.getMyclassLnk().click({ force: true })
         teacherDashboardPage.getSubLstTxtInMyClass().each(($e1, index, $list) => {
             const txt = $e1.text()
             if (txt === "Tamil") {
@@ -25,15 +26,54 @@ describe("Verify Teacher Live classes Functionalities - Sprint 22(EL-6500)", fun
         })
         teacherLiveClassPage.getLiveClassesTab().click()
         teacherLiveClassPage.getCreateNewLiveClassBtn().should('be.visible').click()
-        teacherLiveClassPage.getCreateLiveClassTitleTxt().should('have.text',"Create Live Class")
-        teacherLiveClassPage.getClassDrpDwn().should('have.text',"Grade 3 - A").and('be.visible').click()
+        teacherLiveClassPage.getCreateLiveClassTitleTxt().should('have.text', "Create Live Class")
+        teacherLiveClassPage.getClassDrpDwn().should('have.text', "Grade 3 - A").and('be.visible').click()
         teacherLiveClassPage.getDrpdwnLst().should('be.visible')
-        teacherLiveClassPage.getSubDrpDwn().click({force:true})
-        teacherLiveClassPage.getSubDrpDwn().should('have.text',"Tamil").and('be.visible').click()
+        cy.clickOnBody()
+        teacherLiveClassPage.getSubDrpDwn().should('have.text', "Tamil").click()
         teacherLiveClassPage.getDrpdwnLst().should('be.visible')
-        teacherLiveClassPage.getSubDrpDwn().click({force:true})
+        cy.clickOnBody()
         teacherLiveClassPage.getClassTypeDrpDwn().click()
-        teacherLiveClassPage.getDrpdwnLst().should('contain.text',"Online").and('contain.text',"Offline")
-        teacherLiveClassPage.getClassTypeDrpDwn().click({force:true})
+        teacherLiveClassPage.getDrpdwnLst().should('contain.text', "Online").and('contain.text', "Offline")
+        teacherLiveClassPage.getDrpdwnLst().contains("Online").click()
+        cy.clickOnBody()
+        teacherLiveClassPage.getEnterClassTitleFld().type("Social")
+        teacherLiveClassPage.getAttendeeDrpDwn().click()
+        teacherLiveClassPage.getAttendeeLst().should('be.visible')
+        teacherLiveClassPage.getAttendeeLstCheckBx().check({ multiple: true })
+        teacherLiveClassPage.getAttendeeFldCloseBtn().click()
+        teacherLiveClassPage.getDateFld().click()
+        teacherLiveClassPage.getLastDateInCalendarPopup().click()
+        teacherLiveClassPage.getStartTimePicker().click()
+        teacherLiveClassPage.getAMStartTime().click()
+        teacherLiveClassPage.getPMStartTime().click()
+        cy.clickOnBody()
+        teacherLiveClassPage.getEndTimePicker().click()
+        teacherLiveClassPage.getPMStartTime().click()
+        cy.clickOnBody()
+        teacherLiveClassPage.getRemindDrpDwn().click()
+        teacherLiveClassPage.getDrpdwnLst().should('contain.text', "Do Not Remind").and('contain.text', "15 minutes before the event").
+            and('contain.text', "30 minutes before the event").and('contain.text', "1 hour before the event")
+        teacherLiveClassPage.getDrpdwnLst().first().click()
+        teacherLiveClassPage.getAddDescriptionTxtFld().click().type(randomstring.generate(51))
+        teacherLiveClassPage.getDescriptionAlertMsg().should('have.text', "Description must not exceed 50 Characters").should('be.visible')
+        teacherLiveClassPage.getAddDescriptionTxtFld().clear().type('Live Class')
+        teacherLiveClassPage.getMeetingLnkFld().click().type("www.meet.com")
+        teacherLiveClassPage.getSaveLiveClassBtn().click()
+        cy.contains("Live Class Created successfully").should('be.visible')
     })
+
+    it("EL-6500/ES6500-02 To validate user on clicking live class link is redirected to calendar page", function () {
+        teacherDashboardPage.getMyclassLnk().click({ force: true })
+        teacherDashboardPage.getSubLstTxtInMyClass().each(($e1, index, $list) => {
+            const txt = $e1.text()
+            if (txt === "Tamil") {
+                teacherDashboardPage.getsubLstInMyClass().eq(index).click()
+                return false;
+            }
+        })
+        teacherLiveClassPage.getLiveClassesTab().click()
+        teacherLiveClassPage.getCreatedClassesLst().should('contain.text', "Social")
+    })
+
 })

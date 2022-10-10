@@ -64,7 +64,7 @@ class LeaveReqPage {
 
         
     getTeacherViewLeaveRequestTeacherName() {
-        return cy.get('.ViewLeaveRequest_viewLeaveReqBlkInfo__2rgjR > :nth-child(3) > h4')
+        return cy.get('.ViewLeaveRequest_viewLeaveReqBlkHeadTitle__2yJYt > h4')
     }
 
     getTeacherLeaveApproveStatusBtn() {

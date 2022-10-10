@@ -12,6 +12,10 @@ class AdminContentLibraryPage {
         return cy.xpath('//button[.="ELA Assignments"]/ancestor::div[@class="MuiBox-root css-8atqhb"]//button[.="View All"]')
     }
 
+    getMostPopularViewAllButton() {
+        return cy.xpath('//button[.="Most Popular"]/ancestor::div[@class="MuiBox-root css-8atqhb"]//button[.="View All"]')
+    }
+
     getRiseTextBookText() {
         return cy.xpath("//button[.='RISE TextBook']/ancestor::div[@class='MuiBox-root css-8atqhb']//span[text()='RISE TextBook']")
     }
@@ -94,6 +98,10 @@ class AdminContentLibraryPage {
 
     getContentLibraryViewDocumentBackIcon() {
         return cy.get('[data-testid="ArrowBackIcon"]')
+    }
+
+    getMostPopularBooksTextInContentLibrary() {
+        return cy.get('[class="cntLibCardTitle"] strong')
     }
 
 }

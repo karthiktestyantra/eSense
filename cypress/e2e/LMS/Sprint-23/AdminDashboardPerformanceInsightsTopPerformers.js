@@ -57,17 +57,17 @@ describe("Verify Admin Dashboard Performance Insights Top Performers - Sprint 23
         cy.forceClick(adminDashboardPage.getSideMenuStudentGradebookLink())
         adminGradeBookPage.getStudentGradebookTab().click()
         cy.wait(1000)
-        // for (let index = 0; index < expStudentsList.length; index++) {
-        //     cy.log(expStudentsList[index])
-        //     adminGradeBookPage.getStudentSearchBoxStudentGradebook().clear().type(expStudentsList[index])
-        //     cy.wait(1500)
-        //     cy.verifyTextContains(adminGradeBookPage.getTotalScoreStudentGradebookDynamic(expStudentsList[index]), expTotalScore[index])
-        //     adminGradeBookPage.getForwardIconForDetailsStudentGradebookDynamic(expStudentsList[index]).click()
-        //     cy.wait(2500)
-        //     cy.verifyTextContains(adminGradeBookPage.getTotalPercentageGradebookPage(), expTotalScore[index])
-        //     adminGradeBookPage.getGoBackButtonGradebookPage().click()
-        //     cy.wait(1500)
-        // }
+        for (let index = 0; index < expStudentsList.length; index++) {
+            cy.log(expStudentsList[index])
+            adminGradeBookPage.getStudentSearchBoxStudentGradebook().clear().type(expStudentsList[index])
+            cy.wait(1500)
+            cy.verifyTextContains(adminGradeBookPage.getTotalScoreStudentGradebookDynamic(expStudentsList[index]), expTotalScore[index])
+            adminGradeBookPage.getForwardIconForDetailsStudentGradebookDynamic(expStudentsList[index]).click()
+            cy.wait(2500)
+            cy.verifyTextContains(adminGradeBookPage.getTotalPercentageGradebookPage(), expTotalScore[index])
+            adminGradeBookPage.getGoBackButtonGradebookPage().click()
+            cy.wait(1500)
+        }
     })
 
     it("EL-5027/ES5027_5 Validate percentage is calculate by using below mentioned formula - Calculation: (Average marks scored by all students for teaching subject)/ (Total marks assigned to that subject) /X 100.", function () {

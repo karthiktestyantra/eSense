@@ -24,8 +24,4 @@ describe("Verify admin dashboard classwise performance - Sprint 23(EL-5023)", fu
         })
     })
 
-    it("EL-5023/ES5023-03 To validate matrix in the Line graph chart:X-axis represent months April to March Y-axis represent Percentage (40…100) and Legends at the top",function(){
-        
-    })
-
 })

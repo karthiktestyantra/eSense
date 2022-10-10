@@ -24,6 +24,18 @@ class AdminContentLibraryPage {
         return cy.xpath("//button[normalize-space()='View RISE TextBook']")
     }
 
+    getSearchTextFieldContentLibrary() {
+        return cy.get("[type='text']")
+    }
+
+    getTagsContentLibrary() {
+        return cy.get('[class*="MuiChip-labelMedium"]')
+    }
+
+    getSearchIconContentLibrary() {
+        return cy.get("[data-testid='SearchIcon']")
+    }
+
     getViewElaAssignmentsLink() {
         return cy.xpath("//button[.='View ELA Assignments']")
     }
@@ -94,6 +106,10 @@ class AdminContentLibraryPage {
 
     getViewRiseTextBookNameTitle() {
         return cy.get('[class="content-label"]')
+    }
+
+    getTextBookNameTitle() {
+        return cy.get('[class="content-label"] b')
     }
 
     getContentLibraryViewDocumentBackIcon() {

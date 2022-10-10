@@ -257,6 +257,10 @@ class AdminDashboardPage {
         return cy.get('[role="listbox"] li')
     }
 
+    getTopPerformersGradeDynamicDropdownList(grade) {
+        return cy.xpath("//ul[@role='listbox']/li[text()='"+grade+"']")
+    }
+
     getTopPerformersDropdownListBox() {
         return cy.get('[role="listbox"]')
     }
@@ -278,7 +282,11 @@ class AdminDashboardPage {
     }
 
     getSubjectNameContentPerformance() {
-        return cy.get('[class*="ContentPerformance_cntPrfWidSectCard"] h6')
+        return cy.get('[class*="ContentPerformance_cntPrfWidSectCard"] div[class*="Title"]')
+    }
+
+    getScrollBarContentPerformance() {
+        return cy.get('[class*="gradeWiseWidgetscroll"]')
     }
 
     getDescriptionContentPerformance() {
@@ -301,5 +309,31 @@ class AdminDashboardPage {
         return cy.xpath('//div[.="All"]')
     }
 
+
+    getOverallResultTab(){
+        return cy.get('button.MuiTab-textColorPrimary').contains('Overall Result')
+    }
+    getRanksOverallResult(){
+        return cy.get('div.OverallResult_dashOvrRsltvDataXaxis__1NZde')
+    }
+    getHorizontalBarChartOverallResult(){
+        return cy.get('div.OverallResult_dashOvrRsltvDataXaxisItemBar__kXQPy')
+    }
+    getPercentageXAxisOverallResult(){
+        return cy.get('div.OverallResult_dashOvrRsltvYaxisPercent__3arXz p span')
+    }
+    getFilterOverallResultDropdown(){
+        return cy.get('div.OverallResult_topPerfSectTopbar__1CXy3 div.MuiFormControl-root').eq(0)
+    }
+    getHighToLowFilterOverallResultDropdown(){
+        return cy.get('div.OverallResult_topPerfSectTopbar__1CXy3 div.MuiFormControl-root').eq(1)
+    }
+
+    getFilterOverallResultDropdownAllOpt(){
+        return cy.xpath('//div[.="All"]')
+    }
+    getHighToLowFilterOverallResultOpt(){
+        return cy.xpath('//div[.="High to low"]')
+    }
 }
 module.exports = new AdminDashboardPage() 

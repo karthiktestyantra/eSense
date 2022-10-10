@@ -257,8 +257,28 @@ class AdminDashboardPage {
         return cy.get('[role="listbox"] li')
     }
 
+    getTopPerformersDropdownListBox() {
+        return cy.get('[role="listbox"]')
+    }
+
     getTopPerformersScrollBar() {
         return cy.get('.TopPerformers_topPefListBlkList__2zdgM')
+    }
+
+    getSiteAnalyticsTitle() {
+        return cy.xpath('//p[.="Site Analytics"]')
+    }
+
+    getContentPerformanceTab() {
+        return cy.xpath('//button[.="Content Performance"]')
+    }
+
+    getBookNameTextContentPerformance() {
+        return cy.get('[class*="ContentPerformance"] h5')
+    }
+
+    getDropdownsInContentPerformance() {
+        return cy.xpath('//div[.="All"]')
     }
 
 }

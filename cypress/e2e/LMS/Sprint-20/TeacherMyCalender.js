@@ -2,7 +2,7 @@ const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/Teacher
 const teacherCalenderPage = require("../../../support/pageObjects/LMS-2/TeacherCalenderPage")
 const teacherClassGradePage = require("../../../support/pageObjects/LMS-2/TeacherClassGradePage")
 
-describe("Verify Teacher Calender functionalities", function () {
+describe("Verify Teacher Calender functionalities- Sprint 20(EL-6982,EL-5686,EL-6983,EL-6984)", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlQAPreSetup'))

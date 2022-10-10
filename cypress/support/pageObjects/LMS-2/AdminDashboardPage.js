@@ -257,6 +257,10 @@ class AdminDashboardPage {
         return cy.get('[role="listbox"] li')
     }
 
+    getTopPerformersGradeDynamicDropdownList(grade) {
+        return cy.xpath("//ul[@role='listbox']/li[text()='"+grade+"']")
+    }
+
     getTopPerformersDropdownListBox() {
         return cy.get('[role="listbox"]')
     }
@@ -278,7 +282,11 @@ class AdminDashboardPage {
     }
 
     getSubjectNameContentPerformance() {
-        return cy.get('[class*="ContentPerformance_cntPrfWidSectCard"] h6')
+        return cy.get('[class*="ContentPerformance_cntPrfWidSectCard"] div[class*="Title"]')
+    }
+
+    getScrollBarContentPerformance() {
+        return cy.get('[class*="gradeWiseWidgetscroll"]')
     }
 
     getDescriptionContentPerformance() {

@@ -45,6 +45,31 @@ class TeacherViewLiveClassesPage {
         return cy.get('div.markAttTimeSect h6.MuiTypography-h6').eq(0)
     }
 
+    getLastDateInCalendarPopup(){
+        return cy.get('button.MuiPickersDay-dayWithMargin')
+    }
+
+    getLiveClassdltConfirmBtn(){
+        return cy.get('.MuiButton-contained').contains("Delete")
+    }
+
+    getLiveClassDltBtn(){
+        return cy.get('button.liveClsMdlViewActionDeletBtn')
+    }
+
+    getFilterDateIcon(){
+        return cy.get('#mui-5-label')
+    }
+
+    getCalenderStartDate(StartDate){
+        return cy.xpath("(//div[@class='css-1tape97'])[1]//button[text()=\""+StartDate+"\"]")
+    }
+
+
+    getCalenderEndDate(EndDate){
+       return cy.xpath("(//div[@class='css-1tape97'])[1]//button[text()=\""+EndDate+"\"]")
+    }
+
     
 
 

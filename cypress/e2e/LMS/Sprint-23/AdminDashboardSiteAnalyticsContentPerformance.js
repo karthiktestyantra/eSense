@@ -69,6 +69,15 @@ describe("Verify Admin Dashboard Site Analytics - Sprint 23(EL-4946)", function 
         cy.clickOnBody()
     })
 
+    it("EL-4946/ES4946-05 Validate Content card consist of following details such as: 1.Content Thumbnail 2.Subject & Description 3.Shared (Count) (Workflow Exclusion) 4.Bookmarked (Count).", function () {
+        cy.isVisible(adminDashboardPage.getThumbnailImgContentPerformance())
+        cy.isVisible(adminDashboardPage.getSubjectNameContentPerformance())
+        cy.isVisible(adminDashboardPage.getDescriptionContentPerformance())
+        cy.isVisible(adminDashboardPage.getSharedContentPerformance())
+        cy.isVisible(adminDashboardPage.getBookmarkedContentPerformance())
+        cy.isVisible(adminDashboardPage.getBookNameTextContentPerformance())        
+    })
+
 
 
 })

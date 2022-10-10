@@ -273,6 +273,26 @@ class AdminDashboardPage {
         return cy.xpath('//button[.="Content Performance"]')
     }
 
+    getThumbnailImgContentPerformance() {
+        return cy.get('[class="cover-container"] img')
+    }
+
+    getSubjectNameContentPerformance() {
+        return cy.get('[class*="ContentPerformance_cntPrfWidSectCard"] h6')
+    }
+
+    getDescriptionContentPerformance() {
+        return cy.get('[class*="ContentPerformance_cntPrfWidSectCard"] p[class*="Desc"]')
+    }
+
+    getSharedContentPerformance() {
+        return cy.get('[class*="ContentPerformance_cntPrfWidSectCard"] p[class*="shared"]')
+    }
+
+    getBookmarkedContentPerformance() {
+        return cy.get('[class*="ContentPerformance_cntPrfWidSectCard"] p[class*="bookmark"]')
+    }
+
     getBookNameTextContentPerformance() {
         return cy.get('[class*="ContentPerformance"] h5')
     }

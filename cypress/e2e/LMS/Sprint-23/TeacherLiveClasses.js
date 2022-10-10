@@ -82,7 +82,9 @@ describe("Verify Teacher Live classes Functionalities - Sprint 22(EL-6500)", fun
             }
         })
         cy.wait(1000)
-        teacherLiveClassPage.getLiveClassDltBtn().click()     
+        teacherLiveClassPage.getLiveClassDltBtn().click()    
+        teacherLiveClassPage.getLiveClassdltConfirmBtn().click()
+        cy.wait(3000) 
     })
 
 })

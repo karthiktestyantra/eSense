@@ -84,5 +84,8 @@ class TeacherLiveClassesPage{
     getLiveClassDltBtn(){
         return cy.get('button.liveClsMdlViewActionDeletBtn')
     }
+    getLiveClassdltConfirmBtn(){
+        return cy.get('.MuiButton-contained').contains("Delete")
+    }
 }
 module.exports = new TeacherLiveClassesPage() 

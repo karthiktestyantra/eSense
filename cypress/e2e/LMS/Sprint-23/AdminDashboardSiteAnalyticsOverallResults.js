@@ -54,6 +54,31 @@ describe("Verify Admin Dashboard Site Analytics - Sprint 23(EL-4965)", function 
             })
         })
     })
+    it('EL-4965/ES4965-07 To validate if rank is shared by multiple grades then list of grades are displayed.', function () {
+        var getRank = []
+        adminDashboardPage.getRanksOverallResult().each(($el) => {
+            getRank.push($el.text().trim())
+            cy.wrap(getRank).as('getRank')
+        })
+        cy.get('@getRank').then((getRank) => {
+            const toFindSameRank = getRank => getRank.filter((item, index) => getRank.indexOf(item) !== index)
+            const sameRank = toFindSameRank(getRank);
+            cy.wrap(sameRank).as('sameRank')
+        })
+        cy.get('@sameRank').then((sameRank) => {
+            var getName = []
+            for (let index = 0; index < sameRank.length; index++) {
+                adminDashboardPage.getGradeListOverallResult(sameRank[index]).each(($el) => {
+                    getName.push($el.text().trim())
+                    cy.wrap(getName).as('getName')
+                })
+                cy.get('@getName').then((getName) => {
+                    expect(getName).to.equal(getName.sort())
+                    getName.length = 0
+                })
+            }
+        })
+    })
 
 })
 

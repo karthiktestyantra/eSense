@@ -327,5 +327,8 @@ class AdminDashboardPage {
     getHighToLowFilterOverallResultOpt(){
         return cy.xpath('//div[.="High to low"]')
     }
+    getGradeListOverallResult(){
+        return cy.get('div.OverallResult_dashOvrRsltvDataXaxisItem__3AN7T p')
+    }
 }
 module.exports = new AdminDashboardPage() 

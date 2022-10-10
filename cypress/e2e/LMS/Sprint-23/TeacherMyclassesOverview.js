@@ -2,7 +2,7 @@ const teacherDashboardPage=require('../../../support/pageObjects/LMS-2/TeacherDa
 const teacherMyclassesOverviewPage=require('../../../support/pageObjects/LMS-2/TeacherMyclassesOverviewPage')
 
 
-describe("Verify Teacher Student Profile  Functionalities - Sprint 22(EL-6540,ES-6674)", function () {
+describe("Verify Teacher Student Profile  Functionalities - Sprint 22(EL-6540)", function () {
 
     before(function () {
         cy.visit(Cypress.env("urlQAPreSetup"))

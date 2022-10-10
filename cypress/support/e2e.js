@@ -17,3 +17,4 @@ import "@shelex/cypress-allure-plugin";
 import 'cypress-mouse-position/commands';
 
 
+

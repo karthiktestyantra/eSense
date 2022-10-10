@@ -9,7 +9,7 @@ after(function () {
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false;
-});
+})
 
 const login = require('./pageObjects/LMS-2/MainAdminIndexPage')
 Cypress.Commands.add('Mainlogin', (email, password) => {
@@ -125,6 +125,7 @@ Cypress.Commands.add('unCheckAndVerify', (element) => {
 Cypress.Commands.add('clickOnBody', () => {
   cy.get('body').click(0, 0)
 })
+
 
 
 

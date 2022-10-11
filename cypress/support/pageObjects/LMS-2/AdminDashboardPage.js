@@ -338,5 +338,8 @@ class AdminDashboardPage {
     getGradeListOverallResult(){
         return cy.get('div.OverallResult_dashOvrRsltvDataXaxisItem__3AN7T p')
     }
+    getGradeListOverallResultDynamic(rank){
+        return cy.xpath('//p[.="'+rank+'"]/ancestor::div[@class="OverallResult_dashOvrRsltvDataList__2N8bS MuiBox-root css-0"]/div[@class="OverallResult_dashOvrRsltvDataXaxisItem__3AN7T MuiBox-root css-0"]/p')
+    }
 }
 module.exports = new AdminDashboardPage() 

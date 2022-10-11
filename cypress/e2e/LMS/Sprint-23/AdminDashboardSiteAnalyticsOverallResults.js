@@ -68,7 +68,7 @@ describe("Verify Admin Dashboard Site Analytics - Sprint 23(EL-4965)", function 
         cy.get('@sameRank').then((sameRank) => {
             var getName = []
             for (let index = 0; index < sameRank.length; index++) {
-                adminDashboardPage.getGradeListOverallResult(sameRank[index]).each(($el) => {
+                adminDashboardPage.getGradeListOverallResultDynamic(sameRank[index]).each(($el) => {
                     getName.push($el.text().trim())
                     cy.wrap(getName).as('getName')
                 })
@@ -82,4 +82,4 @@ describe("Verify Admin Dashboard Site Analytics - Sprint 23(EL-4965)", function 
 
 })
 
-//Author - Manohara EL-4965
+//Author - Manohara (EL-4965)

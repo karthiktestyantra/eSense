@@ -21,7 +21,7 @@ describe("Verify Forgot Password Functionaities", function () {
   });
 
   it("Forgot Password field validation", function () {
-    forgotPasswordPage.getEmail().type(this.emailData.forgotPasswordDetails.email);
+    forgotPasswordPage.getEmail().type(this.emailData.forgotPasswordDetails.email, { force: true, parseSpecialCharSequences: false });
     forgotPasswordPage.getSendResetInstructionsButton().click();
   });
 });

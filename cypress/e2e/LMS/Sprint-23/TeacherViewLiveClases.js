@@ -127,6 +127,7 @@ describe("Verify Teacher LeaveRequest Functionality - Sprint 22(EL-6656,EL-6657)
         var liveDate = liveClassdate.split(" ")
         var liveDateTxt = liveDate[0]
         cy.log(liveDateTxt)
+        teacherViewLiveClassesPage.getTeacherLiveclassesDate().should('contain.text',liveDateTxt)
        })
      
        

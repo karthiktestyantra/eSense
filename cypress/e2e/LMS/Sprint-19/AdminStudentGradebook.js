@@ -26,7 +26,7 @@ describe("Verify Admin student grade book functionalities", function () {
   })
 
   it("Validate that when user clicks on the Reports any another reports opened/EL-6082/ES6082_03", function () {
-    adminStudentGradebookPage.getSiStudentGradebookLnk().click()
+    adminStudentGradebookPage.getSiStudentGradebookLnk().click({force:true})
     adminStudentGradebookPage.getSiGradebookPageTitle().should('have.text', "Student Gradebook")
   })
 
@@ -86,7 +86,7 @@ describe("Verify Admin student grade book functionalities", function () {
     adminStudentGradebookPage.getSiRollNoCheckBx().uncheck()
     adminStudentGradebookPage.getSiFirstNameLstInGradebookPage().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.FirstName) {
+      if (txt === this.report.FullName) {
         adminStudentGradebookPage.getSiViewArrowIcnLstInGradebook().eq(index).click()
       }
     })
@@ -110,12 +110,12 @@ describe("Verify Admin student grade book functionalities", function () {
     adminStudentGradebookPage.getSiGradesLstInGradeDrpDwnPage().contains("A").click()
     adminStudentGradebookPage.getBulkUploadScoreBtnInGradebookPage().click()
     adminStudentGradebookPage.getSelectFileFrmComputerBtn().click()
-    adminStudentGradebookPage.getSiAttachsamplefile().attachFile('Report_Gradebooktemplate.xlsx')
+    adminStudentGradebookPage.getSiAttachsamplefile().attachFile('LMS/Report_Gradebooktemplate.xlsx')
     adminStudentGradebookPage.getSisamplefileImportBtn().should('have.text', 'Import 1 Student Grades').click()
     cy.contains("Student Grades Imported successfully").should('be.visible')
     adminStudentGradebookPage.getSiFirstNameLstInGradebookPage().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.FirstName) {
+      if (txt === this.report.FullName) {
         adminStudentGradebookPage.getSiViewArrowIcnLstInGradebook().eq(index).click()
       }
     })
@@ -135,12 +135,12 @@ describe("Verify Admin student grade book functionalities", function () {
     adminStudentGradebookPage.getSiGradesLstInGradeDrpDwnPage().contains("A").click()
     adminStudentGradebookPage.getBulkUploadScoreBtnInGradebookPage().click()
     adminStudentGradebookPage.getSelectFileFrmComputerBtn().click()
-    adminStudentGradebookPage.getSiAttachsamplefile().attachFile('Report_Gradebooktemplate.xlsx')
+    adminStudentGradebookPage.getSiAttachsamplefile().attachFile('LMS/Report_Gradebooktemplate.xlsx')
     adminStudentGradebookPage.getSisamplefileImportBtn().should('have.text', 'Import 1 Student Grades').click()
     cy.contains("Student Grades Imported successfully").should('be.visible')
     adminStudentGradebookPage.getSiFirstNameLstInGradebookPage().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.FirstName2) {
+      if (txt === this.report.FullName2) {
         adminStudentGradebookPage.getSiViewArrowIcnLstInGradebook().eq(index).click()
       }
     })

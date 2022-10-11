@@ -17,6 +17,7 @@ describe("Verify Admin student grade book functionalities", function () {
   //pre-condition
   it("Validate user is able to create Gradebook by clicking TopSchool option in the “Create Template” screen/EL-5358/ES5358_01", function () {
     adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
+    cy.wait(1000)
     adminGradebookPageNew.getSiStudentGradebookLnk().click({force:true})
     adminGradebookPageNew.getSiCreateTemplateBtn().click()
     adminGradebookPageNew.getSiGradeDrpDwnInCreateTemplate().click()

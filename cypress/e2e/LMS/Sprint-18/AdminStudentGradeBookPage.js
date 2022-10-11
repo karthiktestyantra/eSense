@@ -4,6 +4,7 @@ const adminGradebookPageNew = require("../../../support/pageObjects/LMS-2/AdminG
 describe("Verify Admin student grade book Page functionalities", function () {
 
   before(function () {
+    cy.clearLocalStorage()
     cy.visit(Cypress.env("urlMain"))
     cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
@@ -17,7 +18,8 @@ describe("Verify Admin student grade book Page functionalities", function () {
   //pre-condition
   it("To validate user on clicking view('>') icon redirecting to respective student's adminGradebookPageNew./EL-5489/ES5489-01", function () {
     adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
-    adminGradebookPageNew.getSiStudentGradebookLnk().click()
+    cy.wait(2000)
+    adminGradebookPageNew.getSiStudentGradebookLnk().click({force:true})
     adminGradebookPageNew.getSiTemplateTabInTemplate().click()
     adminGradebookPageNew.getSiGradeDrpDwnInCreateTemplate().click()
     cy.wait(2000)
@@ -25,11 +27,11 @@ describe("Verify Admin student grade book Page functionalities", function () {
     cy.wait(1000)
     adminGradebookPageNew.getSiFirstNameLstInGradebook().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.FirstName) {
+      if (txt === this.report.FullName) {
         adminGradebookPageNew.getSiViewArrowIcnLstInGradebook().eq(index).click()
       }
     })
-    adminGradebookPageNew.getSiTitleInGradeBookPage().should('have.text', this.report.FirstName + " Gradebook")
+    adminGradebookPageNew.getSiTitleInGradeBookPage().should('have.text', this.report.FirstName+" Gradebook")
   })
 
   it("To validate user on clicking edit option permission is enabled for scholastic, co-scholastic,remarks fields to edit/EL-5489/ES5489-02", function () {
@@ -93,7 +95,7 @@ describe("Verify Admin student grade book Page functionalities", function () {
     cy.wait(1000)
     adminGradebookPageNew.getSiFirstNameLstInGradebook().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.FirstName) {
+      if (txt === this.report.FullName) {
         adminGradebookPageNew.getSiViewArrowIcnLstInGradebook().eq(index).click()
       }
     })
@@ -146,7 +148,7 @@ describe("Verify Admin student grade book Page functionalities", function () {
   it("To validate total pecentage is displayed based on total marks obtained/EL-5489/ES5489-28", function () {
     adminGradebookPageNew.getSiFirstNameLstInGradebook().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.FirstName) {
+      if (txt === this.report.FullName) {
         adminGradebookPageNew.getSiViewArrowIcnLstInGradebook().eq(index).click()
       }
     })
@@ -174,7 +176,7 @@ describe("Verify Admin student grade book Page functionalities", function () {
   it("To validate user is redirected to gradebook screen after clicking the Cancel button/EL-5489/ES5489-33", function () {
     adminGradebookPageNew.getSiFirstNameLstInGradebook().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.FirstName) {
+      if (txt === this.report.FullName) {
         adminGradebookPageNew.getSiViewArrowIcnLstInGradebook().eq(index).click()
       }
     })
@@ -185,7 +187,7 @@ describe("Verify Admin student grade book Page functionalities", function () {
   it("To validate user able to get Grading details for Scholastic and Co-Scholastic Activities by clicking show grading system/EL-5489/ES5489-34", function () {
     adminGradebookPageNew.getSiFirstNameLstInGradebook().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.FirstName) {
+      if (txt === this.report.FullName) {
         adminGradebookPageNew.getSiViewArrowIcnLstInGradebook().eq(index).click()
       }
     })

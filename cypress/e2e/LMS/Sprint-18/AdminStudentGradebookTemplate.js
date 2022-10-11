@@ -17,7 +17,7 @@ describe("Verify Admin student grade book template functionalities", function ()
    //pre-condition
    it("Create new Template", function () {
       adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
-      adminGradebookPageNew.getSiStudentGradebookLnk().click()
+      adminGradebookPageNew.getSiStudentGradebookLnk().click({force:true})
       adminGradebookPageNew.getSiCreateTemplateBtn().click()
       adminGradebookPageNew.getSiGradeDrpDwnInCreateTemplate().click()
       adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.Grade).click()

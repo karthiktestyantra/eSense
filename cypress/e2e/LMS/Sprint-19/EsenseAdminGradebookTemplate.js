@@ -1,5 +1,6 @@
 const mainAdminHomePage = require("../../../support/pageObjects/LMS-2/MainAdminHomePage")
 const mainAdminGradebookPage = require("../../../support/pageObjects/LMS-2/MainAdminGradebookPage")
+import moment from 'moment';
 
 describe("Verify admin grade book template functionalities", function () {
 

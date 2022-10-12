@@ -2,7 +2,7 @@ const teacherDashboardPage = require('../../../support/pageObjects/LMS-2/Teacher
 const teacherLiveClassPage = require('../../../support/pageObjects/LMS-2/TeacherLiveClassesPage')
 var randomstring = require("randomstring")
 
-describe("Verify Teacher Live classes Functionalities - Sprint 22(EL-6500)", function () {
+describe("Verify Teacher Live classes Functionalities - Sprint 23(EL-6500)", function () {
 
     before(function () {
         cy.visit(Cypress.env("urlQAPreSetup"))

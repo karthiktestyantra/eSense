@@ -2,7 +2,7 @@ const adminAccountsPage = require("../../../support/pageObjects/LMS-2/AdminAccou
 const adminPostSetupCurriculumBuilderPage = require("../../../support/pageObjects/LMS-2/AdminPostSetupCurriculumBuilderPage")
 const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
 
-describe("Verify Sub Admin Curriculum Page functionalities", function () {
+describe("Verify Sub Admin Curriculum Page functionalities - Sprint 14(EL-4108,EL-4110)", function () {
 
   before(function () {
     cy.clearLocalStorage()

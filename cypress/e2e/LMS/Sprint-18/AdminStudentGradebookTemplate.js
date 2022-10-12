@@ -1,7 +1,7 @@
 const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
 const adminGradebookPageNew = require("../../../support/pageObjects/LMS-2/AdminGradebookPageNew")
 
-describe("Verify Admin student grade book template functionalities", function () {
+describe("Verify Admin student grade book template functionalities - Sprint 18(EL-5359,EL-5145)", function () {
 
    before(function () {
       cy.visit(Cypress.env("urlMain"))
@@ -17,7 +17,7 @@ describe("Verify Admin student grade book template functionalities", function ()
    //pre-condition
    it("Create new Template", function () {
       adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
-      adminGradebookPageNew.getSiStudentGradebookLnk().click({force:true})
+      adminGradebookPageNew.getSiStudentGradebookLnk().click({ force: true })
       adminGradebookPageNew.getSiCreateTemplateBtn().click()
       adminGradebookPageNew.getSiGradeDrpDwnInCreateTemplate().click()
       adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.Grade).click()

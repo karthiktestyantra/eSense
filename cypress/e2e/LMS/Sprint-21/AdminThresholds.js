@@ -1,6 +1,6 @@
 const adminThresholdsPage = require('../../../support/pageObjects/LMS-2/AdminThresholdsPage')
 
-describe("Verify admin school functionalities", function () {
+describe("Verify admin school functionalities - Sprint 21(EL-6568)", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlQAPreSetup'))

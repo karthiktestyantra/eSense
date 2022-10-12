@@ -1,6 +1,6 @@
 const esenseAdminGradePage = require("../../../support/pageObjects/LMS-2/EsenseAdminGradePage")
 
-describe("Verify admin edit grade book template", function () {
+describe("Verify admin edit grade book template - Sprint 19(EL-5594,EL-5593,EL-5595,EL-5591)", function () {
 
    before(function () {
       cy.visit(Cypress.env("url"))

@@ -1,7 +1,7 @@
 const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
 const adminPostSetupCurriculumBuilderPage = require("../../../support/pageObjects/LMS-2/AdminPostSetupCurriculumBuilderPage")
 
-describe("Verify Curriculum Builder pagefunctionalities", function () {
+describe("Verify Curriculum Builder pagefunctionalities - Sprint 14(EL-4067,EL-4070)", function () {
   before(function () {
     cy.visit(Cypress.env("urlQAPreSetup"))
     cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {

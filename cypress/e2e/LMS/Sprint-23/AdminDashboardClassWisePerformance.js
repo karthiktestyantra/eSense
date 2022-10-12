@@ -10,7 +10,7 @@ describe("Verify admin dashboard classwise performance - Sprint 23(EL-5023)", fu
     })
     beforeEach(function () {
         cy.viewport(1920, 1080)
-        cy.fixture("LMS/adminDashboardCredentials.json").as("dashboard")
+        cy.fixture("LMS/AdminDashboardCredentials.json").as("dashboard")
     })
 
     it("EL-5023/ES5023-01 To validate user is able to view 'Class wise' performance in the performance insight section of the dash board .", function () {
@@ -18,9 +18,9 @@ describe("Verify admin dashboard classwise performance - Sprint 23(EL-5023)", fu
         adminDashboard.getClassWisePerformanceTxtInGradeWiseAttendance().should('be.visible')
     })
 
-    it("EL-5023/ES5023-02 To validate class details are present in 'Line graph'chart",function(){
-        adminDashboard.getClassWisePerformanceTxtInGradeWiseAttendance().each(($e1,list,$index) => {
-            cy.wrap($e1).should('contain.text',"Grade")
+    it("EL-5023/ES5023-02 To validate class details are present in 'Line graph'chart", function () {
+        adminDashboard.getClassWisePerformanceTxtInGradeWiseAttendance().each(($e1, list, $index) => {
+            cy.wrap($e1).should('contain.text', "Grade")
         })
     })
 

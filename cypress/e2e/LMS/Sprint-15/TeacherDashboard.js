@@ -1,6 +1,6 @@
 // const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
 
-// describe("Verify Esense Teacher Login Page functionalities", function () {
+// describe("Verify Esense Teacher Login Page functionalities - Sprint 15(EL-4018,EL-4024,EL-4026)", function () {
 
 //     before(function () {
 //         cy.visit(Cypress.env('urlQA'))

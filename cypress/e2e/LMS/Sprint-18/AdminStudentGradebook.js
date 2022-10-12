@@ -1,7 +1,7 @@
 const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
 const adminGradebookPageNew = require("../../../support/pageObjects/LMS-2/AdminGradebookPageNew")
 
-describe("Verify Admin student grade book functionalities", function () {
+describe("Verify Admin student grade book functionalities - Sprint 18(EL-5358)", function () {
 
   before(function () {
     cy.visit(Cypress.env("urlMain"))

@@ -1,7 +1,7 @@
 const adminAccountsPage = require("../../../support/pageObjects/LMS-2/AdminAccountsPage")
 const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
 
-describe("Verify Admin Account Page functionalities", function () {
+describe("Verify Admin Account Page functionalities - Sprint 14(EL-4094)", function () {
 
   before(function () {
     cy.visit(Cypress.env("urlQAPreSetup"))

@@ -1,7 +1,7 @@
 const teacherCalenderPage = require("../../../support/pageObjects/LMS-2/TeacherCalenderPage")
 const teacherHomePage = require("../../../support/pageObjects/LMS-2/TeacherHomePage")
 
-describe("Verify AssessmentCard functionalities", function () {
+describe("Verify AssessmentCard functionalities - Sprint 14(EL-3969)", function () {
   before(function () {
     cy.visit(Cypress.env("urlQAPreSetup"))
     cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {

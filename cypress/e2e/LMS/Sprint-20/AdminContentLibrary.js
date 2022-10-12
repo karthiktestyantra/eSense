@@ -4,7 +4,7 @@ import 'cypress-iframe'
 const adminDashboardPage = require("../../../support/pageObjects/LMS-2/AdminDashboardPage")
 const adminContentLibraryPage = require("../../../support/pageObjects/LMS-2/AdminContentLibraryPage")
 
-describe("Verify Admin Content Library functionalities", function () {
+describe("Verify Admin Content Library functionalities - Sprint 20(EL-4736)", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlQAPreSetup'))

@@ -1,7 +1,7 @@
 const adminDashboardPage = require('../../../support/pageObjects/LMS-2/AdminDashboardPage')
 const quickLinksPage = require('../../../support/pageObjects/LMS-2/QuickLinksPage')
 
-describe("Verify admin school functionalities - Sprint 21(EL-8129)", function () {
+describe("Verify admin school functionalities - Sprint 23(EL-8129)", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlMain'))

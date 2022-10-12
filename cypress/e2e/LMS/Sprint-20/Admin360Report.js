@@ -1,7 +1,7 @@
 const adminHomePage = require("../../../support/pageObjects/LMS-2/AdminHomePage")
 const admin360ReportPage = require("../../../support/pageObjects/LMS-2/Admin360ReportPage")
 
-describe("Verify 360 Report functionalities", function () {
+describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", function () {
 
   before(function () {
     cy.visit(Cypress.env("urlQAPreSetup"))
@@ -15,7 +15,7 @@ describe("Verify 360 Report functionalities", function () {
   })
 
   //pre-condition
-  it("Validate whether report page is displayed with 'Search Box', 'Check Box', 'ROLL NUMBER', 'FIRST NAME', 'LAST NAME', 'LAST ACTIVE', 'REPORTS'/EL-4124ELS4124_1", function () {
+  it("Validate whether report page is displayed with 'Search Box', 'Check Box', 'ROLL NUMBER', 'FIRST NAME', 'LAST NAME', 'LAST ACTIVE', 'REPORTS'/EL-4124/ELS4124_1", function () {
     adminHomePage.clickOnReportLnk()
     admin360ReportPage.clickOn360ReportLnk()
     admin360ReportPage.verify360ReportContents()

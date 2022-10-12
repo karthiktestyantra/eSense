@@ -1,7 +1,7 @@
 const mainAdminHomePage = require("../../../support/pageObjects/LMS-2/MainAdminHomePage")
 const mainAdminOrganisationManagementPage = require("../../../support/pageObjects/LMS-2/MainAdminOrganisationManagementPage")
 
-describe("Verify Organisation Page functionalities", function () {
+describe("Verify Organisation Page functionalities - Sprint 13(EL-4139)", function () {
   before(function () {
     cy.viewport(1920, 1080)
     cy.visit(Cypress.env("url"))

@@ -1,7 +1,7 @@
 const mainAdminHomePage = require("../../../support/pageObjects/LMS-2/MainAdminHomePage")
 const mainAdminMasterManagementPage = require("../../../support/pageObjects/LMS-2/MainAdminMasterManagementPage")
 
-describe("Verify Master Management domain ranking Page functionalities", function () {
+describe("Verify Master Management domain ranking Page functionalities - Sprint 16(EL-5057)", function () {
 
   before(function () {
     cy.visit(Cypress.env("url"))
@@ -68,7 +68,7 @@ describe("Verify Master Management domain ranking Page functionalities", functio
     //it("Validate Domain and Main Skill fields are selected from the auto populated List/EL-5057/",function(){
     mainAdminMasterManagementPage.getGradeLstInDomainRanking().each(($e2, index, $list) => {
       const grade = $e2.text()
-      if (grade.includes("Grade")) {
+      if (grade.includes("Grade 3")) {
         mainAdminMasterManagementPage.getGradeLstInDomainRanking().eq(index).click()
         mainAdminMasterManagementPage.getAddNewBtn().click()
         mainAdminMasterManagementPage.getDomainDrpDwnInDomainRanking().select(this.masterManagementCredentials.DomainName)
@@ -84,12 +84,14 @@ describe("Verify Master Management domain ranking Page functionalities", functio
         mainAdminMasterManagementPage.getAddPublicationSubmitBtn().click()
         cy.contains("Domain Rank is successfully Added !").should('be.visible')
         mainAdminMasterManagementPage.getPublicationAddedbtn().click()
-        mainAdminMasterManagementPage.getPublicationNameLst().each(($e4, index, $list) => {
-          const text = $e4.text()
-          if (text.includes(this.masterManagementCredentials.DomainName)) {
+      }
+      })
+        mainAdminMasterManagementPage.getMainSkillLstInDomainRanking().each(($e5, index, $list) => {
+          const text = $e5.text()
+          if (text.includes(this.masterManagementCredentials.MainSkillValue)) {
             mainAdminMasterManagementPage.getStatusTxtInDomainRanking().eq(index).should('have.text', "Active")
             mainAdminMasterManagementPage.getDomainMappingActionsLst().eq(index).click({ force: true })
-            mainAdminMasterManagementPage.getActionsLstEditBtn().click()
+            mainAdminMasterManagementPage.getActionsLstEditBtn().click() 
             mainAdminMasterManagementPage.getStatusToggleBtn().click()
             mainAdminMasterManagementPage.getAddPublicationSubmitBtn().click()
             mainAdminMasterManagementPage.getPublicationAddedbtn().click()
@@ -101,9 +103,9 @@ describe("Verify Master Management domain ranking Page functionalities", functio
         //})
 
         // it("Validate user is able to edit the records from the 'Domain Ranking' tab/EL-5057/ES5057_04",function(){
-        mainAdminMasterManagementPage.getPublicationNameLst().each(($e4, index, $list) => {
-          const txt = $e4.text()
-          if (txt.includes(this.masterManagementCredentials.DomainName)) {
+        mainAdminMasterManagementPage.getMainSkillLstInDomainRanking().each(($e6, index, $list) => {
+          const txt = $e6.text()
+          if (txt.includes(this.masterManagementCredentials.MainSkillValue)) {
             mainAdminMasterManagementPage.getDomainMappingActionsLst().eq(index).click({ force: true })
             mainAdminMasterManagementPage.getActionsLstEditBtn().click()
             mainAdminMasterManagementPage.getStatusToggleBtn().click()
@@ -120,9 +122,9 @@ describe("Verify Master Management domain ranking Page functionalities", functio
         //})
 
         //it("Validate user is able to delete the records from the 'Competencies' tab/EL-5057/ES5057_05",function(){\
-        mainAdminMasterManagementPage.getPublicationNameLst().each(($e1, index, $list) => {
-          const txt = $e1.text()
-          if (txt.includes(this.masterManagementCredentials.DomainName)) {
+        mainAdminMasterManagementPage.getMainSkillLstInDomainRanking().each(($e7, index, $list) => {
+          const txt = $e7.text()
+          if (txt.includes(this.masterManagementCredentials.MainSkillValue)) {
             mainAdminMasterManagementPage.getDomainMappingActionsLst().eq(index).click({ force: true })
             mainAdminMasterManagementPage.getActionsLstDltBtn().click()
             mainAdminMasterManagementPage.getPublicationPopupDltBtn().click()
@@ -130,9 +132,19 @@ describe("Verify Master Management domain ranking Page functionalities", functio
             mainAdminMasterManagementPage.getPopupAccptBtn().click()
           }
         })
-      } else {
-        return false
-      }
-    })
+
+        //it("To delete the created domain mapping",function(){
+          mainAdminMasterManagementPage.getDomainMappingTabLnk().click()
+          mainAdminMasterManagementPage.getDomainMappingMainSkillLst().each(($e3, index, $list) => {
+            const txt = $e3.text()
+            if (txt.includes(this.masterManagementCredentials.MainSkill)) {
+              mainAdminMasterManagementPage.getActionsLst().eq(index).click({ force: true })
+            }
+          })
+          mainAdminMasterManagementPage.getActionsLstDltBtn().click()
+          mainAdminMasterManagementPage.getPublicationPopupDltBtn().click()
+          cy.contains("Domain Skill is successfully Deleted !").should('be.visible')
+          mainAdminMasterManagementPage.getPublicationAddedbtn().click()
+        //})
   })
 })

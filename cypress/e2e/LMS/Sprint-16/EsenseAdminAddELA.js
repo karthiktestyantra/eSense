@@ -1,6 +1,6 @@
 const mainAdminAddELAPage = require("../../../support/pageObjects/LMS-2/MainAdminAddELAPage")
 
-describe("Verify Esense Admin Main add ELA functionalities", function () {
+describe("Verify Esense Admin Main add ELA functionalities - Sprint 16(EL-5058)", function () {
 
     before(function () {
         cy.clearLocalStorage()

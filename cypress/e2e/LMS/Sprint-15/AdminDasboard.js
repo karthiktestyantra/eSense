@@ -1,6 +1,6 @@
 const adminDashboardPage = require("../../../support/pageObjects/LMS-2/AdminDashboardPage")
 
-describe("Verify admin dashboard functionalities", function () {
+describe("Verify admin dashboard functionalities - Sprint 15(EL-4063)", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlQAPreSetup'))

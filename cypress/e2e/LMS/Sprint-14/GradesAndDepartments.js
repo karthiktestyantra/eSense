@@ -1,7 +1,7 @@
 const adminGradePage = require("../../../support/pageObjects/LMS-2/AdminGradePage")
 const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
 
-describe("Verify Grades and department page functionalities", function () {
+describe("Verify Grades and department page functionalities - Sprint 14(EL-3988)", function () {
 
   before(function () {
     cy.visit(Cypress.env("urlQAPreSetup"))

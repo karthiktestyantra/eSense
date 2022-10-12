@@ -1,6 +1,6 @@
 const esenseAdminCurriculamPlanPage = require("../../../support/pageObjects/LMS-2/EsenseAdminCurriculumPlanPage")
 
-describe("Verify Curriculum Plan Page functionalities", function () {
+describe("Verify Curriculum Plan Page functionalities - Sprint 13(EL-2280,EL-2281)", function () {
   before(function () {
     cy.viewport(1920, 1080)
     cy.visit(Cypress.env("url"))

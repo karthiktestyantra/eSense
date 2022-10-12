@@ -10,7 +10,7 @@ const adp = require('../../../../support/pageObjects/LMS-1/AdminDepartmentsPage'
 
 describe("Verify School Admin Basic Info Functionalities", function () {
   before(function () {
-   cy.visit('https://prashanti.staging.topschool.co.in');
+   cy.visit('https://prodautomation1.thetopschool.com');
    //cy.visit("https://gvhss.thetopschool.com")
     ip.getAdmin().click();
     cy.reload();

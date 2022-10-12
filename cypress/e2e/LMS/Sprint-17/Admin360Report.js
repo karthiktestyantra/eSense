@@ -2,7 +2,7 @@ const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/Teacher
 const teacher360ReportPage = require("../../../support/pageObjects/LMS-2/Teacher360ReportPage")
 const teacherELAPage = require("../../../support/pageObjects/LMS-2/TeacherELAPage")
 
-describe("Verify admin 360 report functionalities", function () {
+describe("Verify admin 360 report functionalities - Sprint 17(EL-4079,EL-4095,EL-4100,EL-4101)", function () {
 
   before(function () {
     cy.visit(Cypress.env("urlQAPreSetup"))

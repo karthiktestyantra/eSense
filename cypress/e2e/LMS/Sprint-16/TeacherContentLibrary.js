@@ -1,7 +1,7 @@
 const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
 const teacherELAPage = require("../../../support/pageObjects/LMS-2/TeacherELAPage")
 
-describe("Verify techer content library functionalities", function () {
+describe("Verify techer content library functionalities - Sprint 16(EL-3977,EL-3978)", function () {
 
   before(function () {
     cy.visit(Cypress.env("urlQA"))

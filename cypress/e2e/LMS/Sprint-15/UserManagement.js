@@ -2,7 +2,7 @@ const mainAdminHomePage = require("../../../support/pageObjects/LMS-2/MainAdminH
 const mainAdminUserManagementPage = require("../../../support/pageObjects/LMS-2/MainAdminUserManagementPage")
 const mainAdminMasterManagementPage = require("../../../support/pageObjects/LMS-2/MainAdminMasterManagementPage")
 
-describe("Verify User Management Page functionalities/Sprint-15", function () {
+describe("Verify User Management Page functionalities - Sprint 15(EL-4145,EL-4148,EL-4149,EL-4864)", function () {
 
   before(function () {
     cy.visit(Cypress.env("url"))

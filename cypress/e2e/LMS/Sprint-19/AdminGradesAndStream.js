@@ -1,7 +1,7 @@
 const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
 const adminGradesAndStreamPage = require("../../../support/pageObjects/LMS-2/AdminGradesAndStreamPage")
 
-describe("Verify Admin grades and stream functionalities", function () {
+describe("Verify Admin grades and stream functionalities - Sprint 19(EL-5967)", function () {
 
   before(function () {
     cy.visit(Cypress.env("urlMain"))

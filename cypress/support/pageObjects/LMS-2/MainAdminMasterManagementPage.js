@@ -217,5 +217,8 @@ class mainAdminMasterManagementPage {
     getTestTypeSubmitBtn() {
         return cy.get('button[type="submit"]').contains('Submit')
     }
+    getMainSkillLstInDomainRanking(){
+        return cy.xpath('(//tbody//td[@class="pe-0"]/span[@class="fw-bolder"])[2]')
+    }
 }
 module.exports = new mainAdminMasterManagementPage() 

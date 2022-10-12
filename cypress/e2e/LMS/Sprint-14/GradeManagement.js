@@ -1,7 +1,7 @@
 const mainAdminHomePage = require("../../../support/pageObjects/LMS-2/MainAdminHomePage")
 const mainAdminGradeManagementPage = require("../../../support/pageObjects/LMS-2/MainAdminGradeManagementPage")
 
-describe("Verify Grade Management Page functionalities", function () {
+describe("Verify Grade Management Page functionalities - Sprint 14(EL-4471)", function () {
 
   before(function () {
     cy.viewport(1920, 1080)

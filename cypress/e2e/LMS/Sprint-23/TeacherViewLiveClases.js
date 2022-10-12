@@ -4,7 +4,7 @@ const teacherLiveClassPage = require('../../../support/pageObjects/LMS-2/Teacher
 var randomstring = require("randomstring")
 const dayjs = require('dayjs')
 
-describe("Verify Teacher LeaveRequest Functionality - Sprint 22(EL-6656,EL-6657)", function () {
+describe("Verify Teacher LeaveRequest Functionality - Sprint 23(EL-6656,EL-6657)", function () {
 
     before(function () {
         cy.visit(Cypress.env("urlQAPreSetup"))

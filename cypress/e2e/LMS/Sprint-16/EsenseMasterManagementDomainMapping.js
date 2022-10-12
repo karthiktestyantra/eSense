@@ -1,7 +1,7 @@
 const mainAdminHomePage = require("../../../support/pageObjects/LMS-2/MainAdminHomePage")
 const mainAdminMasterManagementPage = require("../../../support/pageObjects/LMS-2/MainAdminMasterManagementPage")
 
-describe("Verify Domain Mapping functionalities", function () {
+describe("Verify Domain Mapping functionalities - Sprint 16(EL-5056)", function () {
 
   before(function () {
     cy.visit(Cypress.env("url"))

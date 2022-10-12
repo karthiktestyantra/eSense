@@ -1,6 +1,6 @@
 const esenseAdminLessonPlanPage = require("../../../support/pageObjects/LMS-2/EsenseAdminLessonPlanPage")
 
-describe("Verify lesson plan functionalities", function () {
+describe("Verify lesson plan functionalities - Sprint 14(EL-4135)", function () {
 
   before(function () {
     cy.visit(Cypress.env("url"))

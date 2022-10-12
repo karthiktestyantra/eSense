@@ -1,7 +1,7 @@
 const adminDashboardPage = require("../../../support/pageObjects/LMS-2/AdminDashboardPage")
 
 
-describe("Verify Admin student grade book functionalities", function () {
+describe("Verify Admin student grade book functionalities - Sprint 20(EL-4745)", function () {
 
 
     before(function () {

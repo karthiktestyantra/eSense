@@ -1,84 +1,84 @@
-class TeacherMyclassesStudentPage{
-    getStudentTab(){
+class TeacherMyclassesStudentPage {
+    getStudentTab() {
         return cy.get('button.MuiTab-textColorPrimary').contains('Students')
     }
-    
-    getStudentRightArrowBtn(){
+
+    getStudentRightArrowBtn() {
         return cy.get('[data-testid="ArrowForwardIosIcon"]').eq(0)
     }
-    getStudentDetails(){
+    getStudentDetails() {
         return cy.get('[class="tchPrfWrkListDetails padx30"]').contains('Student Details')
     }
-    getStudentSendMessageToStudent(){
+    getStudentSendMessageToStudent() {
         return cy.get('[class="tchPrfWrkListDetails padx30"]').contains('Send Message to Student')
     }
-    getStudentSendMessageToParentGuardian(){
+    getStudentSendMessageToParentGuardian() {
         return cy.get('[class="tchPrfWrkListDetails padx30"]').contains('Send Message to Parent/Guardian')
     }
-    getStudentStudentsReports(){
+    getStudentStudentsReports() {
         return cy.get('[class="tchPrfWrkListDetails padx30"]').contains("Student's Reports")
     }
-    getStudentScheduleaLiveClassWithStudent(){
+    getStudentScheduleaLiveClassWithStudent() {
         return cy.get('[class="tchPrfWrkListDetails padx30"]').contains('Schedule a Live Class with Student')
     }
-    getStudentTeachersRemark(){
+    getStudentTeachersRemark() {
         return cy.get('[class="tchPrfWrkListDetails padx30"]').contains("Teacher's Remark")
     }
-    getStudentRecentWorkLoad(){
+    getStudentRecentWorkLoad() {
         return cy.get('.TeacherProfile_tchPrfRcnWkLodTitle__3dm1M')
     }
-    getStudentViewAllLink(){
+    getStudentViewAllLink() {
         return cy.contains('VIEW ALL')
     }
-    getStudentDetailBrithDay(){
+    getStudentDetailBrithDay() {
         return cy.get('.StudentOtherDetails_StudentOtherDetails__2Rhya ').eq(0)
     }
-    getStudentDetailMotherName(){
+    getStudentDetailMotherName() {
         return cy.get('.StudentOtherDetails_StudentOtherDetails__2Rhya ').eq(1)
     }
-    getStudentDetailMotherContact(){
+    getStudentDetailMotherContact() {
         return cy.get('.StudentOtherDetails_StudentOtherDetails__2Rhya ').eq(2)
     }
-    getStudentDetailBloodGroup(){
+    getStudentDetailBloodGroup() {
         return cy.get('.StudentOtherDetails_StudentOtherDetails__2Rhya ').eq(3)
     }
-    getStudentDetailFatherName(){
+    getStudentDetailFatherName() {
         return cy.get('.StudentOtherDetails_StudentOtherDetails__2Rhya ').eq(4)
     }
-    getStudentDetailFatherContact(){
+    getStudentDetailFatherContact() {
         return cy.get('.StudentOtherDetails_StudentOtherDetails__2Rhya ').eq(5)
     }
-    getStudentSendMessagetoGardianArrowBtn(){
+    getStudentSendMessagetoGardianArrowBtn() {
         return cy.get('[data-testid="KeyboardArrowRightIcon"]').eq(2)
     }
-    getStudentsReportArrowBtn(){
+    getStudentsReportArrowBtn() {
         return cy.get('[data-testid="KeyboardArrowRightIcon"]').eq(3)
     }
-    getStudentSendMessagetoGardianName(){
+    getStudentSendMessagetoGardianName() {
         return cy.get('.student-meta p')
     }
-    getStudentSendMessagetoGardianSubjectTextfield(){
+    getStudentSendMessagetoGardianSubjectTextfield() {
         return cy.get('input.MuiInputBase-input').eq(1)
     }
-    getStudentSendMessagetoGardianWriteYourMessageTextfield(){
+    getStudentSendMessagetoGardianWriteYourMessageTextfield() {
         return cy.get('textarea[id="rc_content"]')
     }
-    getStudentSendMessagetoGardianAddAttachement(){
+    getStudentSendMessagetoGardianAddAttachement() {
         return cy.get('[class="attachment-label w-100"]')
     }
-    getStudentSendMessagetoGardianSendMessageBtn(){
+    getStudentSendMessagetoGardianSendMessageBtn() {
         return cy.get('button.message_btn')
     }
-    getStudentSendMessagetoGardianCloseBtn(){
+    getStudentSendMessagetoGardianCloseBtn() {
         return cy.get('svg.close-icon_popup')
     }
-    getStudentsReportGreadBook(){
+    getStudentsReportGreadBook() {
         return cy.get('.reportMeta p').eq(0)
     }
-    getStudentsReport360Report(){
+    getStudentsReport360Report() {
         return cy.get('.reportMeta p').eq(1)
     }
-    getStudentTeacherRemarks(){
+    getStudentTeacherRemarks() {
         return cy.get('div.studentRemarksSect')
     }
 }

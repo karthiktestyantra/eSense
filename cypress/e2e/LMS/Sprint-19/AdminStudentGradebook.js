@@ -1,7 +1,7 @@
 const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
 const adminStudentGradebookPage = require("../../../support/pageObjects/LMS-2/AdminStudentGradebookPage")
 
-describe("Verify Admin student grade book functionalities", function () {
+describe("Verify Admin student grade book functionalities - Sprint 19(EL-5492,EL-6082,EL-5493,EL-5490)", function () {
 
   before(function () {
     cy.visit(Cypress.env("urlMain"))
@@ -16,7 +16,7 @@ describe("Verify Admin student grade book functionalities", function () {
 
   //pre-condition
 
-  it("Validate that  when user clicks on reports module,pop-appears and contains student Gradebook/EL-5492ES5492_01", function () {
+  it("Validate that  when user clicks on reports module,pop-appears and contains student Gradebook/EL-5492/ES5492_01", function () {
     adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
     adminStudentGradebookPage.getSiStudentGradebookLnk().should('be.visible')
   })

@@ -118,7 +118,7 @@ class TeacherCalenderPage {
         return cy.get('button.leaveRqtAction')
     }
 
-    getCreateLiveClassTitle(){
+    getCreateLiveClassTitle() {
         return cy.get('.class_title_popup')
     }
 

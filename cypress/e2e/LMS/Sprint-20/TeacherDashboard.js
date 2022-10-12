@@ -1,7 +1,7 @@
 const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
 const dayjs = require('dayjs')
 
-describe("Verify Teacher Dashboard functionalities", function () {
+describe("Verify Teacher Dashboard functionalities - Sprint 20(EL-5053,EL-4955)", function () {
 
    before(function () {
       cy.visit(Cypress.env('urlStaging'))

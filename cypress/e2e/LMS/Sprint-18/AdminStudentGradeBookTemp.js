@@ -1,6 +1,6 @@
 const adminStudentGradebookPage = require("../../../support/pageObjects/LMS-2/AdminStudentGradebookPage")
 
-describe("Verify admin student grade book temp functionalities", function () {
+describe("Verify admin student grade book temp functionalities - Sprint 18(EL-4150,EL-4160,EL-5490)", function () {
 
   before(function () {
     cy.visit(Cypress.env('urlStagingPostSetup'))

@@ -1,6 +1,6 @@
 const teacherELAPage = require("../../../support/pageObjects/LMS-2/TeacherELAPage2")
 
-describe("Verify Teacher ELA Page functionalities", function () {
+describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL-4046,EL-3976)", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlStaging'))

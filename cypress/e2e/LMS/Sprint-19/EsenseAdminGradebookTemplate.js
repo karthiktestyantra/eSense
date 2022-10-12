@@ -2,7 +2,7 @@ const mainAdminHomePage = require("../../../support/pageObjects/LMS-2/MainAdminH
 const mainAdminGradebookPage = require("../../../support/pageObjects/LMS-2/MainAdminGradebookPage")
 import moment from 'moment';
 
-describe("Verify admin grade book template functionalities", function () {
+describe("Verify admin grade book template functionalities - Sprint 19(EL-5599,EL-5592)", function () {
 
     before(function () {
         cy.visit(Cypress.env("url"))

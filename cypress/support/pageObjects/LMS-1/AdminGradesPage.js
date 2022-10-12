@@ -25,7 +25,7 @@ class AdminGradesPage {
     }
 
     getAddNewSecIcon(){
-        return cy.get('.sectionAddBtn').eq(2);
+        return cy.get('.sectionAddBtn').eq(3);
     }
 
     getAddNewSectionPopupTitle(){
@@ -113,4 +113,4 @@ class AdminGradesPage {
     }
 
 }
-export default AdminGradesPage
+module.exports= new AdminGradesPage()

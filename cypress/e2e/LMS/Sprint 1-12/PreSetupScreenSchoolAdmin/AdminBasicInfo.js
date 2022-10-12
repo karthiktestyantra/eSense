@@ -30,7 +30,7 @@ describe("Verify School Admin Basic Info Functionalities", function () {
     lpa.getLoginTitle().should("have.text", "Hello Admin");
     cy.title().should("contain", "Top School");
     cy.login(
-      "harshithkumar",
+      "shamikbhattacharya01",
         "Test@12345"
     );
     abip.getBasicInfoTitle().should("have.text", "Basic Information");
@@ -63,14 +63,8 @@ describe("Verify School Admin Basic Info Functionalities", function () {
     abip.getThirdCarouselIcon().click();
     cy.wait(2000);
     abip.getGradesTitle().should("have.text", "Grades");
-    abip.getFourthCarouselIcon().click();
     cy.wait(2000);
-    abip.getInfrastructureTitle().should("have.text", "Infrastructure");
-    abip.getFiveCarouselIcon().click();
-    cy.wait(2000);
-    abip.getAdminAccountsTitle().should("contain", "Admin Accounts");
     abip.getFirstCarouselIcon().click();
-    cy.wait(2000);
     abip.getBasicInfoTitle().should("have.text", "Basic Information");
   });
 

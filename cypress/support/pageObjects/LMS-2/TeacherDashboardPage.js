@@ -444,6 +444,10 @@ class TeacherDashboardPage {
         return cy.get('div.menu-txt').contains("My Classes")
     }
 
+    getClassMyClasses() {
+        return cy.get('[class="classTitle"]')
+    }
+
     getReportLnk() {
         return cy.get('div.menu-txt').contains("Reports")
     }

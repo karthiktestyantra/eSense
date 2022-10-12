@@ -1,11 +1,12 @@
 const teacherDashboardPage = require("../../support/pageObjects/LMS-2/TeacherDashboardPage")
+const teacherGradeBookPage = require("../../support/pageObjects/LMS-2/TeacherGradeBookPage")
 
 describe("Verify Teacher My Classes - Student Groups functionalities", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlProd'))
         cy.fixture("LMS/TeacherLoginCredentials").then(function (teacherLoginCredentials) {
-            cy.TeacherPostSetupLogin(teacherLoginCredentials.teacher1, teacherLoginCredentials.password)
+            cy.TeacherPostSetupLogin(teacherLoginCredentials.teacher2, teacherLoginCredentials.password)
         })
     })
 
@@ -14,10 +15,35 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
         cy.fixture("LMS/TeacherMyClasses").as("teacherMyClasses")
     })
 
-    it('Validate and verify teacher is able to create Student Groups', function () {
-        
-
-
+    it('Validate teacher is able to create the Student Groups', function () {
+        cy.forceClick(teacherDashboardPage.getMyclassLnk())
+        teacherDashboardPage.getClassMyClasses().eq(0).click()
+        teacherGradeBookPage.getGradeTabStudentGradeBook().click()
+        teacherGradeBookPage.getStudentGroupsTab().click()
+        cy.wait(2000)
+        teacherGradeBookPage.getCreateNewGroup().click()
+        teacherGradeBookPage.getUploadFile().attachFile('LMS/Tester.png')
+        teacherGradeBookPage.getGroupNameTextfield().type(this.teacherMyClasses.groupName)
+        teacherGradeBookPage.getGroupDescriptionTextfield().type(this.teacherMyClasses.groupDescription)
+        teacherGradeBookPage.getAddStudentIcon().click()
+        var studentName = []
+        teacherGradeBookPage.getStudentNameWhileCreatingGroup().each(($el) => {
+            studentName.push($el.text().trim())
+        })
+        cy.log(studentName)
+        teacherGradeBookPage.getAddStudentPlusIcon().each(($el) => {
+            cy.wrap($el).click()
+        })
+        teacherGradeBookPage.getCreateGroupSaveButton().click()
+        cy.wait(4000)
+        cy.verifyTextContains(teacherGradeBookPage.getAddedGroupTitleText(), this.teacherMyClasses.groupName)
+        teacherGradeBookPage.getStudentNameAfterCreatingGroup().each(($el, index) => {
+            expect($el.text().trim()).to.equals(studentName[index])
+        })
+        teacherGradeBookPage.getDeleteGroupIcon().each(($el) => {
+            cy.wrap($el).click()
+            teacherGradeBookPage.getDeleteYesRemoveButton().click()
+        })
     })
 
 })

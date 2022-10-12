@@ -52,6 +52,10 @@ class AdminContentLibraryPage {
         return cy.frameLoaded('#webviewer-2')
     }
 
+    getRiseTextBookLink(){
+        return cy.get('button.MuiTab-textColorPrimary').contains('RISE TextBook')
+    }
+
     getContentLibraryZoomInIcon() {
         return cy.iframe().find("[aria-label='Zoom in']")
     }

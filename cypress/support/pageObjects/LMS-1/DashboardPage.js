@@ -21,7 +21,7 @@ class DashboardPage {
   }
 
   getContentLibrary() {
-    return cy.get('.side-nav-icon').eq(3)
+    return cy.get('.side-nav-icon').eq(4)
   }
 
   getMyProfile() {

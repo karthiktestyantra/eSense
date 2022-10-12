@@ -79,6 +79,9 @@ class MyPersonalLibraryPage {
     getBookmarkedIcon(){
         return cy.get('button.bookmark-icon')
     }
+    getLookintheMirrorBookMarkIcon(){
+        return cy.xpath('//strong[.="I Look in the Mirror"]/ancestor::div[@class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-1ha4th6"]//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium bookmark-icon css-v36qta"]')
+    }
 
     getBacktoMyPersonalLibrary(){
         return cy.get('li.MuiBreadcrumbs-li>a').eq(1)
@@ -97,6 +100,9 @@ class MyPersonalLibraryPage {
         return cy.get('.css-5zrdtn')
     }
 
+    getBookMarkedButton(){
+        return cy.get('svg[class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-8cqusc"]')
+    }
 
   }
   

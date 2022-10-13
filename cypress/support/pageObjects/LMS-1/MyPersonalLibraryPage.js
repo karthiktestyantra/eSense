@@ -104,6 +104,15 @@ class MyPersonalLibraryPage {
         return cy.get('svg[class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-8cqusc"]')
     }
 
+    getLookInToMirrorThreeDots(){
+        return cy.xpath('//button[@id="card-dropdown-1-0"]')
+    }
+    getAddToCollectionBtn(){
+        return cy.xpath('//li[@value="add-collection"]')
+    }
+    getDefultCollectionsBtton(){
+        return cy.get('li.MuiMenuItem-gutters').contains('Default Collections')
+    }
   }
   
   module.exports=new  MyPersonalLibraryPage();

@@ -124,5 +124,10 @@ class AdminContentLibraryPage {
         return cy.get('[class="cntLibCardTitle"] strong')
     }
 
+
+    getTopSchoolLibrary(){
+        return cy.get('button.MuiToggleButtonGroup-groupedHorizontal').contains('TopSchool Library')
+    }
+
 }
 module.exports = new AdminContentLibraryPage() 

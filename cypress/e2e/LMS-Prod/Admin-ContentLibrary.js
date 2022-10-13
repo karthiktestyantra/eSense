@@ -43,11 +43,28 @@ describe("Verify Admin Content Add to Collection functionalities", function () {
         cy.wait(4000)
         myPersonalLibraryPage.getMyPersonalLibraryTab().click()
         myPersonalLibraryPage.getBookMarkedButton().click()
-        adminContentLibraryPage.getViewRiseTextBookNameInList().then(($el) => {
+        adminContentLibraryPage.getViewRiseTextBookNameInList().each(($el) => {
             var bookName = $el.text()
             cy.wrap(bookName).as('bookName')
             if (bookName=="I Look in the Mirror") {
                 myPersonalLibraryPage.getLookintheMirrorBookMarkIcon().click()
+            }
+        })
+    })
+
+    it('Validate user able to Add to collection text book ',function () {
+        adminContentLibraryPage.getTopSchoolLibrary().click()
+        adminContentLibraryPage.getRiseTextBookLink().scrollIntoView().click()
+        adminContentLibraryPage.getViewRiseTextBookNameInList().each(($el) => {
+            var bookName = $el.text()
+            cy.wrap(bookName).as('bookName')
+            if (bookName=="I Look in the Mirror") {
+                myPersonalLibraryPage.getLookInToMirrorThreeDots().click()
+                cy.wait(1000)
+                myPersonalLibraryPage.getAddToCollectionBtn().click()
+                cy.wait(1000)
+                myPersonalLibraryPage.getDefultCollectionsBtton().click()
+                cy.contains('Content added to collection').should('be.visible')
             }
         })
     })

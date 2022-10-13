@@ -80,7 +80,10 @@ class MyPersonalLibraryPage {
         return cy.get('button.bookmark-icon')
     }
     getLookintheMirrorBookMarkIcon(){
-        return cy.xpath('//strong[.="I Look in the Mirror"]/ancestor::div[@class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-1ha4th6"]//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium bookmark-icon css-v36qta"]')
+        return cy.xpath('//div[@id="simple-tabpanel-1"]//h4[.="I Look in the Mirror"]/ancestor::div[@class="MuiCardContent-root css-1qw96cp"]//button')
+    }
+    getMyPorsonalLibraryLookintheMirrorBookMarkIcon(){
+        return cy.xpath('//h4[.="I Look in the Mirror"]/ancestor::div[@class="MuiCardContent-root css-1qw96cp"]//button')
     }
 
     getBacktoMyPersonalLibrary(){
@@ -110,8 +113,54 @@ class MyPersonalLibraryPage {
     getAddToCollectionBtn(){
         return cy.xpath('//li[@value="add-collection"]')
     }
-    getDefultCollectionsBtton(){
-        return cy.get('li.MuiMenuItem-gutters').contains('Default Collections')
+    getAutomationCollectionsButton(){
+        return cy.get('li.MuiMenuItem-gutters').contains('test automation')
+    }
+
+    getMyCollectionCreateNewBtn(){
+        return cy.get('div[class="add-inner text-center"]')
+    }
+
+    getCreateNewNameOfCollection(){
+        return cy.get('input[id="collection_name"]')
+    }
+    getCreateNewGread(){
+        return cy.get('div[id="coll_grade"]')
+    }
+
+    getCreateNewGread3Opt(){
+        return cy.get('li.MuiButtonBase-root ').contains('Grade 3')
+    }
+    getCreateNewSubject(){
+        return cy.get('div[id="coll_subject"]')
+    }
+    getCreateNewSubjectEnglishOpt(){
+        return cy.get('li.MuiButtonBase-root').contains('English')
+    }
+    getCreateNewCreateCollection(){
+        return cy.get('button[type="submit"]')
+    }
+
+    getCollectionslist(){
+        return cy.get('h3[class="my-collections-label"]')
+    }
+
+    getCollectionsEditBtn(){
+        return cy.get('span[class="right-cls-out editCollection"]')
+    }
+
+    getEditCollectionCloseIcon(){
+        return cy.get('svg.close-icon_popup')
+    }
+
+    getEditCollectionDescriptionTextArea(){
+        return cy.get('#mui-36')
+    }
+    getDeleteCollectionBtn(){
+        return cy.get('span[class="right-cls-out delCollection"]')
+    }
+    getDeleteCollectionPopupBtn(){
+        return cy.get('button.delete_reminder-btn').contains('Delete')
     }
   }
   

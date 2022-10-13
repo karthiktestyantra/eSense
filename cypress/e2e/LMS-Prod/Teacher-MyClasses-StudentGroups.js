@@ -15,7 +15,7 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
         cy.fixture("LMS/TeacherMyClasses").as("teacherMyClasses")
     })
 
-    it('Validate teacher is able to create the Student Groups', function () {
+    it('EL-994/ES994-01 Validate user is able to create new student groupunder student group tab.', function () {
         cy.forceClick(teacherDashboardPage.getMyclassLnk())
         teacherDashboardPage.getClassMyClasses().eq(0).click()
         teacherGradeBookPage.getGradeTabStudentGradeBook().click()
@@ -23,6 +23,7 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
         cy.wait(2000)
         teacherGradeBookPage.getCreateNewGroup().click()
         //teacherGradeBookPage.getUploadFile().attachFile('LMS/Tester.png')
+        teacherGradeBookPage.getProfilePic().click()
         teacherGradeBookPage.getGroupNameTextfield().type(this.teacherMyClasses.groupName)
         teacherGradeBookPage.getGroupDescriptionTextfield().type(this.teacherMyClasses.groupDescription)
         teacherGradeBookPage.getAddStudentIcon().click()
@@ -30,10 +31,10 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
         teacherGradeBookPage.getStudentNameWhileCreatingGroup().each(($el) => {
             studentName.push($el.text().trim())
         })
-        cy.log(studentName)
         teacherGradeBookPage.getAddStudentPlusIcon().each(($el) => {
             cy.wrap($el).click()
         })
+        cy.isEnabled(teacherGradeBookPage.getCreateGroupSaveButton())
         teacherGradeBookPage.getCreateGroupSaveButton().click()
         cy.wait(4000)
         cy.verifyTextContains(teacherGradeBookPage.getAddedGroupTitleText(), this.teacherMyClasses.groupName)
@@ -42,12 +43,53 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
         })
     })
 
-    it('Validate teacher is able to Edit the Student Groups', function () {
+    it('EL-994/ES994-02 Validate the created group card must conatain Group icon, photo, Title, created time, date, about group text shows no. of students in that group along with Edit and delete button.', function () {
         cy.wait(1500)
+        cy.isVisible(teacherGradeBookPage.getProfilePicStudentGroup())
+        cy.isVisible(teacherGradeBookPage.getAddedGroupTitleText())
+        cy.isVisible(teacherGradeBookPage.getCreatedOnStudentGroup())
+        cy.isVisible(teacherGradeBookPage.getProfilePicStudentGroup())
+        cy.isVisible(teacherGradeBookPage.getNoOfStudentGroup())
+        cy.isVisible(teacherGradeBookPage.getEditGroupIcon())
+        cy.isVisible(teacherGradeBookPage.getDeleteGroupIcon())
+    })
+
+    it("EL-994/ES994-03 Validate To validate detailed pop-up appear on the right side of the screen showing total group students no's, Discussion, group activity, resources related to the particular group.", function () {
+        cy.isVisible(teacherGradeBookPage.getGroupStudentsTab())
+        cy.isVisible(teacherGradeBookPage.getResourcesTab())
+        teacherGradeBookPage.getResourcesTab().click()
+        teacherGradeBookPage.getGroupStudentsTab().click()
+    })
+
+
+    it("EL-994/ES994-04 Validate student group card pop-up must have ‘Group students’ list with headers as 'Roll no', Full name' , checkbox to select / unselect and Search bar.", function () {
+        cy.isVisible(teacherGradeBookPage.getStudentNameAfterCreatingGroup())
+        cy.isVisible(teacherGradeBookPage.getRollNoColumnStudentGroup())
+        cy.isVisible(teacherGradeBookPage.getSearchStudentsTextFieldStudentGroup())
+        cy.wait(1000)
+        // cy.isVisible(teacherGradeBookPage.getCheckBoxStudentGroup())
+        teacherGradeBookPage.getCheckBoxStudentGroup().each(($el) => {
+            cy.wrap($el).check()
+            cy.wait(1000)
+            cy.wrap($el).check()
+        })
+    })
+
+    it("EL-994/ES994-05 Validate search bar is enabled within the stduent group.", function () {
+        cy.isVisible(teacherGradeBookPage.getSearchStudentsTextFieldStudentGroup())
+        cy.isEnabled(teacherGradeBookPage.getSearchStudentsTextFieldStudentGroup())
+    })
+
+    it("EL-994/ES994-06 Validate each  students have row will have remove button", function () {
+        cy.isVisible(teacherGradeBookPage.getRemoveButtonStudentGroup())
+        cy.isEnabled(teacherGradeBookPage.getRemoveButtonStudentGroup())
+    })
+
+    it("EL-994/ES994-07 Validate New stduents can be added by clicking on + button", function () {
         teacherGradeBookPage.getEditGroupIcon().eq(0).click()
         teacherGradeBookPage.getRemoveStudentWhileCreatingGroup().eq(0).click()
         var studentName = []
-        teacherGradeBookPage.getStudentNameAfterRemovingStudent().then(($el) => {
+        teacherGradeBookPage.getStudentNameAfterRemovingStudent().each(($el) => {
             studentName.push($el.text().trim())
         })
         teacherGradeBookPage.getCreateGroupSaveButton().click()
@@ -55,6 +97,12 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
         teacherGradeBookPage.getStudentNameAfterCreatingGroup().each(($el, index) => {
             expect($el.text().trim()).to.equals(studentName[index])
         })
+        teacherGradeBookPage.getAddNewStudentBtnStudentGroup().click()
+        teacherGradeBookPage.getAddStudentPlusIcon().each(($el) => {
+            cy.wrap($el).click()
+        })
+        cy.wait(1000)
+        cy.forceClick(teacherGradeBookPage.getDoneBtnStudentGroup())
     })
 
     it('Validate teacher is able to Delete the Student Groups', function () {
@@ -66,5 +114,5 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
         cy.wait(1500)
         cy.isVisible(teacherGradeBookPage.getNoGroupsFoundMsg())
     })
-
 })
+

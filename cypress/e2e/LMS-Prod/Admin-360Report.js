@@ -22,7 +22,6 @@ describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", funct
     for (var i = 1; i <= 3; i++) {
       cy.get('button.MuiButton-root').contains('Continue').click()
       cy.wait(2000)
-      cy.get('.continue-btn')
     }
     for (var i = 1; i <= 2; i++) {
       cy.get('.continue-btn').click()

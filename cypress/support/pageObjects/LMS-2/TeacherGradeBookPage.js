@@ -20,6 +20,10 @@ class TeacherGradeBookPage {
         return cy.get('[type="file"]')
     }
 
+    getProfilePic() {
+        return cy.get('[class="student-group-display-icon-get-icon-band"]').eq(0)
+    }
+
     getGroupNameTextfield() {
         return cy.get('[name="groupName"]')
     }
@@ -52,8 +56,56 @@ class TeacherGradeBookPage {
         return cy.get('[class="ml-2 mr-2"]')
     }
 
+    getGroupStudentsTab() {
+        return cy.get('[id="simple-tab-0"] div')
+    }
+
+    getResourcesTab() {
+        return cy.xpath('//button[.="Resources"]').eq(0)
+    }
+
+    getRollNoColumnStudentGroup() {
+        return cy.get('[data-field="rollNo"]')
+    }
+
+    getCheckBoxStudentGroup() {
+        return cy.get('[type="checkbox"]')
+    }
+
+    getDoneBtnStudentGroup() {
+        return cy.xpath('//button[text()="Done"]')
+    }
+
+    getSearchStudentsTextFieldStudentGroup() {
+        return cy.get('#students-search-in-table')
+    }
+
+    getRemoveButtonStudentGroup() {
+        return cy.xpath('//button[.="Remove"]')
+    }
+
+    getAddNewStudentBtnStudentGroup() {
+        return cy.xpath('//div[@role="grid"]/..//*[@data-testid="AddIcon"]')
+    }
+
+    getAddResourceBtn() {
+        return cy.get('[for="collection-file"] p')
+    }
+
     getEditGroupIcon() {
         return cy.get('[class="mr-2"]')
+    }
+
+    getProfilePicStudentGroup() {
+        return cy.get('[class="group-title-icon pb-1"] img')
+    }
+
+    getNoOfStudentGroup() {
+        return cy.get('[class="students-group-wrapper"] span')
+    }
+
+    getCreatedOnStudentGroup() {
+        return cy.get('[class="group-title-icon pb-1"] small')
     }
 
     getAddStudentPlusIcon() {

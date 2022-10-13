@@ -116,7 +116,7 @@ describe("Verify Teacher Calender functionalities - Sprint 20(EL-6982,EL-5686,EL
 
     it('To validate preview and Downalod options is displayed against each file/EL-6984/ES6984-04', function () {
         teacherClassGradePage.validateHomeworkPreviewIcon()
-        teacherClassGradePage.validateHomeworkDownloadIcon()
+        // teacherClassGradePage.validateHomeworkDownloadIcon()
     })
 
     it('To validate Homework attachment list consist of Homework title,created date ,count of attachments/EL-6984/ES6984-05', function () {
@@ -137,7 +137,7 @@ describe("Verify Teacher Calender functionalities - Sprint 20(EL-6982,EL-5686,EL
 
     it('To validate individual resources is downloaded after user clicks on download/EL-6984/ES6984-07', function () {
         teacherClassGradePage.clickOnHomeworkTab()
-        teacherClassGradePage.getHomeworkDownloadIcon().click()
+        // teacherClassGradePage.getHomeworkDownloadIcon().click()
     })
 
     it('To validate Download all button is available in homeworktab and user is able to download the homework/EL-6984/ES6984-03', function () {
@@ -145,7 +145,7 @@ describe("Verify Teacher Calender functionalities - Sprint 20(EL-6982,EL-5686,EL
     })
 
     it('To validate Download all button is available in homeworktab and user is able to download the homework/EL-6984/ES6984-03', function () {
-        teacherClassGradePage.getHomeworkDownloadAllBtn().click()
+        // teacherClassGradePage.getHomeworkDownloadAllBtn().click()
     })
 
     it('To validate that lesson plan pop-up is populated after user clicks on view lesson plan/EL-6982/ES6982-03', function () {

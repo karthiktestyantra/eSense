@@ -22,7 +22,7 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
         teacherGradeBookPage.getStudentGroupsTab().click()
         cy.wait(2000)
         teacherGradeBookPage.getCreateNewGroup().click()
-        teacherGradeBookPage.getUploadFile().attachFile('LMS/Tester.png')
+        //teacherGradeBookPage.getUploadFile().attachFile('LMS/Tester.png')
         teacherGradeBookPage.getGroupNameTextfield().type(this.teacherMyClasses.groupName)
         teacherGradeBookPage.getGroupDescriptionTextfield().type(this.teacherMyClasses.groupDescription)
         teacherGradeBookPage.getAddStudentIcon().click()
@@ -40,10 +40,31 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
         teacherGradeBookPage.getStudentNameAfterCreatingGroup().each(($el, index) => {
             expect($el.text().trim()).to.equals(studentName[index])
         })
+    })
+
+    it('Validate teacher is able to Edit the Student Groups', function () {
+        cy.wait(1500)
+        teacherGradeBookPage.getEditGroupIcon().eq(0).click()
+        teacherGradeBookPage.getRemoveStudentWhileCreatingGroup().eq(0).click()
+        var studentName = []
+        teacherGradeBookPage.getStudentNameAfterRemovingStudent().then(($el) => {
+            studentName.push($el.text().trim())
+        })
+        teacherGradeBookPage.getCreateGroupSaveButton().click()
+        cy.wait(4000)
+        teacherGradeBookPage.getStudentNameAfterCreatingGroup().each(($el, index) => {
+            expect($el.text().trim()).to.equals(studentName[index])
+        })
+    })
+
+    it('Validate teacher is able to Delete the Student Groups', function () {
+        cy.wait(1500)
         teacherGradeBookPage.getDeleteGroupIcon().each(($el) => {
             cy.wrap($el).click()
             teacherGradeBookPage.getDeleteYesRemoveButton().click()
         })
+        cy.wait(1500)
+        cy.isVisible(teacherGradeBookPage.getNoGroupsFoundMsg())
     })
 
 })

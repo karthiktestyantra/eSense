@@ -44,8 +44,16 @@ class TeacherGradeBookPage {
         return cy.get('.remove-student')
     }
 
+    getNoGroupsFoundMsg() {
+        return cy.get('.mt-4')
+    }
+
     getDeleteGroupIcon() {
         return cy.get('[class="ml-2 mr-2"]')
+    }
+
+    getEditGroupIcon() {
+        return cy.get('[class="mr-2"]')
     }
 
     getAddStudentPlusIcon() {
@@ -54,6 +62,14 @@ class TeacherGradeBookPage {
 
     getStudentNameWhileCreatingGroup() {
         return cy.xpath('//div[contains(@class,"MuiCard-root card p-4 ")]//div[@data-field="fullName" and @role="cell"]')
+    }
+
+    getStudentNameAfterRemovingStudent() {
+        return cy.xpath('//div[@class="MuiCardContent-root css-1qw96cp"]//div[.="Remove"]/..//div[@data-field="fullName" and @role="cell"]')
+    }
+
+    getRemoveStudentWhileCreatingGroup() {
+        return cy.xpath('//div[@class="MuiCardContent-root css-1qw96cp"]//div[.="Remove"]')
     }
 
     getStudentNameAfterCreatingGroup() {

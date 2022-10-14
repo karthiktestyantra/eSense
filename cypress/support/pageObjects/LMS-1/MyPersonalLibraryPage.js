@@ -162,6 +162,80 @@ class MyPersonalLibraryPage {
     getDeleteCollectionPopupBtn(){
         return cy.get('button.delete_reminder-btn').contains('Delete')
     }
+
+    getTimeLineBtn(){
+        return cy.get('[class="MuiCardContent-root css-1qw96cp"]').contains('Timelines')
+    }
+
+    getTimeLineCreateNewBtn(){
+        return cy.get('button.MuiButton-containedSuccess')
+    }
+    getCreateTimeLineGreadDropDown(){
+        return cy.get('.MuiInputBase-formControl').eq(1)
+    }
+    getCreateTimeLineGreadDropDownGread3Opt(){
+        return cy.get('.MuiMenuItem-gutters').contains('Grade 3')
+    }
+    getCreateTimeLineSubjectDropDown(){
+        return cy.get('.MuiInputBase-formControl').eq(2)
+    }
+    getCreateTimeLineSubjectDropDownEnglishOpt(){
+        return cy.get('.MuiMenuItem-gutters').contains('English')
+    }
+    getCreateTimeLineDescriptionTextAera(){
+        return cy.get('.MuiInputBase-formControl').eq(5)
+    }
+    getCreateTimeLineCreateNewBtn(){
+        return cy.get('button[type="button"]')
+    }
+    getCreateTimeLineDetailsBtn(){
+        return cy.xpath('//div[.="Timeline"]/ancestor::li[@id="h5p-timeline"]//button[@type="button"]')
+    }
+    getCreateTimeLineUseBtn(){
+        return cy.get('button[type="button"]').contains('Use')
+    }
+    getCreateNewTimeLineTitleTextfield(){
+        return cy.xpath('//input[@id="field-extratitle--1"]')
+    }
+    getCreateNewTimeLineHeadLineTextfield(){
+        return cy.get('input[id="field-headline-14"]')
+    }
+    getCreateNewTimeLineStartTimeTextfield(){
+        return cy.get('input[id="field-startdate-30"]')
+    }
+    getCreateNewTimeLineDateHeadLineTextfield(){
+        return cy.get('input[id="field-headline-32"]')
+    }
+    getCreateNewTimeLineSaveBtn(){
+        return cy.get('[class="btn btn-primary btn-block"]')
+    }
+    getTimeLinesList(){
+        return cy.get('h4.cntLibCardTitle strong')
+    }
+    getTimeLineThreeDotIcon(){
+        return cy.get('[id="card-dropdown-0-0"] svg')
+    }
+    getTimeLineDeleteBtn(){
+        return cy.get('li[value="Delete"]')
+    }
+    getTimeLineEditBtn(){
+        return cy.get('li[value="Edit"]')
+    }
+    getCreateNewTimelineCard(){
+        return cy.get('div[class="conten_list_container list-group-item"]')
+    }
+    getVideoBtn(){
+        return cy.get('[class="MuiCardContent-root css-1qw96cp"]').contains('Video')
+    }
+    getViewVideoBtn(){
+        return cy.get('button.cntLibCardBtn')
+    }
+    getVideoFrame(){
+        return cy.get('[class="vjs-error-display vjs-modal-dialog"]')
+    }
+    getVideoBackBtn(){
+        return cy.get('button.bookmark-icon')
+    }
   }
   
   module.exports=new  MyPersonalLibraryPage();

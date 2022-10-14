@@ -12,6 +12,15 @@ describe("Verify Admin student grade book functionalities - Sprint 19(EL-5492,EL
     })
   })
 
+  // before(function () {
+  //   cy.visit(Cypress.env('urlProd'))
+  //   Adminlogin.getAdminBtn().click()
+  //   cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
+  //     this.validAdminLoginData = validAdminLoginData;
+  //     cy.login(this.validAdminLoginData.prodUserName, this.validAdminLoginData.password)
+  //   })
+  // })
+
   beforeEach(function () {
     cy.fixture("LMS/AdminReports").as("report")
     cy.fixture("LMS/mainAdminGradebookCredentials").as("AdminReports")

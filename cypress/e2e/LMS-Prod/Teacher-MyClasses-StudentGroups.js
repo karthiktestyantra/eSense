@@ -81,6 +81,7 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
     })
 
     it("EL-994/ES994-06 Validate each  students have row will have remove button", function () {
+        cy.wait(2000)
         cy.isVisible(teacherGradeBookPage.getRemoveButtonStudentGroup())
         cy.isEnabled(teacherGradeBookPage.getRemoveButtonStudentGroup())
     })

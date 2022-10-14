@@ -1,7 +1,9 @@
 {
     "class" : "Grade 3 A Tamil",
+    "classProd" : "Grade 6 A Mathematics",
     "classTitle" : "Class Grade 3 A Tamil",
     "addNote" : "Class",
     "addNoteDesc" : "VI A Political Science VI",
-    "class1":"Grade 3 A Tamil"
+    "class1":"Grade 3 A Tamil",
+    "class1Prod":"Grade 6 A Mathematics"
 }

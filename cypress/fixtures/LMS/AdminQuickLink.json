@@ -1,7 +1,10 @@
 {
     "searchTxtFieldValue" : "Grade 5 - a",
+    "searchTxtFieldValue2" : "Grade 6 - A",
     "moreThn50Char" : "Padichu pathen yeravilla Kudichu pathen yeriduchu Sirichu pathen sikkavilla Morachu pathen sikkiduchu",
     "slotSubDropValue" : "English VIII",
-    "slotTeacherDropValue" : "ganesha"
+    "slotTeacherDropValue" : "ganesha",
+    "slotSubDropValue2" : "Mathematics",
+    "slotTeacherDropValue2" : "Harshith"
     
 }

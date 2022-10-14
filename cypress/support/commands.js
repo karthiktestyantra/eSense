@@ -28,7 +28,7 @@ Cypress.Commands.add('AdminPostSetup', (email, password) => {
   Adminlogin.getUserName().clear().type(email);
   Adminlogin.getPassword().clear().type(password);
   Adminlogin.getLoginBtn().click({ force: true });
-  cy.url().should('contain', 'dashboard');
+ // cy.url().should('contain', 'dashboard');
   cy.wait(1000);
 })
 

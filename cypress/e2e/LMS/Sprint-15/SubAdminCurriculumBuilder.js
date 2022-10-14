@@ -13,6 +13,7 @@ describe("Verify Sub Admin Curriculum Page functionalities - Sprint 15(EL-4870)"
   })
 
   this.beforeEach(function () {
+    cy.viewport(1920, 1080)
     cy.fixture("LMS/sprint14CurriculumBuilder").as("curriculumBuilder")
   })
 

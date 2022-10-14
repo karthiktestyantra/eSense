@@ -229,7 +229,7 @@ class TeacherDashboardPage {
     }
 
     getAttendenceCardMarkAttendanceBtn() {
-        return cy.get('div.Dashboard_tchDshPendActFlexSect__E8rdD button.MuiButton-root')
+        return cy.get('button.Dashboard_tchDshPendActBtn__3PCld').contains('MARK ATTENDANCE')
     }
 
     

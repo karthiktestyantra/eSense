@@ -7,13 +7,11 @@ const myCalendarPage = require('../../../../support/pageObjects/LMS-1/MyCalendar
 describe("Verify Sprint 10 related functionalities", function () {
 
   before(function () {
-    cy.visit(Cypress.env("urlMain"));
-    indexPage.getTeacher().click();
-    cy.fixture("LMS/TeacherLoginCredentials").then(function (validLoginData) {
-      this.validLoginData = validLoginData;
-      cy.login(this.validLoginData.user2, this.validLoginData.password);
-    });
-  });
+    cy.visit(Cypress.env('urlProd'))
+    cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
+        cy.TeacherPostSetupLogin(validAdminLoginData.teacher5, validAdminLoginData.password)
+    })
+})
 
   beforeEach(function () {
     cy.fixture("LMS/addHomework").as("addHomeworkData")
@@ -44,41 +42,10 @@ describe("Verify Sprint 10 related functionalities", function () {
     sprint10Regression.getSchoolLogoTeacher().should("be.visible");
     sprint10Regression.getWelcomeMessageTeacher().then(($el) => {
       let name = $el.text();
-      expect(name).to.contain("undertaker !");
+      expect(name).to.contain("Harshith !");
     });
     sprint10Regression.getCalendarLink().should("be.visible");
   });
-
-  // it.skip("Validate teacher is able to view No. of Assessments for this month and No of students absent yesterday will be shown on this section", function () {
-  //   sprint10Regression.getNoOfAssessments().should("be.visible");
-  //   sprint10Regression.getNoOfStudents().should("be.visible");
-  // });
-
-  // it.skip("Validate teacher is able to view Pending actions section related to classes, attendance, Homework", function () {
-  //   sprint10Regression.getPendingActionsClass().should("be.visible");
-  //   sprint10Regression.getPendingActionsAttendance().should("be.visible");
-  //   sprint10Regression.getPendingActionsHomework().should("be.visible");
-  // });
-
-  it("Validate Teacher is able to click on 'Mark complete' button", function () {
-    sprint10Regression.getClassMarkCompleteButton().click({ force: true });
-  });
-
-  // it.skip("Validate Teacher is able to click on 'Mark attendance' button", function () {
-  //   sprint10Regression.getClassMarkAttendanceButton().click({ force: true });
-  // });
-
-  // it.skip("Validate Teacher is able to click on 'Assign homework' button", function () {
-  //   sprint10Regression.getClassAssignHomeworkButton().click({ force: true });
-  // });
-
-  // it.skip("Validate teacher is able to view the class performance chart with subjects and classes section", function () {
-  //   sprint10Regression.getClassPerformanceChart().should("be.visible");
-  // });
-
-  // it.skip("Validate teacher is able to view Milestone progress chart with classes and subject section", function () {
-  //   sprint10Regression.getMilestoneProgressChart().should("be.visible");
-  // });
 
   it("Validate whether the teacher is able to navigate to 'Assessments' in My Classes Module", function () {
     myClassesPage.getMyClassesIcon().click();
@@ -194,25 +161,6 @@ describe("Verify Sprint 10 related functionalities", function () {
     sprint10Regression.getResourceRemovedMessage().should("have.text", "Resource removed!");
   });
 
-  it.skip("Validate whether teacher is able to Click on 'Edit' icon in 'Edit Homework' pop up and click on update button", function () {
-    cy.get('h6.mb-0').each(($ele, index, $list) => {
-      if ($ele.text() === this.addHomeworkData.title) {
-        cy.wrap($ele).eq(0).click({ force: true });
-      }
-
-    });
-    sprint10Regression.getEditHomeWorkKababMenu().eq(0).click({ force: true })
-    sprint10Regression.getEditHomeWorkIcon().click({ force: true });
-    sprint10Regression.getAttachFileOption().scrollIntoView().click();
-    sprint10Regression.getFileSharedTabViewIcon().should("be.visible");
-    sprint10Regression.getAddResourcesUploadTab().click();
-    const filepath = "LMS/SampleDocs-sample-pdf-file.pdf";
-    cy.get(".drop-sub").attachFile(filepath);
-    sprint10Regression.getAddResourcesCloseIcon().click();
-    sprint10Regression.getEditHomeworkUpdateButton().click();
-    cy.wait(3000);
-  });
-
   it("Validate whether teacher is able to Click on 'Delete' icon in 'Edit Homework' pop up", function () {
     // sprint10Regression.getEditHomeWorkKababMenu().eq(0).click({force:true})
     // sprint10Regression.getEditHomeWorkIcon().click({force:true});
@@ -233,7 +181,7 @@ describe("Verify Sprint 10 related functionalities", function () {
     cy.wait(1000)
     cy.get('input[name="Classes"]').check()
     myCalendarPage.getSampleClass()
-      .contains(this.classesData.class)
+      .contains(this.classesData.classProd)
       .click({ force: true });
     myCalendarPage.getClassAddHomeworkOption().scrollIntoView().click({ force: true });
     myCalendarPage.getClassAddHomeworkPopupTitle().should("have.text", "Add Homework");
@@ -495,59 +443,6 @@ describe("Verify Sprint 10 related functionalities", function () {
     cy.wait(8000);
   });
 
-  // it("To Verify whether teacher is able to Click on 'Edit' icon in 'Edit Homework' pop up in My Classes", function(){
-  //   cy.get('div.group-card').then((ele) => {
-  //   cy.log(ele.length);
-  //   for (let i = 0; i < ele.length; i++) {
-  //   sprint10Regression.getHomeworkTitleUnderHomeworkTab(i).then((el) => {
-  //   cy.log(el.text());
-  //   if (el.text() === this.addHomeworkData.title) {
-  //   sprint10Regression.getHomeworkEditIconUnderHomeworkTab(i).click();
-  //   cy.wait(1000);
-  //   sprint10Regression.getEditHomeworkPopupCloseIcon().click({force:true});
-  //   }
-  // });
-  //   }
-  // });
-  // });
-
-  // it("To Verify whether teacher is able to Click on 'Save Changes' button in 'Edit Homework' pop up in My Classes", function(){
-  //   cy.get('div.group-card').then((ele) => {
-  //     cy.log(ele.length);
-  //     for (let i = 0; i < ele.length; i++) {
-  //     sprint10Regression.getHomeworkTitleUnderHomeworkTab(i).then((el) => {
-  //     cy.log(el.text());
-  //     if (el.text() === this.addHomeworkData.title) {
-  //     sprint10Regression.getHomeworkEditIconUnderHomeworkTab(i).click();
-  //     cy.wait(1000);
-  //     sprint10Regression.getAddHomeworkSaveButton().click({force:true});
-  //     cy.wait(5000);
-  //     }
-  //   });
-  //     }
-  //   });
-  // });
-
-  // it("To Verify whether teacher is able to Click on 'Delete' icon pop up in My Classes", function(){
-  //   cy.get('div.group-card').then((ele) => {
-  //     cy.log(ele.length);
-  //     for (let i = 0; i < ele.length-1; i++) {
-  //     sprint10Regression.getHomeworkTitleUnderHomeworkTab(i).then((el) => {
-  //     cy.log(el.text());
-  //     if (el.text() === this.addHomeworkData.title) {
-  //     sprint10Regression.getHomeworkDeleteIconUnderHomeworkTab(i).click();
-  //     cy.wait(1000);
-  //     sprint10Regression.getHomeworkDelPopDeleteButton().click({force:true});
-  //     cy.wait(3000);
-  //     sprint10Regression.getDeletedHomeworkMessagePopup().should('have.text','Homework deleted!');
-  //     }
-  //   });
-  //     }
-  //   });
-  //     sprint10Regression.getHomeWorkCardDeleteIcon().first().click({ force: true });
-  //     sprint10Regression.getHomeworkDelPopDeleteButton().click({force:true});
-  //     cy.wait(4000);
-  // });
 
   it("To Verify whether teacher is a able to Click on 'Cancel' button in 'Create Homework' pop up in My Classes", function () {
     sprint10Regression.getCreateNewHomeworkButton().click();

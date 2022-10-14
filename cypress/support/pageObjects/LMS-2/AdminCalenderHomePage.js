@@ -141,5 +141,81 @@ class AdminCalenderHomePage{
     getCreateAppointmentSectionsDropDown(){
         return cy.get('[id="demo-simple-select"]').eq(0)
     }
+    
+    getExamLink(){
+        return cy.xpath('//div[@class="calendar-popper-sub-list"]/div[.="Exam"]')
+    }
+
+    getCreateExamsDropdowns(){
+        return cy.get('#demo-simple-select-helper')
+    }
+
+    getCreateExamSubjectDropdown(){
+        return cy.get(':nth-child(2) > .MuiFormControl-root > .MuiOutlinedInput-root > #demo-simple-select-helper')
+    }
+
+    getCreateExamsDropdownsList(){
+        return cy.get('[role="listbox"] li')
+    }
+
+    getExamCheckbox(){
+        return cy.get('[name="Exam"]')
+    }
+
+    getSaveExamBtn(){
+        return cy.xpath('//button[.="Save Exam"]')
+    }
+
+    getEnterExamTitleTextFieldCreateExam(){
+        return cy.get('[placeholder="Enter Exam Title"]')
+    }
+
+    getAttachFileCreateExam(){
+        return cy.get('[type="file"]')
+    }
+
+    getDateOfExamTextFieldCreateExam(){
+        return cy.get('[placeholder="ddd d mmm, yyyy"]')
+    }
+
+    getStartEndTimeCreateExam(){
+        return cy.get('[placeholder="h:mm (a|p)m"]')
+    }
+
+    getEditExamBtn(){
+        return cy.xpath('//button[.="Edit Exam"]')
+    }
+
+    getDeleteExamBtn(){
+        return cy.xpath('//button[.="Delete"]')
+    }
+
+    getDeleteExamConfrmBtn(){
+        return cy.xpath('//button[.="Delete Exam"]')
+    }
+
+    getExamTypeCreateExam(){
+        return cy.get('[id="demo-simple-select"]')
+    }
+
+    getExamTextYourCalender(){
+        return cy.get('[class="md-custom-event-wrapper"] span')
+    }
+
+    getExamTitleTextEditExam(){
+        return cy.get('[class="view_reminder-tittle"]')
+    }
+
+    getAmPmTimeCreateExam(){
+        return cy.get('[type="button"] span[class="MuiTypography-root MuiTypography-caption css-1v2gfp5"]')
+    }
+
+    getDateCreateExam(){
+        return cy.xpath('//div[@class="PrivatePickersSlideTransition-root css-dhopo2"]//button[contains(@class,"MuiButtonBase-root MuiPickersDay-root MuiPickersDay-dayWithMargin")]')
+    }
+
+    getDateInYourCalender(){
+        return cy.xpath('//div[contains(@class,"mbsc-calendar-table-active")]//div[contains(@class,"mbsc-calendar-cell mbsc-calendar-day mbsc-windows mbsc-ltr mbsc-calendar-day-marked")]')
+    }
 }
 module.exports=new AdminCalenderHomePage()

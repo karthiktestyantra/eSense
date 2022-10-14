@@ -176,7 +176,7 @@ describe("Verify admin student grade book temp functionalities - Sprint 18(EL-41
 
       })
       cy.wait(2000)
-      adminStudentGradebookPage.getHarGradeBookStudentNameTxt().eq(0).should('include', sometext)
+      adminStudentGradebookPage.getHarGradeBookStudentNameTxt().eq(0).should('contain.text', sometext)
 
     })
 

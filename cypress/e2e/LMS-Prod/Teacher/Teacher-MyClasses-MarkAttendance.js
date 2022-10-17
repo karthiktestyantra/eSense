@@ -1,12 +1,13 @@
 const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
 const teacherGradeBookPage = require("../../../support/pageObjects/LMS-2/TeacherGradeBookPage")
+const teacherMyclassesOverviewPage = require("../../../support/pageObjects/LMS-2/TeacherMyclassesOverviewPage")
 
-describe("Verify Admin Student GradeBook functionalities - Sprint 20(EL-6975)", function () {
+describe("Verify Teacher Student Mark Attendance functionalities - Sprint 20(EL-6975)", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlProd'))
         cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
-            cy.TeacherPostSetupLogin(validAdminLoginData.teacher2, validAdminLoginData.password)
+            cy.TeacherPostSetupLogin(validAdminLoginData.teacher1, validAdminLoginData.password)
         })
     })
 
@@ -16,7 +17,11 @@ describe("Verify Admin Student GradeBook functionalities - Sprint 20(EL-6975)", 
     })
 
     it('EL-6975/ES6975-02,ES6975-03 Validate system is displaying attendance dynamically in the gradebook irrespective of gradebook updates', function () {
-        teacherDashboardPage.getMarkClassAttendenceBtn().click()
+        teacherDashboardPage.getMyclassLnk().click({ force: true })
+        teacherDashboardPage.getSubLstTxtInMyClass().eq(0).click()
+        teacherMyclassesOverviewPage.getOverviewTab().click()
+        teacherMyclassesOverviewPage.getOverviewPendingActionsCard().should('be.visible')
+        teacherDashboardPage.getMarkClassAttendenceBtn().eq(0).click()
         cy.wait(4000)
         teacherDashboardPage.getMarkAttendanceBtn().eq(0).click()
         teacherDashboardPage.getMarkAsAbsentRadioBtn().eq(0).click()
@@ -33,16 +38,6 @@ describe("Verify Admin Student GradeBook functionalities - Sprint 20(EL-6975)", 
         teacherDashboardPage.getMarkattendeceSubmitPopupCancelBtn().should('be.visible')
         teacherDashboardPage.getMarkattendeceSubmitPopupCancelBtn().click()
         teacherDashboardPage.getMarkattendecePageTitle().should('contain.text', 'Students in this class')
-        cy.go('back')
-    })
-
-    it('EL-6975/ES6975-01 Validate School admin/teacher is able to view the student total attendance in gradebook', function () {
-        teacherDashboardPage.getSideMenuReportsImg().click()
-        cy.forceClick(teacherDashboardPage.getSideMenuStudentGradebookLink())
-        cy.isVisible(teacherGradeBookPage.getStudentGradeBookTitle())
-        //teacherGradeBookPage.getGradeTabStudentGradeBook().click()
-        teacherGradeBookPage.getStudentForwardArrow().eq(0).click()
-        cy.isVisible(teacherGradeBookPage.getAttendancePercentageStudentGradeBook())
     })
 
 })

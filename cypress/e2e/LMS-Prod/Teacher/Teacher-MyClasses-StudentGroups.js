@@ -1,5 +1,5 @@
-const teacherDashboardPage = require("../../support/pageObjects/LMS-2/TeacherDashboardPage")
-const teacherGradeBookPage = require("../../support/pageObjects/LMS-2/TeacherGradeBookPage")
+const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
+const teacherGradeBookPage = require("../../../support/pageObjects/LMS-2/TeacherGradeBookPage")
 
 describe("Verify Teacher My Classes - Student Groups functionalities", function () {
 

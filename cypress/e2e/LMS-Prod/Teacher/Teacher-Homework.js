@@ -1,8 +1,8 @@
-const indexPage = require('../../support/pageObjects/LMS-1/IndexPage')
-const timeTableOverviewPage = require('../../support/pageObjects/LMS-1/TimeTableOverviewPage')
-const myClassesPage = require('../../support/pageObjects/LMS-1/MyClassesPage')
-const sprint10Regression = require('../../support/pageObjects/LMS-1/Sprint10Regression')
-const myCalendarPage = require('../../support/pageObjects/LMS-1/MyCalendarPage')
+const indexPage = require('../../../support/pageObjects/LMS-1/IndexPage')
+const timeTableOverviewPage = require('../../../support/pageObjects/LMS-1/TimeTableOverviewPage')
+const myClassesPage = require('../../../support/pageObjects/LMS-1/MyClassesPage')
+const sprint10Regression = require('../../../support/pageObjects/LMS-1/Sprint10Regression')
+const myCalendarPage = require('../../../support/pageObjects/LMS-1/MyCalendarPage')
 
 describe("Verify Sprint 10 related functionalities", function () {
 
@@ -153,7 +153,7 @@ describe("Verify Sprint 10 related functionalities", function () {
     cy.get(".drop-sub").attachFile(filepath);
     sprint10Regression.getAddResourcesCloseIcon().click();
     sprint10Regression.getEditHomeworkUpdateButton().click({ force: true });
-    cy.wait(8000);
+    cy.wait(3000);
     sprint10Regression.getEditHomeworkCard().eq(0).click()
     sprint10Regression.getFileSharedTab().click({ force: true });
     cy.wait(2000)
@@ -440,7 +440,7 @@ describe("Verify Sprint 10 related functionalities", function () {
     sprint10Regression.getAddResourcesPopupCancelbtn().click();
     cy.wait(1000);
     sprint10Regression.getAddHomeworkSaveButton().click({ force: true });
-    cy.wait(8000);
+    cy.wait(3000);
   });
 
 

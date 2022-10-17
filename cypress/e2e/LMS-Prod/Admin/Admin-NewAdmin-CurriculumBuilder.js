@@ -1,5 +1,5 @@
 const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
-const adminPostSetupCurriculumBuilderPage = require("../../../../support/pageObjects/LMS-2/AdminPostSetupCurriculumBuilderPage")
+const adminPostSetupCurriculumBuilderPage = require("../../../support/pageObjects/LMS-2/AdminPostSetupCurriculumBuilderPage")
 const indexPage = require('../../../support/pageObjects/LMS-1/IndexPage')
 const adminAccountsPage = require("../../../support/pageObjects/LMS-2/AdminAccountsPage")
 

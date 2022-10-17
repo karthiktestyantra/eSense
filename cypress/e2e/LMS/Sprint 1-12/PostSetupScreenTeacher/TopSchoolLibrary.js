@@ -56,7 +56,7 @@ describe("Verify TopSchool Library Functionalities", function () {
   it("Verify that the action icon should list “Add to my personal collection” and “Download to view offline” options", function () {
     topSchoolLibraryPage
       .getAddToMyPersonalCollection()
-      .should("have.text", "Add to my personal collection")
+      .should("have.text", " Add to my personal collection")
       .should("be.visible");
   });
 });

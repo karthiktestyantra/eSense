@@ -1,26 +1,19 @@
-const indexPage = require('../../../../support/pageObjects/LMS-1/IndexPage')
-const timeTableOverviewPage = require('../../../../support/pageObjects/LMS-1/TimeTableOverviewPage')
-const myCalendarPage = require('../../../../support/pageObjects/LMS-1/MyCalendarPage')
-const lessonPlanPage = require('../../../../support/pageObjects/LMS-1/LessonPlanPage')
+const timeTableOverviewPage = require('../../../support/pageObjects/LMS-1/TimeTableOverviewPage')
+const myCalendarPage = require('../../../support/pageObjects/LMS-1/MyCalendarPage')
+const lessonPlanPage = require('../../../support/pageObjects/LMS-1/LessonPlanPage')
 
-describe("Verify Lesson Plan Functionalities", function () {
-  
-  before(function () {
-    cy.fixture("LMS/TeacherLoginCredentials").then(function (validLoginData) {
-      this.validLoginData = validLoginData;
-      cy.visit(Cypress.env("urlMain"));
-      indexPage.getTeacher().click();
-      cy.login(this.validLoginData.user2, this.validLoginData.password);
-      timeTableOverviewPage
-        .getDashboardTitle()
-        .should("have.text", "Your Dashboard");
-    });
-  });
+describe("Verify Sprint 10 related functionalities", function () {
 
+    before(function () {
+        cy.visit(Cypress.env('urlProd'))
+        cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
+            cy.TeacherPostSetupLogin(validAdminLoginData.teacher5, validAdminLoginData.password)
+        })
+    })
   beforeEach(function () {
     cy.fixture("LMS/addLessonPlan").as("lessonPlanData")
     cy.fixture("LMS/calendarClasses").as("classesData")
-  });
+  })
 
   it("Verify that the Teacher should be able to navigate to Dashboard > My Calendar screen", function () {
     myCalendarPage.getMyCalendar().click({ force: true });
@@ -30,8 +23,8 @@ describe("Verify Lesson Plan Functionalities", function () {
   it("Verify that the Teacher chosen Class pop up screen should be displayed by clicking the classes in the calendar", function () {
     cy.get('.cal-header-next > .mbsc-button-icon').click();
     cy.wait(2000);
-    myCalendarPage.getSampleClass().contains(this.classesData.class).click();
-    myCalendarPage.getClassPopupTitle().should("have.text", this.classesData.classTitle);
+    myCalendarPage.getSampleClass().contains(this.classesData.classProd).click();
+    myCalendarPage.getClassPopupTitle().should("have.text", this.classesData.classTitleProd);
 
   });
 
@@ -84,10 +77,11 @@ describe("Verify Lesson Plan Functionalities", function () {
     lessonPlanPage.getBasicDetailsChapterDropdownValues().should('be.visible');
     lessonPlanPage.getBasicDetailsChapterDropdownValues().click();
     lessonPlanPage.getBasicDetailsTopicField().click({ force: true });
+    cy.clickOnBody()
   });
 
   it("Verify that the all the entered details should be saved by clicking Save button", function () {
-    lessonPlanPage.getBasicDetailsLearningObjectiveField().eq(7).type(this.lessonPlanData.learningObjectiveField, { force: true });
+    lessonPlanPage.getBasicDetailsLearningObjectiveField().eq(7).type(this.lessonPlanData.learningObjectiveField);
     lessonPlanPage.getBasicDetailsRemarksField().type(this.lessonPlanData.remarksField, { force: true });
     lessonPlanPage.getBasicDetailsSaveButton().scrollIntoView().click({ force: true });
     lessonPlanPage.getLessonPlanCreatedMessage().should('have.text', 'Lesson Plan Created!');
@@ -96,7 +90,7 @@ describe("Verify Lesson Plan Functionalities", function () {
   it("Verify that the the teacher is able to add Theme", function () {
     lessonPlanPage.getCloseIcon().click({ multiple: true });
     cy.wait(2000);
-    myCalendarPage.getSampleClass().contains(this.classesData.class1).click();
+    myCalendarPage.getSampleClass().contains(this.classesData.class1Prod).click();
     lessonPlanPage.getAddLessonPlan().click({ force: true });
     lessonPlanPage.getCreateNewOption().click();
     lessonPlanPage.getCreateLessonPlanTitle().should('have.text', 'Create Lesson Plan');
@@ -200,7 +194,7 @@ describe("Verify Lesson Plan Functionalities", function () {
 
   it("Verify that by clicking Cancel button should clear the changes made to the lesson plan and should be navigated to previous page", function () {
     lessonPlanPage.getBasicDetailsCancelButton({ force: true }).click();
-    myCalendarPage.getClassPopupTitle().should("have.text", this.classesData.classTitle);
+    myCalendarPage.getClassPopupTitle().should("have.text", this.classesData.classTitleProd);
   });
 
   it("Verify that the 'Add Resources' pop up should be opened by clicking Add Resource from content library option", function () {
@@ -244,7 +238,6 @@ describe("Verify Lesson Plan Functionalities", function () {
     lessonPlanPage.getCreateNewOption().click();
     lessonPlanPage.getCreateLessonPlanTitle().should('have.text', 'Create Lesson Plan');
     lessonPlanPage.getBasicDetailsGoBackButton().click();
-    myCalendarPage.getClassPopupTitle().should("have.text", this.classesData.classTitle);
+    myCalendarPage.getClassPopupTitle().should("have.text", this.classesData.classTitleProd);
   });
-
 });

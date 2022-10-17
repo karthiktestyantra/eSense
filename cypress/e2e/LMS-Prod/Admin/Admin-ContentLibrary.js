@@ -248,12 +248,14 @@ describe("Verify  Content Library functionalities", function () {
         adminDashboardPage.getContentLibraryBtn().click({force:true});
         adminContentLibraryPage.getTopSchoolLibrary().click()
         myPersonalLibraryPage.getMyPersonalLibraryTab().click()
+        cy.wait(1000)
         myPersonalLibraryPage.getUploadResource().scrollIntoView().selectFile('cypress/fixtures/LMS/ErrorReport.xlsx',{force:true})
     })
     it('EL-768/ES768-04  To validate after successful upload file will contain tags like type of content (radio button) and  class, grade, chapter topic from the drop down.',function () {
-        myPersonalLibraryPage.getUploadResoureceGradeDropdown().should('be.visible')
-        myPersonalLibraryPage.getUploadResoureceSubjectDropdown().should('be.visible')
-        myPersonalLibraryPage.getUploadResoureceChapterDropdown().should('be.visible')
-        myPersonalLibraryPage.getUploadResoureceTopicsDropdown().should('be.visible')
+        cy.wait(2000)
+        cy.isVisible(myPersonalLibraryPage.getUploadResoureceGradeDropdown())
+        cy.isVisible(myPersonalLibraryPage.getUploadResoureceSubjectDropdown())
+        cy.isVisible(myPersonalLibraryPage.getUploadResoureceChapterDropdown())
+        cy.isVisible(myPersonalLibraryPage.getUploadResoureceTopicsDropdown())
     })
 })

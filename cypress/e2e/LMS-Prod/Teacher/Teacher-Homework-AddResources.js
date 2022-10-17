@@ -1,4 +1,3 @@
-const indexPage = require('../../../support/pageObjects/LMS-1/IndexPage')
 const timeTableOverviewPage = require('../../../support/pageObjects/LMS-1/TimeTableOverviewPage')
 const myClassesPage = require('../../../support/pageObjects/LMS-1/MyClassesPage')
 const sprint10Regression = require('../../../support/pageObjects/LMS-1/Sprint10Regression')

@@ -1,7 +1,7 @@
-const adminPostSetupHomePage = require("../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
-const adminStudentGradebookPage = require("../../support/pageObjects/LMS-2/AdminStudentGradebookPage")
-const adminGradeBookPage = require("../../support/pageObjects/LMS-2/AdminGradeBookPage")
-const adminGradebookPageNew = require("../../support/pageObjects/LMS-2/AdminGradebookPageNew")
+const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
+const adminStudentGradebookPage = require("../../../support/pageObjects/LMS-2/AdminStudentGradebookPage")
+const adminGradeBookPage = require("../../../support/pageObjects/LMS-2/AdminGradeBookPage")
+const adminGradebookPageNew = require("../../../support/pageObjects/LMS-2/AdminGradebookPageNew")
 
 describe("Verify Admin student grade book functionalities - Sprint 19(EL-5492,EL-6082,EL-5493,EL-5490)", function () {
 

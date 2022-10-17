@@ -19,6 +19,9 @@ class AdminHomePage {
     getUsersLnk(){
         return cy.get('div.menu-txt').contains("Users")
     }
+    getDashboardLnk(){
+        return cy.get('div.menu-txt').contains("Dashboard")
+    }
     getGradeWiseAttendanceTab(){
         return cy.get('div[role="tablist"] button').contains("Grade-Wise Attendance")
     }

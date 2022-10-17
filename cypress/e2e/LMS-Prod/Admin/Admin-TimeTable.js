@@ -1,5 +1,5 @@
-const adminQuickLinksPage = require("../../../../support/pageObjects/LMS-2/AdminQuickLinksPage")
-const indexPage = require('../../../../support/pageObjects/LMS-1/IndexPage')
+const adminQuickLinksPage = require("../../../support/pageObjects/LMS-2/AdminQuickLinksPage")
+const indexPage = require('../../../support/pageObjects/LMS-1/IndexPage')
 
 describe("Verify admin quick link time table functionalities - Sprint 17(EL-4096,EL-5163,EL-5212,EL-5149,EL-5223,EL-5360)", function () {
 

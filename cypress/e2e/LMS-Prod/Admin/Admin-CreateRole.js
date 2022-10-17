@@ -1,6 +1,6 @@
-const adminAccountsPage = require("../../../../support/pageObjects/LMS-2/AdminAccountsPage")
-const adminPostSetupHomePage = require("../../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
-const indexPage = require('../../../../support/pageObjects/LMS-1/IndexPage')
+const adminAccountsPage = require("../../../support/pageObjects/LMS-2/AdminAccountsPage")
+const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
+const indexPage = require('../../../support/pageObjects/LMS-1/IndexPage')
 
 describe("Verify Admin Account Page functionalities - Sprint 14(EL-4094)", function () {
 

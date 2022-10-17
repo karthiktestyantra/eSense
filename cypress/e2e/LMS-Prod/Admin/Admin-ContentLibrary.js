@@ -3,10 +3,13 @@ const adminContentLibraryPage = require("../../support/pageObjects/LMS-2/AdminCo
 const Adminlogin = require('../../support/pageObjects/LMS-2/AdminIndexPage')
 const dashboardPage = require('../../support/pageObjects/LMS-1/DashboardPage')
 const myPersonalLibraryPage = require('../../support/pageObjects/LMS-1/MyPersonalLibraryPage')
+const adminHomePage = require('../../support/pageObjects/LMS-2/AdminHomePage')
 var randomstring = require("randomstring")
 const dayjs = require('dayjs')
+import 'cypress-iframe'
+/// <reference types="Cypress-iframe" />
 
-describe("Verify Admin Content Add to Collection functionalities", function () {
+describe("Verify  Content Library functionalities", function () {
 
     before(function () {
         cy.visit(Cypress.env('urlProd'))
@@ -19,6 +22,7 @@ describe("Verify Admin Content Add to Collection functionalities", function () {
 
     beforeEach(function () {
         cy.viewport(1920, 1080)
+        cy.fixture("LMS/AdminContentLibrary").as("adminContentLibrary")
     })
 
     it('EL-756/ES756-01  To validate user is able to  view text book under Topschool library.', function () {
@@ -168,5 +172,88 @@ describe("Verify Admin Content Add to Collection functionalities", function () {
     it('EL-757/ES757-03  To validate user is navigated to previous page after clicking on back button.',function () {
         myPersonalLibraryPage.getVideoBackBtn().scrollIntoView().click()
         myPersonalLibraryPage.getViewVideoBtn().should('be.visible')
+    })
+
+
+
+
+    it('EL-4736/ES4736_1 Validate user clicks on "Content", library page is displayed and the user is able to view the list of Textbook in the PDF format that is uploaded', function () {
+        adminHomePage.getDashboardLnk().click({force:true})
+        cy.wait(2000)
+        adminDashboardPage.getSideMenuContentLibraryImg().click()
+        adminContentLibraryPage.getRiseTextBookLink().scrollIntoView().click()
+        adminDashboardPage.getSideMenuContentLibraryImg().click()
+        adminContentLibraryPage.getTopSchoolLibrary().click()
+        cy.isVisible(adminContentLibraryPage.getRiseTextBookText())
+        cy.isVisible(adminContentLibraryPage.getPdfImg())
+    })
+
+    it('EL-4736/ES4736_2,ES4736_7 Validate user is able to perform following actions *Zoom In and Zoom out Text book Page *Back to the previous screen *Rotate the page', function () {
+        adminContentLibraryPage.getRiseTextBookTab().click()
+        adminContentLibraryPage.getViewRiseTextBookNameInList().eq(1).then((bookName) => {
+            var bookName = bookName.text()
+            adminContentLibraryPage.getViewRiseTextBookLink().eq(1).click()
+            cy.wait(3000)
+            cy.verifyTextEquals(adminContentLibraryPage.getViewRiseTextBookNameTitle(), bookName)
+        })
+        cy.wait(7000)
+        adminContentLibraryPage.getContentLibraryViewRiseTextBookIframe()
+        adminContentLibraryPage.getContentLibraryZoomInIcon().click()
+        cy.verifyAttributeValue(adminContentLibraryPage.getContentLibraryZoomValue(), 'value', this.adminContentLibrary.contentLibraryZoomInIcon)
+        adminContentLibraryPage.getContentLibraryZoomOutIcon().click()
+        cy.verifyAttributeValue(adminContentLibraryPage.getContentLibraryZoomValue(), 'value', this.adminContentLibrary.contentLibraryZoomOutIcon)
+        adminContentLibraryPage.getContentLibraryViewControlsButton().click()
+        adminContentLibraryPage.getContentLibraryViewControlsAllButtons().each(($el, index, $list) => {
+            cy.wrap($el).click({ force: true })
+            cy.wait(1000)
+        })
+    })
+
+    it('EL-4736/ES4736_3,ES4736_5 Validate User is able to Edit the Number on clicking the page number present at the bottom of the page.', function () {
+        adminContentLibraryPage.getContentLibraryViewDocumentBackIcon().click()
+        adminContentLibraryPage.getElaAssignmentsTab().click()
+        adminContentLibraryPage.getElaAssignmentsViewAllButton().click()
+        adminContentLibraryPage.getViewElaAssignmentsLink().eq(0).click()
+        cy.wait(7000)
+        adminContentLibraryPage.getContentLibraryViewElaAssignmentsIframe()
+        cy.setAndVerifyAttributeValue(adminContentLibraryPage.getContentLibraryDocumentSetPage(), 'value', this.adminContentLibrary.contentLibraryDocumentSetPage)
+    })
+
+    it('EL-4736/ES4736_4 Validate user on Clicking the arrows in page number is able to navigate to next page.', function () {
+        cy.forceClick(adminContentLibraryPage.getContentLibraryDocumentNextPageIcon())
+        cy.forceClick(adminContentLibraryPage.getContentLibraryDocumentPreviousPageIcon())
+    })
+
+    it('EL-4736/ES4736_6 Validate whether user is able to use the full screen option.', function () {
+        adminContentLibraryPage.getContentLibraryZoomValue().click()
+        cy.forceClick(adminContentLibraryPage.getContentLibraryZoomFitToWidth())
+        adminContentLibraryPage.getContentLibraryDocumentMenuBtn().trigger('click')
+        cy.wait(1000)
+        cy.isVisible(adminContentLibraryPage.getContentLibraryDocumentFullScreenBtn())
+        cy.forceClick(adminContentLibraryPage.getContentLibraryDocumentFullScreenBtn())
+    })
+
+    it('EL-4736/ES4736_8 Validate user is getting refreshed page if clicks on the “cross button” or “Go Back” button.', function () {
+        adminContentLibraryPage.getContentLibraryViewDocumentBackIcon().click()
+        cy.isVisible(adminContentLibraryPage.getElaAssignmentsTab())
+    })
+
+
+    it('EL-768/ES768-01 To validate user is able to upload personal resources personal resources like ( videos, pdf, doc, interactive contents ) can be saved under my personal content library.',function () {
+        cy.visit(Cypress.env('urlProd'))
+        cy.fixture("LMS/ValidTeacherLoginCredentials.json").then(function (validAdminLoginData) {
+            this.validAdminLoginData = validAdminLoginData;
+            cy.TeacherPostSetupLogin(this.validAdminLoginData.prodUsername, this.validAdminLoginData.prodPassword)
+        })
+        adminDashboardPage.getContentLibraryBtn().click({force:true});
+        adminContentLibraryPage.getTopSchoolLibrary().click()
+        myPersonalLibraryPage.getMyPersonalLibraryTab().click()
+        myPersonalLibraryPage.getUploadResource().scrollIntoView().selectFile('cypress/fixtures/LMS/ErrorReport.xlsx',{force:true})
+    })
+    it('EL-768/ES768-04  To validate after successful upload file will contain tags like type of content (radio button) and  class, grade, chapter topic from the drop down.',function () {
+        myPersonalLibraryPage.getUploadResoureceGradeDropdown().should('be.visible')
+        myPersonalLibraryPage.getUploadResoureceSubjectDropdown().should('be.visible')
+        myPersonalLibraryPage.getUploadResoureceChapterDropdown().should('be.visible')
+        myPersonalLibraryPage.getUploadResoureceTopicsDropdown().should('be.visible')
     })
 })

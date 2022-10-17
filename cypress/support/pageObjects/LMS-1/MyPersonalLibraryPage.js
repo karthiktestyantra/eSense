@@ -154,7 +154,7 @@ class MyPersonalLibraryPage {
     }
 
     getEditCollectionDescriptionTextArea(){
-        return cy.get('#mui-36')
+        return cy.get('textarea.MuiInputBase-inputMultiline').eq(0)
     }
     getDeleteCollectionBtn(){
         return cy.get('span[class="right-cls-out delCollection"]')
@@ -235,6 +235,23 @@ class MyPersonalLibraryPage {
     }
     getVideoBackBtn(){
         return cy.get('button.bookmark-icon')
+    }
+    getUploadResource(){
+        return cy.get('input[type="file"]')
+    }
+
+    getUploadResoureceGradeDropdown(){
+        return cy.get('div.content-for-wrapper div[id="demo-simple-select-1"]')
+    }
+
+    getUploadResoureceSubjectDropdown(){
+        return cy.get('div.content-for-wrapper div[id="demo-simple-select-2"]')
+    }
+    getUploadResoureceChapterDropdown(){
+        return cy.get('div.content-for-wrapper div[id="demo-simple-select-3"]')
+    }
+    getUploadResoureceTopicsDropdown(){
+        return cy.get('div.content-for-wrapper div[id="demo-simple-select-4"]')
     }
   }
   

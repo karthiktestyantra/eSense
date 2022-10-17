@@ -216,6 +216,9 @@ class AdminDashboardPage {
     getCalenderBtn() {
         return cy.get('div.menu-txt').contains('Calendar')
     }
+    getContentLibraryBtn() {
+        return cy.get('div.menu-txt').contains('Content Library')
+    }
 
     getGradeWiseAttendanceInSiteAnalyticsSection() {
         return cy.get('div.MuiTabs-scroller button[role="tab"]').contains("Grade-Wise Attendance")

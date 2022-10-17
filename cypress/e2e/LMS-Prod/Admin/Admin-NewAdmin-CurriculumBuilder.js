@@ -1,8 +1,6 @@
 const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/AdminPostSetupHomePage")
 const adminPostSetupCurriculumBuilderPage = require("../../../../support/pageObjects/LMS-2/AdminPostSetupCurriculumBuilderPage")
 const indexPage = require('../../../support/pageObjects/LMS-1/IndexPage')
-const sprint12Regression = require('../../../support/pageObjects/LMS-1/Sprint12Regression')
-const curriculumBuilderPage = require('../../../support/pageObjects/LMS-1/CurriculumBuilderPage')
 const adminAccountsPage = require("../../../support/pageObjects/LMS-2/AdminAccountsPage")
 
 describe("Verify Curriculum Builder pagefunctionalities - Sprint 14(EL-4067,EL-4070)", function () {

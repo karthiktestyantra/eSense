@@ -1,5 +1,5 @@
-const teacherDashboardPage = require("../../support/pageObjects/LMS-2/TeacherDashboardPage")
-const teacherGradeBookPage = require("../../support/pageObjects/LMS-2/TeacherGradeBookPage")
+const teacherDashboardPage = require("../../../support/pageObjects/LMS-2/TeacherDashboardPage")
+const teacherGradeBookPage = require("../../../support/pageObjects/LMS-2/TeacherGradeBookPage")
 
 describe("Verify Admin Student GradeBook functionalities - Sprint 20(EL-6975)", function () {
 

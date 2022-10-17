@@ -1,6 +1,6 @@
-const adminHomePage = require("../../support/pageObjects/LMS-2/AdminHomePage")
-const admin360ReportPage = require("../../support/pageObjects/LMS-2/Admin360ReportPage")
-const Adminlogin = require('../../support/pageObjects/LMS-2/AdminIndexPage')
+const adminHomePage = require("../../../support/pageObjects/LMS-2/AdminHomePage")
+const admin360ReportPage = require("../../../support/pageObjects/LMS-2/Admin360ReportPage")
+const Adminlogin = require('../../../support/pageObjects/LMS-2/AdminIndexPage')
 
 describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", function () {
 

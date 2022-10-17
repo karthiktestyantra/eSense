@@ -1,6 +1,6 @@
-const adminCalendarPage = require("../../support/pageObjects/LMS-2/AdminCalenderHomePage")
-const adminDashboardPage = require("../../support/pageObjects/LMS-2/AdminDashboardPage")
-const Adminlogin = require('../../support/pageObjects/LMS-2/AdminIndexPage')
+const adminCalendarPage = require("../../../support/pageObjects/LMS-2/AdminCalenderHomePage")
+const adminDashboardPage = require("../../../support/pageObjects/LMS-2/AdminDashboardPage")
+const Adminlogin = require('../../../support/pageObjects/LMS-2/AdminIndexPage')
 const dayjs = require('dayjs')
 
 describe("Verify admin Calendar functionalities - Sprint 15(EL-4065)", function () {

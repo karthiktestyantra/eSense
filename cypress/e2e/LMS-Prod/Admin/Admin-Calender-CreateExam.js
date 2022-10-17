@@ -1,6 +1,6 @@
-const adminDashboardPage = require("../../support/pageObjects/LMS-2/AdminDashboardPage")
-const adminCalenderHomePage = require("../../support/pageObjects/LMS-2/AdminCalenderHomePage")
-const adminlogin = require('../../support/pageObjects/LMS-2/AdminIndexPage')
+const adminDashboardPage = require("../../../support/pageObjects/LMS-2/AdminDashboardPage")
+const adminCalenderHomePage = require("../../../support/pageObjects/LMS-2/AdminCalenderHomePage")
+const adminlogin = require('../../../support/pageObjects/LMS-2/AdminIndexPage')
 const dayjs = require('dayjs')
 
 describe("Verify Admin Calender Exam related functionalities", function () {

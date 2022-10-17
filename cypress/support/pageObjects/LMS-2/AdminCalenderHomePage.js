@@ -1,7 +1,7 @@
 
 class AdminCalenderHomePage{
     getCreateNewBtn(){
-        return cy.get('button.css-79xub')
+        return cy.get('.calendarMeetingBtn button')
     }
     getAppointmentBtn(){
         return cy.get('div.calendar-list-title').contains('Appointments')

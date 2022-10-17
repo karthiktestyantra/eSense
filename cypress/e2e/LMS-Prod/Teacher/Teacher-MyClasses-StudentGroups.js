@@ -39,7 +39,7 @@ describe("Verify Teacher My Classes - Student Groups functionalities", function 
         cy.wait(4000)
         cy.verifyTextContains(teacherGradeBookPage.getAddedGroupTitleText(), this.teacherMyClasses.groupName)
         teacherGradeBookPage.getStudentNameAfterCreatingGroup().each(($el, index) => {
-            expect($el.text().trim()).to.equals(studentName[index])
+            expect(studentName).to.contains($el.text().trim())
         })
     })
 

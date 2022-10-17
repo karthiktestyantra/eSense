@@ -1,4 +1,3 @@
-
 class AdminCalenderHomePage{
     getCreateNewBtn(){
         return cy.get('.calendarMeetingBtn button')
@@ -141,81 +140,74 @@ class AdminCalenderHomePage{
     getCreateAppointmentSectionsDropDown(){
         return cy.get('[id="demo-simple-select"]').eq(0)
     }
-    
-    getExamLink(){
-        return cy.xpath('//div[@class="calendar-popper-sub-list"]/div[.="Exam"]')
+    getUploadCSVBtn(){
+        return cy.get('.bulkUploadBtnOut ')
     }
-
-    getCreateExamsDropdowns(){
-        return cy.get('#demo-simple-select-helper')
+    getHolidayBtnInCSVBtn(){
+        return cy.get('.calendar-list-title').eq(0)
     }
-
-    getCreateExamSubjectDropdown(){
-        return cy.get(':nth-child(2) > .MuiFormControl-root > .MuiOutlinedInput-root > #demo-simple-select-helper')
+    getSelectHolidayFileBtn(){
+        return cy.get('input#file-input')
     }
-
-    getCreateExamsDropdownsList(){
-        return cy.get('[role="listbox"] li')
+    getImportHolidayBtn(){
+        return cy.get('button.BulkUpload_bulkImport__spFpc')
     }
-
-    getExamCheckbox(){
-        return cy.get('[name="Exam"]')
+    getDwnloadDFileBtn(){
+        return cy.get('button.BulkUpload_downloadSampleTxt__1UJTp')
     }
-
-    getSaveExamBtn(){
-        return cy.xpath('//button[.="Save Exam"]')
+    getYearDrpDwnInCalendar(){
+        return cy.get('button.mbsc-calendar-button span.mbsc-calendar-year')
     }
-
-    getEnterExamTitleTextFieldCreateExam(){
-        return cy.get('[placeholder="Enter Exam Title"]')
+    getYearDrpDwnLst(){
+        return cy.get('div[role="gridcell"] div.mbsc-calendar-year-text:visible')
     }
-
-    getAttachFileCreateExam(){
-        return cy.get('[type="file"]')
+    getMonthDrpDwnLst(){
+        return cy.get('div[role="gridcell"] div.mbsc-calendar-month-text:visible')
     }
-
-    getDateOfExamTextFieldCreateExam(){
-        return cy.get('[placeholder="ddd d mmm, yyyy"]')
+    getMonthlyDrpDwnInCalendar(){
+        return cy.get('.myCalSelFld')
     }
-
-    getStartEndTimeCreateExam(){
-        return cy.get('[placeholder="h:mm (a|p)m"]')
+    getMonthlyDrpDwnLstInCalendar(){
+        return cy.get('select')
     }
-
-    getEditExamBtn(){
-        return cy.xpath('//button[.="Edit Exam"]')
+    getHolidayDateInCalendar(){
+        return cy.get('div.mbsc-ltr div.single-day-event:visible')
     }
-
-    getDeleteExamBtn(){
-        return cy.xpath('//button[.="Delete"]')
+    getHolidayCheckBxInCalendarPage(){
+        return cy.get('span.MuiCheckbox-root input[name="Holidays"]')
     }
-
-    getDeleteExamConfrmBtn(){
-        return cy.xpath('//button[.="Delete Exam"]')
+    getCalendarDayTxt(){
+        return cy.get('div[role="gridcell"] div.mbsc-calendar-day-text:visible')
     }
-
-    getExamTypeCreateExam(){
-        return cy.get('[id="demo-simple-select"]')
+    getHolidayWrapperLst(){
+        return cy.get('div.md-custom-event-wrapper')
     }
-
-    getExamTextYourCalender(){
-        return cy.get('[class="md-custom-event-wrapper"] span')
+    getHolidayDltBtn(){
+        return cy.get('button.view_reminder_delete')
     }
-
-    getExamTitleTextEditExam(){
-        return cy.get('[class="view_reminder-tittle"]')
+    getHolidayCnfrmDltBtn(){
+        return cy.get('button.dlt_prime')
     }
-
-    getAmPmTimeCreateExam(){
-        return cy.get('[type="button"] span[class="MuiTypography-root MuiTypography-caption css-1v2gfp5"]')
+    getHolidayEnterBtn(){
+        return cy.get('.calendar-content-popover div.calendar-list-title')
     }
-
-    getDateCreateExam(){
-        return cy.xpath('//div[@class="PrivatePickersSlideTransition-root css-dhopo2"]//button[contains(@class,"MuiButtonBase-root MuiPickersDay-root MuiPickersDay-dayWithMargin")]')
+    getEnterHolidayTxt(){
+        return cy.get('div input[placeholder="Enter Holiday Title"]')
     }
-
-    getDateInYourCalender(){
-        return cy.xpath('//div[contains(@class,"mbsc-calendar-table-active")]//div[contains(@class,"mbsc-calendar-cell mbsc-calendar-day mbsc-windows mbsc-ltr mbsc-calendar-day-marked")]')
+    getStartDateInCreateHolidayPopup(){
+        return cy.get('input[placeholder="ddd d mmm, yyyy"]').eq(0)
+    }
+    getEndDateInCreateHolidayPopup(){
+        return cy.get('input[placeholder="ddd d mmm, yyyy"]').eq(1)
+    }
+    getHolidayDescriptionTextAreaInCreateHolidayPopup(){
+        return cy.get('div.MuiInputBase-multiline textarea').eq(0)
+    }
+    getSaveHolidayBtnInCreateHolidayPopup(){
+        return cy.get('button[form="holidayForm"]')
+    }
+    getDateLstInCreateHolidayPopup(){
+        return cy.get('button.MuiPickersDay-root:visible')
     }
 }
 module.exports=new AdminCalenderHomePage()

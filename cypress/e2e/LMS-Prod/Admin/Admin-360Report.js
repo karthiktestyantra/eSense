@@ -19,13 +19,13 @@ describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", funct
 
   //pre-condition
   it("Validate whether report page is displayed with 'Search Box', 'Check Box', 'ROLL NUMBER', 'FIRST NAME', 'LAST NAME', 'LAST ACTIVE', 'REPORTS'/EL-4124/ELS4124_1", function () {
-    for (var i = 1; i <= 3; i++) {
-      cy.get('button.MuiButton-root').contains('Continue').click()
-      cy.wait(2000)
-    }
-    for (var i = 1; i <= 2; i++) {
-      cy.get('.continue-btn').click()
-    }
+    cy.wait(1000)
+    cy.get('.step-container > :nth-child(3)').click()
+    cy.wait(1000)
+    cy.get('a.continue-btn').contains("Continue").click()
+    cy.wait(1000)
+    cy.get('button.continue-btn').contains("Continue").click()
+    cy.wait(1000)
     adminHomePage.clickOnReportLnk()
     cy.wait(1000)
     admin360ReportPage.clickOn360ReportLnk()

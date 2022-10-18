@@ -132,9 +132,9 @@ describe("Verify  Content Library functionalities", function () {
         adminContentLibraryPage.getTopSchoolLibrary().click()
         myPersonalLibraryPage.getMyPersonalLibraryTab().click()
         myPersonalLibraryPage.getTimeLineBtn().click()
-        cy.wait(1000)
+        cy.wait(4000)
         myPersonalLibraryPage.getTimeLineCreateNewBtn().should('be.enabled').click()
-        cy.wait(1000)
+        cy.wait(4000)
     })
 
     it('EL-771/ES771-02 To validate user is able to add new interactive timelines  by clicking on ceate new button.',function () {
@@ -163,7 +163,7 @@ describe("Verify  Content Library functionalities", function () {
         adminContentLibraryPage.getTopSchoolLibrary().click()
         myPersonalLibraryPage.getMyPersonalLibraryTab().click()
         myPersonalLibraryPage.getVideoBtn().click()
-        cy.wait(1000)
+        cy.wait(4000)
         myPersonalLibraryPage.getViewVideoBtn().scrollIntoView().click()
     })
     it('EL-757/ES757-02 To validate  user is able to play the video under video conatiner page.',function () {

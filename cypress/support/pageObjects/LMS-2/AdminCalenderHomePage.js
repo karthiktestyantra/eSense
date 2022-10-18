@@ -1,213 +1,288 @@
-class AdminCalenderHomePage{
-    getCreateNewBtn(){
+class AdminCalenderHomePage {
+    getCreateNewBtn() {
         return cy.get('.calendarMeetingBtn button')
     }
-    getAppointmentBtn(){
+    getAppointmentBtn() {
         return cy.get('div.calendar-list-title').contains('Appointments')
     }
-    getEnterAppointmentTitlefield(){
+    getEnterAppointmentTitlefield() {
         return cy.get('input.css-mnn31')
     }
-    getCreateApointmentAddPeopleLink(){
+    getCreateApointmentAddPeopleLink() {
         return cy.get('button.css-1ujsas3')
     }
-    getCreateApointmentTeacherTab(){
+    getCreateApointmentTeacherTab() {
         return cy.get('button.css-1q2h7u5').contains('Teachers')
     }
-    getCreateAppointmentTeacherSearchField(){
+    getCreateAppointmentTeacherSearchField() {
         return cy.get('input.css-7g5oui')
     }
-    getCreateAppointmentTeacherCheckbox(){
+    getCreateAppointmentTeacherCheckbox() {
         return cy.get('div.stdDialSrchRstList input').eq(0)
     }
-    getCreateAppointmentCloseLink(){
+    getCreateAppointmentCloseLink() {
         return cy.get('button.css-1ujsas3')
     }
-    getCreateApointmentDate(){
+    getCreateApointmentDate() {
         return cy.get('div.css-1bn53lx').eq(0)
     }
-    getCreateApointmentDateselect(day){
+    getCreateApointmentDateselect(day) {
         return cy.get('button.MuiPickersDay-dayWithMargin').contains(day)
     }
-    getCreateAppointmentStartTime(){
+    getCreateAppointmentStartTime() {
         return cy.get('div.css-1bn53lx').eq(1)
     }
-    getCreateAppointmentStartTimeing(){
+    getCreateAppointmentStartTimeing() {
         return cy.get('[aria-label="6 hours"]')
     }
-    getCreateAppointmentStartTimeingAM(){
-        return  cy.get('span.css-1v2gfp5').contains('AM')
+    getCreateAppointmentStartTimeingAM() {
+        return cy.get('span.css-1v2gfp5').contains('AM')
     }
-    getCreateAppointmentEndTime(){
+    getCreateAppointmentEndTime() {
         return cy.get('div.css-1bn53lx').eq(2)
     }
-    getCreateAppointmentEndTimeing(){
+    getCreateAppointmentEndTimeing() {
         return cy.get('[aria-label="6 hours"]')
     }
-    getCreateAppointmentEndTimeingPM(){
-        return  cy.get('span.css-1v2gfp5').contains('PM')
+    getCreateAppointmentEndTimeingPM() {
+        return cy.get('span.css-1v2gfp5').contains('PM')
     }
-    getCreateAppointmentRemindDropdown(){
+    getCreateAppointmentRemindDropdown() {
         return cy.get('.MuiFormControl-root > .MuiOutlinedInput-root > #demo-simple-select')
     }
-    getCreateAppointmentRemindDropdownDonotremindOpt(){
+    getCreateAppointmentRemindDropdownDonotremindOpt() {
         return cy.get('.MuiList-root > [tabindex="0"]')
     }
-    getCreateAppointmentAddDescription(){
+    getCreateAppointmentAddDescription() {
         return cy.get('.textAreaReminder')
     }
-    getCreateAppointmentAppointmentTypeDropdown(){
+    getCreateAppointmentAppointmentTypeDropdown() {
         return cy.get('.css-tzsjye').eq(1)
     }
-    getCreateAppointmentAppointmentType(){
+    getCreateAppointmentAppointmentType() {
         return cy.get('.MuiFormControl-root > :nth-child(2) > .MuiOutlinedInput-root > #demo-simple-select').eq(0)
     }
-    getCreateAppointmentAppointmentTypeOnlineOpt(){
+    getCreateAppointmentAppointmentTypeOnlineOpt() {
         return cy.get('li[data-value="ONLINE"]')
     }
-    getCreateAppointmentAppointmentTypeOfflineOpt(){
+    getCreateAppointmentAppointmentTypeOfflineOpt() {
         return cy.get('li[data-value="OFFLINE"]')
     }
-    getCreateAppointmentMeetingLink(){
+    getCreateAppointmentMeetingLink() {
         return cy.get('input[class="MuiOutlinedInput-input MuiInputBase-input css-1x5jdmq"]').eq(1)
     }
-    getCreateAppointmentSaveAppointmentBtn(){
+    getCreateAppointmentSaveAppointmentBtn() {
         return cy.contains('Save Appointment')
     }
-    getAppointmentCheckbox(){
+    getAppointmentCheckbox() {
         return cy.get('input[name="Appointment"]')
     }
-    getAppointmentAutomation(){
+    getAppointmentAutomation() {
         return cy.get('strong')
     }
-    getCreateAppointmentXBtn(){
+    getCreateAppointmentXBtn() {
         return cy.get('.report-wrapper > [data-testid="CloseIcon"]')
     }
-    getAppointmentEditAppointmentBtn(){
+    getAppointmentEditAppointmentBtn() {
         return cy.get('button.liveClsMdlViewActionEditBtn ')
     }
-    getAppointmentDeleteAppointmentBtn(){
+    getAppointmentDeleteAppointmentBtn() {
         return cy.get('button.liveClsMdlViewActionDeletBtn ')
     }
-    getAppointmentSaveAppointmentBtn(){
+    getAppointmentSaveAppointmentBtn() {
         return cy.get('button.reminder_prime_btn')
     }
-    getAppointmentCancelAppointmentBtn(){
+    getAppointmentCancelAppointmentBtn() {
         return cy.get('button.appointmentModalCancelBtn ')
     }
-    getDeletePopupDeleteAppointmentBtn(){
+    getDeletePopupDeleteAppointmentBtn() {
         return cy.get('button.dlt_prime-delete')
     }
-    getDeletePopupCancelAppointmentBtn(){
+    getDeletePopupCancelAppointmentBtn() {
         return cy.get('button.dlt_outline ')
     }
-    getDeletePopupXBtn(){
+    getDeletePopupXBtn() {
         return cy.get('.close-icon_delete_reminder')
     }
-    getCreateAppointmentAttendeesCount(){
+    getCreateAppointmentAttendeesCount() {
         return cy.get('.crtLivePplList  span')
     }
-    getCreateAppointmentAdminBtn(){
+    getCreateAppointmentAdminBtn() {
         return cy.get('.MuiTab-textColorPrimary').eq(2)
     }
-    getCreateAppoinmentAdminList(){
+    getCreateAppoinmentAdminList() {
         return cy.get('[class="d-flex txtcenter"]')
     }
-    getCreateAppointmentDateTextfield(){
+    getCreateAppointmentDateTextfield() {
         return cy.get('input.MuiInputBase-inputAdornedEnd').eq(0)
     }
-    getCreateAppointmentStartTimeTextfield(){
+    getCreateAppointmentStartTimeTextfield() {
         return cy.get('input.MuiInputBase-inputAdornedEnd').eq(1)
     }
-    getCreateAppointmentEndTimeTextfield(){
+    getCreateAppointmentEndTimeTextfield() {
         return cy.get('input.MuiInputBase-inputAdornedEnd').eq(2)
     }
-    getCreateAppointmentLocationDropdown(){
+    getCreateAppointmentLocationDropdown() {
         return cy.get(':nth-child(8) > .MuiFormControl-root > :nth-child(2) > .MuiOutlinedInput-root > #demo-simple-select')
     }
-    getCreateAppointmentLocationRoomList(){
+    getCreateAppointmentLocationRoomList() {
         return cy.get('li.MuiButtonBase-root')
     }
-    getCreateAppointmentLocationOfficeOpt(){
+    getCreateAppointmentLocationOfficeOpt() {
         return cy.contains('office')
     }
-    getCreateAppointmentStudentTab(){
+    getCreateAppointmentStudentTab() {
         return cy.get('.MuiTab-textColorPrimary').contains('Students')
     }
-    getCreateAppointmentGreadsDropDown(){
+    getCreateAppointmentGreadsDropDown() {
         return cy.xpath('//div[@id="grouped-select"]')
     }
-    getCreateAppointmentSectionsDropDown(){
+    getCreateAppointmentSectionsDropDown() {
         return cy.get('[id="demo-simple-select"]').eq(0)
     }
-    getUploadCSVBtn(){
+    getUploadCSVBtn() {
         return cy.get('.bulkUploadBtnOut ')
     }
-    getHolidayBtnInCSVBtn(){
+    getHolidayBtnInCSVBtn() {
         return cy.get('.calendar-list-title').eq(0)
     }
-    getSelectHolidayFileBtn(){
+    getSelectHolidayFileBtn() {
         return cy.get('input#file-input')
     }
-    getImportHolidayBtn(){
+    getImportHolidayBtn() {
         return cy.get('button.BulkUpload_bulkImport__spFpc')
     }
-    getDwnloadDFileBtn(){
+    getDwnloadDFileBtn() {
         return cy.get('button.BulkUpload_downloadSampleTxt__1UJTp')
     }
-    getYearDrpDwnInCalendar(){
+    getYearDrpDwnInCalendar() {
         return cy.get('button.mbsc-calendar-button span.mbsc-calendar-year')
     }
-    getYearDrpDwnLst(){
+    getYearDrpDwnLst() {
         return cy.get('div[role="gridcell"] div.mbsc-calendar-year-text:visible')
     }
-    getMonthDrpDwnLst(){
+    getMonthDrpDwnLst() {
         return cy.get('div[role="gridcell"] div.mbsc-calendar-month-text:visible')
     }
-    getMonthlyDrpDwnInCalendar(){
+    getMonthlyDrpDwnInCalendar() {
         return cy.get('.myCalSelFld')
     }
-    getMonthlyDrpDwnLstInCalendar(){
+    getMonthlyDrpDwnLstInCalendar() {
         return cy.get('select')
     }
-    getHolidayDateInCalendar(){
+    getHolidayDateInCalendar() {
         return cy.get('div.mbsc-ltr div.single-day-event:visible')
     }
-    getHolidayCheckBxInCalendarPage(){
+    getHolidayCheckBxInCalendarPage() {
         return cy.get('span.MuiCheckbox-root input[name="Holidays"]')
     }
-    getCalendarDayTxt(){
+    getCalendarDayTxt() {
         return cy.get('div[role="gridcell"] div.mbsc-calendar-day-text:visible')
     }
-    getHolidayWrapperLst(){
+    getHolidayWrapperLst() {
         return cy.get('div.md-custom-event-wrapper')
     }
-    getHolidayDltBtn(){
+    getHolidayDltBtn() {
         return cy.get('button.view_reminder_delete')
     }
-    getHolidayCnfrmDltBtn(){
+    getHolidayCnfrmDltBtn() {
         return cy.get('button.dlt_prime')
     }
-    getHolidayEnterBtn(){
+    getHolidayEnterBtn() {
         return cy.get('.calendar-content-popover div.calendar-list-title')
     }
-    getEnterHolidayTxt(){
+    getEnterHolidayTxt() {
         return cy.get('div input[placeholder="Enter Holiday Title"]')
     }
-    getStartDateInCreateHolidayPopup(){
+    getStartDateInCreateHolidayPopup() {
         return cy.get('input[placeholder="ddd d mmm, yyyy"]').eq(0)
     }
-    getEndDateInCreateHolidayPopup(){
+    getEndDateInCreateHolidayPopup() {
         return cy.get('input[placeholder="ddd d mmm, yyyy"]').eq(1)
     }
-    getHolidayDescriptionTextAreaInCreateHolidayPopup(){
+    getHolidayDescriptionTextAreaInCreateHolidayPopup() {
         return cy.get('div.MuiInputBase-multiline textarea').eq(0)
     }
-    getSaveHolidayBtnInCreateHolidayPopup(){
+    getSaveHolidayBtnInCreateHolidayPopup() {
         return cy.get('button[form="holidayForm"]')
     }
-    getDateLstInCreateHolidayPopup(){
+    getDateLstInCreateHolidayPopup() {
         return cy.get('button.MuiPickersDay-root:visible')
     }
+    getExamLink() {
+        return cy.xpath('//div[@class="calendar-popper-sub-list"]/div[.="Exam"]')
+    }
+
+    getCreateExamsDropdowns() {
+        return cy.get('#demo-simple-select-helper')
+    }
+
+    getCreateExamSubjectDropdown() {
+        return cy.get(':nth-child(2) > .MuiFormControl-root > .MuiOutlinedInput-root > #demo-simple-select-helper')
+    }
+
+    getCreateExamsDropdownsList() {
+        return cy.get('[role="listbox"] li')
+    }
+
+    getExamCheckbox() {
+        return cy.get('[name="Exam"]')
+    }
+
+    getSaveExamBtn() {
+        return cy.xpath('//button[.="Save Exam"]')
+    }
+
+    getEnterExamTitleTextFieldCreateExam() {
+        return cy.get('[placeholder="Enter Exam Title"]')
+    }
+
+    getAttachFileCreateExam() {
+        return cy.get('[type="file"]')
+    }
+
+    getDateOfExamTextFieldCreateExam() {
+        return cy.get('[placeholder="ddd d mmm, yyyy"]')
+    }
+
+    getStartEndTimeCreateExam() {
+        return cy.get('[placeholder="h:mm (a|p)m"]')
+    }
+
+    getEditExamBtn() {
+        return cy.xpath('//button[.="Edit Exam"]')
+    }
+
+    getDeleteExamBtn() {
+        return cy.xpath('//button[.="Delete"]')
+    }
+
+    getDeleteExamConfrmBtn() {
+        return cy.xpath('//button[.="Delete Exam"]')
+    }
+
+    getExamTypeCreateExam() {
+        return cy.get('[id="demo-simple-select"]')
+    }
+
+    getExamTextYourCalender() {
+        return cy.get('[class="md-custom-event-wrapper"] span')
+    }
+
+    getExamTitleTextEditExam() {
+        return cy.get('[class="view_reminder-tittle"]')
+    }
+
+    getAmPmTimeCreateExam() {
+        return cy.get('[type="button"] span[class="MuiTypography-root MuiTypography-caption css-1v2gfp5"]')
+    }
+
+    getDateCreateExam() {
+        return cy.xpath('//div[@class="PrivatePickersSlideTransition-root css-dhopo2"]//button[contains(@class,"MuiButtonBase-root MuiPickersDay-root MuiPickersDay-dayWithMargin")]')
+    }
+
+    getDateInYourCalender() {
+        return cy.xpath('//div[contains(@class,"mbsc-calendar-table-active")]//div[contains(@class,"mbsc-calendar-cell mbsc-calendar-day mbsc-windows mbsc-ltr mbsc-calendar-day-marked")]')
+    }
 }
-module.exports=new AdminCalenderHomePage()
+module.exports = new AdminCalenderHomePage()

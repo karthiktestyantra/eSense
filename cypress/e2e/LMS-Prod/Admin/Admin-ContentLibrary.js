@@ -163,7 +163,7 @@ describe("Verify  Content Library functionalities", function () {
         adminContentLibraryPage.getTopSchoolLibrary().click()
         myPersonalLibraryPage.getMyPersonalLibraryTab().click()
         myPersonalLibraryPage.getVideoBtn().click()
-        cy.wait(1000)
+        cy.wait(4000)
         myPersonalLibraryPage.getViewVideoBtn().scrollIntoView().click()
     })
     it('EL-757/ES757-02 To validate  user is able to play the video under video conatiner page.',function () {

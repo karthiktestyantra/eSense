@@ -96,6 +96,10 @@ class AdminBasicInfoPage{
         return cy.get('input[name="branch_name"]');
     }
 
+    getProfilePicFileUpload(){
+        return cy.get('[type="file"]');
+    }
+
     getTrust(){
         return cy.get('input[name="trust"]');
     }

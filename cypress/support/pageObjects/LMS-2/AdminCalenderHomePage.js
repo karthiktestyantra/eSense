@@ -284,5 +284,30 @@ class AdminCalenderHomePage {
     getDateInYourCalender() {
         return cy.xpath('//div[contains(@class,"mbsc-calendar-table-active")]//div[contains(@class,"mbsc-calendar-cell mbsc-calendar-day mbsc-windows mbsc-ltr mbsc-calendar-day-marked")]')
     }
+
+    getCalenderTab(){
+        return cy.get('.menu-txt').contains('Calendar')
+    }
+    getCalenderSelectAllCheckbox(){
+        return cy.get('input[id="selectAll"]')
+    }
+    getCalenderGradeDropdown(){
+        return cy.get('div[id="demo-simple-select-helper"]').eq(0)
+    }
+    getCalenderGrade6Opt(){
+        return cy.get('li.MuiMenuItem-gutters').contains('Grade 6')
+    }
+    getCalenderGrade3Opt(){
+        return cy.get('li.MuiMenuItem-gutters').contains('Grade 3')
+    }
+    getCalenderSectionDropdown(){
+        return cy.get('div[id="demo-simple-select-helper"]').eq(1)
+    }
+    getCalenderSectionDropdownAOpt(){
+        return cy.get('li.MuiMenuItem-gutters').eq(0)
+    }
+    getCalenderPeriodsList(){
+        return cy.get('div.md-custom-event-details')
+    }
 }
 module.exports = new AdminCalenderHomePage()

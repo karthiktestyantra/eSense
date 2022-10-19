@@ -1,6 +1,7 @@
 const adminCalendarPage = require("../../../support/pageObjects/LMS-2/AdminCalenderHomePage")
 const adminDashboardPage = require("../../../support/pageObjects/LMS-2/AdminDashboardPage")
 const Adminlogin = require('../../../support/pageObjects/LMS-2/AdminIndexPage')
+const adminCalenderHomePage = require('../../../support/pageObjects/LMS-2/AdminCalenderHomePage')
 const dayjs = require('dayjs')
 
 describe("Verify admin Calendar functionalities - Sprint 15(EL-4065)", function () {
@@ -15,6 +16,7 @@ describe("Verify admin Calendar functionalities - Sprint 15(EL-4065)", function 
     });
 
     beforeEach(function () {
+        cy.viewport(1920, 1080)
         cy.fixture("LMS/AdminCalenderAppointment").as("calendar")
     })
 
@@ -95,5 +97,24 @@ describe("Verify admin Calendar functionalities - Sprint 15(EL-4065)", function 
             cy.contains(this.calendar.deletedSuccessPopup).should('be.visible')
             return false;
         })
+    })
+    it('To validation calander',function () {
+        adminCalenderHomePage.getCalenderTab().click({force:true})
+        adminCalenderHomePage.getCalenderSelectAllCheckbox().check()
+        adminCalenderHomePage.getCalenderGradeDropdown().click()
+        adminCalenderHomePage.getCalenderGrade6Opt().click()
+        adminCalenderHomePage.getCalenderSectionDropdown().click()
+        adminCalenderHomePage.getCalenderSectionDropdownAOpt().click()
+        cy.wait(4000)
+        adminCalenderHomePage.getCalenderPeriodsList().should('be.visible')
+        cy.go('back')
+        adminCalenderHomePage.getCalenderTab().click({force:true})
+        adminCalenderHomePage.getCalenderSelectAllCheckbox().check()
+        adminCalenderHomePage.getCalenderGradeDropdown().click()
+        adminCalenderHomePage.getCalenderGrade3Opt().click()
+        adminCalenderHomePage.getCalenderSectionDropdown().click()
+        adminCalenderHomePage.getCalenderSectionDropdownAOpt().click()
+        cy.wait(4000)
+        adminCalenderHomePage.getCalenderPeriodsList().should('not.exist')
     })
 })

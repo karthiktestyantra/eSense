@@ -200,6 +200,14 @@ class AdminBasicInfoPage{
         return cy.get('.continue-btn');
     }
 
+    getContinueButtonPreSetup(){
+        return cy.xpath('//*[contains(@class,"continue-btn")]');
+    }
+
+    getStepDotIconPreSetup(){
+        return cy.get('[class="step-dot"]');
+    }
+
     getFacebookLink(){
         return cy.get('input[name="fb_link"]');
     }

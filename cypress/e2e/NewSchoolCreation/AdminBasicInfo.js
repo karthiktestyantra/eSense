@@ -72,45 +72,47 @@ describe("Verify Admin School Creation Functionalities", function () {
     adminBasicInfoPage.getPOCDesignation().click().type(this.newSchoolCreationBasicInfo.POCDesignation)
     adminBasicInfoPage.getPOCAddButton().click()
     cy.wait(2000)
-    cy.forceClick(adminBasicInfoPage.getContinueButton())
+    adminBasicInfoPage.getStepDotIconPreSetup().eq(0).click()
+    cy.pause()
   })
 
   it("Verify that the Add Department pop up should be displayed to add the department by clicking the “+ Add Department” ", function () {
-    adminDepartmentsPage.getAddDepartmentOption().click();
     cy.wait(2000)
-    // to be continued
-  adminDepartmentsPage.getDepartmentName().should("be.visible");
-    adminDepartmentsPage.getForGrades().should("be.visible");
-    adminDepartmentsPage.getMandatorySubjects().should("be.visible");
-    adminDepartmentsPage.getAddButton().should("be.visible");
-    adminDepartmentsPage.getCancelButton().should("be.visible");
-    adminDepartmentsPage.getCloseIcon().should("be.visible");
-    adminDepartmentsPage.getCloseIcon().click();
-  });
+    adminDepartmentsPage.getAddDepartmentOption().click()
+    cy.wait(2000)
+    adminDepartmentsPage.getDepartmentName().type(this.newSchoolCreationBasicInfo.departmentName1)
+    adminDepartmentsPage.getForGrades().click()
+    cy.contains(this.newSchoolCreationBasicInfo.Grade11).click()
+    cy.wait(1000)
+    adminDepartmentsPage.getForGrades().click()
+    adminDepartmentsPage.getMandatorySubjects().click()
+    cy.wait(1000)
+    adminDepartmentsPage.getMandatorySubjectsOption().first().click()
+    adminDepartmentsPage.getMandatorySubjects().click()
+    adminDepartmentsPage.getAddButton().click()
+    cy.wait(2000)
+    adminDepartmentsPage.getAddDepartmentOption().click()
+    cy.wait(2000)
+    adminDepartmentsPage.getDepartmentName().type(this.newSchoolCreationBasicInfo.departmentName2)
+    adminDepartmentsPage.getForGrades().click()
+    adminDepartmentsPage.getForGradesOption4().last().click()
+    cy.wait(1000)
+    adminDepartmentsPage.getForGrades().click()
+    adminDepartmentsPage.getMandatorySubjects().click()
+    cy.wait(1000)
+    adminDepartmentsPage.getMandatorySubjectsOption().first().click()
+    adminDepartmentsPage.getMandatorySubjects().click()
+    adminDepartmentsPage.getAddButton().click()
+    cy.wait(2000)
+    adminBasicInfoPage.getStepDotIconPreSetup().eq(0).click()
+    cy.wait(2000)
+  })
 
-  it("Verify that the Department should allow the admin to enter the text", function () {
-    adminDepartmentsPage.getWholeDeptPage().scrollTo("bottom", { ensureScrollable: false });
-    adminDepartmentsPage.getAddDepartmentOption().click({ force: true });
-    adminDepartmentsPage.getDepartmentName().type(this.departmentData.departmentName);
-  });
 
-  it("Verify that the admin is able to select the grades, mandatory subjects and add the department", function () {
-    adminDepartmentsPage.getForGrades().click();
-    adminDepartmentsPage.getForGradesOption4().first().click();
-    cy.wait(1000);
-    adminDepartmentsPage.getForGrades().click();
-    adminDepartmentsPage.getMandatorySubjects().click();
-    cy.wait(1000);
-    adminDepartmentsPage.getMandatorySubjectsOption().first().click();
-    adminDepartmentsPage.getMandatorySubjects().click();
-    adminDepartmentsPage.getAddButton().click();
-    cy.wait(2000);
-  });
-
-  
 
   it("Verify that the Edit icon and Delete icon to be provided against each row of data", function () {
     cy.wait(2000);
+    cy.pause()
     adminDepartmentsPage.getDepartmentEditIcon().should("be.visible");
     adminDepartmentsPage.getDeptDeleteIcon().scrollIntoView().should("be.visible");
   });

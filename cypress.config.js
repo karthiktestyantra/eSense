@@ -24,6 +24,7 @@ module.exports = defineConfig({
   failOnStatusCode: false,
   screenshotOnRunFailure: true,
   modifyObstructiveCode:false,
+  numTestsKeptInMemory: 0,
   //reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
     reportDir: "cypress/reports",

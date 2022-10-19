@@ -60,6 +60,7 @@ describe("Verify Admin student grade book template functionalities - Sprint 18(E
          const txt = $e1.text()
          if (txt === this.report.Grade) {
             adminGradebookPageNew.getSiEditBtnLstInTemplatePage().eq(index).click()
+            return false;
          }
       })
       adminGradebookPageNew.getSiTemplateTitle().should('contain.text', "Edit Gradebook")
@@ -101,6 +102,7 @@ describe("Verify Admin student grade book template functionalities - Sprint 18(E
          const txt = $e1.text()
          if (txt === this.report.Grade) {
             adminGradebookPageNew.getSiEditBtnLstInTemplatePage().eq(index).click()
+            return false;
          }
       })
       cy.wait(2000)
@@ -118,6 +120,7 @@ describe("Verify Admin student grade book template functionalities - Sprint 18(E
          const txt = $e1.text()
          if (txt === this.report.Grade) {
             adminGradebookPageNew.getSiEditBtnLstInTemplatePage().eq(index).click()
+            return false;
          }
       })
       cy.scrollTo('bottom')
@@ -130,6 +133,7 @@ describe("Verify Admin student grade book template functionalities - Sprint 18(E
          const txt = $e1.text()
          if (txt === this.report.Grade) {
             adminGradebookPageNew.getSiDltBtnLstInTemplatePage().eq(index).should('be.visible')
+            return false;
          }
       })
    })
@@ -148,6 +152,7 @@ describe("Verify Admin student grade book template functionalities - Sprint 18(E
          const txt = $e1.text()
          if (txt === this.report.Grade) {
             adminGradebookPageNew.getSiDltBtnLstInTemplatePage().eq(index).click()
+            return false;
          }
       })
       adminGradebookPageNew.getSiDltCloseBtn().should('be.visible')
@@ -165,6 +170,7 @@ describe("Verify Admin student grade book template functionalities - Sprint 18(E
          const txt = $e1.text()
          if (txt === this.report.Grade) {
             adminGradebookPageNew.getSiDltBtnLstInTemplatePage().eq(index).click()
+            return false;
          }
       })
       adminGradebookPageNew.getSiDltCloseBtn().should('be.visible').click()

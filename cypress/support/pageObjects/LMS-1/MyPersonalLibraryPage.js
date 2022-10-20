@@ -168,7 +168,7 @@ class MyPersonalLibraryPage {
     }
 
     getTimeLineCreateNewBtn(){
-        return cy.get('button.MuiButton-containedSuccess')
+        return cy.get('button.MuiButton-containedSuccess').eq(0)
     }
     getCreateTimeLineGreadDropDown(){
         return cy.get('.MuiInputBase-formControl').eq(1)
@@ -252,6 +252,9 @@ class MyPersonalLibraryPage {
     }
     getUploadResoureceTopicsDropdown(){
         return cy.get('div.content-for-wrapper div[id="demo-simple-select-4"]')
+    }
+    getCreateNewXBtn(){
+        return cy.get('.close-img > img')
     }
   }
   

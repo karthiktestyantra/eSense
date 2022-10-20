@@ -27,14 +27,14 @@ describe("Verify  Content Library functionalities", function () {
 
     it('EL-756/ES756-01  To validate user is able to  view text book under Topschool library.', function () {
         cy.wait(1000)
-        cy.get('.step-container > :nth-child(3)').click()
+        // cy.get('.step-container > :nth-child(3)').click()
+        // cy.wait(1000)
+        // cy.get('a.continue-btn').contains("Continue").click()
+        // cy.wait(1000)
+        // cy.get('button.continue-btn').contains("Continue").click()
         cy.wait(1000)
-        cy.get('a.continue-btn').contains("Continue").click()
-        cy.wait(1000)
-        cy.get('button.continue-btn').contains("Continue").click()
-        cy.wait(1000)
-        adminDashboardPage.getSideMenuContentLibraryImg().click()
-        dashboardPage.getContentLibrary().click();
+        adminDashboardPage.getSideMenuContentLibraryImg().click({force:true})
+        // dashboardPage.getContentLibrary().click();
         adminContentLibraryPage.getRiseTextBookLink().scrollIntoView().click()
         adminContentLibraryPage.getViewRiseTextBookNameInList().should('be.visible')
     })
@@ -77,6 +77,7 @@ describe("Verify  Content Library functionalities", function () {
         myPersonalLibraryPage.getCreateNewSubject().click()
         myPersonalLibraryPage.getCreateNewSubjectEnglishOpt().click()
         myPersonalLibraryPage.getCreateNewCreateCollection().click()
+        myPersonalLibraryPage.getCreateNewXBtn().click()
         cy.go('back')
 
         myPersonalLibraryPage.getCollectionslist().each(($el) => {
@@ -162,9 +163,10 @@ describe("Verify  Content Library functionalities", function () {
     it('EL-757/ES757-01  To validate user is able to  view and paly the video  under esense library .',function () {
         adminContentLibraryPage.getTopSchoolLibrary().click()
         myPersonalLibraryPage.getMyPersonalLibraryTab().click()
+        cy.wait(4000)
         myPersonalLibraryPage.getVideoBtn().click()
         cy.wait(4000)
-        myPersonalLibraryPage.getViewVideoBtn().scrollIntoView().click()
+        myPersonalLibraryPage.getViewVideoBtn().click()
     })
     it('EL-757/ES757-02 To validate  user is able to play the video under video conatiner page.',function () {
         myPersonalLibraryPage.getVideoFrame().should('be.visible')

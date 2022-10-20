@@ -24,8 +24,11 @@ class Admin360ReportPage {
    getSearchStudentSearchBar() {
       return cy.get('input.MuiInputBase-inputAdornedStart')
    }
+   getAllSelectCheckBx(){
+      return cy.get('input[aria-label="select all students"]')
+   }
    getCheckbxLst() {
-      return cy.get('input[type="checkbox"]')
+      return cy.get('span.chk-success input[type="checkbox"]')
    }
    getUploadCSVBtn() {
       return cy.get('button[type="button"]').contains("Upload CSV")
@@ -91,7 +94,7 @@ class Admin360ReportPage {
       return cy.get('h4.MuiTypography-root')
    }
    getMyGradeTeacherProfilePicLst() {
-      return cy.get('div div.MuiAvatar-root img')
+      return cy.get('div svg[data-testid="PersonIcon"]').eq(1)
    }
    getMyGradeTeacherNameLst() {
       return cy.get('div.StudentDetails_myGradeUserPic__2eq9a div.MuiBox-root p.MuiTypography-root')

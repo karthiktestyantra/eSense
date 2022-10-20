@@ -19,13 +19,6 @@ describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", funct
 
   //pre-condition
   it("Validate whether report page is displayed with 'Search Box', 'Check Box', 'ROLL NUMBER', 'FIRST NAME', 'LAST NAME', 'LAST ACTIVE', 'REPORTS'/EL-4124/ELS4124_1", function () {
-    cy.wait(1000)
-    cy.get('.step-container > :nth-child(3)').click()
-    cy.wait(1000)
-    cy.get('a.continue-btn').contains("Continue").click()
-    cy.wait(1000)
-    cy.get('button.continue-btn').contains("Continue").click()
-    cy.wait(1000)
     adminHomePage.clickOnReportLnk()
     cy.wait(1000)
     admin360ReportPage.clickOn360ReportLnk()
@@ -39,31 +32,33 @@ describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", funct
 
   it("Validate whether list of students are displayed as per drop down selection/EL-4124/ELS4124_3", function () {
     admin360ReportPage.clickOnGradeDrpDwn()
-    admin360ReportPage.getGradeDrpDwnLst().contains(this.report.NothingGrade).click()
+    admin360ReportPage.getGradeDrpDwnLst().contains(this.report.ProdNothingGrade).click()
     admin360ReportPage.getSectionDrpDwn().click()
-    admin360ReportPage.getSectionDrpDwnLst().contains(this.report.ProperSection).click()
+    admin360ReportPage.getSectionDrpDwnLst().contains(this.report.ProdProperSection).click()
     admin360ReportPage.getFrstNameLst().should('not.exist')
     admin360ReportPage.getGradeDrpDwn().click()
-    admin360ReportPage.getGradeDrpDwnLst().contains(this.report.ProperGrade).click()
+    admin360ReportPage.getGradeDrpDwnLst().contains(this.report.ProdProperGrade).click()
     admin360ReportPage.getSectionDrpDwn().click()
-    admin360ReportPage.getSectionDrpDwnLst().contains(this.report.ProperSection).click()
+    admin360ReportPage.getSectionDrpDwnLst().contains(this.report.ProdProperSection).click()
     admin360ReportPage.getFrstNameLst().should('be.visible')
   })
   //Added An extra grade for running purpose
 
   it("Validate whether user is able to search a name using “Search” bar/EL-4124/ELS4124_4", function () {
-    admin360ReportPage.getSearchStudentSearchBar().type(this.report.Student1FrstNameProd)
-    admin360ReportPage.getFrstNameLst().should('have.text', this.report.Student1FrstNameProd)
+    admin360ReportPage.getSearchStudentSearchBar().type(this.report.ProdStudent1FrstNameProd)
+    admin360ReportPage.getFrstNameLst().should('have.text', this.report.ProdStudent1FrstNameProd)
   })
   //created a new student in same grade and section
 
   it("Validate user selects the check box in the 1st column all the students checkbox are selected except the student those have flag raised in front of their name/EL-4124/ELS4124_5", function () {
     admin360ReportPage.getSearchStudentSearchBar().clear()
-    admin360ReportPage.getCheckbxLst().eq(0).check()
+    cy.wait(2000)
+    admin360ReportPage.getAllSelectCheckBx().check()
+    cy.wait(3000)
     admin360ReportPage.getFrstNameLst().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.Student1FrstName) {
-        admin360ReportPage.getCheckbxLst().eq(index + 1).should('be.checked')
+      if (txt === this.report.ProdStudent1FrstName) {
+        admin360ReportPage.getCheckbxLst().eq(index+1).should('be.checked')
       }
     })
   })
@@ -89,13 +84,14 @@ describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", funct
   })
 
   it("Validate user clicks on the bulk, the student with the flag option is not selected/EL-4124/ELS4124_10", function () {
+    cy.wait(2000)
     admin360ReportPage.getDisableCheckBxForFlagImg().should('not.be.checked')
   })
 
   //23-9
   it("EL-4124/ELS4124_12 Validate each column “Roll No” of student, next column is having student “Profile picture”, then next column “First Name”, next column “Last Name”, next column “Last Active”, and at last “View reports”", function () {
-    admin360ReportPage.get360reporttTableLst().eq(1).should('have.text', this.report.Student1RollNo)
-    admin360ReportPage.get360reporttTableLst().eq(2).should('have.text', this.report.FirstStudentName)
+    admin360ReportPage.get360reporttTableLst().eq(1).should('have.text', this.report.ProdStudent1RollNo)
+    admin360ReportPage.get360reporttTableLst().eq(2).should('have.text', this.report.ProdFirstStudentName)
     admin360ReportPage.get360reporttTableLst().eq(3).should('be.visible')
     admin360ReportPage.get360reporttTableLst().eq(4).should('be.visible')
   })
@@ -103,11 +99,11 @@ describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", funct
   it("EL-4124/ELS4124_13 Validate user clicks on “View reports” user is able to see the individual report of the student", function () {
     admin360ReportPage.getFrstNameLst().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.Student1FrstName) {
+      if (txt === this.report.ProdStudent1FrstName) {
         admin360ReportPage.getViewReportsLst().eq(index).click()
       }
     })
-    admin360ReportPage.getReportPageTitle().should('have.text', this.report.ReportPageTitleForStudent1)
+    admin360ReportPage.getReportPageTitle().should('have.text', this.report.ProdReportPageTitleForStudent1)
   })
 
   it("EL-4124/ELS4124_15 Validate user clicks on “Preview & Print” button, tags such as “Excellent”,” Good”, “Satisfactory”, “Can do better” should be removed in the Report Card Page", function () {
@@ -134,16 +130,17 @@ describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", funct
       .and('contain.text', "ACTIONS")
   })
 
-  it("EL-4124/ELS4124_18 Validate data is getting populated as soon as teacher has uploaded the ELA scorers", function () {
+  it("EL-4124/ELS4124_19 Validate data is getting populated as soon as teacher has uploaded the ELA scorers", function () {
     adminHomePage.clickOnReportLnk()
     admin360ReportPage.clickOn360ReportLnk()
     admin360ReportPage.clickOnGradeDrpDwn()
-    admin360ReportPage.getGradeDrpDwnLst().contains(this.report.ProperGrade).click()
+    admin360ReportPage.getGradeDrpDwnLst().contains(this.report.ProdProperGrade).click()
     admin360ReportPage.getSectionDrpDwn().click()
-    admin360ReportPage.getSectionDrpDwnLst().contains(this.report.ProperSection).click()
+    admin360ReportPage.getSectionDrpDwnLst().contains(this.report.ProdProperSection).click()
+    cy.wait(2000)
     admin360ReportPage.getFrstNameLst().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.Student1FrstName) {
+      if (txt === this.report.ProdStudent1FrstName) {
         admin360ReportPage.getViewReportsLst().eq(index).click()
       }
     })
@@ -154,18 +151,18 @@ describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", funct
   it("EL-4092/ELS4093_1 Validate user clicks on the tab “My Grade”, user is able to view “My Grade” read only tab", function () {
     admin360ReportPage.getGoBackBtn().click()
     admin360ReportPage.get360ReportMajorTabs().contains("My Grades").click()
-    admin360ReportPage.getMyGradesPageContents().should('contain.text', "Hindi III").and('contain.text', "English III").should('be.visible')
+    admin360ReportPage.getMyGradesPageContents().should('contain.text', "Science VI (RISE)").should('be.visible')
   })
 
   it("EL-4092/ELS4093_2 Validate whether 'My Grade' tab is displaying Subject name, Subject Teacher profile picture, Name of subject teacher", function () {
     admin360ReportPage.getMyGradeTeacherProfilePicLst().should('be.visible')
     admin360ReportPage.getMyGradeTeacherNameLst().each(($e1, index, $list) => {
-      admin360ReportPage.getMyGradeTeacherNameLst().eq(index).should('have.text', "ronaldo")
+      admin360ReportPage.getMyGradeTeacherNameLst().eq(index).should('have.text', "Karthik")
     })
   })
 
   it("EL-4092/ELS4093_3 Validate whether 'My Grade' tab is displaying 'Student score', 'Total marks' of the assessment and 'Assessment name'", function () {
-    admin360ReportPage.getAssessmentNameForStudentInMyGradePage().eq(0).should('contain.text', "Annual examination")
+    admin360ReportPage.getAssessmentNameForStudentInMyGradePage().eq(0).should('contain.text', "Half Yearly")
     admin360ReportPage.getAssessmentNameForStudentInMyGradePage().eq(1).should('contain.text', "Marks Obtained")
     admin360ReportPage.getAssessmentNameForStudentInMyGradePage().eq(2).should('contain.text', "GRADE")
   })

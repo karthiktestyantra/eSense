@@ -300,6 +300,7 @@ describe("Verify admin school functionalities - Sprint 21(EL-6151,EL-6152,EL-604
         })
     })
     it('EL-6044/ES6044_16 Validate user select the particular date, user is able to view notices on that particular date', function () {
+        cy.get('body').click()
         adminDashboardPage.getSchoolBtn().click({ force: true })
         quickLinksPage.getSchoolNoticeBoardTab().click()
         quickLinksPage.getAddNoticeBtn().click()

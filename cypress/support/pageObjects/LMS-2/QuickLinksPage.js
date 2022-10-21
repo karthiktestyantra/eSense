@@ -114,7 +114,7 @@ class QuickLinksPage{
         return cy.get('div.StudentSchool_schNotBordCntTags__TYXuW h1')
     }
     getNoticeListPublicWithIcon(){
-        return cy.get('div.StudentSchool_schNotBordCntTags__TYXuW p')
+        return cy.get('div.StudentSchool_schNotBordCntTags__TYXuW p').eq(0)
     }
     getNoticeListPrivateWithIcon(){
         return cy.get('div.StudentSchool_schNotBordCntTags__TYXuW p')

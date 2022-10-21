@@ -84,7 +84,7 @@ class AdminCalenderHomePage {
         return cy.get('.report-wrapper > [data-testid="CloseIcon"]')
     }
     getAppointmentEditAppointmentBtn() {
-        return cy.get('button.liveClsMdlViewActionEditBtn ')
+        return cy.get('button.liveClsMdlViewActionEditBtn ').eq(0)
     }
     getAppointmentDeleteAppointmentBtn() {
         return cy.get('button.liveClsMdlViewActionDeletBtn ')

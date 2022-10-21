@@ -396,7 +396,7 @@ class TeacherDashboardPage {
     }
 
     getMilestoneDropdown() {
-        return cy.get('div.MuiFilledInput-underline')
+        return cy.get('.MuiSelect-root')
     }
 
     getMarkAttendencePageSubmitBtn() {

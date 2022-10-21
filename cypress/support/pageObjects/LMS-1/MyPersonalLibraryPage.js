@@ -148,6 +148,9 @@ class MyPersonalLibraryPage {
     getCollectionsEditBtn(){
         return cy.get('span[class="right-cls-out editCollection"]')
     }
+    getCreateNewCreateCollectionPopupCloseBtn(){
+        return cy.get('.close-img > img')
+    }
 
     getEditCollectionCloseIcon(){
         return cy.get('svg.close-icon_popup')

@@ -18,13 +18,6 @@ describe("Verify Admin Account Page functionalities - Sprint 14(EL-4094)", funct
   })
 
   it("Validate  school admin is able to create “Role” and provide “Approval” privilege for “Curriculum” domain/EL-4094/ES4094_01", function () {
-    cy.wait(1000)
-    cy.get('.step-container > :nth-child(3)').click()
-    cy.wait(1000)
-    cy.get('a.continue-btn').contains("Continue").click()
-    cy.wait(1000)
-    cy.get('button.continue-btn').contains("Continue").click()
-    cy.wait(1000)
     adminPostSetupHomePage.getSchoolLnk().click({ force: true })
     adminPostSetupHomePage.getAdminAccountsSectionLnk().click()
     adminAccountsPage.getAddNewBtn().click()

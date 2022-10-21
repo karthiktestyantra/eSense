@@ -4,12 +4,12 @@ const lessonPlanPage = require('../../../support/pageObjects/LMS-1/LessonPlanPag
 
 describe("Verify Sprint 10 related functionalities", function () {
 
-    before(function () {
-        cy.visit(Cypress.env('urlProd'))
-        cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
-            cy.TeacherPostSetupLogin(validAdminLoginData.teacher5, validAdminLoginData.password)
-        })
+  before(function () {
+    cy.visit(Cypress.env('urlProd'))
+    cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
+      cy.TeacherPostSetupLogin(validAdminLoginData.teacher5, validAdminLoginData.password)
     })
+  })
   beforeEach(function () {
     cy.fixture("LMS/addLessonPlan").as("lessonPlanData")
     cy.fixture("LMS/calendarClasses").as("classesData")
@@ -57,7 +57,7 @@ describe("Verify Sprint 10 related functionalities", function () {
     lessonPlanPage.getBasicDetailsSaveButton().scrollIntoView().should('be.visible');
     lessonPlanPage.getBasicDetailsCancelButton().scrollIntoView().should('be.visible');
     lessonPlanPage.getBasicDetailsGoBackButton().scrollIntoView().should('be.visible');
-    lessonPlanPage.getBasicDetailsUploadCSVButton().scrollIntoView().should('be.visible');
+    // lessonPlanPage.getBasicDetailsUploadCSVButton().scrollIntoView().should('be.visible');
   });
 
   it("Verify that the Theme/ Unit drop down field should display the values by clicking drop down buttons", function () {

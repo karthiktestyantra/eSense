@@ -28,6 +28,46 @@ class AdminDepartmentsPage {
         return cy.get('.departmentEditIcon').eq(0);
     }
 
+    getGradeCheckboxPreSetup(){
+        return cy.get('[type="checkbox"]')
+    }
+
+    getGradePlusIconPreSetup(){
+        return cy.get('[class*="root sectionAddBtn"]')
+    }
+
+    getGradesTextPreSetup(){
+        return cy.get('[class*="grade-name"] div')
+    }
+
+    getSectionNameTextfieldPreSetup(){
+        return cy.get('[type="text"]')
+    }
+
+    getOptionalSubDropdownPreSetup(){
+        return cy.get('#opt-subjects')
+    }
+
+    getOptionalSubDropdownListChechboxPreSetup(){
+        return cy.get('[aria-labelledby="optional-subs"] input')
+    }
+
+    getAddSectionBtnPreSetup(){
+        return cy.get('[class*="sectionSaveBtn"]')
+    }
+
+    getStreamDropdownInSectionPreSetup(){
+        return cy.get('#deparment')
+    }
+
+    getSectionBtnPreSetup(){
+        return cy.get('[class*="sectionsBtn"]')
+    }
+
+    getGradePlusIconPreSetupDynamic(grade){
+        return cy.xpath('//div[.="'+grade+'"]/ancestor::tr//button[contains(@class,"sectionAddBtn")]')
+    }
+
     getDepartmentDeleteIcon(id){
         return cy.get('td .departmentDeleteIcon').eq(id);
     }
@@ -38,6 +78,30 @@ class AdminDepartmentsPage {
 
     getAddDepartmentOption(){
         return cy.get('.MuiTypography-root > .MuiButton-root');
+    }
+
+    getDeleteIconGradesPreSetup(){
+        return cy.get('[class*="departmentDeleteIcon"] img');
+    }
+
+    getDeleteIconPOCPreSetup(){
+        return cy.get('[class*="delBtnBasicInfo"] img');
+    }
+
+    getDeleteConfirmBtnPOCPreSetup(){
+        return cy.get('[class="delete-button"] span');
+    }
+
+    getDeleteBtnSectionPreSetup(){
+        return cy.get('[class*="delete-section"]');
+    }
+
+    getDeleteConfirmBtnSectionPreSetup(){
+        return cy.get('[class*="deptDeletebtn"]');
+    }
+
+    getDeleteConfirmBtnGradesPreSetup(){
+        return cy.get('[class*="deptDeletebtn"]');
     }
 
     getAddDepartmentTitle(){

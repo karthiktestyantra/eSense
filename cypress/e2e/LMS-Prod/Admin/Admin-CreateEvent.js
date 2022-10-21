@@ -17,21 +17,7 @@ beforeEach(function () {
   cy.fixture("LMS/admindata").as("validadmindata")
 })
 
-// it("Verify that admin able to login to the portal", function () {
-//   sprint11Pages.getUserName().clear().type(this.validadminLoginData.username);
-//   sprint11Pages.getPassword().clear().type(this.validadminLoginData.password);
-//   sprint11Pages.getLogin().click();
-//   cy.wait(2000);
-// });
-
 it('EL-756/ES756-01  To validate user is able to  view text book under Topschool library.', function () {
-    cy.wait(1000)
-    cy.get('.step-container > :nth-child(3)').click()
-    cy.wait(1000)
-    cy.get('a.continue-btn').contains("Continue").click()
-    cy.wait(1000)
-    cy.get('button.continue-btn').contains("Continue").click()
-    cy.wait(1000)
     adminpages.verifydashboard().should("have.text", "Your Dashboard");
 })
 

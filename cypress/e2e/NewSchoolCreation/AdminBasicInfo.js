@@ -7,7 +7,7 @@ const adminGradesPage = require('../../support/pageObjects/LMS-1/AdminGradesPage
 describe("Verify Admin School Creation Functionalities", function () {
 
   before(function () {
-    cy.visit('https://prodautomation1.thetopschool.com')
+    cy.visit('https://prashanti.staging.topschool.co.in')
     indexPage.getAdmin().click()
     cy.reload()
     cy.fixture("LMS/validPreSetupAdminCredentials").then(function (validAdminLoginData) {
@@ -24,7 +24,7 @@ describe("Verify Admin School Creation Functionalities", function () {
     loginPageAdmin.getLoginTitle().should("have.text", "Hello Admin")
     cy.title().should("contain", "Top School")
     cy.login(
-      "shamikbhattacharya01",
+      "harshithkumar",
       "Test@12345"
     )
     adminBasicInfoPage.getBasicInfoTitle().should("have.text", "Basic Information")
@@ -65,6 +65,21 @@ describe("Verify Admin School Creation Functionalities", function () {
     adminBasicInfoPage.getPincode().clear().type(this.newSchoolCreationBasicInfo.pincode)
     adminBasicInfoPage.getState().should('have.value', this.newSchoolCreationBasicInfo.state)
     adminBasicInfoPage.getCity().should('have.value', this.newSchoolCreationBasicInfo.city)
+    cy.get('body').then(($el) => {
+      if ($el.find('[class*="delBtnBasicInfo"] img').length > 0) {
+        adminDepartmentsPage.getDeleteIconPOCPreSetup().then(($el) => {
+          var pocLen = $el.length
+          cy.wrap(pocLen).as('pocLen')
+        })
+        cy.get('@pocLen').then((pocLen) => {
+          for (let index = 0; index < pocLen; index++) {
+            adminDepartmentsPage.getDeleteIconPOCPreSetup().eq(0).click()
+            adminDepartmentsPage.getDeleteConfirmBtnPOCPreSetup().click()
+            cy.wait(3000)
+          }
+        })
+      }
+    })
     adminBasicInfoPage.getAddPOCButton().click()
     adminBasicInfoPage.getPOCContactName().click().type(this.newSchoolCreationBasicInfo.POCContactName)
     adminBasicInfoPage.getPOCContactEmail().click().type(this.newSchoolCreationBasicInfo.POCContactEmail)
@@ -73,11 +88,26 @@ describe("Verify Admin School Creation Functionalities", function () {
     adminBasicInfoPage.getPOCAddButton().click()
     cy.wait(2000)
     adminBasicInfoPage.getStepDotIconPreSetup().eq(0).click()
-    cy.pause()
   })
 
   it("Verify that the Add Department pop up should be displayed to add the department by clicking the “+ Add Department” ", function () {
-    cy.wait(2000)
+    cy.wait(2500)
+    cy.get('body').then(($el) => {
+      if ($el.find('[class*="departmentDeleteIcon"] img').length > 0) {
+        adminDepartmentsPage.getDeleteIconGradesPreSetup().then(($el) => {
+          var gradeLen = $el.length
+          cy.wrap(gradeLen).as('gradeLen')
+        })
+        cy.get('@gradeLen').then((gradeLen) => {
+          cy.log(gradeLen)
+          for (let index = 0; index < gradeLen; index++) {
+            adminDepartmentsPage.getDeleteIconGradesPreSetup().eq(0).click()
+            adminDepartmentsPage.getDeleteConfirmBtnGradesPreSetup().click()
+            cy.wait(3000)
+          }
+        })
+      }
+    })
     adminDepartmentsPage.getAddDepartmentOption().click()
     cy.wait(2000)
     adminDepartmentsPage.getDepartmentName().type(this.newSchoolCreationBasicInfo.departmentName1)
@@ -100,22 +130,85 @@ describe("Verify Admin School Creation Functionalities", function () {
     adminDepartmentsPage.getForGrades().click()
     adminDepartmentsPage.getMandatorySubjects().click()
     cy.wait(1000)
-    adminDepartmentsPage.getMandatorySubjectsOption().first().click()
+    adminDepartmentsPage.getMandatorySubjectsOption().last().click()
     adminDepartmentsPage.getMandatorySubjects().click()
     adminDepartmentsPage.getAddButton().click()
     cy.wait(2000)
     adminBasicInfoPage.getStepDotIconPreSetup().eq(0).click()
-    cy.wait(2000)
   })
 
 
-
   it("Verify that the Edit icon and Delete icon to be provided against each row of data", function () {
-    cy.wait(2000);
+    cy.wait(2000)
+    adminDepartmentsPage.getGradeCheckboxPreSetup().eq(0).uncheck()
+    cy.wait(3000)
+    adminDepartmentsPage.getGradeCheckboxPreSetup().eq(0).check()
+    cy.wait(3000)
+    cy.get('body').then(($el) => {
+      if ($el.find('[class*="sectionsBtn"]').length > 0) {
+        adminDepartmentsPage.getSectionBtnPreSetup().then(($el) => {
+          var sectionLen = $el.length
+          cy.wrap(sectionLen).as('sectionLen')
+        })
+        cy.get('@sectionLen').then((sectionLen) => {
+          for (let index = 0; index < sectionLen; index++) {
+            adminDepartmentsPage.getSectionBtnPreSetup().eq(0).click()
+            adminDepartmentsPage.getDeleteBtnSectionPreSetup().click()
+            cy.wait(1000)
+            adminDepartmentsPage.getDeleteConfirmBtnSectionPreSetup().click()
+            cy.wait(2000)
+          }
+        })
+      }
+    })
+    adminDepartmentsPage.getGradesTextPreSetup().then(($el) => {
+      var actGrades = $el.text()
+      cy.wrap(actGrades).as('actGrades')
+    })
+    var expGrades = this.newSchoolCreationBasicInfo.grades
+    var sections = this.newSchoolCreationBasicInfo.sections
+    cy.get('@actGrades').then((actGrades) => {
+      for (let gradeIndex = 0; gradeIndex < expGrades.length; gradeIndex++) {
+        if (actGrades.includes(expGrades[gradeIndex])) {
+          for (let sectionIndex = 0; sectionIndex < sections.length; sectionIndex++) {
+            cy.log(expGrades[gradeIndex])
+            adminDepartmentsPage.getGradePlusIconPreSetupDynamic(expGrades[gradeIndex]).click()
+            cy.wait(2000)
+            adminDepartmentsPage.getSectionNameTextfieldPreSetup().clear().type(sections[sectionIndex])
+            cy.wait(2000)
+            cy.get('body').then(($el) => {
+              if ($el.find('#deparment').length > 0) {
+                adminDepartmentsPage.getStreamDropdownInSectionPreSetup().click()
+                cy.wait(1000)
+                cy.focused().click()
+                cy.clickOnBody()
+              }
+            })
+            adminDepartmentsPage.getOptionalSubDropdownPreSetup().click()
+            cy.wait(1000)
+            adminDepartmentsPage.getOptionalSubDropdownListChechboxPreSetup().then(($el) => {
+              const uuid = () => Cypress._.random(0, $el.length - 1)
+              const index = uuid()
+              cy.wrap($el).eq(index).click()
+              cy.wait(1000)
+              cy.clickOnBody()
+              adminDepartmentsPage.getAddSectionBtnPreSetup().click()
+              cy.wait(2000)
+            })
+          }
+        }
+      }
+    })
+
+
+
+
+
+
     cy.pause()
     adminDepartmentsPage.getDepartmentEditIcon().should("be.visible");
     adminDepartmentsPage.getDeptDeleteIcon().scrollIntoView().should("be.visible");
-  });
+  })
 
   it("Verify that the Edit Department pop up should be displayed by clicking the edit icon of the selected department", function () {
     adminDepartmentsPage.getDepartmentEditIcon().click();

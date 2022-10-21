@@ -21,13 +21,6 @@ describe("Verify Admin Calender Exam related functionalities", function () {
     })
 
     it('EL-111/ES111-01 Validate user is able to create an exam in calendar', function () {
-        cy.wait(1000)
-        cy.get('.step-container > :nth-child(3)').click()
-        cy.wait(1000)
-        cy.get('a.continue-btn').contains("Continue").click()
-        cy.wait(1000)
-        cy.get('button.continue-btn').contains("Continue").click()
-        cy.wait(1000)
         cy.forceClick(adminDashboardPage.getCalenderBtn())
         adminCalenderHomePage.getCreateNewBtn().click()
         adminCalenderHomePage.getExamLink().click()
@@ -78,13 +71,6 @@ describe("Verify Admin Calender Exam related functionalities", function () {
             this.validAdminLoginData = validAdminLoginData;
             cy.login(this.validAdminLoginData.prodUserName, this.validAdminLoginData.password)
         });
-        cy.wait(1000)
-        cy.get('.step-container > :nth-child(3)').click()
-        cy.wait(1000)
-        cy.get('a.continue-btn').contains("Continue").click()
-        cy.wait(1000)
-        cy.get('button.continue-btn').contains("Continue").click()
-        cy.wait(1000)
         cy.forceClick(adminDashboardPage.getCalenderBtn())
         adminCalenderHomePage.getExamCheckbox().check()
         adminCalenderHomePage.getExamTextYourCalender().eq(0).click()
@@ -120,14 +106,7 @@ describe("Verify Admin Calender Exam related functionalities", function () {
         cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
             this.validAdminLoginData = validAdminLoginData;
             cy.login(this.validAdminLoginData.prodUserName, this.validAdminLoginData.password)
-        });
-        cy.wait(1000)
-        cy.get('.step-container > :nth-child(3)').click()
-        cy.wait(1000)
-        cy.get('a.continue-btn').contains("Continue").click()
-        cy.wait(1000)
-        cy.get('button.continue-btn').contains("Continue").click()
-        cy.wait(1000)
+        })
         cy.forceClick(adminDashboardPage.getCalenderBtn())
         adminCalenderHomePage.getExamCheckbox().check()
         adminCalenderHomePage.getExamTextYourCalender().then(($el) => {

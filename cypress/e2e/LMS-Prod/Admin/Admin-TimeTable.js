@@ -7,23 +7,16 @@ describe("Verify admin quick link time table functionalities - Sprint 17(EL-4096
         cy.visit(Cypress.env('urlProd'))
         indexPage.getAdmin().click();
         cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
-          this.validAdminLoginData = validAdminLoginData;
-          cy.login(this.validAdminLoginData.prodUserName, this.validAdminLoginData.password)
+            this.validAdminLoginData = validAdminLoginData;
+            cy.login(this.validAdminLoginData.prodUserName, this.validAdminLoginData.password)
         });
-      });
+    });
 
     beforeEach(function () {
         cy.fixture("LMS/AdminQuickLink").as("adminQuickLink")
     })
 
     it("To validate that Timetable Management button is provided in School Quick Links page/EL-4096/ES4096_01", function () {
-        cy.wait(1000)
-        cy.get('.step-container > :nth-child(3)').click()
-        cy.wait(1000)
-        cy.get('a.continue-btn').contains("Continue").click()
-        cy.wait(1000)
-        cy.get('button.continue-btn').contains("Continue").click()
-        cy.wait(1000)
         adminQuickLinksPage.getMenuSchoolImg().click()
         adminQuickLinksPage.getTimetableManagementBtn().contains('Timetable Management').should('be.visible')
 
@@ -102,7 +95,7 @@ describe("Verify admin quick link time table functionalities - Sprint 17(EL-4096
     })
 
     it("To validate that only 10 records are displayed to the user in one page/EL-5149/ES5149_13", function () {
-        adminQuickLinksPage.getListOfGeneratedTimetable().should('have.length.lessThan',11)
+        adminQuickLinksPage.getListOfGeneratedTimetable().should('have.length.lessThan', 11)
     })
 
     it("To validate that if more than 10 records are present pagination is displayed/EL-5149/ES5149_14", function () {
@@ -198,7 +191,8 @@ describe("Verify admin quick link time table functionalities - Sprint 17(EL-4096
 
     it("To validate that when user selects the “Free Class” then, available teacher list is displayed for that timeslot./EL-5212/ES5212_15", function () {
         adminQuickLinksPage.getTimeTableGeneratedSlotsTeacherDropdown().eq(1).click()
-        adminQuickLinksPage.getTimeTableGeneratedSlotsTeacherDropValue().should('be.visible').eq(1).click()
+        adminQuickLinksPage.getTimeTableGeneratedSlotsTeacherDropValue().should('be.visible')
+        cy.get('.Mui-selected').click()
 
     })
 
@@ -294,7 +288,7 @@ describe("Verify admin quick link time table functionalities - Sprint 17(EL-4096
         cy.get('[data-testid="CloseIcon"] > path')
         adminQuickLinksPage.getTimeTableGeneratedSlotPublishBtn().should('be.visible')
         adminQuickLinksPage.getGeneratedTimetableGoBackBtn().click({ force: true })
-       // adminQuickLinksPage.getPaginationNextBtn().click()
+        // adminQuickLinksPage.getPaginationNextBtn().click()
         cy.wait(1000)
         adminQuickLinksPage.getTimeTableListOfGradeName().each(($e1, index, $list) => {
             const gradeNameTxt = $e1.text()
@@ -339,9 +333,9 @@ describe("Verify admin quick link time table functionalities - Sprint 17(EL-4096
         adminQuickLinksPage.getGeneratedTimetableDropdownValue().contains('5').should('be.visible').click()
     })
 
-    it("To validate that only 1-7 Numbers are provided as  options for Periods/ Day Dropdown/EL-5163/ES5163_09", function () {
+    it("To validate that only 1-12 Numbers are provided as  options for Periods/ Day Dropdown/EL-5163/ES5163_09", function () {
         adminQuickLinksPage.getGeneratedTimetablePeriodsDropdown().eq(1).should('be.visible').click({ force: true })
-        adminQuickLinksPage.getGeneratedTimetableDropdownValue().should('have.length', 7)
+        adminQuickLinksPage.getGeneratedTimetableDropdownValue().should('have.length', 12)
         adminQuickLinksPage.getGeneratedTimetableDropdownValue().contains('5').click()
 
     })
@@ -482,7 +476,7 @@ describe("Verify admin quick link time table functionalities - Sprint 17(EL-4096
         adminQuickLinksPage.getViewTimeTableDays().should('be.visible')
         adminQuickLinksPage.getGeneratedTimetableGoBackBtn().click()
         cy.wait(1000)
-       // adminQuickLinksPage.getPaginationNextBtn().click()
+        // adminQuickLinksPage.getPaginationNextBtn().click()
         cy.wait(2000)
         adminQuickLinksPage.getTimeTableListOfGradeName().each(($e1, index, $list) => {
             const gradeNameTxt = $e1.text()

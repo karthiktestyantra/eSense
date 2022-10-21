@@ -7,7 +7,7 @@ describe("Verify Sprint 10 related functionalities", function () {
   before(function () {
     cy.visit(Cypress.env('urlProd'))
     cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
-      cy.TeacherPostSetupLogin(validAdminLoginData.teacher5, validAdminLoginData.password)
+      cy.TeacherPostSetupLogin(validAdminLoginData.teacher1, validAdminLoginData.password)
     })
   })
   beforeEach(function () {

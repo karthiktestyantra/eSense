@@ -2,13 +2,16 @@ const adminPostSetupHomePage = require("../../../support/pageObjects/LMS-2/Admin
 const adminStudentGradebookPage = require("../../../support/pageObjects/LMS-2/AdminStudentGradebookPage")
 const adminGradeBookPage = require("../../../support/pageObjects/LMS-2/AdminGradeBookPage")
 const adminGradebookPageNew = require("../../../support/pageObjects/LMS-2/AdminGradebookPageNew")
+const indexPage = require('../../../support/pageObjects/LMS-1/IndexPage')
 
 describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grade book functionalities", function () {
 
   before(function () {
-    cy.visit(Cypress.env("urlQA"))
-    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
-      cy.AdminPostSetup(validAdminLoginData.newUser, validAdminLoginData.password)
+    cy.visit(Cypress.env('urlProd'))
+    indexPage.getAdmin().click();
+    cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
+      this.validAdminLoginData = validAdminLoginData;
+      cy.login(this.validAdminLoginData.prodUserName, this.validAdminLoginData.password)
     })
   })
 
@@ -20,6 +23,7 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
   //pre-condition
   it("Validate user clicks on “Create Template”, the user redirected to the “Create New Template” screen/EL-4151/ES4151_02", function () {
     adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
+    cy.wait(1000)
     adminGradeBookPage.getStudentGradebookLnk().click({ force: true })
     adminGradeBookPage.getStudentGradeBooktitle().should('have.text', this.report.title)
     adminGradeBookPage.getCreateTemplateBtn().click()
@@ -81,7 +85,7 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
 
   it("Validate user is able to List the values fetched from “Test type” master (eSense admin DB)/EL-4151/ES4151_14", function () {
     adminGradeBookPage.getAddTestTstTypeDrpdwn().click({ force: true })
-    adminGradeBookPage.getSectionsLst().contains("Annual examination").click()
+    adminGradeBookPage.getSectionsLst().contains("Annual exam").click()
   })
 
   it("Validate user is able to Click on 'Section' drop down filed, List of values to be loaded based on section added for the Grade selected during onboarding for the school. By default it will select all sections/EL-4151/ES4151_06", function () {
@@ -114,16 +118,16 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
     adminGradeBookPage.getNoOfTermsDrpDwn().click({ force: true })
     adminGradeBookPage.getSectionsLst().eq(0).click()
     adminGradeBookPage.getAddTestTstTypeDrpdwn().click({ force: true })
-    adminGradeBookPage.getSectionsLst().contains("Annual examination").click()
+    adminGradeBookPage.getSectionsLst().contains("Annual exam").click()
     adminGradeBookPage.getAddSubBtn().click({ force: true })
     adminGradeBookPage.getAddSubdrpDwnInAddSub().click({ force: true })
-    adminGradeBookPage.getSectionsLst().contains("Tamil").click({ force: true })
+    adminGradeBookPage.getSectionsLst().contains("English").click({ force: true })
   })
 
   it("Validtae subject is selected from the dropdown, system should not allow user to select the same subject again and subject should be grey-out in the list/EL-4151/ES4151_18", function () {
     adminGradeBookPage.getAddTheoryBtnLst().eq(1).click({ force: true })
     adminGradeBookPage.getAddTestTypeDrpDwnInAddTheory().click({ force: true })
-    adminGradeBookPage.getSectionsLst().contains("Annual examination").click({ force: true })
+    adminGradeBookPage.getSectionsLst().contains("Annual exam").click({ force: true })
     adminGradeBookPage.getAddTestBtn().click({ force: true })
     adminGradeBookPage.getAddTestTermDrpDwn().click({ force: true })
     adminGradeBookPage.getSectionsLst().eq(0).click()
@@ -133,7 +137,7 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
     adminGradeBookPage.getMaxMarksDrpDwnbtn().scrollTo('bottom').contains(100).click({ force: true })
     adminGradeBookPage.getAddTheoryBtnLst().eq(1).click({ force: true })
     adminGradeBookPage.getAddTestTypeDrpDwnInAddTheory().click({ force: true })
-    adminGradeBookPage.getAddTheoryAddTermDrpDwnLst().contains("Annual examination").should('not.exist')
+    adminGradeBookPage.getAddTheoryAddTermDrpDwnLst().contains("Annual exam").should('not.exist')
   })
 
   it("Validate user clicks on Add theory and practical option, following details should be captured/EL-4151/ES4151_19", function () {
@@ -272,9 +276,11 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
   it("Validate user is able to create Gradebook by clicking TopSchool option in the “Create Template” screen/EL-5358/ES5358_01", function () {
     cy.clearLocalStorage()
     cy.clearCookies()
-    cy.visit(Cypress.env("urlMain"))
-    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
-      cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
+    cy.visit(Cypress.env('urlProd'))
+    indexPage.getAdmin().click();
+    cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
+      this.validAdminLoginData = validAdminLoginData;
+      cy.login(this.validAdminLoginData.prodUserName, this.validAdminLoginData.password)
     })
     adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
     cy.wait(1000)

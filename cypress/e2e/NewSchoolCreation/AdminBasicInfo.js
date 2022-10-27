@@ -169,6 +169,7 @@ describe("Verify Admin School Creation Functionalities", function () {
     var sections = this.newSchoolCreationBasicInfo.sections
     cy.get('@actGrades').then((actGrades) => {
       for (let gradeIndex = 0; gradeIndex < expGrades.length; gradeIndex++) {
+        cy.log(actGrades)
         if (actGrades.includes(expGrades[gradeIndex])) {
           for (let sectionIndex = 0; sectionIndex < sections.length; sectionIndex++) {
             cy.log(expGrades[gradeIndex])
@@ -187,8 +188,9 @@ describe("Verify Admin School Creation Functionalities", function () {
             adminDepartmentsPage.getOptionalSubDropdownPreSetup().click()
             cy.wait(1000)
             adminDepartmentsPage.getOptionalSubDropdownListChechboxPreSetup().then(($el) => {
-              const uuid = () => Cypress._.random(0, $el.length - 1)
+              const uuid = () => Cypress._.random(1, $el.length - 1)
               const index = uuid()
+              cy.wrap($el).eq(0).click()
               cy.wrap($el).eq(index).click()
               cy.wait(1000)
               cy.clickOnBody()

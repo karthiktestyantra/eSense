@@ -6,14 +6,14 @@ const indexPage = require('../../../support/pageObjects/LMS-1/IndexPage')
 
 describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grade book functionalities", function () {
 
-  before(function () {
+ /* before(function () {
     cy.visit(Cypress.env('urlProd'))
     indexPage.getAdmin().click();
     cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
       this.validAdminLoginData = validAdminLoginData;
       cy.login(this.validAdminLoginData.prodUserName, this.validAdminLoginData.password)
     })
-  })
+  })*/
 
   beforeEach(function () {
     cy.fixture("LMS/AdminReports").as("report")
@@ -21,7 +21,7 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
   })
 
   //pre-condition
-  it("Validate user clicks on “Create Template”, the user redirected to the “Create New Template” screen/EL-4151/ES4151_02", function () {
+  /*it("Validate user clicks on “Create Template”, the user redirected to the “Create New Template” screen/EL-4151/ES4151_02", function () {
     adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
     cy.wait(1000)
     adminGradeBookPage.getStudentGradebookLnk().click({ force: true })
@@ -323,7 +323,7 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
     adminGradebookPageNew.getSiTopSchlRadioBtnInCreateTemplatePage().click({ force: true })
     adminGradebookPageNew.getSiGradeDrpDwnInCreateTemplate().click()
     adminGradebookPageNew.getSiDrpDwnLstInCreateTemplate().contains(this.report.Grade).click()
-    adminGradebookPageNew.getSiActivityFldInCreateTemplate().should('have.length', 2)
+    adminGradebookPageNew.getSiActivityFldInCreateTemplate().should('have.length', 1)
   })
 
   it("Validate whether in the preview gradebook template, the following option is available for the user -Edit and create new/EL-5358/ES5358_05", function () {
@@ -334,7 +334,7 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
   it("Validate user click on “Edit” button, navigate to preview the gradebook template/EL-5358/ES5358_04", function () {
     adminGradebookPageNew.getSiEditBtnInCreateTemplatePageInTopschool().click()
     cy.contains("Edit Gradebook undefined").should('be.visible')
-  })
+  })*/
 
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -343,9 +343,11 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
   it("To validate user on clicking view('>') icon redirecting to respective student's adminGradebookPageNew./EL-5489/ES5489-01", function () {
     cy.clearLocalStorage()
     cy.clearCookies()
-    cy.visit(Cypress.env("urlMain"))
-    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
-      cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
+    cy.visit(Cypress.env('urlProd'))
+    indexPage.getAdmin().click();
+    cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {
+      this.validAdminLoginData = validAdminLoginData;
+      cy.login(this.validAdminLoginData.prodUserName, this.validAdminLoginData.password)
     })
     adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
     cy.wait(2000)
@@ -353,15 +355,15 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
     adminGradebookPageNew.getSiTemplateTabInTemplate().click()
     adminGradebookPageNew.getSiGradeDrpDwnInCreateTemplate().click()
     cy.wait(2000)
-    adminGradebookPageNew.getSiDrpDwnLstInGradebook().contains(this.report.GradeManual).click()
+    adminGradebookPageNew.getSiDrpDwnLstInGradebook().contains(this.report.GradeManualProd).click()
     cy.wait(1000)
     adminGradebookPageNew.getSiFirstNameLstInGradebook().each(($e1, index, $list) => {
       const txt = $e1.text()
-      if (txt === this.report.FullName) {
+      if (txt === this.report.FullNameProd) {
         adminGradebookPageNew.getSiViewArrowIcnLstInGradebook().eq(index).click()
       }
     })
-    adminGradebookPageNew.getSiTitleInGradeBookPage().should('have.text', this.report.FirstName + " Gradebook")
+    adminGradebookPageNew.getSiTitleInGradeBookPage().should('have.text', this.report.FirstNameProd + " Gradebook")
   })
 
   it("To validate user on clicking edit option permission is enabled for scholastic, co-scholastic,remarks fields to edit/EL-5489/ES5489-02", function () {
@@ -405,8 +407,8 @@ describe("Sprint 19(EL-6082,EL-5493,EL-5358,EL-4151) - Verify Admin student grad
   })
 
   it("To validate marks obtained is equal to the Period test, Notebook, Subject enrichment, Half yearly/EL-5489/ES5489-09", function () {
-    adminGradebookPageNew.getSiPeriodicTestTerm1().should('contain.text', 20)
-    adminGradebookPageNew.getSiPeriodicTestTerm2().should('contain.text', 100)
+    adminGradebookPageNew.getSiPeriodicTestTerm1().should('contain.text', 100)
+    cy.get('table tr td p').eq(4).should('contain.text', 100)
   })
 
   it("To validate The score exceeding the limit for the test type set/EL-5489/ES5489-10", function () {

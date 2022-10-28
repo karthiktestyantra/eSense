@@ -152,7 +152,7 @@ describe("Verify Admin student grade book Page functionalities - Sprint 18(EL-54
         adminGradebookPageNew.getSiViewArrowIcnLstInGradebook().eq(index).click()
       }
     })
-    adminGradebookPageNew.getSiTotalPercntTxtInViewPage().find('h1').should('have.text', "15%")
+    adminGradebookPageNew.getSiTotalPercntTxtInViewPage().find('h1').should('have.text', "26%")
   })
 
   it("To validate Grade is dislpayed based on total percentage/EL-5489/ES5489-29", function () {

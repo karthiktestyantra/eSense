@@ -26,7 +26,6 @@ class AdminDashboardPage {
 
     navigateToFeeSetUpPage(feeStructurePageTitle) {
         this.getSideMenuFeeManagementIcon().click()
-        this.getFeeSetupLink().click()
     }
 
 }

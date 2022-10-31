@@ -12,9 +12,10 @@ module.exports = defineConfig({
     urlMain: 'https://wwe.staging.topschool.co.in',
     urlQA: 'https://srilanka.staging.topschool.co.in',
     urlStagingERP: "https://liverpool.staging.topschool.co.in",
-    urlTopSchoolERP: "https://topschool.staging.topschool.co.in",
-    urlBhsSchool : 'https://bhs.staging.topschool.co.in',
-    urlProd : 'https://prodautomation1.thetopschool.com/'
+    urlPreSetupERP: "https://topschool.staging.topschool.co.in",
+    urlPostSetupERP: "https://sskv.staging.topschool.co.in/",
+    urlBhsSchool: 'https://bhs.staging.topschool.co.in',
+    urlProd: 'https://prodautomation1.thetopschool.com/'
   },
   video: false,
   defaultCommandTimeout: 20000,
@@ -24,7 +25,7 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   failOnStatusCode: false,
   screenshotOnRunFailure: true,
-  modifyObstructiveCode:false,
+  modifyObstructiveCode: false,
   numTestsKeptInMemory: 50,
   //reporter: "cypress-mochawesome-reporter",
   reporterOptions: {

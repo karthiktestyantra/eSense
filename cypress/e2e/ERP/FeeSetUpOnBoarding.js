@@ -8,9 +8,9 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
   before(function () {
     cy.clearCookies();
     cy.clearLocalStorage();
-    cy.visit(Cypress.env("urlTopSchoolERP"))
+    cy.visit(Cypress.env("urlPreSetupERP"))
     cy.fixture("ERP/LoginCredentials").then(function (loginCredentials) {
-      loginPage.login(loginCredentials.adminUsernameTopSchool, loginCredentials.adminPassword)
+      loginPage.login(loginCredentials.adminUsernamePreSetUp, loginCredentials.adminPassword)
     })
   })
 

@@ -18,7 +18,7 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
     cy.fixture("ERP/FeeSetUpOnBoarding").as("feeSetUpOnBoarding")
   })
 
-  it("FMS_TC_001 - Validate user can create fee structure by clicking on save button", { tags: '@smoke' }, function () {
+  it("FMS_TC_001 - Validate user can create fee structure by clicking on save button", function () {
     adminDashboardPage.navigateToFeeSetUpPage()
     feeSetUpOnBoardingPage.verifyFeeManagementPage(this.feeSetUpOnBoarding.feeStructurePageTitleSetUpFeeMasters)
   })

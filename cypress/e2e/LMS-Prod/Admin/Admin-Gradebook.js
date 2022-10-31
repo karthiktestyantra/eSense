@@ -6,9 +6,9 @@ const adminGradebookPageNew = require("../../../support/pageObjects/LMS-2/AdminG
 describe("Sprint 19(EL-5490,EL-5492) - Verify Admin student grade book functionalities", function () {
 
   before(function () {
-    cy.visit(Cypress.env('urlStagingPostSetup'))
-    cy.fixture('LMS/AdminLoginCredentials').then(function (validAdminLoginData) {
-      cy.AdminPostSetup(validAdminLoginData.updUserName, validAdminLoginData.password)
+    cy.visit(Cypress.env('urlProd'))
+    cy.fixture('LMS/validAdminLoginCredentials').then(function (validAdminLoginData) {
+      cy.AdminPostSetup(validAdminLoginData.prodUserName, validAdminLoginData.password)
     })
   })
 

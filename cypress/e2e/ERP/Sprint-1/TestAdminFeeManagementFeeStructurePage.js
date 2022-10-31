@@ -9,8 +9,8 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
     cy.clearCookies();
     cy.clearLocalStorage();
     cy.visit(Cypress.env("urlStagingERP"))
-    cy.fixture("ERP/LoginCredentials").then(function (validLoginData) {
-      loginPage.login(validLoginData.adminUsername, validLoginData.adminPassword)
+    cy.fixture("ERP/LoginCredentials").then(function (loginCredentials) {
+      loginPage.login(loginCredentials.adminUsername, loginCredentials.adminPassword)
     })
   })
 
@@ -20,7 +20,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
 
   it("EE-57/ERP_TC_001 - Validate User is able to land on on-boarding process by clicking Fees management module", { tags: '@smoke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
-    feeManagementFeeStructurePage.verifyFeeManagementPage(this.feeManagement.feeStructurePageTitle)
+    feeManagementFeeStructurePage.verifyFeeManagementPage(this.feeManagement.feeStructurePageTitleSetUpFeeMasters)
   })
 
   // it("Validate set up new fee master option  available when there is no fee structure master created/EE-57/ERP_TC_002", { tags: '@smoke' }, function () {
@@ -96,7 +96,7 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
   // })
 
 
-  it.skip("EE-57/ERP_TC_004 - Validate action icon is showing for fee structure when user is on the fees structure tab", { tags: '@smoke' }, function () {
+ /* it.skip("EE-57/ERP_TC_004 - Validate action icon is showing for fee structure when user is on the fees structure tab", { tags: '@smoke' }, function () {
     feeManagementFeeStructurePage.verifyActionsTab()
   })
 
@@ -134,6 +134,6 @@ describe("Verify Fee Management Fee Structure functionalities", function () {
 
   it('EE-79/ERP_TC_013,015,016,018,020 - Validate the user is able to enter deatils in the Add New Fee Structure details popup', { tags: '@somke' }, function () {
     feeManagementFeeStructurePage.enterAllFeeStructureDetails(this.feeManagement.feeStructureName, this.feeManagement.feeStructureDescription, Number(dayjs().format('D')), Number(dayjs().format('D')))
-  })
+  })*/
 
 })

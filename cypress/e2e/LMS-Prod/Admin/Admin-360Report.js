@@ -151,20 +151,21 @@ describe("Verify 360 Report functionalities - Sprint 20(EL-4124,EL-4092)", funct
   it("EL-4092/ELS4093_1 Validate user clicks on the tab “My Grade”, user is able to view “My Grade” read only tab", function () {
     admin360ReportPage.getGoBackBtn().click()
     admin360ReportPage.get360ReportMajorTabs().contains("My Grades").click()
-    admin360ReportPage.getMyGradesPageContents().should('contain.text', "Science VI (RISE)").should('be.visible')
+    admin360ReportPage.getMyGradesPageContents().should('contain.text', "Science").should('be.visible')
   })
 
   it("EL-4092/ELS4093_2 Validate whether 'My Grade' tab is displaying Subject name, Subject Teacher profile picture, Name of subject teacher", function () {
     admin360ReportPage.getMyGradeTeacherProfilePicLst().should('be.visible')
     admin360ReportPage.getMyGradeTeacherNameLst().each(($e1, index, $list) => {
-      admin360ReportPage.getMyGradeTeacherNameLst().eq(index).should('have.text', "Karthik")
+      var teacher=$e1.text()
+      admin360ReportPage.getMyGradeTeacherNameLst().eq(index).should('have.text', teacher)
     })
   })
 
   it("EL-4092/ELS4093_3 Validate whether 'My Grade' tab is displaying 'Student score', 'Total marks' of the assessment and 'Assessment name'", function () {
-    admin360ReportPage.getAssessmentNameForStudentInMyGradePage().eq(0).should('contain.text', "Half Yearly")
-    admin360ReportPage.getAssessmentNameForStudentInMyGradePage().eq(1).should('contain.text', "Marks Obtained")
-    admin360ReportPage.getAssessmentNameForStudentInMyGradePage().eq(2).should('contain.text', "GRADE")
+    admin360ReportPage.getAssessmentNameForStudentInMyGradePage().eq(0).should('contain.text', "Periodic test")
+    admin360ReportPage.getAssessmentNameForStudentInMyGradePage().eq(1).should('contain.text', "Pen Paper Test")
+    admin360ReportPage.getAssessmentNameForStudentInMyGradePage().eq(2).should('contain.text', "Marks Obtained")
   })
 
   //Pre-Condition

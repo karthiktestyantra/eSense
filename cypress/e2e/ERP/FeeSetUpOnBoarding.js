@@ -1,6 +1,6 @@
-const loginPage = require('../../../support/pageObjects/ERP/LoginPage')
-const adminDashboardPage = require('../../../support/pageObjects/ERP/AdminDashboardPage')
-const feeSetUpOnBoardingPage = require('../../../support/pageObjects/ERP/FeeSetUpOnBoardingPage')
+const loginPage = require('../../support/pageObjects/ERP/LoginPage')
+const adminDashboardPage = require('../../support/pageObjects/ERP/AdminDashboardPage')
+const feeSetUpOnBoardingPage = require('../../support/pageObjects/ERP/FeeSetUpOnBoardingPage')
 const dayjs = require('dayjs')
 
 describe("Verify Fee SetUp OnBoarding functionalities", function () {
@@ -18,9 +18,9 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
     cy.fixture("ERP/FeeSetUpOnBoarding").as("feeSetUpOnBoarding")
   })
 
-  it("EE-57/ERP_TC_001 - Validate User is able to land on on-boarding process by clicking Fees management module", { tags: '@smoke' }, function () {
+  it("FMS_TC_001 - Validate user can create fee structure by clicking on save button", { tags: '@smoke' }, function () {
     adminDashboardPage.navigateToFeeSetUpPage()
-    feeManagementFeeStructurePage.verifyFeeManagementPage(this.feeManagement.feeStructurePageTitleSetUpFeeMasters)
+    feeSetUpOnBoardingPage.verifyFeeManagementPage(this.feeSetUpOnBoarding.feeStructurePageTitleSetUpFeeMasters)
   })
 
 })

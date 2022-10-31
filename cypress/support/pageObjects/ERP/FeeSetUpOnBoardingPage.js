@@ -1,4 +1,4 @@
-class AdminFeeSetUpOnBoardingPage {
+class FeeSetUpOnBoardingPage {
 
     getFeeStructureAddNewBtn() {
         return cy.xpath('//button[text()="Add New"]')
@@ -282,4 +282,4 @@ class AdminFeeSetUpOnBoardingPage {
     }
 
 }
-module.exports = new AdminFeeSetUpOnBoardingPage()
+module.exports = new FeeSetUpOnBoardingPage()

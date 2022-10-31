@@ -13,18 +13,12 @@ describe("Verify Curriculum Builder pagefunctionalities - Sprint 14(EL-4067,EL-4
     });
   });
   beforeEach(function () {
+    cy.viewport(1920, 1080)
     cy.fixture("LMS/sprint14CurriculumBuilder").as("curriculumBuilder")
     
   })
 
   it("To create Curriculum", function () {
-    cy.wait(1000)
-    cy.get('.step-container > :nth-child(3)').click()
-    cy.wait(1000)
-    cy.get('a.continue-btn').contains("Continue").click()
-    cy.wait(1000)
-    cy.get('button.continue-btn').contains("Continue").click()
-    cy.wait(1000)
     adminPostSetupHomePage.getSchoolLnk().click({ force: true })
     adminPostSetupHomePage.getCurriculumBuilderSectionLnk().click()
     adminPostSetupCurriculumBuilderPage.getTitle().should('have.text', this.curriculumBuilder.Title)
@@ -178,13 +172,6 @@ describe("Verify Curriculum Builder pagefunctionalities - Sprint 14(EL-4067,EL-4
     cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.ffNew, validAdminLoginData.password)
     })
-    cy.wait(1000)
-    cy.get('.step-container > :nth-child(3)').click()
-    cy.wait(1000)
-    cy.get('a.continue-btn').contains("Continue").click()
-    cy.wait(1000)
-    cy.get('button.continue-btn').contains("Continue").click()
-    cy.wait(1000)
     adminPostSetupHomePage.getSchoolLnk().click({ force: true })
     adminPostSetupHomePage.getAdminAccountsSectionLnk().click()
     adminAccountsPage.getRoleLst().each(($e1, index, $list) => {
@@ -231,13 +218,6 @@ describe("Verify Curriculum Builder pagefunctionalities - Sprint 14(EL-4067,EL-4
     cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
       cy.AdminPostSetup(validAdminLoginData.ffNew, validAdminLoginData.password)
     });
-    cy.wait(1000)
-    cy.get('.step-container > :nth-child(3)').click()
-    cy.wait(1000)
-    cy.get('a.continue-btn').contains("Continue").click()
-    cy.wait(1000)
-    cy.get('button.continue-btn').contains("Continue").click()
-    cy.wait(1000)
     adminPostSetupHomePage.getSchoolLnk().click({ force: true })
     adminPostSetupHomePage.getAdminAccountsSectionLnk().click()
     adminAccountsPage.getRoleLst().each(($e1, index, $list) => {

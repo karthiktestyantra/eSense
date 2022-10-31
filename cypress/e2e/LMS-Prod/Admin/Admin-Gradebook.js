@@ -24,14 +24,14 @@ describe("Sprint 19(EL-5490,EL-5492) - Verify Admin student grade book functiona
     adminStudentGradebookPage.getHarGradeBookTab().click()
     adminStudentGradebookPage.getHarGradeFilterDropdown().eq(0).click()
     cy.wait(1000)
-    adminStudentGradebookPage.getHarGradeFilterDropdownValues().contains('Grade 4').click({ force: true })
+    adminStudentGradebookPage.getHarGradeFilterDropdownValues().contains('Grade 6').click({ force: true })
     cy.wait(1000)
     adminStudentGradebookPage.getHarSectionFilterDropdown().click()
     cy.wait(1000)
     adminStudentGradebookPage.getHarSectionFilterDropdownValues().contains('A').click({ force: true })
     adminStudentGradebookPage.getHarGradeBookStudentName().each(($e1, index, $list) => {
       const gradeStdName = $e1.text()
-      if (gradeStdName.includes('Mahesh')) {
+      if (gradeStdName.includes('Harshith')) {
         adminStudentGradebookPage.getHarGradeBookStudentNameCheckBx().eq(index).click()
       }
 
@@ -72,7 +72,7 @@ describe("Sprint 19(EL-5490,EL-5492) - Verify Admin student grade book functiona
   it("To validate that when user click on “Import Grades” button, details is updated in the respective gradebook of the students of the respective class/EL-5490/ES5490_10", function () {
     adminStudentGradebookPage.getHarGradeBookStudentName().each(($e1, index, $list) => {
       const gradeStdName = $e1.text()
-      if (gradeStdName.includes('Mahesh')) {
+      if (gradeStdName.includes('Harshith')) {
         adminStudentGradebookPage.getHarGradeBookStudentView().eq(index).click()
       }
 
@@ -91,13 +91,13 @@ describe("Sprint 19(EL-5490,EL-5492) - Verify Admin student grade book functiona
     adminStudentGradebookPage.getHarGoBackBtn().click()
     adminStudentGradebookPage.getHarGradeFilterDropdown().eq(0).click()
     cy.wait(1000)
-    adminStudentGradebookPage.getHarGradeFilterDropdownValues().contains('Grade 4').click({ force: true })
+    adminStudentGradebookPage.getHarGradeFilterDropdownValues().contains('Grade 6').click({ force: true })
     cy.wait(1000)
     adminStudentGradebookPage.getHarSectionFilterDropdown().click()
     adminStudentGradebookPage.getHarSectionFilterDropdownValues().contains('A').click({ force: true })
     adminStudentGradebookPage.getHarGradeBookStudentName().each(($e1, index, $list) => {
       const gradeStdName = $e1.text()
-      if (gradeStdName.includes('Mahesh')) {
+      if (gradeStdName.includes('Harshith')) {
         adminStudentGradebookPage.getHarGradeBookStudentNameCheckBx().eq(index).click()
       }
 
@@ -119,9 +119,9 @@ describe("Sprint 19(EL-5490,EL-5492) - Verify Admin student grade book functiona
 
   it("Validate that  when user clicks on reports module,pop-appears and contains student Gradebook/EL-5492/ES5492_01", function () {
     cy.clearLocalStorage()
-    cy.visit(Cypress.env("urlMain"))
-    cy.fixture("LMS/AdminLoginCredentials").then(function (validAdminLoginData) {
-      cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
+    cy.visit(Cypress.env('urlProd'))
+    cy.fixture('LMS/validAdminLoginCredentials').then(function (validAdminLoginData) {
+      cy.AdminPostSetup(validAdminLoginData.prodUserName, validAdminLoginData.password)
     })
     adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
     cy.wait(1500)

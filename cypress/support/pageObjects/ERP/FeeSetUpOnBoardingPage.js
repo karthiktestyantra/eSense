@@ -281,5 +281,9 @@ class FeeSetUpOnBoardingPage {
         this.getFeeStructureTabsTitle().eq(0).click()
     }
 
+    clickOnFeeStructureContinueBtn(){
+        this.getFeeStructureContinueBtn().click()
+    }
+
 }
 module.exports = new FeeSetUpOnBoardingPage()

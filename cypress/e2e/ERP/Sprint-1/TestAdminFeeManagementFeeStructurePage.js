@@ -1,6 +1,6 @@
 const loginPage = require('../../../support/pageObjects/ERP/LoginPage')
 const adminDashboardPage = require('../../../support/pageObjects/ERP/AdminDashboardPage')
-const feeManagementFeeStructurePage = require('../../../support/pageObjects/ERP/AdminFeeManagementFeeStructurePage')
+const feeManagementFeeStructurePage = require('../../../support/pageObjects/ERP/AdminFeeSetUpOnBoardingPage')
 const dayjs = require('dayjs')
 
 describe("Verify Fee Management Fee Structure functionalities", function () {

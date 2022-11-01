@@ -12,47 +12,47 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
         cy.fixture("ERP/LoginCredentials").then(function (loginCredentials) {
             loginPage.login(loginCredentials.adminUsernamePreSetUp, loginCredentials.adminPassword)
         })
+    })
 
-        beforeEach(function () {
-            cy.fixture("ERP/FeeSetUpOnBoarding").as("feeSetUpOnBoarding")
+    beforeEach(function () {
+        cy.fixture("ERP/FeeSetUpOnBoarding").as("feeSetUpOnBoarding")
+    })
+
+    it("FMS_TC_001 - Validate user can create fee structure by clicking on save button", function () {
+        adminDashboardPage.navigateToFeeSetUpPage()
+        feeSetUpOnBoardingPage.verifyFeeManagementPage(this.feeSetUpOnBoarding.feeStructurePageTitleSetUpFeeMasters)
+        feeSetUpOnBoardingPage.clickOnSetUpFeeMastersOrAddNewButton()
+        feeSetUpOnBoardingPage.verifyAddNewFeeStructureDetailsPage()
+        feeSetUpOnBoardingPage.enterAllFeeStructureDetails(this.feeSetUpOnBoarding.feeStructureName, this.feeSetUpOnBoarding.feeStructureDescription, dayjs().format('D'), dayjs().format('D'))
+        cy.wait(1500)
+        feeSetUpOnBoardingPage.getAddFeeStructureFeeTypeTabs().should('be.visible').should('have.length', 4)
+        feeSetUpOnBoardingPage.getMandatoryFeeBtn().last().click()
+        feeSetUpOnBoardingPage.getFeeAmountTextField().each(($el, index) => {
+            cy.wrap($el).clear().type((index + 1) * 1000)
         })
-
-        it("FMS_TC_001 - Validate user can create fee structure by clicking on save button", function () {
-            adminDashboardPage.navigateToFeeSetUpPage()
-            feeSetUpOnBoardingPage.verifyFeeManagementPage(this.feeSetUpOnBoarding.feeStructurePageTitleSetUpFeeMasters)
-            feeSetUpOnBoardingPage.clickOnSetUpFeeMastersOrAddNewButton()
-            feeSetUpOnBoardingPage.verifyAddNewFeeStructureDetailsPage()
-            feeSetUpOnBoardingPage.enterAllFeeStructureDetails(this.feeSetUpOnBoarding.feeStructureName, this.feeSetUpOnBoarding.feeStructureDescription, dayjs().format('D'), dayjs().format('D'))
+        cy.forceClick(feeSetUpOnBoardingPage.getContinueButton())
+        cy.wait(1500)
+        feeSetUpOnBoardingPage.getAddCustomButton().click()
+        feeSetUpOnBoardingPage.getFeeInstallmentsCheckboxes().each(($el) => {
+            cy.wrap($el).click()
+        })
+        feeSetUpOnBoardingPage.getFeeInstallmentNameTextfield().type('Special Fee')
+        feeSetUpOnBoardingPage.getFeeInstallmentsCheckboxCustonInstallment().uncheck()
+        feeSetUpOnBoardingPage.getFeeInstallmentsSetAsDefaultBtn().first().click()
+        feeSetUpOnBoardingPage.getFeeInstallmentsDropdowns().each(($el) => {
+            cy.wrap($el).click()
+            cy.focused().click()
+            cy.wait(1000)
+        })
+        feeSetUpOnBoardingPage.getFeeInstallmentsCalenderIcons().each(($el) => {
+            cy.wrap($el).click()
             cy.wait(1500)
-            feeSetUpOnBoardingPage.getAddFeeStructureFeeTypeTabs().should('be.visible').should('have.length', 4)
-            feeSetUpOnBoardingPage.getMandatoryFeeBtn().last().click()
-            feeSetUpOnBoardingPage.getFeeAmountTextField().each(($el, index) => {
-                cy.wrap($el).clear().type((index + 1) * 1000)
-            })
-            cy.forceClick(feeSetUpOnBoardingPage.getContinueButton())
-            cy.wait(1500)
-            feeSetUpOnBoardingPage.getAddCustomButton().click()
-            feeSetUpOnBoardingPage.getFeeInstallmentsCheckboxes().each(($el) => {
-                cy.wrap($el).click()
-            })
-            feeSetUpOnBoardingPage.getFeeInstallmentNameTextfield().type('Special Fee')
-            feeSetUpOnBoardingPage.getFeeInstallmentsCheckboxCustonInstallment().uncheck()
-            feeSetUpOnBoardingPage.getFeeInstallmentsSetAsDefaultBtn().first().click()
-            feeSetUpOnBoardingPage.getFeeInstallmentsDropdowns().each(($el) => {
-                cy.wrap($el).click()
-                cy.focused().click()
-                cy.wait(1000)
-            })
-            feeSetUpOnBoardingPage.getFeeInstallmentsCalenderIcons().each(($el) => {
-                cy.wrap($el).click()
-                cy.wait(1500)
-                feeSetUpOnBoardingPage.getFeeInstallmentsCalenderYearIcon().click()
-                cy.contains('2023').click({ force: true })
-                cy.wait(1000)
-                cy.focused().click()
-            })
-
+            feeSetUpOnBoardingPage.getFeeInstallmentsCalenderYearIcon().click()
+            cy.contains('2023').click({ force: true })
+            cy.wait(1000)
+            cy.focused().click()
         })
 
     })
 })
+

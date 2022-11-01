@@ -25,12 +25,12 @@ describe("Verify admin edit grade book template - Sprint 19(EL-5594,EL-5593,EL-5
 
       //it("To validate user is able to edit the  template except the grade./EL-5594/ES5594-04",function () {
       esenseAdminGradePage.getHarNumOfThemeDropdown().eq(1).click()
-      esenseAdminGradePage.getHarNumOfThemeDropdownValue().contains('1').click()
+      esenseAdminGradePage.getHarNumOfThemeDropdownValue().contains('2').click()
       //   esenseAdminGradePage.getHarTermDropdown().eq(2).click({force:true})
       //   esenseAdminGradePage.getHarTermDropdownValue().contains('2').click({force:true})
       cy.wait(2000)
       esenseAdminGradePage.getHarNumOfTesttypeDropdown().eq(3).click({ force: true })
-      esenseAdminGradePage.getHarNumOfTesttypeDropdownValue().contains('Half Yearly').click({ force: true })
+      esenseAdminGradePage.getHarNumOfTesttypeDropdownValue().contains('Notebook').click({ force: true })
       esenseAdminGradePage.getHarActivity1().eq(0).scrollIntoView().clear({ force: true }).type('exam', { force: true })
 
       // })

@@ -13,7 +13,7 @@ class FeeSetUpOnBoardingPage {
     }
 
     getFeeStructureTitleSetUpFeeMasters() {
-        return cy.xpath('//p[.="Fee Structure"]')
+        return cy.xpath('//*[.="Fee Structure" and contains(@class,"css")]')
     }
 
     getFeeStructureTabsTitle() {
@@ -49,7 +49,7 @@ class FeeSetUpOnBoardingPage {
     }
 
     getOnSetUpFeeMastersOrAddNewButton() {
-        return cy.get('button[class*="MuiButton-size"]').eq(0)
+        return cy.xpath('//button[.="Setup Fee Masters" or  .="Add New"]')
     }
 
     getFeeStructureDescriptionTxtAreaFldInDetailPage() {
@@ -137,11 +137,43 @@ class FeeSetUpOnBoardingPage {
     }
 
     getContinueButton() {
-        return cy.xpath('//div[@class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-15j76c0"]//button[@type="submit"]')
+        return cy.xpath('//div[@role="presentation"]//button[text()="Continue"]')
     }
 
     getCancelButton() {
         return cy.xpath('//button[text()="Cancel"]')
+    }
+
+    getAddCustomButton() {
+        return cy.xpath('//button[.="+ Add Custom"]')
+    }
+
+    getFeeInstallmentsCheckboxes() {
+        return cy.xpath('//div[@role="dialog"]//input[@type="checkbox"]')
+    }
+
+    getFeeInstallmentsCheckboxCustonInstallment() {
+        return cy.get('[name="customInstalment"]').eq(0)
+    }
+
+    getFeeInstallmentsDropdowns() {
+        return cy.get('[aria-haspopup="listbox"]')
+    }
+
+    getFeeInstallmentsCalenderYearIcon() {
+        return cy.get('[class*="MuiCalendarPicker-root"] [data-testid="ArrowDropDownIcon"]')
+    }
+
+    getFeeInstallmentsCalenderIcons() {
+        return cy.get('[aria-label="Choose date"] svg')
+    }
+
+    getFeeInstallmentNameTextfield() {
+        return cy.get('[data-testid="InstalmentNameId"]')
+    }
+
+    getFeeInstallmentsSetAsDefaultBtn() {
+        return cy.get('[data-testid="monthlySetAsDefault"]')
     }
 
     clickOnOutSide() {
@@ -159,6 +191,19 @@ class FeeSetUpOnBoardingPage {
     getFeeStructureNameErrorMessage() {
         return cy.xpath('//p[text()="Fee Structure Name Required"]')
     }
+
+    getAddFeeStructureFeeTypeTabs() {
+        return cy.xpath('//div[@id="simple-tabpanel-1"]//tr//th')
+    }
+
+    getMandatoryFeeBtn() {
+        return cy.get('[data-testid="switchBtn"]')
+    }
+
+    getFeeAmountTextField() {
+        return cy.get('[data-testid="feeTypeAmount"]')
+    }
+
     verifyFeeManagementTabs(feeStructurePageFeeStructureTitle, feeStructurePagePenaltyMasterTitle, feeStructurePageDiscountMasterTitle, feeStructurePagePaymentGatewayTitle) {
         cy.verifyTextEquals(this.getFeeStructureTabsTitle().eq(0), feeStructurePageFeeStructureTitle)
         cy.verifyTextEquals(this.getFeeStructureTabsTitle().eq(1), feeStructurePagePenaltyMasterTitle)
@@ -172,7 +217,8 @@ class FeeSetUpOnBoardingPage {
     }
 
     verifyFeeManagementPage(feeStructurePageTitle) {
-        cy.verifyTextEquals(this.getFeeStructureTitle(), feeStructurePageTitle)
+        cy.wait(2000)
+        cy.verifyTextEquals(this.getFeeStructureTitleSetUpFeeMasters(), feeStructurePageTitle)
     }
 
     verifyFeeManagementPageSetUpFeeMasters(feeStructurePageTitleSetUpFeeMasters) {
@@ -213,7 +259,7 @@ class FeeSetUpOnBoardingPage {
     }
 
     clickOnSetUpFeeMastersOrAddNewButton() {
-        this.getOnSetUpFeeMastersOrAddNewButton().click()
+        cy.forceClick(this.getOnSetUpFeeMastersOrAddNewButton())
     }
 
     enterAllFeeStructureDetails(FeeStructureName, Description, StartDate, EndDate) {
@@ -223,11 +269,11 @@ class FeeSetUpOnBoardingPage {
         cy.forceClick(this.getStartDate(StartDate))
         cy.wait(1000)
         cy.forceClick(this.getEndDateIcon())
-        cy.forceClick(this.getEndDateRightArrowIcon())
+        cy.forceClick(this.getFeeInstallmentsCalenderYearIcon())
+        cy.contains('2023').click({ force: true })
         cy.wait(1000)
         this.getEndDate(EndDate).click({ waitForAnimations: false })
         this.verifyApplicableForStudentCheckbox()
-        cy.unCheckAndVerify(this.getNewStudentCheckBox())
         this.getSelectGrade().click()
         this.getGrade3().click()
         this.clickOnOutSide()

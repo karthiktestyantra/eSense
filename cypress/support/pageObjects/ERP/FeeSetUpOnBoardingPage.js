@@ -120,6 +120,10 @@ class FeeSetUpOnBoardingPage {
         return cy.get('[data-testid="ArrowRightIcon"]')
     }
 
+    getEndDateLeftArrowIcon() {
+        return cy.get('[data-testid="ArrowLeftIcon"]')
+    }
+
     getNewStudentCheckBox() {
         return cy.get('[data-testid="newStudent"]')
     }
@@ -145,7 +149,7 @@ class FeeSetUpOnBoardingPage {
     }
 
     getAddCustomButton() {
-        return cy.xpath('//button[.="+ Add Custom"]')
+        return cy.xpath('//*[normalize-space(text())="+ Add Custom"]')
     }
 
     getFeeInstallmentsCheckboxes() {
@@ -161,11 +165,15 @@ class FeeSetUpOnBoardingPage {
     }
 
     getFeeInstallmentsCalenderYearIcon() {
-        return cy.get('[class*="MuiCalendarPicker-root"] [data-testid="ArrowDropDownIcon"]')
+        return cy.get('[class*="MuiPickersCalendarHeader-label css"]')//cy.get('[class*="MuiCalendarPicker-root"] [data-testid="ArrowDropDownIcon"]')
     }
 
     getFeeInstallmentsCalenderIcons() {
         return cy.get('[aria-label="Choose date"] svg')
+    }
+
+    getFeeStructureScrollBar() {
+        return cy.get('[class="MuiDialogContent-root css-1ty026z"]')
     }
 
     getFeeInstallmentNameTextfield() {
@@ -238,7 +246,7 @@ class FeeSetUpOnBoardingPage {
     }
 
     verifyAddNewFeeStructureDetailsPage() {
-        cy.wait(1500)
+        cy.wait(2000)
         cy.isVisible(this.getFeeStructureNameFldInDetailPage())
         cy.isVisible(this.getFeeStructureDescriptionTxtAreaFldInDetailPage())
         cy.isVisible(this.getFeeStructureStartDateFldInDetailPage())
@@ -246,7 +254,8 @@ class FeeSetUpOnBoardingPage {
         cy.isVisible(this.getFeeStructureNewStudentCheckBxInDetailPage())
         cy.isVisible(this.getFeeStructureExistingStudentCheckBxInDetailPage())
         cy.isVisible(this.getFeeStructureSelectGradeDrpDwnInDetailPage())
-        cy.isVisible(this.getFeeStructureContinueBtnInDetailPage())
+        this.getContinueButton().scrollIntoView()
+        cy.isVisible(this.getContinueButton())
         cy.isVisible(this.getFeeStructureCancelBtnInDetailPage())
     }
 
@@ -276,7 +285,8 @@ class FeeSetUpOnBoardingPage {
         this.verifyApplicableForStudentCheckbox()
         this.getSelectGrade().click()
         this.getGrade3().click()
-        this.clickOnOutSide()
+        cy.wait(1000)
+        //this.clickOnOutSide()
         cy.forceClick(this.getContinueButton())
     }
 

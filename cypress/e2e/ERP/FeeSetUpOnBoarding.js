@@ -37,22 +37,31 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
             cy.wrap($el).click()
         })
         feeSetUpOnBoardingPage.getFeeInstallmentNameTextfield().type('Special Fee')
-        feeSetUpOnBoardingPage.getFeeInstallmentsCheckboxCustonInstallment().uncheck()
         feeSetUpOnBoardingPage.getFeeInstallmentsSetAsDefaultBtn().first().click()
         feeSetUpOnBoardingPage.getFeeInstallmentsDropdowns().each(($el) => {
             cy.wrap($el).click()
             cy.focused().click()
             cy.wait(1000)
         })
-        feeSetUpOnBoardingPage.getFeeInstallmentsCalenderIcons().each(($el) => {
+        feeSetUpOnBoardingPage.getFeeInstallmentsCalenderIcons().each(($el, index) => {
+            if (index < 7) {
+                cy.wrap($el).scrollIntoView().click()
+                cy.wait(1500)
+                feeSetUpOnBoardingPage.getFeeInstallmentsCalenderYearIcon().scrollIntoView().click()
+                cy.contains('2023').click({ force: true })
+                cy.wait(1000)
+                feeSetUpOnBoardingPage.getEndDateLeftArrowIcon().click()
+                cy.wait(1000)
+                feeSetUpOnBoardingPage.getEndDate(index + 3).click()
+            }
+        })
+        feeSetUpOnBoardingPage.getFeeInstallmentsCalenderIcons().last().then(($el) => {
             cy.wrap($el).click()
             cy.wait(1500)
-            feeSetUpOnBoardingPage.getFeeInstallmentsCalenderYearIcon().click()
-            cy.contains('2023').click({ force: true })
+            feeSetUpOnBoardingPage.getFeeStructureScrollBar().scrollTo('top')
             cy.wait(1000)
-            cy.focused().click()
+            cy.focused().click({ force: true })
         })
-
     })
 })
 

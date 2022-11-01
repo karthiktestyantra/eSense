@@ -5,7 +5,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
     before(function () {
         cy.visit(Cypress.env('urlProd'))
         cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
-            cy.TeacherPostSetupLogin(validAdminLoginData.teacher5, validAdminLoginData.password)
+            cy.TeacherPostSetupLogin(validAdminLoginData.teacher1, validAdminLoginData.password)
         })
     })
 
@@ -15,7 +15,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
 
     it("Validate teacher clicks on Assign button Successfully assigned pop up will appear with the notification/EL-4203/ES4203_01", function () {
         teacherELAPage.getMyClassImg().click()
-        teacherELAPage.getMyClassSubName().click({ force: true })
+        teacherELAPage. getMyClassRiseSubName().click({ force: true })
         teacherELAPage.getAssessmentTab().click()
         teacherELAPage.getAssignmentBtn().click({ force: true })
         teacherELAPage.getAddELABtn().click()
@@ -23,7 +23,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getELASubSearchIcon().click()
         teacherELAPage.getELATitleLstInAddELASect().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("पहेली का जवाब")) {
+            if (text.includes("Components of Food")) {
                 teacherELAPage.getViewELABtnInELAAddSect().eq(index).click()
             }
         })
@@ -164,7 +164,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getElaPopupCancelBtn().click()
         teacherELAPage.getELACardLst().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("पहेली का जवाब")) {
+            if (text.includes("Components of Food")) {
                 teacherELAPage.getDltBtnLstInELACard().eq(index).click()
             }
         })
@@ -174,7 +174,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         cy.wait(1000)
         teacherELAPage.getELATitleLstInAddELASect().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("पहेली का जवाब")) {
+            if (text.includes("Components of Food")) {
                 teacherELAPage.getViewELABtnInELAAddSect().eq(index).click()
             }
         })
@@ -313,7 +313,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         cy.wait(2000)
         teacherELAPage.getELACardLst().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("हम होंगे कामयाब..")) {
+            if (text.includes("Getting to know Pl..")) {
                 teacherELAPage.getElaEvalutedDeleteIcon().eq(index).should('not.be.enabled')
             }
         })
@@ -333,15 +333,17 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
 
     it("TO verify that user is able to check the “Mark as complete” check box for the last topic of a chapter,/EL-3976/ES3976_01", function () {
         teacherELAPage.getELAMilestoneTab().click()
-        teacherELAPage.getMilestoneShowTopicBtn().click()
+        cy.get('.mileStoneThemeToggSectTxt').click()
+        cy.wait(1000)
+        teacherELAPage.getProdMilestoneShowTopicBtn().click()
         cy.wait(2000)
         teacherELAPage.getELAMilestoneChechBx().check({ force: true })
         teacherELAPage.getELAMilestoneChechBx().should('be.checked')
-        cy.wait(1000)
+        //cy.wait(1000)
         //teacherELAPage.getELAMilestoneCreatedCancelBtn().click()
         teacherELAPage.getELAMilestoneChechBx().uncheck({ force: true })
         cy.wait(2000)
-        teacherELAPage.getELAMilestoneChechBx().check()
+        //teacherELAPage.getELAMilestoneChechBx().check()
 
     })
     it("To verify that when user Check  “Mark as complete” check box for the last topic of a chapter, ELA popup page is dispalyed or triggered/EL-3976/ES3976_02", function () {
@@ -352,10 +354,12 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getELAMilestoneCreatedAssignBtn().click()
         teacherELAPage.getELAPageHeader().should('be.visible')
         teacherELAPage.getMyClassImg().click()
-        teacherELAPage.getMyClassSubName().click({ force: true })
+        teacherELAPage.getMyClassRiseSubName().click({ force: true })
         teacherELAPage.getELAMilestoneTab().click()
         teacherELAPage.getELAMilestoneTab().click()
-        teacherELAPage.getMilestoneShowTopicBtn().click()
+        cy.get('.mileStoneThemeToggSectTxt').click()
+        cy.wait(1000)
+        teacherELAPage.getProdMilestoneShowTopicBtn().click()
         cy.wait(2000)
         teacherELAPage.getELAMilestoneChechBx().uncheck({ force: true })
     })
@@ -367,11 +371,11 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getELAMilestoneCreatedAssignBtn().click()
         teacherELAPage.getELAChapterDropdown().click()
         cy.wait(2000)
-        teacherELAPage.getELAChapterDropdownValue().contains('झूठ का फल').click()
+        teacherELAPage.getELAChapterDropdownValue().contains('Getting to know Plants').click()
     })
 
     it("To verify that teacher is able to view ELA's for all the “Chapters” under Top School library/EL-3976/ES3976_05", function () {
-        teacherELAPage.getFilteredELAName().should('have.text', 'झूठ का फल')
+        teacherELAPage.getFilteredELAName().should('have.text', 'Getting to know Plants')
     })
 
     it("To verify that content type is pre-selected as ELA/EL-3976/ES3976_06", function () {
@@ -386,7 +390,9 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
     it("To verify that user is able to Assign ELA from My Class Overview Tab/EL-3976/ES3976_09", function () {
         cy.go('back')
         teacherELAPage.getELAMilestoneTab().click()
-        teacherELAPage.getMilestoneShowTopicBtn().click()
+        cy.get('.mileStoneThemeToggSectTxt').click()
+        cy.wait(1000)
+        teacherELAPage.getProdMilestoneShowTopicBtn().click()
         cy.wait(2000)
         teacherELAPage.getELAMilestoneChechBx().uncheck({ force: true })
         teacherELAPage.getELAMilestoneTab().click()
@@ -399,13 +405,13 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getAssignmentBtn().click({ force: true })
         teacherELAPage.getELACardLst().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("निंगोल चाकौबा..")) {
-                teacherELAPage.getELACardLst().contains('निंगोल चाकौबा..').click()
+            if (text.includes("Living and non-liv..")) {
+                teacherELAPage.getELACardLst().contains('Living and non-liv..').click()
             }
         })
         teacherELAPage.getELACardLst().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("निंगोल चाकौबा..")) {
+            if (text.includes("Living and non-liv..")) {
                 teacherELAPage.getElaEvalutedDeleteIcon().eq(index).click({ force: true })
                 cy.get('.MuiButton-contained').click()
             }
@@ -413,7 +419,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getAddELABtn().click()
         teacherELAPage.getFilteredELAName().each(($e1, index, $list) => {
             const elaNameTxt = $e1.text()
-            if (elaNameTxt.includes('निंगोल चाकौबा')) {
+            if (elaNameTxt.includes('Living and non-living')) {
                 teacherELAPage.getOverviewViewELABtn().eq(index).click()
             }
         })
@@ -430,14 +436,16 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getElaPopupCancelBtn().click()
         teacherELAPage.getELACardLst().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("निंगोल चाकौबा..")) {
+            if (text.includes("Living and non-liv..")) {
                 teacherELAPage.getElaEvalutedDeleteIcon().eq(index).click({ force: true })
                 cy.get('.MuiButton-contained').click()
                 cy.wait(2000)
             }
         })
         teacherELAPage.getELAMilestoneTab().click()
-        teacherELAPage.getMilestoneShowTopicBtn().click()
+        cy.get('.mileStoneThemeToggSectTxt').click()
+        cy.wait(1000)
+        teacherELAPage.getProdMilestoneShowTopicBtn().click()
         cy.wait(2000)
         teacherELAPage.getELAMilestoneChechBx().uncheck()
         cy.wait(1000)
@@ -446,7 +454,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getELAMilestoneCreatedAssignBtn().click()
         teacherELAPage.getFilteredELAName().each(($e1, index, $list) => {
             const elaNameTxt = $e1.text()
-            if (elaNameTxt.includes('निंगोल चाकौबा')) {
+            if (elaNameTxt.includes('Living and non-living')) {
                 teacherELAPage.getOverviewViewELABtn().eq(index).click()
             }
         })
@@ -460,21 +468,23 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
 
         teacherELAPage.getELACardLst().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("पहेली का जवाब..")) {
+            if (text.includes("Components of Food..")) {
                 teacherELAPage.getELACardLst().eq(index).click({ force: true })
             }
         })
         teacherELAPage.getELACardLst().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("पहेली का जवाब..")) {
+            if (text.includes("Components of Food..")) {
                 teacherELAPage.getElaEvalutedDeleteIcon().eq(index).click({ force: true })
                 cy.wait(1000)
                 cy.get('.MuiButton-contained').click()
             }
         })
         teacherELAPage.getELAMilestoneTab().click()
-        teacherELAPage.getELAMilestoneTab().click()
-        teacherELAPage.getMilestoneShowTopicBtn().click()
+        //teacherELAPage.getELAMilestoneTab().click()
+        cy.get('.mileStoneThemeToggSectTxt').click()
+        cy.wait(1000)
+        teacherELAPage.getProdMilestoneShowTopicBtn().click()
         cy.wait(2000)
         teacherELAPage.getELAMilestoneChechBx().uncheck({ force: true })
 

@@ -8,6 +8,10 @@ class TeacherELAPage2 {
       return cy.get('div.card_roman_txt').contains('Grade 5 B')
    }
 
+   getMyClassRiseSubName() {
+      return cy.get('div.classTitle').contains('Science VI (RISE)')
+   }
+
    getAssessmentTab() {
       return cy.get('button.MuiButtonBase-root').contains('Assessments')
    }
@@ -58,6 +62,11 @@ class TeacherELAPage2 {
 
    getMilestoneShowTopicBtn() {
       return cy.get('div.topics_btn p')
+   }
+
+   
+   getProdMilestoneShowTopicBtn() {
+      return cy.get('button.show_topics')
    }
 
    getELAMilestoneTab() {

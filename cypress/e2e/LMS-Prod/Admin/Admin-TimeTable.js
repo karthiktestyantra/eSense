@@ -132,7 +132,7 @@ describe("Verify admin quick link time table functionalities - Sprint 17(EL-4096
 
         adminQuickLinksPage.getGeneratedTimetablePeriodTimeDropdown().eq(2).click()
         adminQuickLinksPage.getGeneratedTimetableDropdownValue().contains('25 Minutes').click()
-        adminQuickLinksPage.getGeneratedTimetableDropdownValue().first().click()
+       // adminQuickLinksPage.getGeneratedTimetableDropdownValue().first().click()
         for (var i = 0; i < 6; i++) {
             adminQuickLinksPage.getGeneratedTimetableZeroPeriodDays().eq(i).click()
         }
@@ -184,8 +184,8 @@ describe("Verify admin quick link time table functionalities - Sprint 17(EL-4096
 
     it("To validate that user is able to select the select the “Free Class” for that time slot by clicking on Subject Dropdown/EL-5212/ES5212_12", function () {
         adminQuickLinksPage.getTimeTableGeneratedSlotsSubDropdown().eq(0).click()
-        adminQuickLinksPage.getTimeTableGeneratedSlotsSubDropdownValue().contains('Free Class').scrollIntoView().should('be.visible')
-        adminQuickLinksPage.getTimeTableGeneratedSlotsSubDropdownValue().contains('Free Class').click()
+        //adminQuickLinksPage.getTimeTableGeneratedSlotsSubDropdownValue().contains('Free Class').scrollIntoView().should('be.visible')
+        adminQuickLinksPage.getTimeTableGeneratedSlotsSubDropdownValue().contains('Free Class').scrollIntoView().click()
 
     })
 

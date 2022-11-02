@@ -179,6 +179,9 @@ class AdminCalenderHomePage {
     getCalendarDayTxt() {
         return cy.get('div[role="gridcell"] div.mbsc-calendar-day-text:visible')
     }
+    getCalendarDayTxtDynamic(Date) {
+        return cy.xpath('//div[contains(@class,"mbsc-calendar-table-active")]//div[contains(@class,"mbsc-ltr mbsc-calendar-day-marked")]//div[text()="'+Date+'"]')
+    }
     getHolidayWrapperLst() {
         return cy.get('div.md-custom-event-wrapper')
     }

@@ -51,7 +51,7 @@ describe("Sprint 19(EL-5490,EL-5492) - Verify Admin student grade book functiona
   })
 
   it("To validate that when user click on Select file from computer” button user is able browse from their local system and upload the file/EL-5490/ES5490_05", function () {
-    adminStudentGradebookPage.getHarAttachsamplefile().attachFile('LMS/Report_recent.xlsx')
+    adminStudentGradebookPage.getHarAttachsamplefile().attachFile('LMS/Report_recent_Prod.xlsx')
     adminStudentGradebookPage.getHarAttachsamplefileDeleteBtn().should('be.visible')
 
   })
@@ -163,8 +163,8 @@ describe("Sprint 19(EL-5490,EL-5492) - Verify Admin student grade book functiona
 
   it("Validate that user is able to see the students list is  displaying as per the dropdown selection under Gradebook tab/EL-5492/ES5492_06", function () {
     adminStudentGradebookPage.getSiGradeDrpdwnInGradebookPage().click()
-    adminStudentGradebookPage.getSiGradesLstInGradeDrpDwnPage().contains(this.report.GradeManual).click()
-    adminStudentGradebookPage.getSiFirstNameLstInGradebookPage().should('contain.text', this.report.FirstName)
+    adminStudentGradebookPage.getSiGradesLstInGradeDrpDwnPage().contains('Grade 6').click()
+    adminStudentGradebookPage.getSiFirstNameLstInGradebookPage().should('contain.text', 'Harshith')
   })
 
   it("Validate  that when user clicks on Roll No checkbox BULK UPLOAD SCORE button  is enabled/EL-5492/ES5492_07", function () {

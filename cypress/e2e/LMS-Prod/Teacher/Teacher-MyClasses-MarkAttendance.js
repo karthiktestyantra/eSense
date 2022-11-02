@@ -20,6 +20,7 @@ describe("Verify Teacher Student Mark Attendance functionalities - Sprint 20(EL-
         teacherDashboardPage.getMyclassLnk().click({ force: true })
         teacherDashboardPage.getSubLstTxtInMyClass().eq(0).click()
         teacherMyclassesOverviewPage.getOverviewTab().click()
+        teacherMyclassesOverviewPage.getPendingActionTab().click()
         teacherMyclassesOverviewPage.getOverviewPendingActionsCard().should('be.visible')
         teacherDashboardPage.getMarkClassAttendenceBtn().eq(0).click()
         cy.wait(4000)

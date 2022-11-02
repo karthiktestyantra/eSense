@@ -49,7 +49,7 @@ describe("Verify Admin School Creation Functionalities", function () {
     adminBasicInfoPage.getCalendarYearDropdown().click()
     cy.forceClick(adminBasicInfoPage.getCalendarYear().contains(this.newSchoolCreationBasicInfo.affiliationPeriodStartYear))
     adminBasicInfoPage.getCalendarNextIcon().click()
-    adminBasicInfoPage.getCalendarDay().contains(this.newSchoolCreationBasicInfo.affiliationPeriodStartdate).click()
+    adminBasicInfoPage.getCalendarDay().contains(this.newSchoolCreationBasicInfo.affiliationPeriodStartdate).click({ force: true })
     adminBasicInfoPage.getCalendarIcoOfAffiliationEndDate().click()
     cy.wait(1000)
     adminBasicInfoPage.getCalendarYearDropdown().click()

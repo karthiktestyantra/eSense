@@ -2,6 +2,9 @@ class TeacherMyclassesOverviewPage{
     getOverviewTab(){
         return cy.get('button.MuiTab-textColorPrimary').contains('Overview')
     }
+    getPendingActionTab(){
+        return cy.xpath('//p[.="Pending Actions"]')
+    }
     getOverviewSessionsCompletedTab(){
         return cy.get('div.card-container').contains('Sessions Completed')
     }

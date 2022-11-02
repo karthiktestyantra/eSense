@@ -53,7 +53,8 @@ describe("Verify admin Calendar functionalities - Sprint 15(EL-4065)", function 
     it("To delete the added holiday", function () {
         adminCalendarPage.getMonthlyDrpDwnInCalendar().click()
         adminCalendarPage.getMonthlyDrpDwnLstInCalendar().select('Weekly')
-        adminCalendarPage.getCalendarDayTxt().contains("24").dblclick()
+        cy.wait(2000)
+        adminCalendarPage.getCalendarDayTxt().contains("24").dblclick({force:true})
         adminCalendarPage.getHolidayWrapperLst().each(($e1, index) => {
             adminCalendarPage.getHolidayWrapperLst().eq(index).click()
             adminCalendarPage.getHolidayDltBtn().click()
@@ -70,7 +71,7 @@ describe("Verify admin Calendar functionalities - Sprint 15(EL-4065)", function 
         adminCalendarPage.getHolidayEnterBtn().contains("Holiday").click()
         adminCalendarPage.getEnterHolidayTxt().type("Pongal")
         adminCalendarPage.getStartDateInCreateHolidayPopup().click()
-        var num = dayjs().add(1, 'day').format('DD')
+        var num = dayjs().add(1, 'day').format('D')
         cy.log(num)
         adminCalendarPage.getDateLstInCreateHolidayPopup().eq(num-1).click()
         adminCalendarPage.getEndDateInCreateHolidayPopup().click()
@@ -83,7 +84,7 @@ describe("Verify admin Calendar functionalities - Sprint 15(EL-4065)", function 
         adminCalendarPage.getHolidayDateInCalendar().should('contain.text', "Pongal")
         adminCalendarPage.getMonthlyDrpDwnInCalendar().click()
         adminCalendarPage.getMonthlyDrpDwnLstInCalendar().select('Daily')
-        adminCalendarPage.getCalendarDayTxt().contains(num).click()
+        adminCalendarPage.getCalendarDayTxtDynamic(num).click()
         cy.wait(1000)
         adminCalendarPage.getHolidayWrapperLst().each(($e1, index) => {
             adminCalendarPage.getHolidayWrapperLst().eq(index).click()

@@ -53,7 +53,7 @@ describe("Verify admin Calendar functionalities - Sprint 15(EL-4065)", function 
     it("To delete the added holiday", function () {
         adminCalendarPage.getMonthlyDrpDwnInCalendar().click()
         adminCalendarPage.getMonthlyDrpDwnLstInCalendar().select('Weekly')
-        adminCalendarPage.getCalendarDayTxt().contains("24").click()
+        adminCalendarPage.getCalendarDayTxt().contains("24").dblclick()
         adminCalendarPage.getHolidayWrapperLst().each(($e1, index) => {
             adminCalendarPage.getHolidayWrapperLst().eq(index).click()
             adminCalendarPage.getHolidayDltBtn().click()

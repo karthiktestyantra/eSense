@@ -19,6 +19,32 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getAssessmentTab().click()
         teacherELAPage.getAssignmentBtn().click({ force: true })
         teacherELAPage.getAddELABtn().click()
+        cy.get('button.cntLibCardBtn').eq(2).scrollIntoView().click()
+        teacherELAPage.getViewELAQuestionCheckBx().click({ multiple: true })
+        teacherELAPage.getELAAssignBtn().click()
+        teacherELAPage.getElaPopupCancelBtn().click()
+        cy.wait(2000)
+        teacherELAPage.getAddELABtn().click()
+        // cy.get('button.cntLibCardBtn').eq(3).scrollIntoView().click()
+        // teacherELAPage.getViewELAQuestionCheckBx().click({ multiple: true })
+        // teacherELAPage.getELAAssignBtn().then(($e1) => {
+        //     const assgnTxt = $e1.text()
+        //     if (assgnTxt.includes('Assign')) {
+        //         teacherELAPage.getELAAssignBtn().click()
+        //         //    cy.on('window:alert',(txt)=>{
+        //         //     expect(txt).to.contains('Successfully Assigned');
+        //         teacherELAPage.getELAAssignedPrintBtn().click()
+        //         teacherELAPage.getELAAssignedPrintPageTxt().should('be.visible')
+        //         return false;
+
+        //     } else {
+
+        //         cy.on('window:alert', (txt) => {
+        //             expect(txt).to.contains('is already assigned Please select other ELA');
+
+        //         })
+        //     }
+        // })
         teacherELAPage.getELASubSearchTxtField()
         teacherELAPage.getELASubSearchIcon().click()
         teacherELAPage.getELATitleLstInAddELASect().each(($e1, index, $list) => {
@@ -487,6 +513,23 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getProdMilestoneShowTopicBtn().click()
         cy.wait(2000)
         teacherELAPage.getELAMilestoneChechBx().uncheck({ force: true })
+        teacherELAPage.getAssessmentTab().click()
+        teacherELAPage.getAssignmentBtn().click({ force: true })
+        teacherELAPage.getELACardLst().each(($e1, index, $list) => {
+            const text = $e1.text()
+            if (text.includes("Living and non-liv..")) {
+                teacherELAPage.getELACardLst().eq(index).click({ force: true })
+            }
+        })
+        teacherELAPage.getELACardLst().each(($e1, index, $list) => {
+            const text = $e1.text()
+            if (text.includes("Living and non-liv..")) {
+                teacherELAPage.getElaEvalutedDeleteIcon().eq(index).click({ force: true })
+                cy.wait(1000)
+                cy.get('.MuiButton-contained').click()
+            }
+        })
+
 
     })
 })

@@ -26,6 +26,13 @@ class AdminDashboardPage {
 
     navigateToFeeSetUpPage(feeStructurePageTitle) {
         this.getSideMenuFeeManagementIcon().click()
+        cy.wait(1000)
+        cy.get('body').then(($el) => {
+            if ($el.find('[class="popper-sub-list"]').length > 0) {
+                this.getFeeSetupLink().click()
+            }
+        })
+        cy.wait(1500)
     }
 
 }

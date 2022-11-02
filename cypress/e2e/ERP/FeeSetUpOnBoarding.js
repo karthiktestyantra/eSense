@@ -19,7 +19,7 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
     })
 
     it("FMS_TC_001 - Validate user can create fee structure by clicking on save button", function () {
-        adminDashboardPage.navigateToFeeSetUpPage()
+        adminDashboardPage.navigateToFeeSetUpPage()  
         feeSetUpOnBoardingPage.verifyFeeManagementPage(this.feeSetUpOnBoarding.feeStructurePageTitleSetUpFeeMasters)
         feeSetUpOnBoardingPage.clickOnSetUpFeeMastersOrAddNewButton()
         feeSetUpOnBoardingPage.verifyAddNewFeeStructureDetailsPage()

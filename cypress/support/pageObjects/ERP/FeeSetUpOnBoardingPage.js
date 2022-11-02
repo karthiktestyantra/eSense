@@ -286,7 +286,8 @@ class FeeSetUpOnBoardingPage {
         this.getSelectGrade().click()
         this.getGrade3().click()
         cy.wait(1000)
-        //this.clickOnOutSide()
+        this.clickOnOutSide()
+        cy.wait(1000)
         cy.forceClick(this.getContinueButton())
     }
 

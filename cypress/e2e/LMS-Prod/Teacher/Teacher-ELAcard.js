@@ -5,7 +5,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
     before(function () {
         cy.visit(Cypress.env('urlProd'))
         cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
-            cy.TeacherPostSetupLogin(validAdminLoginData.teacher1, validAdminLoginData.password)
+            cy.TeacherPostSetupLogin(validAdminLoginData.teacher3, validAdminLoginData.password)
         })
     })
 
@@ -23,7 +23,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getELASubSearchIcon().click()
         teacherELAPage.getELATitleLstInAddELASect().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("Components of Food")) {
+            if (text.includes("Fibre to Fabric")) {
                 teacherELAPage.getViewELABtnInELAAddSect().eq(index).click()
             }
         })
@@ -156,7 +156,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
     })
 
     it("Validate teacher is able to select Each column “Q1”, “Q2”, “Q3”, “Q4” will have a “check box” in the column and allow teacher to click on the check box, to select questions for the group./EL-4220/ES4220_08", function () {
-        cy.get('button.cntLibCardBtn').eq(0).click()    
+        cy.get('button.cntLibCardBtn').eq(3).click()    
        // teacherELAPage.getViewELABtn().scrollIntoView().click()
         teacherELAPage.getViewELAQuestionCheckBx().click({ multiple: true })
         teacherELAPage.getELAAssignBtn().click()
@@ -164,7 +164,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         teacherELAPage.getElaPopupCancelBtn().click()
         teacherELAPage.getELACardLst().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("Components of Food")) {
+            if (text.includes("Fibre to Fabric")) {
                 teacherELAPage.getDltBtnLstInELACard().eq(index).click()
             }
         })
@@ -174,7 +174,7 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
         cy.wait(1000)
         teacherELAPage.getELATitleLstInAddELASect().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("Components of Food")) {
+            if (text.includes("Fibre to Fabric")) {
                 teacherELAPage.getViewELABtnInELAAddSect().eq(index).click()
             }
         })
@@ -468,13 +468,13 @@ describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL
 
         teacherELAPage.getELACardLst().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("Components of Food..")) {
+            if (text.includes("Fibre to Fabric..")) {
                 teacherELAPage.getELACardLst().eq(index).click({ force: true })
             }
         })
         teacherELAPage.getELACardLst().each(($e1, index, $list) => {
             const text = $e1.text()
-            if (text.includes("Components of Food..")) {
+            if (text.includes("Fibre to Fabric..")) {
                 teacherELAPage.getElaEvalutedDeleteIcon().eq(index).click({ force: true })
                 cy.wait(1000)
                 cy.get('.MuiButton-contained').click()

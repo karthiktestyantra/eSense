@@ -407,7 +407,7 @@ class TeacherELAPage2 {
    }
 
    getViewELABtn() {
-      return cy.get('button.cntLibCardBtn').eq(0)
+      return cy.get('button.cntLibCardBtn').eq(3)
    }
 
    getOverviewViewELABtn() {

@@ -20,6 +20,11 @@ class PenaltytMasterOnBoardingPage {
         return cy.get('div.MuiSelect-select').eq(0)
     }
 
+    getPenaltyTypeDropdownValue() {
+        return cy.get('span.MuiListItemText-primary')
+    }
+
+
 
 }
 module.exports = new PenaltytMasterOnBoardingPage()

@@ -8,18 +8,20 @@ describe("Verify Fee Collection functionalities", function () {
     before(function () {
         cy.clearCookies();
         cy.clearLocalStorage();
-        cy.visit(Cypress.env("urlPostSetupERP"))
+        cy.visit(Cypress.env("urlPreSetupERP"))
         cy.fixture("ERP/LoginCredentials").then(function (loginCredentials) {
-          loginPage.login(loginCredentials.adminUsernamePostSetUp, loginCredentials.adminPassword)
+          loginPage.login(loginCredentials.adminUsernamePreSetUp, loginCredentials.adminPassword)
         })
       })
     
       beforeEach(function () {
+        cy.viewport(1920, 1080)
         cy.fixture("ERP/FeeCollection").as("feeCollection")
       })
 
       it("TC_001 - Validate user is able to collect fee", function () {
-        adminDashboardPage.navigateToFeeSetUpPage()
+        adminDashboardPage.getSideMenuFeeManagementIcon().click({force:true})
+        cy.wait(1000)
         adminDashboardPage.getFeeCollectionLink().click()
         cy.wait(4000)
         feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeCollection.StudentSearchTxt)

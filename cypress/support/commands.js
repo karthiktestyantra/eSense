@@ -7,8 +7,10 @@ after(function () {
   cy.clearLocalStorage();
 })
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-  return false;
+Cypress.Commands.add('uncaughtException', () => {
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    return false;
+  })
 })
 
 const login = require('./pageObjects/LMS-2/MainAdminIndexPage')
@@ -28,7 +30,7 @@ Cypress.Commands.add('AdminPostSetup', (email, password) => {
   Adminlogin.getUserName().clear().type(email);
   Adminlogin.getPassword().clear().type(password);
   Adminlogin.getLoginBtn().click({ force: true });
- // cy.url().should('contain', 'dashboard');
+  // cy.url().should('contain', 'dashboard');
   cy.wait(1000);
 })
 
@@ -125,6 +127,9 @@ Cypress.Commands.add('unCheckAndVerify', (element) => {
 Cypress.Commands.add('clickOnBody', () => {
   cy.get('body').click(0, 0)
 })
+
+
+
 
 
 

@@ -124,6 +124,26 @@ class FeeSetUpOnBoardingPage {
         return cy.get('[data-testid="ArrowLeftIcon"]')
     }
 
+    getDeleteConfirmButton() {
+        return cy.xpath('//button[.="Delete"]')
+    }
+
+    getFeeStructureDeletedMsg() {
+        return cy.xpath('//p[contains(text(),"fee structures have been deleted.")]')
+    }
+
+    getFeeStructureDeletedMsgCloseIcon() {
+        return cy.get('[data-testid="CloseIcon"]')
+    }
+
+    getSaveButtonFeeStructure() {
+        return cy.xpath('//button[.="Save"]')
+    }
+
+    getFeeStructureDeleteIconDynamic(FeeStructure) {
+        return cy.xpath('//p[.="' + FeeStructure + '"]/ancestor::tr//img[@class="deleteIcon"]')
+    }
+
     getNewStudentCheckBox() {
         return cy.get('[data-testid="newStudent"]')
     }
@@ -181,7 +201,7 @@ class FeeSetUpOnBoardingPage {
     }
 
     getFeeInstallmentsSetAsDefaultBtn() {
-        return cy.get('[data-testid="monthlySetAsDefault"]')
+        return cy.get('[class*="PrivateSwitchBase-input MuiSwitch"]')
     }
 
     clickOnOutSide() {
@@ -245,6 +265,68 @@ class FeeSetUpOnBoardingPage {
         cy.isVisible(this.getActionsEditIcon())
     }
 
+    verifyFeeStructureFeeTypePage() {
+        this.getAddFeeStructureFeeTypeTabs().should('be.visible').should('have.length', 4)
+        this.getMandatoryFeeBtn().last().click()
+        this.getFeeAmountTextField().each(($el, index) => {
+            cy.wrap($el).clear().type((index + 1) * 1000)
+        })
+        cy.forceClick(this.getContinueButton())
+        cy.wait(1500)
+    }
+
+    verifySaveButtonFeeStructure(feeStructureName) {
+        cy.uncaughtException()
+        this.getSaveButtonFeeStructure().click({ waitForAnimations: false })
+        cy.wait(8000)
+        cy.get('body').then(($el) => {
+            if ($el.find('[class*="MuiButton-contained"]').length > 0) {
+                cy.forceClick(this.getSaveButtonFeeStructure())
+                cy.wait(8000)
+            }
+            cy.isVisible(this.getFeeStructureDeleteIconDynamic(feeStructureName))
+        })
+    }
+
+    verifyDeleteButtonFeeStructure(feeStructureName) {
+        cy.uncaughtException()
+        this.getFeeStructureDeleteIconDynamic(feeStructureName).click()
+        cy.wait(1000)
+        this.getDeleteConfirmButton().click()
+        cy.isVisible(this.getFeeStructureDeletedMsg())
+        this.getFeeStructureDeletedMsgCloseIcon().click()
+    }
+
+    verifyFeeStructureFeeInstallmentsPage() {
+        this.getFeeInstallmentsCheckboxes().then(($el) => {
+            const uuid = () => Cypress._.random(0, $el.length - 1)
+            const index = uuid()
+            cy.wrap($el).eq(index).click()
+            this.getAddCustomButton().click()
+            cy.wait(1000)
+            this.getFeeInstallmentsCheckboxes().last().click()
+            cy.wait(1000)
+            this.getFeeInstallmentNameTextfield().type('SpecialFee')
+            this.getFeeInstallmentsSetAsDefaultBtn().eq(0).click()
+            this.getFeeInstallmentsDropdowns().each(($el) => {
+                cy.wrap($el).click()
+                cy.focused().click()
+                cy.wait(1000)
+            })
+            this.getFeeInstallmentsCalenderIcons().each(($el, index) => {
+                cy.wrap($el).scrollIntoView().click()
+                cy.wait(1500)
+                this.getFeeInstallmentsCalenderYearIcon().scrollIntoView().click({ waitForAnimations: false })
+                cy.contains('2023').click({ force: true })
+                cy.wait(1000)
+                this.getEndDateLeftArrowIcon().click({ waitForAnimations: false })
+                cy.wait(1000)
+                this.getEndDate(index + 3).click({ waitForAnimations: false })
+            })
+        })
+        cy.wait(1500)
+    }
+
     verifyAddNewFeeStructureDetailsPage() {
         cy.wait(2000)
         cy.isVisible(this.getFeeStructureNameFldInDetailPage())
@@ -286,9 +368,8 @@ class FeeSetUpOnBoardingPage {
         this.getSelectGrade().click()
         this.getGrade3().click()
         cy.wait(1000)
-        this.clickOnOutSide()
-        cy.wait(1000)
         cy.forceClick(this.getContinueButton())
+        cy.wait(1500)
     }
 
     verifyElementsInAddNewFeeStructurePage() {
@@ -338,7 +419,7 @@ class FeeSetUpOnBoardingPage {
         this.getFeeStructureTabsTitle().eq(0).click()
     }
 
-    clickOnFeeStructureContinueBtn(){
+    clickOnFeeStructureContinueBtn() {
         this.getFeeStructureContinueBtn().click()
     }
 

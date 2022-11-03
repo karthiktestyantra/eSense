@@ -18,6 +18,9 @@ class DiscountMasterOnBoardingPage {
     getDiscountAmountTxtFld(){
         return cy.get('input[name="quota.0.discountAmount"]')
     }
+    getDiscountAmountTxtFldFrCustom(){
+        return cy.get('input[name="quota.1.discountAmount"]')
+    }
     getCheckBxNameLst(){
         return cy.get('span.MuiFormControlLabel-label')
     }
@@ -48,47 +51,34 @@ class DiscountMasterOnBoardingPage {
     getAddDiscountPopup(){
         return cy.get('div[role="dialog"]')
     }
+    getCloseBtnFrAddDiscountPopup(){
+        return cy.get('#customized-dialog-title > .MuiButtonBase-root > [data-testid="CloseIcon"]')
+    }
+    getAddQuotaBtn(){
+        return cy.get('button[data-testid="addQuotaText"]')
+    }
+    getQuotaNameFld(){
+        return cy.get('input[name="quota.1.customQuotaName"]')
+    }
 
     //Business Logic
-    createAndVerifyDisountMasterFunctionalities() {
+    clickOnAddNewBtn(){
         this.getDiscountMasterAddNewBtn().click()
-        this.getDiscountNameBtn().click().type("Basic")
-        this.getDiscountTypeDrpDwn().click({force:true})
-        this.getDiscountTypeLstInDiscountTypeDrpDwn().should('contain.text',"Quota").and('contain.text',"Sibling").
-        and('contain.text',"Scholarship").and('contain.text',"Employees Child Discount").and('contain.text',"Children with special needs").
-        and('contain.text',"Economically weaker section").and('contain.text',"Upfront Payment").and('contain.text',"Other")
-        this.getDiscountTypeLstInDiscountTypeDrpDwn().contains("Quota").click()
-        this.getGeneralCheckBxLst().should('have.length',2)
-        this.getDiscountAmountTxtFld().click().type(1000)
-        this.getCheckBxNameLst().should('contain.text',"General").and('contain.text',"Flat Amount").and('contain.text',"Percentage").
-        and('contain.text',"SC").and('contain.text',"ST").and('contain.text',"OBC")
-        this.getSaveBtn().should('be.visible')
-        this.getSaveAndAddNewBtn().should('be.visible')
-        this.getCancelBtn().should('be.visible')
+    }
+
+    verifyDisountMasterFunctionalities() {
         this.getSaveBtn().click()
         cy.contains("New Discount Created").should('be.visible')
         cy.wait(3000)
     }
 
-    createAndVerifyDisountMasterFunctionalitiesWithSaveAndAdd() {
-        this.getDiscountMasterAddNewBtn().click()
-        this.getDiscountNameBtn().click().type("Basic")
-        this.getDiscountTypeDrpDwn().click({force:true})
-        this.getDiscountTypeLstInDiscountTypeDrpDwn().should('contain.text',"Quota").and('contain.text',"Sibling").
-        and('contain.text',"Scholarship").and('contain.text',"Employees Child Discount").and('contain.text',"Children with special needs").
-        and('contain.text',"Economically weaker section").and('contain.text',"Upfront Payment").and('contain.text',"Other")
-        this.getDiscountTypeLstInDiscountTypeDrpDwn().contains("Quota").click()
-        this.getGeneralCheckBxLst().should('have.length',2)
-        this.getDiscountAmountTxtFld().click().type(1000)
-        this.getCheckBxNameLst().should('contain.text',"General").and('contain.text',"Flat Amount").and('contain.text',"Percentage").
-        and('contain.text',"SC").and('contain.text',"ST").and('contain.text',"OBC")
-        this.getSaveBtn().should('be.visible')
-        this.getSaveAndAddNewBtn().should('be.visible')
-        this.getCancelBtn().should('be.visible')
+    verifyDisountMasterFunctionalitiesWithSaveAndAdd() {
         this.getSaveAndAddNewBtn().click()
         cy.contains("New Discount Created").should('be.visible')
         cy.wait(3000)
         this.getAddDiscountPopup().should('be.visible')
+        cy.wait(1000)
+        this.getCloseBtnFrAddDiscountPopup().click()
     }
 
     verifyCreatedDiscountNameInDiscountMasterPage(){
@@ -101,6 +91,36 @@ class DiscountMasterOnBoardingPage {
                 this.getDeleteIconsLst().eq(index).should('be.visible')
             }
         })
+    }
+
+    fillingTheDetailsInDiscountMasterPopUp(){
+        cy.wait(1000)
+        this.getDiscountNameBtn().click().type("Basic")
+        this.getDiscountTypeDrpDwn().click({force:true})
+        this.getDiscountTypeLstInDiscountTypeDrpDwn().should('contain.text',"Quota").and('contain.text',"Sibling").
+        and('contain.text',"Scholarship").and('contain.text',"Employees Child Discount").and('contain.text',"Children with special needs").
+        and('contain.text',"Economically weaker section").and('contain.text',"Upfront Payment").and('contain.text',"Other")
+        this.getDiscountTypeLstInDiscountTypeDrpDwn().contains("Quota").click()
+        this.getGeneralCheckBxLst().should('have.length',2)
+        this.getDiscountAmountTxtFld().click().type(1000)
+        this.getCheckBxNameLst().should('contain.text',"General").and('contain.text',"Flat Amount").and('contain.text',"Percentage").
+        and('contain.text',"SC").and('contain.text',"ST").and('contain.text',"OBC")
+        this.getSaveBtn().should('be.visible')
+        this.getSaveAndAddNewBtn().should('be.visible')
+        this.getCancelBtn().should('be.visible')
+    }
+
+    verifyDisountMasterFunctionalitiesWithCancel(){
+        this.getCancelBtn().click()
+        this.getAddDiscountPopup().should('not.exist')
+    }
+
+    verifyQuotaDiscountFunctionalities(){
+        this.getAddQuotaBtn().click()
+        this.getQuotaNameFld().type("Sports")
+        this.getDiscountAmountTxtFldFrCustom().type("3000")
+        this.getSaveBtn().click()
+        cy.contains("New Discount Created").should('be.visible')
     }
 
 

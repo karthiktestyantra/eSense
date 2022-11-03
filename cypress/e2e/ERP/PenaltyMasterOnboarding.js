@@ -1,6 +1,6 @@
-const loginPage = require('../../../support/pageObjects/ERP/LoginPage')
-const adminDashboardPage = require('../../../support/pageObjects/ERP/AdminDashboardPage')
-const penaltyMasterOnBoardingPage = require('../../../support/pageObjects/ERP/PenaltyMasterOnBoardingPage')
+const loginPage = require('../../support/pageObjects/ERP/LoginPage')
+const adminDashboardPage = require('../../support/pageObjects/ERP/AdminDashboardPage')
+const penaltyMasterOnBoardingPage = require('../../support/pageObjects/ERP/PenaltyMasterOnBoardingPage')
 const dayjs = require('dayjs')
 describe("Verify Penalty Master functionalities", function () {
 

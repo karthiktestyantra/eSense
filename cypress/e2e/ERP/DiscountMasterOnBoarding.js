@@ -1,7 +1,7 @@
 const loginPage = require('../../support/pageObjects/ERP/LoginPage')
 const adminDashboardPage = require('../../support/pageObjects/ERP/AdminDashboardPage')
 const feeSetUpOnBoardingPage = require('../../support/pageObjects/ERP/FeeSetUpOnBoardingPage')
-const penaltyMasterOnBoardingPage = require('../../support/pageObjects/ERP/PenaltyMasterOnBoardingPage')
+const discountMasterOnBoardingPage = require('../../support/pageObjects/ERP/DiscountMasterOnBoardingPage')
 const dayjs = require('dayjs')
 
 describe("Verify Fee SetUp OnBoarding functionalities", function () {
@@ -9,9 +9,9 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
   beforeEach(function () {
     cy.clearCookies();
     cy.clearLocalStorage();
-    cy.visit(Cypress.env("urlPreSetupERP"))
+    cy.visit(Cypress.env("urlPostSetupERP"))
     cy.fixture("ERP/LoginCredentials").then(function (loginCredentials) {
-      loginPage.login(loginCredentials.adminUsernamePreSetUp, loginCredentials.adminPassword)
+      loginPage.login(loginCredentials.adminUsernamePostSetUp, loginCredentials.adminPassword)
     })
     cy.fixture("ERP/FeeSetUpOnBoarding").as("feeSetUpOnBoarding")
   })
@@ -23,9 +23,9 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
     cy.wait(1000)
     feeSetUpOnBoardingPage.clickOnFeeStructureContinueBtn()
     cy.wait(1000)
-    penaltyMasterOnBoardingPage.createAndVerifyDisountMasterFunctionalities()
+    discountMasterOnBoardingPage.createAndVerifyDisountMasterFunctionalities()
     cy.wait(1000)
-    penaltyMasterOnBoardingPage.verifyCreatedDiscountNameInDiscountMasterPage()
+    discountMasterOnBoardingPage.verifyCreatedDiscountNameInDiscountMasterPage()
   })
 
   it("TC_003 - Validate user is able to create a discount master", function () {
@@ -35,6 +35,6 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
     cy.wait(1000)
     feeSetUpOnBoardingPage.clickOnFeeStructureContinueBtn()
     cy.wait(1000)
-    penaltyMasterOnBoardingPage.createAndVerifyDisountMasterFunctionalitiesWithSaveAndAdd()
+    discountMasterOnBoardingPage.createAndVerifyDisountMasterFunctionalitiesWithSaveAndAdd()
   })
 })

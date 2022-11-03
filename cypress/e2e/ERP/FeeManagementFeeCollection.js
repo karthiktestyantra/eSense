@@ -8,9 +8,9 @@ describe("Verify Fee Collection functionalities", function () {
     before(function () {
         cy.clearCookies();
         cy.clearLocalStorage();
-        cy.visit(Cypress.env("urlPreSetupERP"))
+        cy.visit(Cypress.env("urlPostSetupERP"))
         cy.fixture("ERP/LoginCredentials").then(function (loginCredentials) {
-          loginPage.login(loginCredentials.adminUsernamePreSetUp, loginCredentials.adminPassword)
+          loginPage.login(loginCredentials.adminUsernamePostSetUp, loginCredentials.adminPassword)
         })
       })
     

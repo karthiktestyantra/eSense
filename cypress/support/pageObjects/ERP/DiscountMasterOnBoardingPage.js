@@ -1,4 +1,4 @@
-class penaltyMasterOnBoardingPage {
+class DiscountMasterOnBoardingPage {
 
     getDiscountMasterAddNewBtn() {
         return cy.get('button[type="button"]').contains("Add New")
@@ -105,4 +105,4 @@ class penaltyMasterOnBoardingPage {
 
 
 }
-module.exports = new penaltyMasterOnBoardingPage()
+module.exports = new DiscountMasterOnBoardingPage()

@@ -16,5 +16,8 @@ import "@shelex/cypress-allure-plugin";
 //for mouse pointer location
 import 'cypress-mouse-position/commands';
 
+//for cypress-localstorage
+import "cypress-localstorage-commands";
+
 
 

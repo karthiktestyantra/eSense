@@ -41,6 +41,7 @@ module.exports = defineConfig({
   },
   e2e: {
     setupNodeEvents(on, config) {
+      require("cypress-localstorage-commands/plugin")(on, config);
       initCypressMousePositionPlugin(on);
       allureWriter(on, config);
       return config;

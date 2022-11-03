@@ -40,7 +40,9 @@ class FeeManagementFeeCollectionPage{
         return cy.get('button[data-testid="applyBtn"]')
     }
 
-
+    getFeeCollectionCancelBtn() {
+        return cy.get('button[data-testid="cancelBtn"]')
+    }
 
 }
 module.exports = new FeeManagementFeeCollectionPage()

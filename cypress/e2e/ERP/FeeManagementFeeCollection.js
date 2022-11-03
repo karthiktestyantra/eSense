@@ -12,14 +12,16 @@ describe("Verify Fee Collection functionalities", function () {
         cy.fixture("ERP/LoginCredentials").then(function (loginCredentials) {
           loginPage.login(loginCredentials.adminUsernamePostSetUp, loginCredentials.adminPassword)
         })
+        cy.saveLocalStorage();
       })
     
       beforeEach(function () {
         cy.viewport(1920, 1080)
+        cy.restoreLocalStorage();
         cy.fixture("ERP/FeeCollection").as("feeCollection")
       })
-
-      it("TC_001 - Validate user is able to collect fee", function () {
+      
+      it("TC_002 - To Validate user is able to cancel the collect fee", function () {
         adminDashboardPage.getSideMenuFeeManagementIcon().click({force:true})
         cy.wait(1000)
         adminDashboardPage.getFeeCollectionLink().click()
@@ -40,8 +42,30 @@ describe("Verify Fee Collection functionalities", function () {
         feeManagementFeeCollectionPage.getFeeTransactionIdTxtField().type(this.feeCollection.TransactionID)
         feeManagementFeeCollectionPage.getFeeAttachFile().attachFile('ERP/sample.pdf');
         feeManagementFeeCollectionPage.getFeeRemarksTextArea().type(this.feeCollection.Remarks)
-        feeManagementFeeCollectionPage.getFeeCollectionApplyBtn().click()
+        cy.wait(1000)
+        // cy.pause()
+        feeManagementFeeCollectionPage.getFeeCollectionCancelBtn().click()
         
+      })
+
+      it('TC_001 - Validate user is able to collect fee',function () {
+        cy.wait(2000)
+        feeManagementFeeCollectionPage.getListOfStudentName().each(($e1,index,$list)=>{
+          var studentNameTxt = $e1.text().trim()
+          if(studentNameTxt===(this.feeCollection.StudentSearchTxt)){
+            cy.wait(1000)
+          feeManagementFeeCollectionPage.getListOfStudentCollectFeeBtn().eq(index).click()
+
+          }
+
+      })
+      feeManagementFeeCollectionPage.getPaymentModeDropdown().click()
+      feeManagementFeeCollectionPage.getPaymentModeDropdownList().contains(this.feeCollection.paymentmode).click()
+      feeManagementFeeCollectionPage.getFeeAmtTxtField().type(this.feeCollection.FeeAmtValue)
+      feeManagementFeeCollectionPage.getFeeTransactionIdTxtField().type(this.feeCollection.TransactionID)
+      feeManagementFeeCollectionPage.getFeeAttachFile().attachFile('ERP/sample.pdf');
+      feeManagementFeeCollectionPage.getFeeRemarksTextArea().type(this.feeCollection.Remarks)
+      feeManagementFeeCollectionPage.getFeeCollectionApplyBtn().click()
       })
 })  
 

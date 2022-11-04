@@ -9,7 +9,7 @@ class AdminDashboardPage {
     }
 
     getDashboardLink() {
-        return cy.xpath('//div[@class="content-popover-feemanagement w-100"]//div[text()="Dashboard"]')
+        return cy.xpath('//div[text()="Dashboard"]/..//span')
     }
 
     getFeeAllocationLink() {

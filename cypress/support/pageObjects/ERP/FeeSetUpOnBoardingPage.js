@@ -132,6 +132,10 @@ class FeeSetUpOnBoardingPage {
         return cy.xpath('//p[contains(text(),"fee structures have been deleted.")]')
     }
 
+    getEditFeeStructureTitle() {
+        return cy.xpath('//div[.="Edit Fee Structure"]')
+    }
+
     getFeeStructureDeletedMsgCloseIcon() {
         return cy.get('[data-testid="CloseIcon"]')
     }
@@ -140,8 +144,28 @@ class FeeSetUpOnBoardingPage {
         return cy.xpath('//button[.="Save"]')
     }
 
+    getCancelButtonFeeStructure() {
+        return cy.xpath('//button[.="Cancel"]')
+    }
+
+    getSaveAddNewButtonFeeStructure() {
+        return cy.xpath('//button[.="Save & Add New"]')
+    }
+
     getFeeStructureDeleteIconDynamic(FeeStructure) {
         return cy.xpath('//p[.="' + FeeStructure + '"]/ancestor::tr//img[@class="deleteIcon"]')
+    }
+
+    getFeeStructureCreatedMsg() {
+        return cy.get('[class*="MuiAlert-message"]')
+    }
+
+    getFeeStructureEditIconDynamic(FeeStructure) {
+        return cy.xpath('//p[.="' + FeeStructure + '"]/ancestor::tr//img[@class="editIcon"]')
+    }
+
+    getFeeStructureNameInListDynamic(FeeStructure) {
+        return cy.xpath('//p[.="' + FeeStructure + '"]')
     }
 
     getNewStudentCheckBox() {
@@ -200,6 +224,10 @@ class FeeSetUpOnBoardingPage {
         return cy.get('[data-testid="InstalmentNameId"]')
     }
 
+    getCustomFeeInstallmentDeleteIcon() {
+        return cy.get('[class="deleteBox"] img')
+    }
+
     getFeeInstallmentsSetAsDefaultBtn() {
         return cy.get('[class*="PrivateSwitchBase-input MuiSwitch"]')
     }
@@ -246,7 +274,7 @@ class FeeSetUpOnBoardingPage {
 
     verifyFeeManagementPage(feeStructurePageTitle) {
         cy.wait(2000)
-        cy.verifyTextEquals(this.getFeeStructureTitleSetUpFeeMasters(), feeStructurePageTitle)
+        cy.verifyTextContains(this.getFeeStructureTitleSetUpFeeMasters(), feeStructurePageTitle)
     }
 
     verifyFeeManagementPageSetUpFeeMasters(feeStructurePageTitleSetUpFeeMasters) {
@@ -276,21 +304,44 @@ class FeeSetUpOnBoardingPage {
     }
 
     verifySaveButtonFeeStructure(feeStructureName) {
-        cy.uncaughtException()
         this.getSaveButtonFeeStructure().click({ waitForAnimations: false })
-        cy.wait(8000)
+        cy.isVisible(this.getFeeStructureCreatedMsg())
+        this.getFeeStructureCreatedMsg().invoke('text', ("Fee Structure " + feeStructureName + " Created."))
+        cy.wait(1000)
+        cy.isVisible(this.getFeeStructureNameInListDynamic(feeStructureName))
+    }
+
+    verifySaveAddNewButtonFeeStructure(feeStructureName) {
+        cy.uncaughtException()
+        this.getSaveAddNewButtonFeeStructure().click({ waitForAnimations: false })
+        cy.wait(5000)
         cy.get('body').then(($el) => {
             if ($el.find('[class*="MuiButton-contained"]').length > 0) {
                 cy.forceClick(this.getSaveButtonFeeStructure())
-                cy.wait(8000)
+                cy.isVisible(this.getFeeStructureCreatedMsg())
+                cy.verifyTextEquals(this.getFeeStructureCreatedMsg(), ('Fee Structure ' + feeStructureName + ' Created.'))
+                cy.wait(2000)
             }
-            cy.isVisible(this.getFeeStructureDeleteIconDynamic(feeStructureName))
+            cy.isVisible(this.getFeeStructureNameInListDynamic(feeStructureName))
         })
+    }
+
+    verifyCancelButtonFeeStructure(feeStructureName) {
+        this.getCancelButtonFeeStructure().click()
+        cy.wait(2000)
+        this.getFeeStructureNameInListDynamic(feeStructureName).should('not.exist')
+    }
+
+    verifyEditButtonFeeStructure(feeStructureName) {
+        this.getFeeStructureEditIconDynamic(feeStructureName).should('be.visible').click()
+        cy.wait(1000)
+        cy.isVisible(this.getEditFeeStructureTitle())
+        this.getCancelButtonFeeStructure().click()
     }
 
     verifyDeleteButtonFeeStructure(feeStructureName) {
         cy.uncaughtException()
-        this.getFeeStructureDeleteIconDynamic(feeStructureName).click()
+        this.getFeeStructureDeleteIconDynamic(feeStructureName).should('be.visible').click()
         cy.wait(1000)
         this.getDeleteConfirmButton().click()
         cy.isVisible(this.getFeeStructureDeletedMsg())
@@ -304,25 +355,30 @@ class FeeSetUpOnBoardingPage {
             cy.wrap($el).eq(index).click()
             this.getAddCustomButton().click()
             cy.wait(1000)
-            this.getFeeInstallmentsCheckboxes().last().click()
+            this.getFeeInstallmentsCheckboxes().last().check()
             cy.wait(1000)
             this.getFeeInstallmentNameTextfield().type('SpecialFee')
+            cy.wait(1000)
+            this.getCustomFeeInstallmentDeleteIcon().click()
+            cy.wait(1000)
             this.getFeeInstallmentsSetAsDefaultBtn().eq(0).click()
             this.getFeeInstallmentsDropdowns().each(($el) => {
                 cy.wrap($el).click()
                 cy.focused().click()
                 cy.wait(1000)
             })
-            this.getFeeInstallmentsCalenderIcons().each(($el, index) => {
-                cy.wrap($el).scrollIntoView().click()
-                cy.wait(1500)
-                this.getFeeInstallmentsCalenderYearIcon().scrollIntoView().click({ waitForAnimations: false })
-                cy.contains('2023').click({ force: true })
-                cy.wait(1000)
-                this.getEndDateLeftArrowIcon().click({ waitForAnimations: false })
-                cy.wait(1000)
-                this.getEndDate(index + 3).click({ waitForAnimations: false })
-            })
+            if (index > 0) {
+                this.getFeeInstallmentsCalenderIcons().each(($el, index) => {
+                    cy.wrap($el).scrollIntoView().click()
+                    cy.wait(1500)
+                    this.getFeeInstallmentsCalenderYearIcon().scrollIntoView().click({ waitForAnimations: false })
+                    cy.contains('2023').click({ force: true })
+                    cy.wait(1000)
+                    this.getEndDateLeftArrowIcon().click({ waitForAnimations: false })
+                    cy.wait(1000)
+                    this.getEndDate(index + 3).click({ waitForAnimations: false })
+                })
+            }
         })
         cy.wait(1500)
     }

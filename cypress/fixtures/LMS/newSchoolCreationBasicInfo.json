@@ -47,5 +47,14 @@
     "Grade 10",
     "Grade 11",
     "Grade 12"
-  ]
+  ],
+  "teacherName": "Teacher",
+  "teacherEmail": "@gmail.com",
+  "teacherDobYear": "1996",
+  "teacherContactNumber": "9876543210",
+  "teacherEmployeeId": "100",
+  "address1": "L1",
+  "address2": "L2",
+  "pinCode": "632312",
+  "qualificationTitle": "B.E"
 }

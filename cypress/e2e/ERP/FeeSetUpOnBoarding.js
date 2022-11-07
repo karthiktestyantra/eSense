@@ -29,11 +29,33 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
         feeSetUpOnBoardingPage.verifyFeeManagementPage(this.feeSetUpOnBoarding.feeStructurePageTitleSetUpFeeMasters)
         feeSetUpOnBoardingPage.clickOnSetUpFeeMastersOrAddNewButton()
         feeSetUpOnBoardingPage.verifyAddNewFeeStructureDetailsPage()
-        feeSetUpOnBoardingPage.enterAllFeeStructureDetails(this.feeSetUpOnBoarding.feeStructureName, this.feeSetUpOnBoarding.feeStructureDescription, dayjs().format('D'), dayjs().format('D'))
+        feeSetUpOnBoardingPage.enterAllFeeStructureDetails(this.feeSetUpOnBoarding.feeStructureName1, this.feeSetUpOnBoarding.feeStructureDescription, dayjs().format('D'), dayjs().format('D'))
         feeSetUpOnBoardingPage.verifyFeeStructureFeeTypePage()
         feeSetUpOnBoardingPage.verifyFeeStructureFeeInstallmentsPage()
-        feeSetUpOnBoardingPage.verifySaveButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName)
-        feeSetUpOnBoardingPage.verifyDeleteButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName)
+        // feeSetUpOnBoardingPage.verifyCancelButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName1)
+        // feeSetUpOnBoardingPage.clickOnSetUpFeeMastersOrAddNewButton()
+        // feeSetUpOnBoardingPage.verifyAddNewFeeStructureDetailsPage()
+        // feeSetUpOnBoardingPage.enterAllFeeStructureDetails(this.feeSetUpOnBoarding.feeStructureName1, this.feeSetUpOnBoarding.feeStructureDescription, dayjs().format('D'), dayjs().format('D'))
+        // feeSetUpOnBoardingPage.verifyFeeStructureFeeTypePage()
+        // feeSetUpOnBoardingPage.verifyFeeStructureFeeInstallmentsPage()
+        feeSetUpOnBoardingPage.verifySaveButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName1)
+        feeSetUpOnBoardingPage.verifyEditButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName1)
+        feeSetUpOnBoardingPage.verifyDeleteButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName1)
+    })
+
+    it("FMS_TC_002 - Validate user can create fee structure by clicking on save and add new button", function () {
+        cy.wait(2000)
+        feeSetUpOnBoardingPage.clickOnSetUpFeeMastersOrAddNewButton()
+        feeSetUpOnBoardingPage.verifyAddNewFeeStructureDetailsPage()
+        feeSetUpOnBoardingPage.enterAllFeeStructureDetails(this.feeSetUpOnBoarding.feeStructureName2, this.feeSetUpOnBoarding.feeStructureDescription, dayjs().format('D'), dayjs().format('D'))
+        feeSetUpOnBoardingPage.verifyFeeStructureFeeTypePage()
+        feeSetUpOnBoardingPage.verifyFeeStructureFeeInstallmentsPage()
+        cy.pause()
+        feeSetUpOnBoardingPage.getSaveAddNewButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName2)
+
+        feeSetUpOnBoardingPage.verifyDeleteButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName2)
     })
 })
+
+//Author - Karthik
 

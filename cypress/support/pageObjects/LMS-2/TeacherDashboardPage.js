@@ -246,7 +246,7 @@ class TeacherDashboardPage {
     }
 
     getAttendenceCardCloseIcon() {
-        return cy.get('[data-testid="CloseIcon"]')
+        return cy.get(':nth-child(1) > .Dashboard_cardContainer__270hq > .MuiButtonBase-root > [data-testid="close-icon"] > path')
     }
 
     getAttachsamplefile() {

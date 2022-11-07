@@ -3,19 +3,24 @@ const loginPageAdmin = require('../../support/pageObjects/LMS-1/LoginPageAdmin')
 const adminBasicInfoPage = require('../../support/pageObjects/LMS-1/AdminBasicInfoPage')
 const adminDepartmentsPage = require('../../support/pageObjects/LMS-1/AdminDepartmentsPage')
 const adminGradesPage = require('../../support/pageObjects/LMS-1/AdminGradesPage')
+const dayjs = require('dayjs')
 
 describe("Verify Admin School Creation Functionalities", function () {
 
   before(function () {
+    cy.clearCookies();
+    cy.clearLocalStorage();
     cy.visit('https://prashanti.staging.topschool.co.in')
     indexPage.getAdmin().click()
-    cy.reload()
-    cy.fixture("LMS/validPreSetupAdminCredentials").then(function (validAdminLoginData) {
-      this.validAdminLoginData = validAdminLoginData;
-    })
+    // cy.reload()
+    // cy.fixture("LMS/validPreSetupAdminCredentials").then(function (validAdminLoginData) {
+    //   this.validAdminLoginData = validAdminLoginData;
+    // })
+    cy.saveLocalStorage();
   })
 
   beforeEach(function () {
+    cy.restoreLocalStorage();
     cy.fixture("LMS/newSchoolCreationBasicInfo").as("newSchoolCreationBasicInfo")
   })
 
@@ -28,9 +33,9 @@ describe("Verify Admin School Creation Functionalities", function () {
       "Test@12345"
     )
     adminBasicInfoPage.getBasicInfoTitle().should("have.text", "Basic Information")
-  })
+    //})
 
-  it("Verify that the School & Branch section should have Institution Name *, Branch Name *, Date of first Opening * and Trust/Society/Company fields and the fields should be enabled", function () {
+    //it("Verify that the School & Branch section should have Institution Name *, Branch Name *, Date of first Opening * and Trust/Society/Company fields and the fields should be enabled", function () {
     adminBasicInfoPage.getProfilePicFileUpload().attachFile(this.newSchoolCreationBasicInfo.ProfilePic)
     adminBasicInfoPage.getInstituteName().clear().type(this.newSchoolCreationBasicInfo.instituteName)
     adminBasicInfoPage.getBranchName().clear().type(this.newSchoolCreationBasicInfo.branchName)
@@ -39,8 +44,9 @@ describe("Verify Admin School Creation Functionalities", function () {
     adminBasicInfoPage.getCalendarPreviousIcon().click()
     adminBasicInfoPage.getCalendarYearDropdown().click()
     cy.forceClick(adminBasicInfoPage.getCalendarYear().contains(this.newSchoolCreationBasicInfo.dateOfFirstOpeningYear))
-    adminBasicInfoPage.getCalendarNextIcon().click()
-    adminBasicInfoPage.getCalendarDay().contains(this.newSchoolCreationBasicInfo.dateOfFirstOpeningDate).click()
+    adminBasicInfoPage.getCalendarNextIcon().click({ waitForAnimations: false })
+    cy.wait(1000)
+    adminBasicInfoPage.getCalendarDay().contains(this.newSchoolCreationBasicInfo.dateOfFirstOpeningDate).click({ waitForAnimations: false })
     adminBasicInfoPage.getAffiliationType().clear().type(this.newSchoolCreationBasicInfo.affiliationType)
     adminBasicInfoPage.getAffiliationNumber().clear().type(this.newSchoolCreationBasicInfo.affiliationNumber)
     adminBasicInfoPage.getCalendarIconOfAffiliationStartDate().click()
@@ -88,9 +94,9 @@ describe("Verify Admin School Creation Functionalities", function () {
     adminBasicInfoPage.getPOCAddButton().click()
     cy.wait(2000)
     adminBasicInfoPage.getStepDotIconPreSetup().eq(0).click()
-  })
+    //})
 
-  it("Verify that the Add Department pop up should be displayed to add the department by clicking the “+ Add Department” ", function () {
+    //it("Verify that the Add Department pop up should be displayed to add the department by clicking the “+ Add Department” ", function () {
     cy.wait(2500)
     cy.get('body').then(($el) => {
       if ($el.find('[class*="departmentDeleteIcon"] img').length > 0) {
@@ -102,6 +108,7 @@ describe("Verify Admin School Creation Functionalities", function () {
           cy.log(gradeLen)
           for (let index = 0; index < gradeLen; index++) {
             adminDepartmentsPage.getDeleteIconGradesPreSetup().eq(0).click()
+            cy.wait(1000)
             adminDepartmentsPage.getDeleteConfirmBtnGradesPreSetup().click()
             cy.wait(3000)
           }
@@ -135,10 +142,10 @@ describe("Verify Admin School Creation Functionalities", function () {
     adminDepartmentsPage.getAddButton().click()
     cy.wait(2000)
     adminBasicInfoPage.getStepDotIconPreSetup().eq(0).click()
-  })
+    // })
 
 
-  it("Verify that the Edit icon and Delete icon to be provided against each row of data", function () {
+    //it("Verify that the Edit icon and Delete icon to be provided against each row of data", function () {
     cy.wait(2000)
     adminDepartmentsPage.getGradeCheckboxPreSetup().eq(0).uncheck()
     cy.wait(3000)
@@ -153,6 +160,7 @@ describe("Verify Admin School Creation Functionalities", function () {
         cy.get('@sectionLen').then((sectionLen) => {
           for (let index = 0; index < sectionLen; index++) {
             adminDepartmentsPage.getSectionBtnPreSetup().eq(0).click()
+            cy.wait(1000)
             adminDepartmentsPage.getDeleteBtnSectionPreSetup().click()
             cy.wait(1000)
             adminDepartmentsPage.getDeleteConfirmBtnSectionPreSetup().click()
@@ -182,10 +190,10 @@ describe("Verify Admin School Creation Functionalities", function () {
                 adminDepartmentsPage.getStreamDropdownInSectionPreSetup().click()
                 cy.wait(1000)
                 cy.focused().click()
-                cy.clickOnBody()
+                cy.wait(2000)
               }
             })
-            adminDepartmentsPage.getOptionalSubDropdownPreSetup().click()
+            adminDepartmentsPage.getOptionalSubDropdownPreSetup().click({ force: true })
             cy.wait(1000)
             adminDepartmentsPage.getOptionalSubDropdownListChechboxPreSetup().then(($el) => {
               const uuid = () => Cypress._.random(1, $el.length - 1)
@@ -201,21 +209,149 @@ describe("Verify Admin School Creation Functionalities", function () {
         }
       }
     })
+    adminDepartmentsPage.getContinueButton().click();
+    // })
+
+    // it("Verify that the Edit Department pop up should be displayed by clicking the edit icon of the selected department", function () {
+    cy.wait(3000)
+    cy.get('body').then(($el) => {
+      if ($el.find('[class*="TeacherAccounts_icon_del"] img').length > 0) {
+        adminDepartmentsPage.getDeleteIconTeacherPreSetup().then(($el) => {
+          var teacherLen = $el.length
+          cy.wrap(teacherLen).as('teacherLen')
+        })
+        cy.get('@teacherLen').then((teacherLen) => {
+          cy.log(teacherLen)
+          for (let index = 0; index < teacherLen; index++) {
+            adminDepartmentsPage.getDeleteIconTeacherPreSetup().eq(0).click()
+            cy.wait(1000)
+            adminDepartmentsPage.getDeleteConfirmBtnTeacherPreSetup().click()
+            cy.wait(3000)
+            cy.clickOnBody()
+          }
+        })
+      }
+    })
+
+    adminDepartmentsPage.getAddTeacherOption().click()
+    cy.wait(2000)
+    var expGrades = this.newSchoolCreationBasicInfo.grades
+    for (let index = 1; index < expGrades.length + 1; index++) {
+      adminDepartmentsPage.getNameTextfieldAddTeacher().type((this.newSchoolCreationBasicInfo.teacherName) + index)
+      adminDepartmentsPage.getEmailTextfieldAddTeacher().type((this.newSchoolCreationBasicInfo.teacherName) + index + (this.newSchoolCreationBasicInfo.teacherEmail))
+      adminDepartmentsPage.getCalenderIconAddTeacher().click()
+      cy.wait(1000)
+      adminDepartmentsPage.getCalenderYearIcon().click({ waitForAnimations: false })
+      adminDepartmentsPage.getCalenderYear(this.newSchoolCreationBasicInfo.teacherDobYear).click({ waitForAnimations: false })
+      cy.wait(1000)
+      adminDepartmentsPage.getCalenderDay(dayjs().format('D')).click()
+      cy.wait(1000)
+      adminDepartmentsPage.getGenderDropdown().click()
+      cy.wait(1000)
+      adminDepartmentsPage.getGenderDropdownList().then(($el) => {
+        const uuid = () => Cypress._.random(0, $el.length - 1)
+        const ran = uuid()
+        cy.wrap($el).eq(ran).click()
+      })
+      adminDepartmentsPage.getContactNumberTeacherPreSetup().type(this.newSchoolCreationBasicInfo.teacherContactNumber)
+      adminDepartmentsPage.getBloodGroupTeacherPreSetup().click()
+      cy.wait(1000)
+      adminDepartmentsPage.getGenderDropdownList().eq(0).click()
+      cy.wait(1000)
+      adminDepartmentsPage.getEmployeeIdTextfieldTeacherPreSetup().type((this.newSchoolCreationBasicInfo.teacherEmployeeId) + index)
+      adminDepartmentsPage.getDesignationTextfieldTeacherPreSetup().type(this.newSchoolCreationBasicInfo.teacherName)
+      adminDepartmentsPage.getAddress1TextfieldTeacherPreSetup().type(this.newSchoolCreationBasicInfo.address1)
+      adminDepartmentsPage.getAddress2TextfieldTeacherPreSetup().type(this.newSchoolCreationBasicInfo.address2)
+      adminDepartmentsPage.getPincodeTextfieldTeacherPreSetup().type(this.newSchoolCreationBasicInfo.pinCode)
+      cy.wait(5000)
+      adminDepartmentsPage.getContinueBtnBasicDetailsTeacherPreSetup().click()
+      cy.wait(5000)
+      adminDepartmentsPage.getAcademicDetailsDropdownsTeacherPreSetup().eq(0).click()
+      cy.wait(1000)
+      adminDepartmentsPage.getGenderDropdownList().then(($el) => {
+        const uuid = () => Cypress._.random(0, $el.length - 1)
+        const ran = uuid()
+        cy.wrap($el).eq(ran).scrollIntoView().click()
+      })
+      cy.wait(1000)
+      adminDepartmentsPage.getAcademicDetailsDropdownsTeacherPreSetup().eq(1).click()
+      cy.wait(1000)
+      adminDepartmentsPage.getGenderDropdownList().then(($el) => {
+        const uuid = () => Cypress._.random(0, $el.length - 1)
+        const ran = uuid()
+        cy.wrap($el).eq(0).scrollIntoView().click()
+        cy.wrap($el).eq(5).scrollIntoView().click()
+        cy.wrap($el).eq(ran).scrollIntoView().click()
+        cy.wrap($el).eq($el.length - 1).scrollIntoView().click()
+      })
+      cy.wait(1000)
+      cy.clickOnBody()
+      adminDepartmentsPage.getAcademicDetailsAddQualificationBtnTeacherPreSetup().click()
+      cy.wait(1000)
+      adminDepartmentsPage.getQualificationTitleAcademicDetailsTeacherPreSetup().type(this.newSchoolCreationBasicInfo.qualificationTitle)
+      adminDepartmentsPage.getAcademicDetailsDropdownsTeacherPreSetup().eq(2).click()
+      cy.wait(1000)
+      adminDepartmentsPage.getGenderDropdownList().then(($el) => {
+        const uuid = () => Cypress._.random(0, $el.length - 1)
+        const ran = uuid()
+        cy.wrap($el).eq(ran).scrollIntoView().click()
+      })
+      adminDepartmentsPage.getQualificationAddBtnAcademicDetailsTeacherPreSetup().click()
+      cy.wait(2000)
+      adminDepartmentsPage.getContinueBtnBasicDetailsTeacherPreSetup().click()
+      cy.wait(5000)
+      adminDepartmentsPage.getAcademicDetailsDropdownsTeacherPreSetup().eq(0).click()
+      cy.wait(1000)
+      adminDepartmentsPage.getGenderDropdownList().then(($el) => {
+        cy.wrap($el).eq(index).scrollIntoView().click()
+      })
+      cy.clickOnBody()
+      cy.wait(1000)
+      adminDepartmentsPage.getSectionCheckBoxTeacherPreSetup().each(($el)=>{
+        cy.wrap($el).click()
+        cy.wait(1000)
+        
+      })
 
 
+
+
+
+
+      
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+    adminDepartmentsPage.getForGrades().click()
+    cy.contains(this.newSchoolCreationBasicInfo.Grade11).click()
+    cy.wait(1000)
+    adminDepartmentsPage.getForGrades().click()
+    adminDepartmentsPage.getMandatorySubjects().click()
+    cy.wait(1000)
+    adminDepartmentsPage.getMandatorySubjectsOption().first().click()
+    adminDepartmentsPage.getMandatorySubjects().click()
+    adminDepartmentsPage.getAddButton().click()
 
 
 
 
     cy.pause()
-    adminDepartmentsPage.getDepartmentEditIcon().should("be.visible");
-    adminDepartmentsPage.getDeptDeleteIcon().scrollIntoView().should("be.visible");
-  })
 
-  it("Verify that the Edit Department pop up should be displayed by clicking the edit icon of the selected department", function () {
+
+
     adminDepartmentsPage.getDepartmentEditIcon().click();
     adminDepartmentsPage.getEditDepartmentTitle().should("be.visible");
-  });
+  })
 
   it("Verify that the Admin should be able to edit the Department name", function () {
     adminDepartmentsPage.getDepartmentName().clear();

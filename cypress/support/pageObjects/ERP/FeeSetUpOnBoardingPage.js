@@ -153,7 +153,7 @@ class FeeSetUpOnBoardingPage {
     }
 
     getFeeStructureDeleteIconDynamic(FeeStructure) {
-        return cy.xpath('//p[.="' + FeeStructure + '"]/ancestor::tr//img[@class="deleteIcon"]')
+        return cy.xpath('//td[.="' + FeeStructure + '"]/ancestor::tr//img[@class="deleteIcon"]')
     }
 
     getFeeStructureCreatedMsg() {
@@ -161,11 +161,11 @@ class FeeSetUpOnBoardingPage {
     }
 
     getFeeStructureEditIconDynamic(FeeStructure) {
-        return cy.xpath('//p[.="' + FeeStructure + '"]/ancestor::tr//img[@class="editIcon"]')
+        return cy.xpath('//td[.="' + FeeStructure + '"]/ancestor::tr//img[@class="editIcon"]')
     }
 
     getFeeStructureNameInListDynamic(FeeStructure) {
-        return cy.xpath('//p[.="' + FeeStructure + '"]')
+        return cy.xpath('//td[.="' + FeeStructure + '"]')
     }
 
     getNewStudentCheckBox() {
@@ -305,9 +305,10 @@ class FeeSetUpOnBoardingPage {
 
     verifySaveButtonFeeStructure(feeStructureName) {
         this.getSaveButtonFeeStructure().click({ waitForAnimations: false })
-        cy.isVisible(this.getFeeStructureCreatedMsg())
-        this.getFeeStructureCreatedMsg().invoke('text', ("Fee Structure " + feeStructureName + " Created."))
         cy.wait(1000)
+        //cy.isVisible(this.getFeeStructureCreatedMsg())
+        this.getFeeStructureCreatedMsg().invoke('text', ("Fee Structure " + feeStructureName + " Created."))
+        cy.wait(4000)
         cy.isVisible(this.getFeeStructureNameInListDynamic(feeStructureName))
     }
 
@@ -340,7 +341,6 @@ class FeeSetUpOnBoardingPage {
     }
 
     verifyDeleteButtonFeeStructure(feeStructureName) {
-        cy.uncaughtException()
         this.getFeeStructureDeleteIconDynamic(feeStructureName).should('be.visible').click()
         cy.wait(1000)
         this.getDeleteConfirmButton().click()
@@ -372,7 +372,8 @@ class FeeSetUpOnBoardingPage {
                     cy.wrap($el).scrollIntoView().click()
                     cy.wait(1500)
                     this.getFeeInstallmentsCalenderYearIcon().scrollIntoView().click({ waitForAnimations: false })
-                    cy.contains('2023').click({ force: true })
+                    cy.wait(1000)
+                    cy.contains('2023').click({ waitForAnimations: false })
                     cy.wait(1000)
                     this.getEndDateLeftArrowIcon().click({ waitForAnimations: false })
                     cy.wait(1000)
@@ -421,8 +422,8 @@ class FeeSetUpOnBoardingPage {
         cy.wait(1000)
         this.getEndDate(EndDate).click({ waitForAnimations: false })
         this.verifyApplicableForStudentCheckbox()
-        this.getSelectGrade().click()
-        this.getGrade3().click()
+        this.getSelectGrade().click({ waitForAnimations: false })
+        this.getGrade3().click({ waitForAnimations: false })
         cy.wait(1000)
         cy.forceClick(this.getContinueButton())
         cy.wait(1500)

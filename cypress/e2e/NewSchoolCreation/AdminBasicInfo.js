@@ -127,7 +127,13 @@ describe("Verify Admin School Creation Functionalities", function () {
     adminDepartmentsPage.getMandatorySubjectsOption().first().click()
     adminDepartmentsPage.getMandatorySubjects().click()
     adminDepartmentsPage.getAddButton().click()
-    cy.wait(2000)
+    cy.wait(4000)
+    cy.get('body').then(($el) => {
+      if ($el.find('[data-testid="CloseIcon"]').length > 0) {
+        adminDepartmentsPage.getAddStreamCloseIcon().click()
+      }
+      cy.wait(1000)
+    })
     adminDepartmentsPage.getAddDepartmentOption().click()
     cy.wait(2000)
     adminDepartmentsPage.getDepartmentName().type(this.newSchoolCreationBasicInfo.departmentName2)
@@ -140,7 +146,13 @@ describe("Verify Admin School Creation Functionalities", function () {
     adminDepartmentsPage.getMandatorySubjectsOption().last().click()
     adminDepartmentsPage.getMandatorySubjects().click()
     adminDepartmentsPage.getAddButton().click()
-    cy.wait(2000)
+    cy.wait(4000)
+    cy.get('body').then(($el) => {
+      if ($el.find('[data-testid="CloseIcon"]').length > 0) {
+        adminDepartmentsPage.getAddStreamCloseIcon().click()
+      }
+      cy.wait(1000)
+    })
     adminBasicInfoPage.getStepDotIconPreSetup().eq(0).click()
     // })
 
@@ -151,24 +163,24 @@ describe("Verify Admin School Creation Functionalities", function () {
     cy.wait(3000)
     adminDepartmentsPage.getGradeCheckboxPreSetup().eq(0).check()
     cy.wait(3000)
-    cy.get('body').then(($el) => {
-      if ($el.find('[class*="sectionsBtn"]').length > 0) {
-        adminDepartmentsPage.getSectionBtnPreSetup().then(($el) => {
-          var sectionLen = $el.length
-          cy.wrap(sectionLen).as('sectionLen')
-        })
-        cy.get('@sectionLen').then((sectionLen) => {
-          for (let index = 0; index < sectionLen; index++) {
-            adminDepartmentsPage.getSectionBtnPreSetup().eq(0).click()
-            cy.wait(1000)
-            adminDepartmentsPage.getDeleteBtnSectionPreSetup().click()
-            cy.wait(1000)
-            adminDepartmentsPage.getDeleteConfirmBtnSectionPreSetup().click()
-            cy.wait(2000)
-          }
-        })
-      }
-    })
+    // cy.get('body').then(($el) => {
+    //   if ($el.find('[class*="sectionsBtn"]').length > 0) {
+    //     adminDepartmentsPage.getSectionBtnPreSetup().then(($el) => {
+    //       var sectionLen = $el.length
+    //       cy.wrap(sectionLen).as('sectionLen')
+    //     })
+    //     cy.get('@sectionLen').then((sectionLen) => {
+    //       for (let index = 0; index < sectionLen; index++) {
+    //         adminDepartmentsPage.getSectionBtnPreSetup().eq(0).click()
+    //         cy.wait(1000)
+    //         adminDepartmentsPage.getDeleteBtnSectionPreSetup().click()
+    //         cy.wait(1000)
+    //         adminDepartmentsPage.getDeleteConfirmBtnSectionPreSetup().click()
+    //         cy.wait(2000)
+    //       }
+    //     })
+    //   }
+    // })
     adminDepartmentsPage.getGradesTextPreSetup().then(($el) => {
       var actGrades = $el.text()
       cy.wrap(actGrades).as('actGrades')
@@ -232,7 +244,6 @@ describe("Verify Admin School Creation Functionalities", function () {
         })
       }
     })
-
     adminDepartmentsPage.getAddTeacherOption().click()
     cy.wait(2000)
     var expGrades = this.newSchoolCreationBasicInfo.grades
@@ -307,100 +318,45 @@ describe("Verify Admin School Creation Functionalities", function () {
       })
       cy.clickOnBody()
       cy.wait(1000)
-      adminDepartmentsPage.getSectionCheckBoxTeacherPreSetup().each(($el)=>{
-        cy.wrap($el).click()
+      adminDepartmentsPage.getSectionCheckBoxTeacherPreSetup().each(($el) => {
+        cy.wrap($el).check()
         cy.wait(1000)
-        
       })
-
-
-
-
-
-
-      
-
-
-
-
-
-
+      adminDepartmentsPage.getAcademicDetailsDropdownsTeacherPreSetup().eq(1).click()
+      cy.wait(1000)
+      adminDepartmentsPage.getGenderDropdownList().each(($el) => {
+        cy.wrap($el).scrollIntoView().click()
+        cy.wait(1000)
+      })
+      cy.clickOnBody()
+      cy.wait(1000)
+      adminDepartmentsPage.getAcademicDetailsDropdownsTeacherPreSetup().eq(2).click()
+      cy.wait(1000)
+      adminDepartmentsPage.getGenderDropdownList().each(($el) => {
+        cy.wrap($el).scrollIntoView().click()
+        cy.wait(1000)
+      })
+      cy.clickOnBody()
+      cy.wait(1000)
+      adminDepartmentsPage.getAcademicDetailsDropdownsTeacherPreSetup().eq(3).click()
+      cy.wait(1000)
+      adminDepartmentsPage.getGenderDropdownList().each(($el) => {
+        cy.wrap($el).scrollIntoView().click()
+        cy.wait(1000)
+      })
+      cy.clickOnBody()
+      cy.wait(1000)
+      adminDepartmentsPage.getAddClassTeacherRadioBtn().click()
+      cy.wait(1000)
+      adminDepartmentsPage.getContinueBtnBasicDetailsTeacherPreSetup().click()
+      cy.wait(5000)
     }
-
-
-
-
-
-
-    adminDepartmentsPage.getForGrades().click()
-    cy.contains(this.newSchoolCreationBasicInfo.Grade11).click()
-    cy.wait(1000)
-    adminDepartmentsPage.getForGrades().click()
-    adminDepartmentsPage.getMandatorySubjects().click()
-    cy.wait(1000)
-    adminDepartmentsPage.getMandatorySubjectsOption().first().click()
-    adminDepartmentsPage.getMandatorySubjects().click()
-    adminDepartmentsPage.getAddButton().click()
-
-
-
 
     cy.pause()
 
 
 
-    adminDepartmentsPage.getDepartmentEditIcon().click();
-    adminDepartmentsPage.getEditDepartmentTitle().should("be.visible");
   })
 
-  it("Verify that the Admin should be able to edit the Department name", function () {
-    adminDepartmentsPage.getDepartmentName().clear();
-    adminDepartmentsPage.getDepartmentName().type(this.departmentData.editDepartmentName);
-  });
-
-  it("Verify that by clicking Save Changes button should save the entered data and focus should be back to Step B", function () {
-    adminDepartmentsPage.getAddButton().click();
-    adminDepartmentsPage.getStepBContent().should("have.text", "B");
-  });
-
-  it("Verify that the Edit Department should be closed by clicking close icon", function () {
-    adminDepartmentsPage.getDepartmentEditIcon().click();
-    adminDepartmentsPage.getCloseIcon().click();
-    adminDepartmentsPage.getStepBContent().should("have.text", "B");
-  });
-
-  it("Verify that clicking on Delete icon against the row should pop up a modal window asking for the confirmation with Delete Department and Cancel option", function () {
-    adminDepartmentsPage.getDeptDeleteIcon().click();
-    adminDepartmentsPage.getDeletePopupDeleteButton().should("be.visible");
-    adminDepartmentsPage.getDeletePopupCancelButton().should("be.visible");
-  });
-
-  it("Verify that clicking on 'Cancel' button Should close the modal pop up and focus should be back to Step B", function () {
-    adminDepartmentsPage.getDeletePopupCancelButton().click();
-    adminDepartmentsPage.getStepBContent().should("have.text", "B");
-  });
-
-  it("Verify the admin is able to delete the added department", function () {
-    adminDepartmentsPage.getDepartmentRows().then((ele) => {
-      cy.log(ele.length);
-      for (let i = 0; i < ele.length; i++) {
-        adminDepartmentsPage.getDepartmentNames(i).then((el) => {
-          cy.log(el.text());
-          if (el.text() === this.departmentData.departmentName) {
-            adminDepartmentsPage.getDepartmentDeleteIcon(i).click();
-            adminDepartmentsPage.getDeletePopupDeleteButton().click();
-            adminDepartmentsPage
-              .getDeleteDepartmentPopup()
-              .should("contain", " has been deleted.");
-          }
-        });
-      }
-    });
-  });
-
-  it("Verify that clicking on Continue should be moved to Step C, Which is Grades", function () {
-    adminDepartmentsPage.getContinueButton().click();
-    adminGradesPage.getStepCContent().should("have.text", "C");
-  });
 
 })

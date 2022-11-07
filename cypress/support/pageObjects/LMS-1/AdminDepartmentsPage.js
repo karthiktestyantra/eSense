@@ -108,6 +108,10 @@ class AdminDepartmentsPage {
         return cy.get('[role="option"]')
     }
 
+    getAddClassTeacherRadioBtn(){
+        return cy.get('[class="radio-button-cls-custom"] img')
+    }
+
     getSectionCheckBoxTeacherPreSetup(){
         return cy.get('[type="checkbox"]')
     }
@@ -210,6 +214,10 @@ class AdminDepartmentsPage {
 
     getDepartmentName(){
         return cy.get('.MuiOutlinedInput-root>.MuiOutlinedInput-input').eq(0);
+    }
+
+    getAddStreamCloseIcon(){
+        return cy.get('[data-testid="CloseIcon"]')
     }
 
     getForGrades(){

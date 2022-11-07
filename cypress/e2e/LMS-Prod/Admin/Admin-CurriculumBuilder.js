@@ -39,6 +39,7 @@ describe("Verify Curriculum Builder pagefunctionalities - Sprint 14(EL-4067,EL-4
     })
     cy.wait(2000)
     adminPostSetupCurriculumBuilderPage.getStartWithChapterBtn().click({ force: true })
+    cy.uncaughtException()
     adminPostSetupCurriculumBuilderPage.getTotalSessionsTxtFld().should('be.visible')
     adminPostSetupCurriculumBuilderPage.getAddNewChapterCloseIcon().click()
     adminPostSetupCurriculumBuilderPage.getStartWithThemeBtn().click()

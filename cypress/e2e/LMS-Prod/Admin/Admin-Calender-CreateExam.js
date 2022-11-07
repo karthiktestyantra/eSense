@@ -123,8 +123,10 @@ describe("Verify Admin Calender Exam related functionalities", function () {
     })
 
     it('EL-111/ES111-04 Validate any deleteion ,updation,creation  in exam for admin is reflecetd for the teacher', function () {
+        cy.wait(1000)
         cy.clearCookies();
         cy.clearLocalStorage();
+        cy.wait(1000)
         cy.visit(Cypress.env("urlProd"))
         cy.fixture("LMS/TeacherLoginCredentials").then(function (teacherLoginCredentials) {
             cy.TeacherPostSetupLogin(teacherLoginCredentials.teacher2, teacherLoginCredentials.password)

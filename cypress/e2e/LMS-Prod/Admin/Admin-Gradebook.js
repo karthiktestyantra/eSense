@@ -125,6 +125,7 @@ describe("Sprint 19(EL-5490,EL-5492) - Verify Admin student grade book functiona
     })
     adminPostSetupHomePage.getReportsSectionLnk().click({ force: true })
     cy.wait(1500)
+    adminPostSetupHomePage.getReportsSectionLnk().trigger('mouseover')
     adminStudentGradebookPage.getSiStudentGradebookLnk().should('be.visible')
   })
 

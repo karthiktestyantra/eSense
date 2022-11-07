@@ -51,7 +51,15 @@ describe("Verify admin Calendar functionalities - Sprint 15(EL-4065)", function 
     })
 
     it("To delete the added holiday", function () {
-        adminCalendarPage.getMonthlyDrpDwnInCalendar().click()
+        cy.wait(1000)
+        adminCalendarPage.getMonthlyDrpDwnLstInCalendar().select('Weekly')
+        cy.wait(2000)
+        adminCalendarPage.getHolidayCheckBxInCalendarPage().check({ force: true })
+        adminCalendarPage.getYearDrpDwnInCalendar().click()
+        adminCalendarPage.getYearDrpDwnLst().contains("2022").click()
+        cy.wait(1000)
+        adminCalendarPage.getMonthDrpDwnLst().contains("Oct").click()
+        cy.wait(1000)
         adminCalendarPage.getMonthlyDrpDwnLstInCalendar().select('Weekly')
         cy.wait(2000)
         adminCalendarPage.getCalendarDayTxt().contains("24").dblclick({force:true})

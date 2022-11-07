@@ -146,6 +146,7 @@ describe("Verify  Content Library functionalities", function () {
         myPersonalLibraryPage.getCreateTimeLineDescriptionTextAera().type(randomstring.generate(10))
         myPersonalLibraryPage.getCreateTimeLineCreateNewBtn().click()
         myPersonalLibraryPage.getCreateNewTimelineCard().should('be.visible')
+        cy.uncaughtException()
         cy.go('back')
         myPersonalLibraryPage.getTimeLinesList().each(($el) => {
             var bookName = $el.text()

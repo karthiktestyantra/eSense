@@ -9,11 +9,15 @@ class PenaltytMasterOnBoardingPage {
     }
 
     getPenaltyMasterTitleTxt() {
-        return cy.get('p.title')
+        return cy.get('.penaltyTitle')
     }
 
     getPenaltyMasterAddBtn() {
         return cy.get('button.MuiButtonBase-root').contains('Add New')
+    }
+
+    getPresetupPenaltyMaster() {
+        return cy.get('div.css-l36q8z').contains('Penalty Master')
     }
 
     getPenaltyNameTextField() {
@@ -44,12 +48,12 @@ class PenaltytMasterOnBoardingPage {
         return cy.get('span.MuiCheckbox-root input')
     }
 
-    getPenaltyAmountFlatAmt() {
-        return cy.get('input[name="penaltyAmountType"]').eq(0)
+        getPenaltyAmountFlatAmt() {
+        return cy.get('input[name="penaltyAmount"]')
     }
 
     getPenaltyAmountTxtField() {
-        return cy.get('div.MuiTextField-root').eq(2)
+        return cy.get('input[name="penaltyAmount"]')
     }
 
     getpenaltyUnpaidLink() {
@@ -69,7 +73,7 @@ class PenaltytMasterOnBoardingPage {
     }
 
     getpenaltyDurationDropdown() {
-        return cy.get('div[aria-labelledby="demo-multiple-checkbox-label demo-multiple-checkbox"]').eq(3)
+        return cy.get('div[aria-labelledby="demo-multiple-checkbox-label demo-multiple-checkbox"]').eq(2)
     }
 
     getpenaltyDurationDropdownValue() {
@@ -78,6 +82,26 @@ class PenaltytMasterOnBoardingPage {
     
     getpenaltyMasterSaveBtn() {
         return cy.get('button.MuiButtonBase-root').contains('Save')
+    }
+
+    getpenaltyMasterSaveAndAddNewBtn() {
+        return cy.get('button[type="submit"]').contains('Save & Add New')
+    }
+
+    getpenaltyMasterCreatedDlttBtn() {
+        return cy.get('img.deleteIcon')
+    }
+
+    getpenaltyMasterMandatoryFieldErrorMsg() {
+        return cy.get('div.errorDiv')
+    }
+
+    getpenaltyMasterListOfCreatedPenaltyName() {
+        return cy.get('td.tableFirstCell')
+    }
+
+    getpenaltyMasterCreatedPenaltyPoppuCloseBtn() {
+        return cy.get('[data-testid="CloseIcon"] > path')
     }
 
     // //Bussiness Logic

@@ -17,7 +17,7 @@ describe("Verify Fee Collection functionalities", function () {
     
       beforeEach(function () {
         cy.viewport(1920, 1080)
-        cy.restoreLocalStorage();
+        
         cy.fixture("ERP/FeeCollection").as("feeCollection")
       })
       

@@ -13,7 +13,7 @@ module.exports = defineConfig({
     urlQA: 'https://srilanka.staging.topschool.co.in',
     urlStagingERP: "https://liverpool.staging.topschool.co.in",
     urlPreSetupERP: "https://dhoni.staging.topschool.co.in",
-    urlPostSetupERP: "https://sskv.staging.topschool.co.in/",
+    urlPostSetupERP: "https://topschool.staging.topschool.co.in/",
     urlBhsSchool: 'https://bhs.staging.topschool.co.in',
     urlProd: 'https://prodautomation1.thetopschool.com/'
   },

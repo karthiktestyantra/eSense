@@ -19,24 +19,27 @@ describe("Verify Penalty Master functionalities", function () {
         cy.fixture("ERP/PenaltyMasterCredentials").as("PenaltyMaster")
       })
 
-      it.skip("ERP_TC_001 - Validate user is able to navigate from Fee structure master to Penalty master tab.", function () {
+      it("ERP_TC_001 - Validate user is able to navigate from Fee structure master to Penalty master tab.", function () {
         adminDashboardPage.navigateToFeeSetUpPage()
         penaltyMasterOnBoardingPage.getPresetupPenaltyMasterContinueBtn().click()
+        penaltyMasterOnBoardingPage.getPresetupPenaltyMasterSetupPenaltyMastersBtn().should('be.visible')
+        cy.wait(1000)
+        penaltyMasterOnBoardingPage.getPenaltyMasterTitleTxt().should('have.text',' Penalty Master ')
+     
 
       })
 
-      it("ERP_TC_002 - Validate user is navigate from Fee structure master to Penalty master module tab.", function () {
-        adminDashboardPage.navigateToFeeSetUpPage()
-        penaltyMasterOnBoardingPage.getPresetupPenaltyMasterContinueBtn().click()
+      it.skip("ERP_TC_002 - Validate user is navigate from Fee structure master to Penalty master module tab.", function () {
+        // penaltyMasterOnBoardingPage.getPresetupPenaltyMasterContinueBtn().click()
       // cy.get('.MuiTabs-flexContainer > :nth-child(2)').click()
-        penaltyMasterOnBoardingPage.getPenaltyMasterTitleTxt().should('have.text',' Penalty Master ')
+      
         cy.wait(3000)
-        penaltyMasterOnBoardingPage.getPenaltyMasterAddBtn().should('be.visible')
+       // penaltyMasterOnBoardingPage.getPenaltyMasterAddBtn().should('be.visible')
 
       })
 
       // it.skip("ERP_TC_003 - Validate user is create the penalty by using the 'Setup Penalty Masters' button", function () {
-
+        penaltyMasterOnBoardingPage.getPresetupPenaltyMasterSetupPenaltyMastersBtn().click()
       // })
 
       it("ERP_TC_004 - Validate user is navigate from Fee structure master to Penalty master module tab.", function () {

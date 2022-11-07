@@ -4,6 +4,10 @@ class PenaltytMasterOnBoardingPage {
         return cy.get('button.continue-btn').contains("Continue")
     }
 
+    getPresetupPenaltyMasterSetupPenaltyMastersBtn() {
+        return cy.get('button.customBtn').contains("Setup Penalty Masters")
+    }
+
     getPenaltyMasterTitleTxt() {
         return cy.get('p.title')
     }

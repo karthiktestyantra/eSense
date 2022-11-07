@@ -44,5 +44,21 @@ class FeeManagementFeeCollectionPage{
         return cy.get('button[data-testid="cancelBtn"]')
     }
 
+    getFeeCollectionAmountTxt() {
+        return cy.get('input[name="amount"]')
+    }
+
+    getFeeCollectionBankNameTxt() {
+        return cy.get('div[aria-labelledby="bank-name demo-simple-select"]')
+    }
+
+    getFeeCollectionChaqueNumberTxt() {
+        return cy.get('input[name="chequeDdNumber"]')
+    }
+
+    getFeeCollectionChaqueStatusTxt() {
+        return cy.get(':nth-child(6) > .MuiFormControl-root > .MuiInputBase-root > #demo-simple-select')
+    }
+
 }
 module.exports = new FeeManagementFeeCollectionPage()

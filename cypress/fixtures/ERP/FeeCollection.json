@@ -1,8 +1,12 @@
 {
     "StudentSearchTxt" : "hamilton",
-    "studenttxt":"IIusionist",
+    "studenttxt":"Divyaks",
     "paymentmode" : "UPI",
+    "paymentChequeMode":"Cheque",
     "FeeAmtValue" : "100",
     "TransactionID" : "123456765434",
-    "Remarks" : "testing pupose"
+    "Remarks" : "testing pupose",
+    "BankName":"Airtel Payments Bank",
+    "Cheque": "Cheque Collected",
+    "paymentDemandDraftMode":"Demand Draft"
 }

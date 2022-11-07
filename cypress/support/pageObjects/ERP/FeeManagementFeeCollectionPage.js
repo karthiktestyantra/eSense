@@ -60,5 +60,16 @@ class FeeManagementFeeCollectionPage{
         return cy.get(':nth-child(6) > .MuiFormControl-root > .MuiInputBase-root > #demo-simple-select')
     }
 
+    getFeeCollectionNameTxt() {
+        return cy.get('input[name="name"]')
+    }
+
+    getFeeCollectionTransactionIDTxt() {
+        return cy.get('[name="transactionId"]')
+    }
+
+    getFeeCollectionRemarksTxt() {
+        return cy.get('[id="outlined-area-basic"]')
+    }
 }
 module.exports = new FeeManagementFeeCollectionPage()

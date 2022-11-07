@@ -8,5 +8,7 @@
     "Remarks" : "testing pupose",
     "BankName":"Airtel Payments Bank",
     "Cheque": "Cheque Collected",
-    "paymentDemandDraftMode":"Demand Draft"
+    "paymentDemandDraftMode":"Demand Draft",
+    "paymentOtherMode":"Other",
+    "Name":"automation"
 }

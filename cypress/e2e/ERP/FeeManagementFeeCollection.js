@@ -119,5 +119,31 @@ describe("Verify Fee Collection functionalities", function () {
       cy.uncaughtException()
       feeManagementFeeCollectionPage.getFeeCollectionApplyBtn().click({force:true})
       })
+
+      it('TC_005  To validate user is able to collect fee with others',function () {
+        adminDashboardPage.getSideMenuFeeManagementIcon().click({force:true})
+        cy.wait(1000)
+        adminDashboardPage.getFeeCollectionLink().click()
+        cy.wait(4000)
+        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeCollection.studenttxt)
+        cy.wait(2000)
+        feeManagementFeeCollectionPage.getListOfStudentName().each(($e1,index,$list)=>{
+          var studentNameTxt = $e1.text().trim()
+          if(studentNameTxt===(this.feeCollection.studenttxt)){
+            cy.wait(1000)
+          feeManagementFeeCollectionPage.getListOfStudentCollectFeeBtn().eq(index).click()
+          }
+      })
+      cy.wait(2000)
+      feeManagementFeeCollectionPage.getPaymentModeDropdown().click()
+      cy.contains(this.feeCollection.paymentOtherMode).click()
+      feeManagementFeeCollectionPage.getFeeCollectionAmountTxt().type(this.feeCollection.FeeAmtValue)
+      feeManagementFeeCollectionPage.getFeeCollectionNameTxt().type(this.feeCollection.Name)
+      feeManagementFeeCollectionPage.getFeeCollectionTransactionIDTxt().type(this.feeCollection.TransactionID)
+      feeManagementFeeCollectionPage.getFeeCollectionRemarksTxt().type(this.feeCollection.Remarks)
+      feeManagementFeeCollectionPage.getFeeAttachFile().attachFile('ERP/sample.pdf');
+      cy.uncaughtException()
+      feeManagementFeeCollectionPage.getFeeCollectionApplyBtn().click({force:true})
+      })
 })  
 

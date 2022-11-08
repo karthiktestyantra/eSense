@@ -344,5 +344,11 @@ class AdminDashboardPage {
     getGradeListOverallResultDynamic(rank){
         return cy.xpath('//p[.="'+rank+'"]/ancestor::div[@class="OverallResult_dashOvrRsltvDataList__2N8bS MuiBox-root css-0"]/div[@class="OverallResult_dashOvrRsltvDataXaxisItem__3AN7T MuiBox-root css-0"]/p')
     }
+    getDashboardImg(){
+        return cy.get('div.side-nav-icon img')
+    }
+    getGoToMySchoolButton(){
+        return cy.get('[type="button"]').contains('Go to My School')
+    }
 }
 module.exports = new AdminDashboardPage() 

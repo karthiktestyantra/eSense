@@ -7,6 +7,8 @@ describe("Verify Admin Calender Exam related functionalities", function () {
 
     var title = []
     before(function () {
+        cy.clearCookies();
+        cy.clearLocalStorage();
         cy.visit(Cypress.env('urlProd'))
         adminlogin.getAdminBtn().click()
         cy.fixture("LMS/validAdminLoginCredentials").then(function (validAdminLoginData) {

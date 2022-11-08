@@ -14,11 +14,6 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
         })
     })
 
-    after(function () {
-        cy.clearCookies()
-        cy.clearLocalStorage()
-    })
-
     beforeEach(function () {
         cy.fixture("ERP/FeeSetUpOnBoarding").as("feeSetUpOnBoarding")
     })
@@ -51,6 +46,7 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
     })
 
     it("FMS_TC_002 - Validate user can create fee structure by clicking on save and add new button", function () {
+        cy.uncaughtException()
         feeSetUpOnBoardingPage.verifyAddNewFeeStructureDetailsPage()
         //feeSetUpOnBoardingPage.verifyDeleteButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName2)
     })

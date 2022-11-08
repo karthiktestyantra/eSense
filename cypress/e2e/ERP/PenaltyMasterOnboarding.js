@@ -111,9 +111,10 @@ describe("Verify Penalty Master functionalities", function () {
       it("ERP_TC_005 - Validate a new penalty master form appears as the user clicks on 'Save&add new' button", function () {
         penaltyMasterOnBoardingPage.getPenaltyMasterAddBtn().click()
         penaltyMasterOnBoardingPage.getPenaltyNameTextField().type(this.PenaltyMaster.penaltyName)
-        penaltyMasterOnBoardingPage.getPenaltyNameTextField().then((penaltyname)=>{
-        var penaltynametxt = penaltyname.text() 
-      
+        cy.wait(1000)
+        penaltyMasterOnBoardingPage.getPenaltyNameTextField().invoke('val').then((penaltyname)=>{
+        var penaltynametxt = penaltyname 
+        cy.log(penaltynametxt)
         penaltyMasterOnBoardingPage.getPenaltyTypeDropdown().click()
         penaltyMasterOnBoardingPage.getPenaltyTypeDropdownValue().contains(this.PenaltyMaster.PenaltyTypeValue).click()
         penaltyMasterOnBoardingPage.getPenaltySelectGradeTypeDropdown().click()

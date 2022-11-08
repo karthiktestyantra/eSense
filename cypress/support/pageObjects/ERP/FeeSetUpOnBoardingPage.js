@@ -425,14 +425,15 @@ class FeeSetUpOnBoardingPage {
         this.getSelectGrade().click({ waitForAnimations: false })
         this.getGrade3().click()
         cy.wait(2000)
+        cy.forceClick(this.getContinueButton())
         cy.get('body').then(($el) => {
             if ($el.find('[class*="css-1xfhtg"]').length > 0) {
                 this.getSelectGrade().click({ waitForAnimations: false })
                 this.getGrade3().click()
                 cy.wait(2000)
+                cy.forceClick(this.getContinueButton())
             }
         })
-        cy.forceClick(this.getContinueButton())
         cy.wait(1500)
     }
 

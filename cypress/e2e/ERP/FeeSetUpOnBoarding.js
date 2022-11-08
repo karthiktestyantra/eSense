@@ -42,11 +42,12 @@ describe("Verify Fee SetUp OnBoarding functionalities", function () {
         feeSetUpOnBoardingPage.enterAllFeeStructureDetails(this.feeSetUpOnBoarding.feeStructureName2, this.feeSetUpOnBoarding.feeStructureDescription, dayjs().format('D'), dayjs().format('D'))
         feeSetUpOnBoardingPage.verifyFeeStructureFeeTypePage()
         feeSetUpOnBoardingPage.verifyFeeStructureFeeInstallmentsPage()
+        cy.uncaughtException()
         feeSetUpOnBoardingPage.getSaveAddNewButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName2).click()
     })
 
     it("FMS_TC_002 - Validate user can create fee structure by clicking on save and add new button", function () {
-        cy.uncaughtException()
+        //cy.uncaughtException()
         feeSetUpOnBoardingPage.verifyAddNewFeeStructureDetailsPage()
         //feeSetUpOnBoardingPage.verifyDeleteButtonFeeStructure(this.feeSetUpOnBoarding.feeStructureName2)
     })

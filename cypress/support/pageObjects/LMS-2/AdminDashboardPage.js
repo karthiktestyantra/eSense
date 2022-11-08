@@ -345,7 +345,7 @@ class AdminDashboardPage {
         return cy.xpath('//p[.="'+rank+'"]/ancestor::div[@class="OverallResult_dashOvrRsltvDataList__2N8bS MuiBox-root css-0"]/div[@class="OverallResult_dashOvrRsltvDataXaxisItem__3AN7T MuiBox-root css-0"]/p')
     }
     getDashboardImg(){
-        return cy.get('div.side-nav-icon img')
+        return cy.get('ul.side-nav-list-one li').eq(0)
     }
     getGoToMySchoolButton(){
         return cy.get('[type="button"]').contains('Go to My School')

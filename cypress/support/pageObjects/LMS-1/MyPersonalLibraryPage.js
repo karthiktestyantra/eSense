@@ -259,6 +259,10 @@ class MyPersonalLibraryPage {
     getCreateNewXBtn(){
         return cy.get('.close-img > img')
     }
+
+    getMyPorsonalLibraryResourceOthersRadioBtn(){
+        return cy.xpath("//span[text()='Others']")
+    }
   }
   
   module.exports=new  MyPersonalLibraryPage();

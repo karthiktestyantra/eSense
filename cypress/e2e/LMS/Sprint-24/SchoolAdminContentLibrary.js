@@ -1,15 +1,19 @@
 const adminDashboardPage = require("../../../support/pageObjects/LMS-2/AdminDashboardPage")
 const adminContentLibraryPage = require("../../../support/pageObjects/LMS-2/AdminContentLibraryPage")
+const myPersonalLibraryPage = require('../../../support/pageObjects/LMS-1/MyPersonalLibraryPage')
 
-describe("Verify School Admin ContantLibrary functionalities - Sprint 24(EL-7153)", function () {
+describe("Verify School Admin ContantLibrary functionalities - Sprint 24(EL-7153,EL-7960)", function () {
 
     before(function () {
+        cy.clearLocalStorageSnapshot();
         cy.visit(Cypress.env('urlMain'))
         cy.fixture('LMS/AdminLoginCredentials').then(function (validAdminLoginData) {
             cy.AdminPostSetup(validAdminLoginData.newUsername, validAdminLoginData.password)
         })
+        cy.saveLocalStorage();
     })
     beforeEach(function () {
+        cy.restoreLocalStorage();
         cy.viewport(1920, 1080)
         cy.fixture("LMS/AdminContentLibrary").as("adminContentLibrary")
     })
@@ -98,5 +102,13 @@ describe("Verify School Admin ContantLibrary functionalities - Sprint 24(EL-7153
         adminContentLibraryPage.getContentLibraryStudentsTab().click()
         adminContentLibraryPage.getContentLibraryAddBtn().click()
         adminContentLibraryPage.getContentLibraryShareBtn().click()
+    })
+
+    it('ES7960_1 Validate User is able to view option “others” while uploading files in Personal Library',function () {
+        cy.wait(4000)
+        cy.uncaughtException()
+        myPersonalLibraryPage.getMyPersonalLibraryTab().click()
+        myPersonalLibraryPage.getUploadResource().scrollIntoView().attachFile('LMS/SampleDocs-sample-pdf-file.pdf')
+        myPersonalLibraryPage.getMyPorsonalLibraryResourceOthersRadioBtn().scrollIntoView().should('be.visible')
     })
 })

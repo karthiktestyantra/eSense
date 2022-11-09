@@ -8,8 +8,16 @@ class PenaltytMasterOnBoardingPage {
         return cy.get('button.customBtn').contains("Setup Penalty Masters")
     }
 
+    getPresetupDiscountMasterText() {
+        return cy.get('p.title').contains(" Discount Master ")
+    }
+
     getPenaltyMasterTitleTxt() {
         return cy.get('.penaltyTitle')
+    }
+
+    getPenaltyMasterDeletePopupBtn() {
+        return cy.get('div.MuiDialogContent-root button').contains('Delete')
     }
 
     getPenaltyMasterAddBtn() {
@@ -22,6 +30,10 @@ class PenaltytMasterOnBoardingPage {
 
     getPenaltyNameTextField() {
         return cy.get('input[name="penaltyName"]')
+    }
+
+    getEditedPenaltySaveBtn() {
+        return cy.get('button[type="submit"]').contains('Save')
     }
 
     getPenaltyTypeDropdown() {
@@ -98,6 +110,22 @@ class PenaltytMasterOnBoardingPage {
 
     getpenaltyMasterListOfCreatedPenaltyName() {
         return cy.get('td.tableFirstCell')
+    }
+
+    getpenaltyMasterListOfCreatedPenaltyEditBtn() {
+        return cy.get('img.editIcon')
+    }
+
+    getpenaltyMasterListOfCreatedPenaltyDeleteBtn() {
+        return cy.get('img.deleteIcon')
+    }
+
+    getpenaltyMasterListViewAmountColumn() {
+        return cy.get('span.MuiTableSortLabel-root').contains('AMOUNT')
+    }
+
+    getPenaltyMasterListViewAmountTxt() {
+        return cy.get('.MuiTableBody-root > :nth-child(n) > :nth-child(4)')
     }
 
     getpenaltyMasterCreatedPenaltyPoppuCloseBtn() {

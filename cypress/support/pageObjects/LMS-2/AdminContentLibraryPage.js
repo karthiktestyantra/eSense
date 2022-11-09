@@ -129,5 +129,70 @@ class AdminContentLibraryPage {
         return cy.get('button.MuiToggleButtonGroup-groupedHorizontal').contains('TopSchool Library')
     }
 
+
+    getContentLibraryCard(){
+        return cy.get('h4.cntLibCardTitle strong')
+    }
+
+    getContentLibraryThreeDots(Testing){
+        return cy.xpath('//strong[text()="'+Testing+'"]/ancestor::div[@class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-1ha4th6"]//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-v36qta"]')
+    }
+
+    getContentLibraryShareContentLink(){
+        return cy.get('li[value="Share Content"]')
+    }
+
+    getContentLibraryShareContentEntireSchoolLink(){
+        return cy.xpath('//li[text()="Entire School"]')
+    }
+
+    getContentLibraryShareContentSpecificMembersLink(){
+        return cy.xpath('//li[text()="Specific Members"]')
+    }
+
+    getContentLibrarySuccessfulMessageCloseBtn(){
+        return cy.get('svg[data-testid="CloseIcon"]')
+    }
+
+    getContentLibraryStudentsTab(){
+        return cy.get('button.MuiTab-textColorPrimary').contains('Students')
+    }
+
+    getContentLibraryTeachersTab(){
+        return cy.get('button.MuiTab-textColorPrimary').contains('Teachers')
+    }
+
+    getContentLibraryAdminsTab(){
+        return cy.get('button.MuiTab-textColorPrimary').contains('Admins')
+    }
+
+    getContentLibraryShareBtn(){
+        return cy.xpath('//button[text()="Share"]')
+    }
+
+    getContentLibraryCancelBtn(){
+        return cy.xpath('//button[text()="Cancel"]')
+    }
+
+    getContentLibraryGoBackBtn(){
+        return cy.get('.customAddMembNav span')
+    }
+
+    getContentLibrarypersonsList(){
+        return cy.get('div.txtcenter')
+    }
+
+    getContentLibraryAddBtn(){
+        return cy.get('button.customStdAddBtn')
+    }
+
+    getContentLibraryStudentSearchBoxTxt(){
+        return cy.get('input[placeholder="Search Students..."]')
+    }
+
+    getcontentLibrarySearchBoxTxt(){
+        return cy.get('input[type="search"]')
+    }
+
 }
 module.exports = new AdminContentLibraryPage() 

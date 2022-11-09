@@ -2,5 +2,6 @@
     "contentLibraryZoomInIcon": 364,
     "contentLibraryZoomOutIcon": 264,
     "contentLibraryDocumentSetPage": 5,
-    "contentLibraryDocumentExitFullScreenText": "Exit full screen"
+    "contentLibraryDocumentExitFullScreenText": "Exit full screen",
+    "EntireSchoolSuccessfullyMessage":"Content Shared Successfully!"
 }

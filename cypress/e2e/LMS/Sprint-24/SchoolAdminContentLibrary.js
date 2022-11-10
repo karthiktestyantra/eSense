@@ -5,6 +5,8 @@ const myPersonalLibraryPage = require('../../../support/pageObjects/LMS-1/MyPers
 describe("Verify School Admin ContantLibrary functionalities - Sprint 24(EL-7153,EL-7960)", function () {
 
     before(function () {
+        cy.clearCookies()
+        cy.clearLocalStorage()
         cy.clearLocalStorageSnapshot();
         cy.visit(Cypress.env('urlMain'))
         cy.fixture('LMS/AdminLoginCredentials').then(function (validAdminLoginData) {
@@ -110,5 +112,13 @@ describe("Verify School Admin ContantLibrary functionalities - Sprint 24(EL-7153
         myPersonalLibraryPage.getMyPersonalLibraryTab().click()
         myPersonalLibraryPage.getUploadResource().scrollIntoView().attachFile('LMS/SampleDocs-sample-pdf-file.pdf')
         myPersonalLibraryPage.getMyPorsonalLibraryResourceOthersRadioBtn().scrollIntoView().should('be.visible')
+    })
+
+    it('ES7960_2 Validate a chapter and topic as a non-mandatory option under “Which class is this content for?',function () {
+        myPersonalLibraryPage.getMyPorsonalLibraryChapterMandaterySymbol().scrollIntoView().should('be.visible')
+    })
+
+    it('ES7960_3 "Validate whether Extensions to be allowed for others type - pdf, doc, Docx, mp4, ppt, jpeg/jpg/png "',function () {
+        myPersonalLibraryPage.getUploadResource().scrollIntoView().attachFile('LMS/SampleDocs-sample-pdf-file.pdf')
     })
 })

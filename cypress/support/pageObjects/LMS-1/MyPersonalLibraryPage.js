@@ -263,6 +263,11 @@ class MyPersonalLibraryPage {
     getMyPorsonalLibraryResourceOthersRadioBtn(){
         return cy.xpath("//span[text()='Others']")
     }
+
+    getMyPorsonalLibraryChapterMandaterySymbol(){
+        return cy.xpath('//label[text()="Chapter"]//span')
+    }
+
   }
   
   module.exports=new  MyPersonalLibraryPage();

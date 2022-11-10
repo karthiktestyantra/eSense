@@ -40,6 +40,10 @@ class FeeSetUpOnBoardingPage {
         return cy.get('input[name="feeStructureName"]')
     }
 
+    getAddNewFeeStructureTitle() {
+        return cy.xpath('//div[.="Add New Fee Structure"]')
+    }
+
     getFeeStructureTextAreaFldInDetailPage() {
         return cy.get('div textarea[name="feeStructureDescription"]')
     }
@@ -386,6 +390,7 @@ class FeeSetUpOnBoardingPage {
 
     verifyAddNewFeeStructureDetailsPage() {
         cy.wait(2000)
+        cy.isVisible(this.getAddNewFeeStructureTitle())
         cy.isVisible(this.getFeeStructureNameFldInDetailPage())
         cy.isVisible(this.getFeeStructureDescriptionTxtAreaFldInDetailPage())
         cy.isVisible(this.getFeeStructureStartDateFldInDetailPage())

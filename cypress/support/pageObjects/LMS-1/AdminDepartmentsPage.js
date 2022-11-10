@@ -1,277 +1,289 @@
 class AdminDepartmentsPage {
-    
-    getStepBContent(){
+
+    getStepBContent() {
         return cy.get(":nth-child(1) > .v-stepper > .circle");
     }
 
-    getWholeDeptPage(){
+    getWholeDeptPage() {
         return cy.get('.bi-form-divide-cls');
     }
 
-    getDepartmentsTitle(){
+    getDepartmentsTitle() {
         return cy.get('.text-capitalize');
     }
 
-    getDepartmentHeader(){
+    getDepartmentHeader() {
         return cy.get('table>thead>tr>th:nth-child(1)');
     }
 
-    getForGradesHeader(){
+    getForGradesHeader() {
         return cy.get('table>thead>tr>th:nth-child(2)');
     }
 
-    getMandatorySubjectsHeader(){
+    getMandatorySubjectsHeader() {
         return cy.get('table>thead>tr>th:nth-child(3)');
     }
 
-    getDepartmentEditIcon(){
+    getDepartmentEditIcon() {
         return cy.get('.departmentEditIcon').eq(0);
     }
 
-    getGradeCheckboxPreSetup(){
+    getGradeCheckboxPreSetup() {
         return cy.get('[type="checkbox"]')
     }
 
-    getGradePlusIconPreSetup(){
+    getGradePlusIconPreSetup() {
         return cy.get('[class*="root sectionAddBtn"]')
     }
 
-    getGradesTextPreSetup(){
+    getGradesTextPreSetup() {
         return cy.get('[class*="grade-name"] div')
     }
 
-    getSectionNameTextfieldPreSetup(){
+    getSectionNameTextfieldPreSetup() {
         return cy.get('[type="text"]')
     }
 
-    getOptionalSubDropdownPreSetup(){
+    getOptionalSubDropdownPreSetup() {
         return cy.get('#opt-subjects')
     }
 
-    getOptionalSubDropdownListChechboxPreSetup(){
+    getOptionalSubDropdownListChechboxPreSetup() {
         return cy.get('[aria-labelledby="optional-subs"] input')
     }
 
-    getAddSectionBtnPreSetup(){
+    getAddSectionBtnPreSetup() {
         return cy.get('[class*="sectionSaveBtn"]')
     }
 
-    getStreamDropdownInSectionPreSetup(){
+    getStreamDropdownInSectionPreSetup() {
         return cy.get('#deparment')
     }
 
-    getSectionBtnPreSetup(){
+    getSectionBtnPreSetup() {
         return cy.get('[class*="sectionsBtn"]')
     }
 
-    getGradePlusIconPreSetupDynamic(grade){
-        return cy.xpath('//div[.="'+grade+'"]/ancestor::tr//button[contains(@class,"sectionAddBtn")]')
+    getGradePlusIconPreSetupDynamic(grade) {
+        return cy.xpath('//div[.="' + grade + '"]/ancestor::tr//button[contains(@class,"sectionAddBtn")]')
     }
 
-    getDepartmentDeleteIcon(id){
+    getDepartmentDeleteIcon(id) {
         return cy.get('td .departmentDeleteIcon').eq(id);
     }
 
-    getDeptDeleteIcon(){
+    getDeptDeleteIcon() {
         return cy.get('td .departmentDeleteIcon').eq(0);
     }
 
-    getAddDepartmentOption(){
+    getAddDepartmentOption() {
         return cy.get('.MuiTypography-root > .MuiButton-root');
     }
 
-    getAddTeacherOption(){
+    getAddTeacherOption() {
         return cy.get('[class*="TeacherAccounts_add_teacher_button"]')
     }
 
-    getNameTextfieldAddTeacher(){
+    getNameTextfieldAddTeacher() {
         return cy.get('[name="fullName"]')
     }
 
-    getEmailTextfieldAddTeacher(){
+    getEmailTextfieldAddTeacher() {
         return cy.get('[name="email"]')
     }
 
-    getCalenderIconAddTeacher(){
+    getCalenderIconAddTeacher() {
         return cy.get('[data-testid="CalendarIcon"]')
     }
 
-    getCalenderYearIcon(){
+    getCalenderYearIcon() {
         return cy.get('[class*="MuiIconButton-sizeSmal"] [data-testid="ArrowDropDownIcon"]')
     }
 
-    getGenderDropdown(){
+    getGenderDropdown() {
         return cy.get('#mui-component-select-gender')
     }
 
-    getGenderDropdownList(){
+    getGenderDropdownList() {
         return cy.get('[role="option"]')
     }
 
-    getAddClassTeacherRadioBtn(){
+    getDropdownListCheckbox() {
+        return cy.get('[role="option"] input')
+    }
+
+    getAddClassTeacherRadioBtn() {
         return cy.get('[class="radio-button-cls-custom"] img')
     }
 
-    getSectionCheckBoxTeacherPreSetup(){
+    getSectionCheckBoxTeacherPreSetup() {
         return cy.get('[type="checkbox"]')
     }
 
-    getEmployeeIdTextfieldTeacherPreSetup(){
+    getEmployeeIdTextfieldTeacherPreSetup() {
         return cy.get('[name="empid"]')
     }
 
-    getDesignationTextfieldTeacherPreSetup(){
+    getDesignationTextfieldTeacherPreSetup() {
         return cy.get('[name="designation"]')
-    } 
-    
-    getAddress1TextfieldTeacherPreSetup(){
+    }
+
+    getAddress1TextfieldTeacherPreSetup() {
         return cy.get('[name="address_one"]')
-    } 
+    }
 
-    getAddress2TextfieldTeacherPreSetup(){
+    getAddress2TextfieldTeacherPreSetup() {
         return cy.get('[name="address_two"]')
-    } 
+    }
 
-    getPincodeTextfieldTeacherPreSetup(){
+    getPincodeTextfieldTeacherPreSetup() {
         return cy.get('[name="pincode"]')
-    } 
+    }
 
-    getAcademicDetailsDropdownsTeacherPreSetup(){
+    getAcademicDetailsDropdownsTeacherPreSetup() {
         return cy.get('[aria-haspopup="listbox"]')
-    } 
+    }
 
-    getQualificationTitleAcademicDetailsTeacherPreSetup(){
+    getTeachedAddedSuccessMsg() {
+        return cy.xpath('//div[.="Teacher Added Successfully"]', { timeout: 10_000 })
+    }
+
+    getQualificationTitleAcademicDetailsTeacherPreSetup() {
         return cy.get('[name="qualificationTitle"]')
-    } 
+    }
 
-    getQualificationAddBtnAcademicDetailsTeacherPreSetup(){
+    getQualificationAddBtnAcademicDetailsTeacherPreSetup() {
         return cy.get('[class="add-btn"] span')
-    } 
+    }
 
-    getAcademicDetailsAddQualificationBtnTeacherPreSetup(){
+    getAcademicDetailsAddQualificationBtnTeacherPreSetup() {
         return cy.xpath('//div[text()="+ Add Qualification"]')
-    } 
+    }
 
-    getContinueBtnBasicDetailsTeacherPreSetup(){
+    getContinueBtnBasicDetailsTeacherPreSetup() {
         return cy.get('[class="modal-content teacher-account-popup-container"] [class*="continue-btn"]')
-    } 
+    }
 
-    getContactNumberTeacherPreSetup(){
+    getContactNumberTeacherPreSetup() {
         return cy.get('[name="contact"]')
     }
 
-    getBloodGroupTeacherPreSetup(){
-        return cy.get('[name="contact"]')
+    getBloodGroupTeacherPreSetup() {
+        return cy.get('#demo-simple-select')
     }
 
-    getCalenderYear(Year){
-        return cy.xpath('//div[.="'+Year+'"]')
+    getCalenderYear(Year) {
+        return cy.xpath('//div[.="' + Year + '"]')
     }
 
-    getCalenderDay(Day){
-        return cy.xpath('//div[contains(@class,"PrivatePickersSlideTransition-root ")]//button[text()="'+Day+'"]')
+    getCalenderDay(Day) {
+        return cy.xpath('//div[contains(@class,"PrivatePickersSlideTransition-root ")]//button[text()="' + Day + '"]')
     }
 
-    getDeleteIconGradesPreSetup(){
+    getDeleteIconGradesPreSetup() {
         return cy.get('[class*="departmentDeleteIcon"] img');
     }
 
-    getDeleteIconTeacherPreSetup(){
+    getDeleteIconTeacherPreSetup() {
         return cy.get('[class*="TeacherAccounts_icon_del"] img');
     }
 
-    getDeleteIconPOCPreSetup(){
+    getDeleteIconPOCPreSetup() {
         return cy.get('[class*="delBtnBasicInfo"] img');
     }
 
-    getDeleteConfirmBtnPOCPreSetup(){
+    getDeleteConfirmBtnPOCPreSetup() {
         return cy.get('[class="delete-button"] span');
     }
 
-    getDeleteBtnSectionPreSetup(){
+    getDeleteBtnSectionPreSetup() {
         return cy.get('[class*="delete-section"]');
     }
 
-    getDeleteConfirmBtnSectionPreSetup(){
+    getDeleteConfirmBtnSectionPreSetup() {
         return cy.get('[class*="deptDeletebtn"]');
     }
 
-    getDeleteConfirmBtnGradesPreSetup(){
+    getDeleteConfirmBtnGradesPreSetup() {
         return cy.get('[class*="deptDeletebtn"]');
     }
 
-    getDeleteConfirmBtnTeacherPreSetup(){
+    getDeleteConfirmBtnTeacherPreSetup() {
         return cy.get('[class="delete-button"] span');
     }
 
-    getAddDepartmentTitle(){
+    getAddDepartmentTitle() {
         return cy.get('.MuiDialogTitle-root');
     }
 
-    getEditDepartmentTitle(){
+    getEditDepartmentTitle() {
         return cy.get('.editDepartTitle');
     }
 
-    getDepartmentName(){
+    getDepartmentName() {
         return cy.get('.MuiOutlinedInput-root>.MuiOutlinedInput-input').eq(0);
     }
 
-    getAddStreamCloseIcon(){
-        return cy.get('[data-testid="CloseIcon"]')
+    getAddStreamCloseIcon() {
+        return cy.get('[class*="closeModal"] path')
     }
 
-    getForGrades(){
+    getForGrades() {
         return cy.get('#checkboxes');
     }
 
-    getMandatorySubjects(){
+    getForGradesDynamic(Grade) {
+        return cy.xpath('//li[text()="' + Grade + '"]');
+    }
+
+    getMandatorySubjects() {
         return cy.get('.MuiOutlinedInput-root>.MuiOutlinedInput-input').eq(2);
     }
 
-    getMandatorySubjectsOption(){
+    getMandatorySubjectsOption() {
         return cy.get('#checkboxes-tags-demo-listbox')
     }
 
-    getAddButton(){
+    getAddButton() {
         return cy.get('.deptSavebtn');
     }
 
-    getCancelButton(){
+    getCancelButton() {
         return cy.get('.deptCancelbtn');
     }
 
-    getCloseIcon(){
+    getCloseIcon() {
         return cy.get('.closeModal');
     }
 
-    getDepartmentRows(){
+    getDepartmentRows() {
         return cy.get('tbody tr');
     }
 
-    getDepartmentNames(index){
+    getDepartmentNames(index) {
         return cy.get('tbody tr td:nth-child(1)').eq(index);
     }
 
-    getForGradesOption4(){
+    getForGradesOption4() {
         return cy.get('#checkboxes-listbox')
     }
 
-    getDeletePopupDeleteButton(){
+    getDeletePopupDeleteButton() {
         return cy.get('.deptDeletebtn');
     }
 
-    getDeletePopupCancelButton(){
+    getDeletePopupCancelButton() {
         return cy.get('.deptCancelDisabledbtn');
     }
 
-    getDeleteDepartmentPopup(){
+    getDeleteDepartmentPopup() {
         return cy.get('.font-cls');
     }
 
-    getContinueButton(){
+    getContinueButton() {
         return cy.get('.continue-btn');
     }
 
 }
 
-module.exports= new AdminDepartmentsPage()
+module.exports = new AdminDepartmentsPage()

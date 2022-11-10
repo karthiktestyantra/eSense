@@ -24,7 +24,7 @@ class AdminDashboardPage {
         return cy.xpath('//p[.=" Fees Structure "]')
     }
 
-    navigateToFeeSetUpPage(feeStructurePageTitle) {
+    navigateToFeeSetUpPage() {
         this.getSideMenuFeeManagementIcon().click()
         cy.wait(1000)
         cy.get('body').then(($el) => {
@@ -33,6 +33,11 @@ class AdminDashboardPage {
             }
         })
         cy.wait(1500)
+    }
+
+    navigateToPreSetUpPage() {
+        this.getSideMenuFeeManagementIcon().click()
+        cy.wait(1000)
     }
 
 }

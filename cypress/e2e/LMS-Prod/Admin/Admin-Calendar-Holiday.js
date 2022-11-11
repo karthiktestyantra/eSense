@@ -17,7 +17,7 @@ describe("Verify admin Calendar functionalities - Sprint 15(EL-4065)", function 
 
     beforeEach(function () {
         cy.viewport(1920, 1080)
-        cy.fixture("LMS/AdminCalenderAppointment").as("calendar")
+        cy.fixture("LMS/adminCalenderAppointment").as("calendar")
     })
 
     it("To validate school admin is able to select and download the template/EL-4065/ES4065_02", function () {

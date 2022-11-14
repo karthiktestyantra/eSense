@@ -83,7 +83,7 @@ describe("Verify Admin School Creation Functionalities", function () {
     cy.wait(2000)
   })
 
-  it.skip("Verify PreSetUp Screen - 2", function () {
+  it("Verify PreSetUp Screen - 2", function () {
     cy.wait(2500)
     adminBasicInfoPage.getStepDotIconPreSetup().eq(0).click()
     cy.wait(2500)
@@ -148,7 +148,7 @@ describe("Verify Admin School Creation Functionalities", function () {
   })
 
 
-  it.skip("Verify PreSetUp Screen - 3", function () {
+  it("Verify PreSetUp Screen - 3", function () {
     cy.wait(2000)
     adminBasicInfoPage.getStepDotIconPreSetup().eq(0).click()
     cy.wait(2500)
@@ -250,7 +250,7 @@ describe("Verify Admin School Creation Functionalities", function () {
     cy.wait(2000)
     adminDepartmentsPage.getBulkUploadTeacherPreSetup().click()
     cy.wait(1000)
-    adminDepartmentsPage.getFileUploadBulkUploadTeacherPreSetup().attachFile('LMS/users_Teacher_New_School.xlsx')
+    adminDepartmentsPage.getFileUploadBulkUploadTeacherPreSetup().attachFile(this.newSchoolCreationBasicInfo.TeacherData)
     cy.wait(2000)
     adminDepartmentsPage.getFileUploadImportButtonTeacherPreSetup().should('be.visible').click()
     adminDepartmentsPage.getTeacherImportedMsgTeacherPreSetup().should('be.visible')
@@ -378,7 +378,7 @@ describe("Verify Admin School Creation Functionalities", function () {
         cy.clearLocalStorageSnapshot()
       }
     })
-    adminDepartmentsPage.getContinueButton().click()
+    //adminDepartmentsPage.getContinueButton().click()
     cy.wait(6000)
   })
 

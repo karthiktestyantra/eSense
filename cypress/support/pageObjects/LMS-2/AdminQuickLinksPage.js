@@ -332,6 +332,14 @@ class AdminQuickLinksPage {
     getTimeTableGeneratedSlotPublishBtn() {
         return cy.get('button.MuiButton-sizeMedium')
     }
+
+    get60MinOpt(){
+        return cy.get('[data-value="12"]')
+    }
+
+    get12PeriodsOpt(){
+        return cy.get('[data-value="12"]')
+    }
 }
 
 module.exports = new AdminQuickLinksPage() 

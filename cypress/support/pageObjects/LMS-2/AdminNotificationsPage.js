@@ -34,6 +34,18 @@ class AdminNotificationsPage{
     getUnutilizedResourcesDeleteIcon(){
         return cy.get('button.icon_bg span.MuiTouchRipple-root')
     }
+
+    getUnutilizedResourcesViewLink(){
+        return cy.get('.MuiButton-label')
+    }
+
+    getUnutilizedResourcesYesDeleteBtn(){
+        return cy.get('.pop_del_btn')
+    }
+    
+    getUnutilizedResourcesCancelBtn(){
+        return cy.get('.pop_can_btn')
+    }
 }
 
 module.exports = new AdminNotificationsPage();

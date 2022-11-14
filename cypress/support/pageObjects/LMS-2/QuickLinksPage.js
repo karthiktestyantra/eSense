@@ -1,3 +1,5 @@
+const { getGeneratedTimetableBreakLengthDropdown } = require("./AdminQuickLinksPage")
+
 class QuickLinksPage{
     getAddNoticeBtn(){
         return cy.get('button.noticeAddMembBtnFill')
@@ -154,6 +156,15 @@ class QuickLinksPage{
     }
     getPrivateNoticeList(){
         return cy.get('div.StudentSchool_schNotBordList__3ggOt')
+    }
+
+
+    getTimeTableManagementTab(){
+        return cy.get('p.MuiTypography-body1').contains('Timetable Management')
+    }
+
+    getGeneratedTimetableBtn(){
+        return cy.get('.Timetable_adminTimTbleSectTbleOverviewSelect__2mQZC')
     }
 
 }

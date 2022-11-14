@@ -1,5 +1,6 @@
 const adminDashboardPage = require('../../../support/pageObjects/LMS-2/AdminDashboardPage')
 const adminNotificationsPage = require('../../../support/pageObjects/LMS-2/AdminNotificationsPage')
+
 describe("Verify School Admin Notification Underutilized Resources functionalities - Sprint 24(EL-6158)", function () {
 
     before(function () {
@@ -57,6 +58,25 @@ describe("Verify School Admin Notification Underutilized Resources functionaliti
         cy.isVisible(adminNotificationsPage.getUnutilizedResourcesSubject())
         cy.isVisible(adminNotificationsPage.getUnutilizedResourcesGrade())
         cy.isVisible(adminNotificationsPage.getUnutilizedResourcesType())
+        cy.isVisible(adminNotificationsPage.getUnutilizedResourcesDeleteIcon())
+    })
+
+    it('ES6158_7  Validate user is able to view the content as per the type of content.',function () {
+        cy.isVisible(adminNotificationsPage.getUnutilizedResourcesViewLink())
+    })
+
+    it('ES6158_8  "Validate user on clicking the delete icon a pop is displayed with -Yes Delete button. -Cancel button"',function () {
+        adminNotificationsPage.getUnutilizedResourcesDeleteIcon().click({force:true})
+        cy.isVisible(adminNotificationsPage.getUnutilizedResourcesYesDeleteBtn())
+        cy.isVisible(adminNotificationsPage.getUnutilizedResourcesCancelBtn())
+    })
+
+    it('ES6158_9 Validate when user clicks on "Yes,Delete" button the content is deleted and user is redirected to the Underutilised Resource screen',function () {
+        cy.isVisible(adminNotificationsPage.getUnutilizedResourcesYesDeleteBtn())
+    })
+
+    it('ES6158_10  Validate when user clicks on "Cancel" button, user is redirected to the Underutilised Resource screen',function () {
+        adminNotificationsPage.getUnutilizedResourcesCancelBtn().click()
         cy.isVisible(adminNotificationsPage.getUnutilizedResourcesDeleteIcon())
     })
 })

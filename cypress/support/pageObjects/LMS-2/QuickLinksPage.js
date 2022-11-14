@@ -1,171 +1,169 @@
-const { getGeneratedTimetableBreakLengthDropdown } = require("./AdminQuickLinksPage")
-
-class QuickLinksPage{
-    getAddNoticeBtn(){
+class QuickLinksPage {
+    getAddNoticeBtn() {
         return cy.get('button.noticeAddMembBtnFill')
     }
-    getCreateNewNoticeTitle(){
+    getCreateNewNoticeTitle() {
         return cy.get('#noticetitle')
     }
-    getCreateNewNoticeTypeDropdown(){
+    getCreateNewNoticeTypeDropdown() {
         return cy.get('#demo-simple-select')
     }
-    getCreateNewNoticeTypeGeneralOpt(){
+    getCreateNewNoticeTypeGeneralOpt() {
         return cy.get('li.css-1km1ehz').contains('General')
     }
-    getCreateNewNoticeTypeImportantOpt(){
+    getCreateNewNoticeTypeImportantOpt() {
         return cy.get('li.css-1km1ehz').contains('Important')
     }
-    getCreateNewNoticeTypeOthersOpt(){
+    getCreateNewNoticeTypeOthersOpt() {
         return cy.get('li.css-1km1ehz').contains('Others')
     }
-    getCreateNewNoticeDescriptionTextareafield(){
+    getCreateNewNoticeDescriptionTextareafield() {
         return cy.get('div.css-1hof3tc')
     }
-    getCreateNewNoticePublishRightNowRedioBtn(){
-        return  cy.get('.css-1m9pwf3').eq(0)
+    getCreateNewNoticePublishRightNowRedioBtn() {
+        return cy.get('.css-1m9pwf3').eq(0)
     }
-    getCreateNewNoticePublishLaterOnRedioBtn(){
-        return  cy.get('.css-1m9pwf3').eq(1)
+    getCreateNewNoticePublishLaterOnRedioBtn() {
+        return cy.get('.css-1m9pwf3').eq(1)
     }
-    getCreateNewNoticeEntireSchoolRedioBtn(){
-        return  cy.get('.css-1m9pwf3').eq(2)
+    getCreateNewNoticeEntireSchoolRedioBtn() {
+        return cy.get('.css-1m9pwf3').eq(2)
     }
-    getCreateNewNoticeSpecificMembersRedioBtn(){
-        return  cy.get('.css-1m9pwf3').eq(3)
+    getCreateNewNoticeSpecificMembersRedioBtn() {
+        return cy.get('.css-1m9pwf3').eq(3)
     }
-    getCreateNewNoticeSendBtn(){
+    getCreateNewNoticeSendBtn() {
         return cy.get('button.css-1hw9j7s').contains('Send')
     }
-    getEditBtn(){
+    getEditBtn() {
         return cy.get('button.css-1ujsas3').eq(1)
     }
-    getDeleteBtn(){
+    getDeleteBtn() {
         return cy.get('button.css-1ujsas3').eq(2)
     }
-    getCreateNewNoticeSaveAndSendBtn(){
+    getCreateNewNoticeSaveAndSendBtn() {
         return cy.get('button.css-1hw9j7s').contains('Save & Send')
     }
-    getCreateNewNoticeCancelBtn(){
+    getCreateNewNoticeCancelBtn() {
         return cy.get('button.css-1ujsas3').contains('Cancel').scrollIntoView()
     }
-    getCreateNewNoticeXBtn(){
+    getCreateNewNoticeXBtn() {
         return cy.get('div.reminderPadd svg').scrollIntoView()
     }
-    getCreateNewNoticeCalenderIcon(){
+    getCreateNewNoticeCalenderIcon() {
         return cy.get('svg[data-testid="CalendarIcon"]')
     }
-    getCreateNewNoticeAddMembersBtn(){
+    getCreateNewNoticeAddMembersBtn() {
         return cy.get('button.css-79xub')
     }
-    getCreateNewNoticeTeacherTab(){
+    getCreateNewNoticeTeacherTab() {
         return cy.get('button.css-1q2h7u5').contains('Teachers')
     }
-    getCreateNewNoticemembersList(){
+    getCreateNewNoticemembersList() {
         return cy.get('[class="stdDialSrchRstBlk noticeAddMembScroll"]')
     }
-    getCreateNewNoticeGoBackBtn(){
+    getCreateNewNoticeGoBackBtn() {
         return cy.get('div.noticeAddMembNav')
     }
-    getSchoolNoticeBoardTab(){
+    getSchoolNoticeBoardTab() {
         return cy.get('button.css-1q2h7u5').contains('School Notice Board')
     }
-    getPrivateNoticeBoardTab(){
+    getPrivateNoticeBoardTab() {
         return cy.get('button.css-1q2h7u5').contains('Private Notice Board')
     }
-    getCreateNewNoticeRightArrowBtn(){
+    getCreateNewNoticeRightArrowBtn() {
         return cy.get('[data-testid="ArrowRightIcon"]')
     }
-    getCreateNewNoticeDateBtn(){
+    getCreateNewNoticeDateBtn() {
         return cy.get('button.css-ub1r1').contains('20')
     }
-    getCreateNewNoticeAddBtn(){
+    getCreateNewNoticeAddBtn() {
         return cy.get('button.css-eaye9s').eq(0)
     }
-    getCreateNewNoticeSaveBtn(){
+    getCreateNewNoticeSaveBtn() {
         return cy.get('button.noticeAddMembActionBtnSave')
     }
-    getCreateNewNoticeDeletePopupXBtn(){
+    getCreateNewNoticeDeletePopupXBtn() {
         return cy.get('.delete_reminder-wrapper svg')
     }
-    getCreateNewNoticeDeletePopupCancelBtn(){
+    getCreateNewNoticeDeletePopupCancelBtn() {
         return cy.get('button.css-79xub')
     }
-    getTimeTableManagementBtn(){
+    getTimeTableManagementBtn() {
         return cy.xpath('//p[.="Timetable Management"]')
     }
-    getQuickLinksTitle(){
+    getQuickLinksTitle() {
         return cy.get('[class*="schQicLikTitle"]')
     }
-    getCreateNewNoticeDeletePopupDeleteNoticeBtn(){
+    getCreateNewNoticeDeletePopupDeleteNoticeBtn() {
         return cy.get('button.css-1hw9j7s').contains(' Delete Notice')
     }
-    getNoticeList(){
+    getNoticeList() {
         return cy.get('div.StudentSchool_schNotBordList__3ggOt')
     }
-    getNoticeListDate(){
+    getNoticeListDate() {
         return cy.get('p.StudentSchool_schNotBordListDate__2RKqU')
     }
-    getNoticeListMonth(){
+    getNoticeListMonth() {
         return cy.get('p.StudentSchool_schNotBordListMnth__3vdMo')
     }
-    getNoticeListTitle(){
+    getNoticeListTitle() {
         return cy.get('p.StudentSchool_schNotBordListTitle__2JyUo')
     }
-    getNoticeListTags(){
+    getNoticeListTags() {
         return cy.get('div.StudentSchool_schNotBordCntTags__TYXuW h1')
     }
-    getNoticeListPublicWithIcon(){
+    getNoticeListPublicWithIcon() {
         return cy.get('div.StudentSchool_schNotBordCntTags__TYXuW p').eq(0)
     }
-    getNoticeListPrivateWithIcon(){
+    getNoticeListPrivateWithIcon() {
         return cy.get('div.StudentSchool_schNotBordCntTags__TYXuW p')
     }
-    getNoticeListPrivateMembers(){
+    getNoticeListPrivateMembers() {
         return cy.get('div.admin-row-cls-out')
     }
-    getSearchBox(){
+    getSearchBox() {
         return cy.get('input.css-7g5oui')
     }
-    getCalenderIcon(){
+    getCalenderIcon() {
         return cy.get('div.noticeSchoolTabDatePicker img')
     }
-    getSortDropdown(){
+    getSortDropdown() {
         return cy.get('div.css-1v4ccyo div')
     }
-    getSortDropdownALLOpt(){
+    getSortDropdownALLOpt() {
         return cy.get('li.css-1km1ehz').contains('All')
     }
-    getSortDropdownGeneralOpt(){
+    getSortDropdownGeneralOpt() {
         return cy.get('li.css-1km1ehz').contains('General')
     }
-    getSortDropdownImportantOpt(){
+    getSortDropdownImportantOpt() {
         return cy.get('li.css-1km1ehz').contains('Important')
     }
-    getDeleteList(){
+    getDeleteList() {
         return cy.xpath('//div[@class="StudentSchool_schNotBordList__3ggOt MuiBox-root css-0"]//button[2]')
     }
-    getReadMoreLink(){
+    getReadMoreLink() {
         return cy.get('p.StudentSchool_schNotBordListDesc__2TvCM span')
     }
-    getNoticeDescription(){
+    getNoticeDescription() {
         return cy.get('p.StudentSchool_schNotBordListDesc__2TvCM p.text')
     }
-    getCalenderIconDate(){
+    getCalenderIconDate() {
         return cy.get('.MuiPickersDay-dayWithMargin')
     }
-    getPrivateNoticeList(){
+    getPrivateNoticeList() {
         return cy.get('div.StudentSchool_schNotBordList__3ggOt')
     }
 
 
-    getTimeTableManagementTab(){
+    getTimeTableManagementTab() {
         return cy.get('p.MuiTypography-body1').contains('Timetable Management')
     }
 
-    getGeneratedTimetableBtn(){
+    getGeneratedTimetableBtn() {
         return cy.get('.Timetable_adminTimTbleSectTbleOverviewSelect__2mQZC')
     }
 
 }
-module.exports=new QuickLinksPage()
+module.exports = new QuickLinksPage()

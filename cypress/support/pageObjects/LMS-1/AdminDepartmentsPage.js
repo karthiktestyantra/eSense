@@ -84,6 +84,10 @@ class AdminDepartmentsPage {
         return cy.get('[class*="TeacherAccounts_add_teacher_button"]')
     }
 
+    getEditTeacherOption() {
+        return cy.get('[src="/static/media/editPoc.68c13704.svg"]')
+    }
+
     getNameTextfieldAddTeacher() {
         return cy.get('[name="fullName"]')
     }
@@ -110,6 +114,10 @@ class AdminDepartmentsPage {
 
     getDropdownListCheckbox() {
         return cy.get('[role="option"] input')
+    }
+
+    getSectionSubjectDropdownListCheckbox(Grade) {
+        return cy.xpath('//span[.="'+Grade+'"]/ancestor::li//input')
     }
 
     getAddClassTeacherRadioBtn() {
@@ -146,6 +154,10 @@ class AdminDepartmentsPage {
 
     getTeachedAddedSuccessMsg() {
         return cy.xpath('//div[.="Teacher Added Successfully"]', { timeout: 10_000 })
+    }
+
+    getTeachedUpdatedSuccessMsg() {
+        return cy.xpath('//div[text()="Teacher Updated Successfully"]', { timeout: 10_000 })
     }
 
     getQualificationTitleAcademicDetailsTeacherPreSetup() {
@@ -210,6 +222,22 @@ class AdminDepartmentsPage {
 
     getDeleteConfirmBtnTeacherPreSetup() {
         return cy.get('[class="delete-button"] span');
+    }
+
+    getBulkUploadTeacherPreSetup() {
+        return cy.get('[class*="TeacherAccounts_bulk_upload"]');
+    }
+
+    getFileUploadBulkUploadTeacherPreSetup() {
+        return cy.get('#file-input');
+    }
+
+    getFileUploadImportButtonTeacherPreSetup() {
+        return cy.get('[class*="bulkImport"]', { timeout: 6_000 });
+    }
+
+    getTeacherImportedMsgTeacherPreSetup() {
+        return cy.xpath('//h5[.="Teacher Accounts Imported successfully"]', { timeout: 120_000 });
     }
 
     getAddDepartmentTitle() {

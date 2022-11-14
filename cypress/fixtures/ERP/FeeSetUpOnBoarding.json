@@ -7,12 +7,18 @@
     "feeStructurePagePenaltyMasterTitle": "Penalty Master",
     "feeStructurePageDiscountMasterTitle": "Discount Master",
     "feeStructurePagePaymentGatewayTitle": "Payment Gateway",
-    "feeStructureName1": "Automation School StateBoard",
-    "feeStructureName2": "Automation School CBSE",
+    "feeStructureName1": "Automation School Save",
+    "feeStructureName2": "Automation School SaveAddNew",
+    "feeStructureName3": "Automation School EditSave",
+    "feeStructureName4": "Automation School EditSaveAddNew",
     "feeStructureDescription": "This test is created for automation purpose",
     "feeStructureErrorMessage":"Fee Structure Name Required",
     "startDateErrorMessage":"Start Date required",
     "endDateErrorMessage":"End Date required",
     "feeStructureString":"1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHI",
-    "feeStructureStringLength":"45"
+    "feeStructureStringLength":"45",
+    "feeStructureGrade1": "Grade 1",
+    "feeStructureGrade2": "Grade 2",
+    "feeStructureGrade3": "Grade 3",
+    "feeStructureGrade4": "Grade 4"
 }

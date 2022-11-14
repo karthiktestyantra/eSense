@@ -11,7 +11,7 @@ module.exports = defineConfig({
     urlStaging: 'https://boys.staging.topschool.co.in',
     urlMain: 'https://wwe.staging.topschool.co.in',
     urlQA: 'https://srilanka.staging.topschool.co.in',
-    urlPreSetUpNewSchool: 'https://prashanti.staging.topschool.co.in',
+    urlPreSetUpNewSchool: 'https://presetup.staging.topschool.co.in',
     urlStagingERP: "https://liverpool.staging.topschool.co.in",
     urlPreSetupERP: "https://dhoni.staging.topschool.co.in",
     urlPostSetupERP: "https://topschool.staging.topschool.co.in/",

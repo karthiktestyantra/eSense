@@ -41,7 +41,7 @@ class FeeSetUpOnBoardingPage {
     }
 
     getAddNewFeeStructureTitle() {
-        return cy.xpath('//div[.="Add New Fee Structure"]')
+        return cy.xpath('//div[contains(text(),"Fee Structure")]')
     }
 
     getFeeStructureTextAreaFldInDetailPage() {
@@ -160,8 +160,12 @@ class FeeSetUpOnBoardingPage {
         return cy.xpath('//td[.="' + FeeStructure + '"]/ancestor::tr//img[@class="deleteIcon"]')
     }
 
+    getFeeStructureDeleteIcon() {
+        return cy.xpath('//img[@class="deleteIcon"]')
+    }
+
     getFeeStructureCreatedMsg() {
-        return cy.get('[class*="MuiAlert-message"]')
+        return cy.get('[class*="MuiAlert-message"]', { timeout: 10_000 })
     }
 
     getFeeStructureEditIconDynamic(FeeStructure) {
@@ -170,6 +174,10 @@ class FeeSetUpOnBoardingPage {
 
     getFeeStructureNameInListDynamic(FeeStructure) {
         return cy.xpath('//td[.="' + FeeStructure + '"]')
+    }
+
+    getFeeStructureGradeInListDynamic(FeeStructure, Grade) {
+        return cy.xpath('//td[.="' + FeeStructure + '"]/../td[.="' + Grade + ' "]')
     }
 
     getNewStudentCheckBox() {
@@ -184,8 +192,8 @@ class FeeSetUpOnBoardingPage {
         return cy.get('[id="demo-multiple-checkbox"]')
     }
 
-    getGrade3() {
-        return cy.get('[data-value="Grade 3"]')
+    getGradeFeeStructure(Grade) {
+        return cy.get('[data-value="' + Grade + '"]')
     }
 
     getContinueButton() {
@@ -206,6 +214,10 @@ class FeeSetUpOnBoardingPage {
 
     getFeeInstallmentsCheckboxCustonInstallment() {
         return cy.get('[name="customInstalment"]').eq(0)
+    }
+
+    getFeeInstallmentsCheckboxChecked() {
+        return cy.get('[class*="Mui-checked"] [type="checkbox"]')
     }
 
     getFeeInstallmentsDropdowns() {
@@ -257,7 +269,7 @@ class FeeSetUpOnBoardingPage {
     }
 
     getMandatoryFeeBtn() {
-        return cy.get('[data-testid="switchBtn"]')
+        return cy.get('[class*="MuiSwitch-colorPrimary PrivateSwitchBase-root"] [data-testid="switchBtn"]')
     }
 
     getFeeAmountTextField() {
@@ -307,28 +319,24 @@ class FeeSetUpOnBoardingPage {
         cy.wait(1500)
     }
 
-    verifySaveButtonFeeStructure(feeStructureName) {
+    verifyFeeInstallmentsCheckboxChecked() {
+        this.getFeeInstallmentsCheckboxChecked().eq(0).click()
+        cy.wait(1500)
+    }
+
+    verifySaveButtonFeeStructure(feeStructureName, grade) {
         this.getSaveButtonFeeStructure().click({ waitForAnimations: false })
-        cy.wait(1000)
-        //cy.isVisible(this.getFeeStructureCreatedMsg())
+        this.getFeeStructureCreatedMsg().should('be.visible')
         this.getFeeStructureCreatedMsg().invoke('text', ("Fee Structure " + feeStructureName + " Created."))
         cy.wait(4000)
         cy.isVisible(this.getFeeStructureNameInListDynamic(feeStructureName))
+        cy.isVisible(this.getFeeStructureGradeInListDynamic(feeStructureName, grade))
     }
 
     verifySaveAddNewButtonFeeStructure(feeStructureName) {
-        cy.uncaughtException()
         this.getSaveAddNewButtonFeeStructure().click({ waitForAnimations: false })
-        cy.wait(5000)
-        cy.get('body').then(($el) => {
-            if ($el.find('[class*="MuiButton-contained"]').length > 0) {
-                cy.forceClick(this.getSaveButtonFeeStructure())
-                cy.isVisible(this.getFeeStructureCreatedMsg())
-                cy.verifyTextEquals(this.getFeeStructureCreatedMsg(), ('Fee Structure ' + feeStructureName + ' Created.'))
-                cy.wait(2000)
-            }
-            cy.isVisible(this.getFeeStructureNameInListDynamic(feeStructureName))
-        })
+        this.getFeeStructureCreatedMsg().should('be.visible')
+        cy.verifyTextEquals(this.getFeeStructureCreatedMsg(), ('Fee Structure ' + feeStructureName + ' Created.'))
     }
 
     verifyCancelButtonFeeStructure(feeStructureName) {
@@ -337,11 +345,10 @@ class FeeSetUpOnBoardingPage {
         this.getFeeStructureNameInListDynamic(feeStructureName).should('not.exist')
     }
 
-    verifyEditButtonFeeStructure(feeStructureName) {
+    verifyEditButtonSaveFeeStructure(feeStructureName) {
         this.getFeeStructureEditIconDynamic(feeStructureName).should('be.visible').click()
         cy.wait(1000)
         cy.isVisible(this.getEditFeeStructureTitle())
-        this.getCancelButtonFeeStructure().click()
     }
 
     verifyDeleteButtonFeeStructure(feeStructureName) {
@@ -350,6 +357,25 @@ class FeeSetUpOnBoardingPage {
         this.getDeleteConfirmButton().click()
         cy.isVisible(this.getFeeStructureDeletedMsg())
         this.getFeeStructureDeletedMsgCloseIcon().click()
+        cy.wait(2000)
+        this.getFeeStructureDeleteIconDynamic(feeStructureName).should('not.exist')
+    }
+
+    verifyDeleteButtonAllFeeStructure() {
+        cy.get('body').then(($el) => {
+            if ($el.find('[class="deleteIcon"]').length > 0) {
+                this.getFeeStructureDeleteIcon().then((delLen) => {
+                    for (let index = 0; index < delLen.length; index++) {
+                        this.getFeeStructureDeleteIcon().eq(0).click()
+                        cy.wait(1000)
+                        this.getDeleteConfirmButton().click()
+                        cy.isVisible(this.getFeeStructureDeletedMsg())
+                        this.getFeeStructureDeletedMsgCloseIcon().click()
+                        cy.wait(3000)
+                    }
+                })
+            }
+        })
     }
 
     verifyFeeStructureFeeInstallmentsPage() {
@@ -415,9 +441,9 @@ class FeeSetUpOnBoardingPage {
         cy.forceClick(this.getOnSetUpFeeMastersOrAddNewButton())
     }
 
-    enterAllFeeStructureDetails(FeeStructureName, Description, StartDate, EndDate) {
-        this.getFeeStructureNameTextfield().type(FeeStructureName)
-        this.getDescriptionTextAreaField().type(Description)
+    enterAllFeeStructureDetails(FeeStructureName, Description, StartDate, EndDate, Grade) {
+        this.getFeeStructureNameTextfield().clear().type(FeeStructureName)
+        this.getDescriptionTextAreaField().clear().type(Description)
         this.getStartDateIcon().click()
         cy.forceClick(this.getStartDate(StartDate))
         cy.wait(1000)
@@ -428,13 +454,31 @@ class FeeSetUpOnBoardingPage {
         this.getEndDate(EndDate).click({ waitForAnimations: false })
         this.verifyApplicableForStudentCheckbox()
         this.getSelectGrade().click({ waitForAnimations: false })
-        this.getGrade3().click()
+        this.getGradeFeeStructure(Grade).click()
         cy.wait(2000)
         cy.forceClick(this.getContinueButton())
         cy.get('body').then(($el) => {
             if ($el.find('[class*="css-1xfhtg"]').length > 0) {
-                this.getSelectGrade().click({ waitForAnimations: false })
-                this.getGrade3().click()
+                this.getSelectGrade().click()
+                this.getGradeFeeStructure(Grade).click()
+                cy.wait(2000)
+                cy.forceClick(this.getContinueButton())
+            }
+        })
+        cy.wait(1500)
+    }
+
+    enterAllEditFeeStructureDetails(FeeStructureName, Description, Grade) {
+        this.getFeeStructureNameTextfield().clear().type(FeeStructureName)
+        this.getDescriptionTextAreaField().clear().type(Description)
+        this.getSelectGrade().click({ waitForAnimations: false })
+        this.getGradeFeeStructure(Grade).click()
+        cy.wait(2000)
+        cy.forceClick(this.getContinueButton())
+        cy.get('body').then(($el) => {
+            if ($el.find('[class*="css-1xfhtg"]').length > 0) {
+                this.getSelectGrade().click()
+                this.getGradeFeeStructure(Grade).click()
                 cy.wait(2000)
                 cy.forceClick(this.getContinueButton())
             }

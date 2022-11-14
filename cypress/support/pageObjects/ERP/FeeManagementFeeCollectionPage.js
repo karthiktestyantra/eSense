@@ -1,4 +1,4 @@
-class FeeManagementFeeCollectionPage{
+class FeeManagementFeeCollectionPage {
 
     getListOfStudentName() {
         return cy.get('p.name')
@@ -19,7 +19,7 @@ class FeeManagementFeeCollectionPage{
     getPaymentModeDropdownList() {
         return cy.get('ul.MuiMenu-list li')
     }
-    
+
     getFeeAmtTxtField() {
         return cy.get('input[name="amount"]')
     }

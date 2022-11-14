@@ -21,10 +21,10 @@ class DiscountMasterOnBoardingPage {
     getDiscountAmountTxtFldFrCustom() {
         return cy.get('input[name="quota.1.discountAmount"]')
     }
-    getScholarshipAmountTxtFld1(){
+    getScholarshipAmountTxtFld1() {
         return cy.get('input[name="newScholarship.0.discountAmount"]')
     }
-    getScholarshipAmountTxtFld2(){
+    getScholarshipAmountTxtFld2() {
         return cy.get('input[name="newScholarship.1.discountAmount"]')
     }
     getCheckBxNameLst() {
@@ -69,6 +69,9 @@ class DiscountMasterOnBoardingPage {
     getDefaultTxtInDiscountMaster() {
         return cy.get('div.innerBox p')
     }
+    getDiscountMasterTab() {
+        return cy.xpath('//div[.="Discount Master"]')
+    }
     getSetupDiscountMasters() {
         return cy.get('button.customBtn').contains("Setup Discount Masters")
     }
@@ -111,10 +114,10 @@ class DiscountMasterOnBoardingPage {
     getDeleteMarksRangeDeleteBtnLst() {
         return cy.get('div.deleteBox:visible')
     }
-    getDiscountNameSortIcn(){
+    getDiscountNameSortIcn() {
         return cy.get('div.arrowAlignment img[data-testid="descOrder"]').eq(0)
     }
-    getDiscountTypeSortIcn(){
+    getDiscountTypeSortIcn() {
         return cy.get('div.arrowAlignment img[data-testid="descOrder"]').eq(1)
     }
 

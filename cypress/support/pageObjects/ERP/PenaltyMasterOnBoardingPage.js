@@ -43,11 +43,11 @@ class PenaltytMasterOnBoardingPage {
     getPenaltyTypeDropdownValue() {
         return cy.get('span.MuiListItemText-primary')
     }
-    
+
     getPenaltySelectGradeTypeDropdown() {
         return cy.get('div.MuiSelect-select').eq(1)
     }
-      
+
     getPenaltySelectAllGradeDropdownValues() {
         return cy.get('span.MuiCheckbox-root input')
     }
@@ -55,12 +55,12 @@ class PenaltytMasterOnBoardingPage {
     getPenaltySelectStreamDropdown() {
         return cy.get('div.MuiSelect-select').eq(2)
     }
-     
+
     getPenaltySelectStreamDropdownValues() {
         return cy.get('span.MuiCheckbox-root input')
     }
 
-        getPenaltyAmountFlatAmt() {
+    getPenaltyAmountFlatAmt() {
         return cy.get('input[name="penaltyAmount"]')
     }
 
@@ -71,7 +71,7 @@ class PenaltytMasterOnBoardingPage {
     getpenaltyUnpaidLink() {
         return cy.get('div[data-testid="penaltyUnpaid"]')
     }
-    
+
     getpenaltyUnpaidAmtTextField() {
         return cy.get('input[name="unpaidAmount"]')
     }
@@ -79,7 +79,7 @@ class PenaltytMasterOnBoardingPage {
     getpenaltyUnpaidAmtTextField() {
         return cy.get('input[name="unpaidAmount"]')
     }
-    
+
     getpenaltyChargePer() {
         return cy.get('input[name="duration"]')
     }
@@ -91,7 +91,7 @@ class PenaltytMasterOnBoardingPage {
     getpenaltyDurationDropdownValue() {
         return cy.get('ul.MuiMenu-list li')
     }
-    
+
     getpenaltyMasterSaveBtn() {
         return cy.get('button.MuiButtonBase-root').contains('Save')
     }
@@ -164,7 +164,7 @@ class PenaltytMasterOnBoardingPage {
     //       expect(t).to.contains('New Penalty Created');
     //    })
 
-   // }
+    // }
 
 
 

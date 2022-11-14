@@ -17,7 +17,7 @@ describe("Verify Penalty Master functionalities", function () {
     
       beforeEach(function () {
         cy.restoreLocalStorage();
-        cy.fixture("ERP/PenaltyMasterCredentials").as("PenaltyMaster")
+        cy.fixture("ERP/PenaltyMasterOnboarding").as("penaltyMasterOnboarding")
       })
 
       it("ERP_TC_001 - Validate user is able to navigate from Fee structure master to Penalty master tab.", function () {
@@ -35,9 +35,9 @@ describe("Verify Penalty Master functionalities", function () {
 
        it("ERP_TC_003 - Validate user is create the penalty by using the 'Setup Penalty Masters' button", function () {
         penaltyMasterOnBoardingPage.getPresetupPenaltyMasterSetupPenaltyMastersBtn().click()
-        penaltyMasterOnBoardingPage.getPenaltyNameTextField().type(this.PenaltyMaster.penaltyName)
+        penaltyMasterOnBoardingPage.getPenaltyNameTextField().type(this.penaltyMasterOnboarding.penaltyName)
         penaltyMasterOnBoardingPage.getPenaltyTypeDropdown().click()
-        penaltyMasterOnBoardingPage.getPenaltyTypeDropdownValue().contains(this.PenaltyMaster.PenaltyTypeValue).click()
+        penaltyMasterOnBoardingPage.getPenaltyTypeDropdownValue().contains(this.penaltyMasterOnboarding.PenaltyTypeValue).click()
         penaltyMasterOnBoardingPage.getPenaltySelectGradeTypeDropdown().click()
         penaltyMasterOnBoardingPage.getPenaltySelectAllGradeDropdownValues().each(($e1,index,$list)=>{
          cy.wrap($e1).uncheck()
@@ -51,12 +51,12 @@ describe("Verify Penalty Master functionalities", function () {
         // })
         cy.clickOnBody()
         penaltyMasterOnBoardingPage.getPenaltyAmountFlatAmt().click()
-        penaltyMasterOnBoardingPage.getPenaltyAmountTxtField().type(this.PenaltyMaster.PenaltyAmountValue)
+        penaltyMasterOnBoardingPage.getPenaltyAmountTxtField().type(this.penaltyMasterOnboarding.PenaltyAmountValue)
         penaltyMasterOnBoardingPage.getpenaltyUnpaidLink().click()
-        penaltyMasterOnBoardingPage.getpenaltyUnpaidAmtTextField().type(this.PenaltyMaster.unpaidAmt)
-        penaltyMasterOnBoardingPage.getpenaltyChargePer().type(this.PenaltyMaster.chargePerDay) 
+        penaltyMasterOnBoardingPage.getpenaltyUnpaidAmtTextField().type(this.penaltyMasterOnboarding.unpaidAmt)
+        penaltyMasterOnBoardingPage.getpenaltyChargePer().type(this.penaltyMasterOnboarding.chargePerDay) 
         penaltyMasterOnBoardingPage.getpenaltyDurationDropdown().click()
-        penaltyMasterOnBoardingPage.getpenaltyDurationDropdownValue().contains(this.PenaltyMaster.durationValue).click()
+        penaltyMasterOnBoardingPage.getpenaltyDurationDropdownValue().contains(this.penaltyMasterOnboarding.durationValue).click()
         penaltyMasterOnBoardingPage.getpenaltyMasterSaveBtn().click()
         cy.on('window:alert',(t)=>{
           //assertions
@@ -68,11 +68,11 @@ describe("Verify Penalty Master functionalities", function () {
        })
 
       it("ERP_TC_004 - Validate user is navigate from Fee structure master to Penalty master module tab.", function () {
-       // penaltyMasterOnBoardingPage.createAndVerifyPenaltyMasterFunctionalities(this.PenaltyMaster.PenaltyTypeValue, this.PenaltyMaster.penaltyName,this.PenaltyMaster.PenaltyAmountValue,this.PenaltyMaster.unpaidAmt,this.PenaltyMaster.chargePerDay,this.PenaltyMaster.durationValue) 
+       // penaltyMasterOnBoardingPage.createAndVerifyPenaltyMasterFunctionalities(this.penaltyMasterOnboarding.PenaltyTypeValue, this.penaltyMasterOnboarding.penaltyName,this.penaltyMasterOnboarding.PenaltyAmountValue,this.penaltyMasterOnboarding.unpaidAmt,this.penaltyMasterOnboarding.chargePerDay,this.penaltyMasterOnboarding.durationValue) 
         penaltyMasterOnBoardingPage.getPenaltyMasterAddBtn().click()
-        penaltyMasterOnBoardingPage.getPenaltyNameTextField().type(this.PenaltyMaster.penaltyName2)
+        penaltyMasterOnBoardingPage.getPenaltyNameTextField().type(this.penaltyMasterOnboarding.penaltyName2)
         penaltyMasterOnBoardingPage.getPenaltyTypeDropdown().click()
-        penaltyMasterOnBoardingPage.getPenaltyTypeDropdownValue().contains(this.PenaltyMaster.PenaltyTypeValue2).click()
+        penaltyMasterOnBoardingPage.getPenaltyTypeDropdownValue().contains(this.penaltyMasterOnboarding.PenaltyTypeValue2).click()
         penaltyMasterOnBoardingPage.getPenaltySelectGradeTypeDropdown().click()
         penaltyMasterOnBoardingPage.getPenaltySelectAllGradeDropdownValues().each(($e1,index,$list)=>{
          cy.wrap($e1).uncheck()
@@ -86,12 +86,12 @@ describe("Verify Penalty Master functionalities", function () {
         // })
         cy.clickOnBody()
         penaltyMasterOnBoardingPage.getPenaltyAmountFlatAmt().click()
-        penaltyMasterOnBoardingPage.getPenaltyAmountTxtField().type(this.PenaltyMaster.PenaltyAmountValue2)
+        penaltyMasterOnBoardingPage.getPenaltyAmountTxtField().type(this.penaltyMasterOnboarding.PenaltyAmountValue2)
         penaltyMasterOnBoardingPage.getpenaltyUnpaidLink().click()
-        penaltyMasterOnBoardingPage.getpenaltyUnpaidAmtTextField().type(this.PenaltyMaster.unpaidAmt2)
-        penaltyMasterOnBoardingPage.getpenaltyChargePer().type(this.PenaltyMaster.chargePerDay2) 
+        penaltyMasterOnBoardingPage.getpenaltyUnpaidAmtTextField().type(this.penaltyMasterOnboarding.unpaidAmt2)
+        penaltyMasterOnBoardingPage.getpenaltyChargePer().type(this.penaltyMasterOnboarding.chargePerDay2) 
         penaltyMasterOnBoardingPage.getpenaltyDurationDropdown().click()
-        penaltyMasterOnBoardingPage.getpenaltyDurationDropdownValue().contains(this.PenaltyMaster.durationValue2).click()
+        penaltyMasterOnBoardingPage.getpenaltyDurationDropdownValue().contains(this.penaltyMasterOnboarding.durationValue2).click()
         penaltyMasterOnBoardingPage.getpenaltyMasterSaveBtn().click()
         cy.on('window:alert',(t)=>{
           //assertions
@@ -110,13 +110,13 @@ describe("Verify Penalty Master functionalities", function () {
 
       it("ERP_TC_005 - Validate a new penalty master form appears as the user clicks on 'Save&add new' button", function () {
         penaltyMasterOnBoardingPage.getPenaltyMasterAddBtn().click()
-        penaltyMasterOnBoardingPage.getPenaltyNameTextField().type(this.PenaltyMaster.penaltyName2)
+        penaltyMasterOnBoardingPage.getPenaltyNameTextField().type(this.penaltyMasterOnboarding.penaltyName2)
         cy.wait(1000)
         penaltyMasterOnBoardingPage.getPenaltyNameTextField().invoke('val').then((penaltyname)=>{
         var penaltynametxt = penaltyname 
         cy.log(penaltynametxt)
         penaltyMasterOnBoardingPage.getPenaltyTypeDropdown().click()
-        penaltyMasterOnBoardingPage.getPenaltyTypeDropdownValue().contains(this.PenaltyMaster.PenaltyTypeValue).click()
+        penaltyMasterOnBoardingPage.getPenaltyTypeDropdownValue().contains(this.penaltyMasterOnboarding.PenaltyTypeValue).click()
         penaltyMasterOnBoardingPage.getPenaltySelectGradeTypeDropdown().click()
         penaltyMasterOnBoardingPage.getPenaltySelectAllGradeDropdownValues().each(($e1,index,$list)=>{
          cy.wrap($e1).uncheck()
@@ -130,12 +130,12 @@ describe("Verify Penalty Master functionalities", function () {
         // })
         cy.clickOnBody()
         penaltyMasterOnBoardingPage.getPenaltyAmountFlatAmt().click()
-        penaltyMasterOnBoardingPage.getPenaltyAmountTxtField().type(this.PenaltyMaster.PenaltyAmountValue)
+        penaltyMasterOnBoardingPage.getPenaltyAmountTxtField().type(this.penaltyMasterOnboarding.PenaltyAmountValue)
         penaltyMasterOnBoardingPage.getpenaltyUnpaidLink().click()
-        penaltyMasterOnBoardingPage.getpenaltyUnpaidAmtTextField().type(this.PenaltyMaster.unpaidAmt)
-        penaltyMasterOnBoardingPage.getpenaltyChargePer().type(this.PenaltyMaster.chargePerDay) 
+        penaltyMasterOnBoardingPage.getpenaltyUnpaidAmtTextField().type(this.penaltyMasterOnboarding.unpaidAmt)
+        penaltyMasterOnBoardingPage.getpenaltyChargePer().type(this.penaltyMasterOnboarding.chargePerDay) 
         penaltyMasterOnBoardingPage.getpenaltyDurationDropdown().click()
-        penaltyMasterOnBoardingPage.getpenaltyDurationDropdownValue().contains(this.PenaltyMaster.durationValue).click()
+        penaltyMasterOnBoardingPage.getpenaltyDurationDropdownValue().contains(this.penaltyMasterOnboarding.durationValue).click()
         penaltyMasterOnBoardingPage.getpenaltyMasterSaveAndAddNewBtn().click()
         cy.wait(1000)
         penaltyMasterOnBoardingPage.getpenaltyMasterSaveAndAddNewBtn().click()
@@ -143,7 +143,7 @@ describe("Verify Penalty Master functionalities", function () {
         cy.get('.buttonGrid > [type="button"]').click()
         penaltyMasterOnBoardingPage.getpenaltyMasterListOfCreatedPenaltyName().eq(0).then((CreatedPenaltyNmae)=>{
           var penaltyName = CreatedPenaltyNmae.text()
-          expect(this.PenaltyMaster.penaltyName2).to.be.equal(penaltynametxt)
+          expect(this.penaltyMasterOnboarding.penaltyName2).to.be.equal(penaltynametxt)
 
         })
         })
@@ -174,12 +174,12 @@ describe("Verify Penalty Master functionalities", function () {
       it("ERP_TC_011 - Validate user is able to edit the created penalty.", function () {
         penaltyMasterOnBoardingPage.getpenaltyMasterListOfCreatedPenaltyName().each(($e1, index,$list) => {
          var penaltyName = $e1.text()
-         if(penaltyName===(this.PenaltyMaster.penaltyName2)){
+         if(penaltyName===(this.penaltyMasterOnboarding.penaltyName2)){
           penaltyMasterOnBoardingPage.getpenaltyMasterListOfCreatedPenaltyEditBtn().eq(index).click()
-          penaltyMasterOnBoardingPage.getPenaltyNameTextField().clear().type(this.PenaltyMaster.EditPenaltyName)
+          penaltyMasterOnBoardingPage.getPenaltyNameTextField().clear().type(this.penaltyMasterOnboarding.EditPenaltyName)
           penaltyMasterOnBoardingPage.getEditedPenaltySaveBtn().click()
           cy.wait(3000)
-          penaltyMasterOnBoardingPage.getpenaltyMasterListOfCreatedPenaltyName().should('contain.text',this.PenaltyMaster.EditPenaltyName)
+          penaltyMasterOnBoardingPage.getpenaltyMasterListOfCreatedPenaltyName().should('contain.text',this.penaltyMasterOnboarding.EditPenaltyName)
           
          }
         })

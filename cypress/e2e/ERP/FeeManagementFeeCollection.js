@@ -1,9 +1,7 @@
 const loginPage = require('../../support/pageObjects/ERP/LoginPage')
 const adminDashboardPage = require('../../support/pageObjects/ERP/AdminDashboardPage')
-const feeSetUpOnBoardingPage = require('../../support/pageObjects/ERP/FeeSetUpOnBoardingPage')
 const feeManagementFeeCollectionPage = require('../../support/pageObjects/ERP/FeeManagementFeeCollectionPage')
-const dayjs = require('dayjs')
-describe("Verify Fee Collection functionalities", function () {
+describe("Verify Fee Management Fee Collection functionalities", function () {
 
     before(function () {
         cy.clearCookies();
@@ -17,7 +15,7 @@ describe("Verify Fee Collection functionalities", function () {
           loginPage.login(loginCredentials.adminUsernamePostSetUp, loginCredentials.adminPassword)
         })
         cy.saveLocalStorage();
-        cy.fixture("ERP/FeeCollection").as("feeCollection")
+        cy.fixture("ERP/FeeManagementFeeCollection").as("feeManagementFeeCollection")
       })
       
       it("TC_002 - To Validate user is able to cancel the collect fee", function () {
@@ -25,11 +23,11 @@ describe("Verify Fee Collection functionalities", function () {
         cy.wait(1000)
         adminDashboardPage.getFeeCollectionLink().click()
         cy.wait(4000)
-        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeCollection.studenttxt)
+        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeManagementFeeCollection.studenttxt)
         cy.wait(3000)
         feeManagementFeeCollectionPage.getListOfStudentName().each(($e1,index,$list)=>{
             var studentNameTxt = $e1.text().trim()
-            if(studentNameTxt===(this.feeCollection.studenttxt)){
+            if(studentNameTxt===(this.feeManagementFeeCollection.studenttxt)){
             cy.uncaughtException()
             feeManagementFeeCollectionPage.getListOfStudentCollectFeeBtn().eq(index).click()
 
@@ -45,11 +43,11 @@ describe("Verify Fee Collection functionalities", function () {
         cy.wait(1000)
         adminDashboardPage.getFeeCollectionLink().click()
         cy.wait(4000)
-        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeCollection.studenttxt)
+        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeManagementFeeCollection.studenttxt)
         cy.wait(2000)
         feeManagementFeeCollectionPage.getListOfStudentName().each(($e1,index,$list)=>{
           var studentNameTxt = $e1.text().trim()
-          if(studentNameTxt===(this.feeCollection.studenttxt)){
+          if(studentNameTxt===(this.feeManagementFeeCollection.studenttxt)){
             cy.wait(1000)
           feeManagementFeeCollectionPage.getListOfStudentCollectFeeBtn().eq(index).click()
 
@@ -57,11 +55,11 @@ describe("Verify Fee Collection functionalities", function () {
       })
       cy.wait(2000)
       feeManagementFeeCollectionPage.getPaymentModeDropdown().click()
-      feeManagementFeeCollectionPage.getPaymentModeDropdownList().contains(this.feeCollection.paymentmode).click()
-      feeManagementFeeCollectionPage.getFeeAmtTxtField().type(this.feeCollection.FeeAmtValue)
-      feeManagementFeeCollectionPage.getFeeTransactionIdTxtField().type(this.feeCollection.TransactionID)
+      feeManagementFeeCollectionPage.getPaymentModeDropdownList().contains(this.feeManagementFeeCollection.paymentmode).click()
+      feeManagementFeeCollectionPage.getFeeAmtTxtField().type(this.feeManagementFeeCollection.FeeAmtValue)
+      feeManagementFeeCollectionPage.getFeeTransactionIdTxtField().type(this.feeManagementFeeCollection.TransactionID)
       feeManagementFeeCollectionPage.getFeeAttachFile().attachFile('ERP/sample.pdf');
-      feeManagementFeeCollectionPage.getFeeRemarksTextArea().type(this.feeCollection.Remarks)
+      feeManagementFeeCollectionPage.getFeeRemarksTextArea().type(this.feeManagementFeeCollection.Remarks)
       cy.uncaughtException()
       feeManagementFeeCollectionPage.getFeeCollectionApplyBtn().click({force:true})
       })
@@ -72,11 +70,11 @@ describe("Verify Fee Collection functionalities", function () {
         cy.wait(1000)
         adminDashboardPage.getFeeCollectionLink().click()
         cy.wait(4000)
-        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeCollection.studenttxt)
+        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeManagementFeeCollection.studenttxt)
         cy.wait(2000)
         feeManagementFeeCollectionPage.getListOfStudentName().each(($e1,index,$list)=>{
           var studentNameTxt = $e1.text().trim()
-          if(studentNameTxt===(this.feeCollection.studenttxt)){
+          if(studentNameTxt===(this.feeManagementFeeCollection.studenttxt)){
             cy.wait(1000)
           feeManagementFeeCollectionPage.getListOfStudentCollectFeeBtn().eq(index).click()
 
@@ -84,13 +82,13 @@ describe("Verify Fee Collection functionalities", function () {
       })
       cy.wait(2000)
       feeManagementFeeCollectionPage.getPaymentModeDropdown().click()
-      cy.contains(this.feeCollection.paymentChequeMode).click()
-      feeManagementFeeCollectionPage.getFeeCollectionAmountTxt().type(this.feeCollection.FeeAmtValue)
+      cy.contains(this.feeManagementFeeCollection.paymentChequeMode).click()
+      feeManagementFeeCollectionPage.getFeeCollectionAmountTxt().type(this.feeManagementFeeCollection.FeeAmtValue)
       feeManagementFeeCollectionPage.getFeeCollectionBankNameTxt().click()
-      cy.contains(this.feeCollection.BankName).click()
-      feeManagementFeeCollectionPage.getFeeCollectionChaqueNumberTxt().type(this.feeCollection.TransactionID)
+      cy.contains(this.feeManagementFeeCollection.BankName).click()
+      feeManagementFeeCollectionPage.getFeeCollectionChaqueNumberTxt().type(this.feeManagementFeeCollection.TransactionID)
       feeManagementFeeCollectionPage.getFeeCollectionChaqueStatusTxt().click({force:true})
-      cy.contains(this.feeCollection.Cheque).click()
+      cy.contains(this.feeManagementFeeCollection.Cheque).click()
       cy.uncaughtException()
       feeManagementFeeCollectionPage.getFeeCollectionApplyBtn().click({force:true})
       })
@@ -100,22 +98,22 @@ describe("Verify Fee Collection functionalities", function () {
         cy.wait(1000)
         adminDashboardPage.getFeeCollectionLink().click()
         cy.wait(4000)
-        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeCollection.studenttxt)
+        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeManagementFeeCollection.studenttxt)
         cy.wait(2000)
         feeManagementFeeCollectionPage.getListOfStudentName().each(($e1,index,$list)=>{
           var studentNameTxt = $e1.text().trim()
-          if(studentNameTxt===(this.feeCollection.studenttxt)){
+          if(studentNameTxt===(this.feeManagementFeeCollection.studenttxt)){
             cy.wait(1000)
           feeManagementFeeCollectionPage.getListOfStudentCollectFeeBtn().eq(index).click()
           }
       })
       cy.wait(2000)
       feeManagementFeeCollectionPage.getPaymentModeDropdown().click()
-      cy.contains(this.feeCollection.paymentDemandDraftMode).click()
-      feeManagementFeeCollectionPage.getFeeCollectionAmountTxt().type(this.feeCollection.FeeAmtValue)
+      cy.contains(this.feeManagementFeeCollection.paymentDemandDraftMode).click()
+      feeManagementFeeCollectionPage.getFeeCollectionAmountTxt().type(this.feeManagementFeeCollection.FeeAmtValue)
       feeManagementFeeCollectionPage.getFeeCollectionBankNameTxt().click()
-      cy.contains(this.feeCollection.BankName).click()
-      feeManagementFeeCollectionPage.getFeeCollectionChaqueNumberTxt().type(this.feeCollection.TransactionID)
+      cy.contains(this.feeManagementFeeCollection.BankName).click()
+      feeManagementFeeCollectionPage.getFeeCollectionChaqueNumberTxt().type(this.feeManagementFeeCollection.TransactionID)
       cy.uncaughtException()
       feeManagementFeeCollectionPage.getFeeCollectionApplyBtn().click({force:true})
       })
@@ -125,22 +123,22 @@ describe("Verify Fee Collection functionalities", function () {
         cy.wait(1000)
         adminDashboardPage.getFeeCollectionLink().click()
         cy.wait(4000)
-        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeCollection.studenttxt)
+        feeManagementFeeCollectionPage.getStudentSearchBtn().type(this.feeManagementFeeCollection.studenttxt)
         cy.wait(2000)
         feeManagementFeeCollectionPage.getListOfStudentName().each(($e1,index,$list)=>{
           var studentNameTxt = $e1.text().trim()
-          if(studentNameTxt===(this.feeCollection.studenttxt)){
+          if(studentNameTxt===(this.feeManagementFeeCollection.studenttxt)){
             cy.wait(1000)
           feeManagementFeeCollectionPage.getListOfStudentCollectFeeBtn().eq(index).click()
           }
       })
       cy.wait(2000)
       feeManagementFeeCollectionPage.getPaymentModeDropdown().click()
-      cy.contains(this.feeCollection.paymentOtherMode).click()
-      feeManagementFeeCollectionPage.getFeeCollectionAmountTxt().type(this.feeCollection.FeeAmtValue)
-      feeManagementFeeCollectionPage.getFeeCollectionNameTxt().type(this.feeCollection.Name)
-      feeManagementFeeCollectionPage.getFeeCollectionTransactionIDTxt().type(this.feeCollection.TransactionID)
-      feeManagementFeeCollectionPage.getFeeCollectionRemarksTxt().type(this.feeCollection.Remarks)
+      cy.contains(this.feeManagementFeeCollection.paymentOtherMode).click()
+      feeManagementFeeCollectionPage.getFeeCollectionAmountTxt().type(this.feeManagementFeeCollection.FeeAmtValue)
+      feeManagementFeeCollectionPage.getFeeCollectionNameTxt().type(this.feeManagementFeeCollection.Name)
+      feeManagementFeeCollectionPage.getFeeCollectionTransactionIDTxt().type(this.feeManagementFeeCollection.TransactionID)
+      feeManagementFeeCollectionPage.getFeeCollectionRemarksTxt().type(this.feeManagementFeeCollection.Remarks)
       feeManagementFeeCollectionPage.getFeeAttachFile().attachFile('ERP/sample.pdf');
       cy.uncaughtException()
       feeManagementFeeCollectionPage.getFeeCollectionApplyBtn().click({force:true})

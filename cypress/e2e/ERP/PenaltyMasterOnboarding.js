@@ -154,10 +154,10 @@ describe("Verify Penalty Master functionalities", function () {
 
   })
 
-  it.skip("ERP_TC_009 - Validate user is able to see the Grades in the penalty list view page.", function () {
+  // it.skip("ERP_TC_009 - Validate user is able to see the Grades in the penalty list view page.", function () {
 
 
-  })
+  // })
 
   it("ERP_TC_010 - Validate user should see the Amount.", function () {
     penaltyMasterOnBoardingPage.getpenaltyMasterListViewAmountColumn().should('be.visible')

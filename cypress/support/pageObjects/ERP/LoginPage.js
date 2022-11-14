@@ -5,7 +5,7 @@ class LoginPage {
   }
 
   getLoginSuccessMsg() {
-    return cy.xpath('//div[text()="Logged in successfully"]')
+    return cy.xpath('//div[text()="Logged in successfully"]', { timeout: 10_000 })
   }
 
   getTeacherBtn() {
@@ -39,7 +39,7 @@ class LoginPage {
     this.getPassword().clear().type(password);
     cy.forceClick(this.getLoginBtn())
     cy.wait(1000)
-    cy.isVisible(this.getLoginSuccessMsg())
+    this.getLoginSuccessMsg().should('be.visible')
     cy.url().should('contain', 'dashboard');
   }
 

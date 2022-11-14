@@ -133,7 +133,7 @@ class FeeSetUpOnBoardingPage {
     }
 
     getFeeStructureDeletedMsg() {
-        return cy.xpath('//p[contains(text(),"fee structures have been deleted.")]')
+        return cy.xpath('//p[contains(text(),"fee structures have been deleted.")]', { timeout: 10_000 })
     }
 
     getEditFeeStructureTitle() {
@@ -272,6 +272,10 @@ class FeeSetUpOnBoardingPage {
         return cy.get('[class*="MuiSwitch-colorPrimary PrivateSwitchBase-root"] [data-testid="switchBtn"]')
     }
 
+    getFeeTypeCheckBox() {
+        return cy.get('[data-testid="checkBox"]')
+    }
+
     getFeeAmountTextField() {
         return cy.get('[data-testid="feeTypeAmount"]')
     }
@@ -311,6 +315,10 @@ class FeeSetUpOnBoardingPage {
 
     verifyFeeStructureFeeTypePage() {
         this.getAddFeeStructureFeeTypeTabs().should('be.visible').should('have.length', 4)
+        this.getFeeTypeCheckBox().each(($el) => {
+            cy.wrap($el).check()
+        })
+        cy.wait(1000)
         this.getMandatoryFeeBtn().last().click()
         this.getFeeAmountTextField().each(($el, index) => {
             cy.wrap($el).clear().type((index + 1) * 1000)
@@ -355,8 +363,9 @@ class FeeSetUpOnBoardingPage {
         this.getFeeStructureDeleteIconDynamic(feeStructureName).should('be.visible').click()
         cy.wait(1000)
         this.getDeleteConfirmButton().click()
-        cy.isVisible(this.getFeeStructureDeletedMsg())
-        this.getFeeStructureDeletedMsgCloseIcon().click()
+        this.getFeeStructureDeletedMsg().should('be.visible')
+        cy.wait(1000)
+        cy.clickOnBody()
         cy.wait(2000)
         this.getFeeStructureDeleteIconDynamic(feeStructureName).should('not.exist')
     }
@@ -369,9 +378,10 @@ class FeeSetUpOnBoardingPage {
                         this.getFeeStructureDeleteIcon().eq(0).click()
                         cy.wait(1000)
                         this.getDeleteConfirmButton().click()
-                        cy.isVisible(this.getFeeStructureDeletedMsg())
-                        this.getFeeStructureDeletedMsgCloseIcon().click()
-                        cy.wait(3000)
+                        this.getFeeStructureDeletedMsg().should('be.visible')
+                        cy.wait(1000)
+                        cy.clickOnBody()
+                        cy.wait(2000)
                     }
                 })
             }
@@ -456,13 +466,14 @@ class FeeSetUpOnBoardingPage {
         this.getSelectGrade().click({ waitForAnimations: false })
         this.getGradeFeeStructure(Grade).click()
         cy.wait(2000)
-        cy.forceClick(this.getContinueButton())
+        this.getContinueButton().click()
+        cy.wait(2000)
         cy.get('body').then(($el) => {
             if ($el.find('[class*="css-1xfhtg"]').length > 0) {
                 this.getSelectGrade().click()
                 this.getGradeFeeStructure(Grade).click()
                 cy.wait(2000)
-                cy.forceClick(this.getContinueButton())
+                this.getContinueButton().click()
             }
         })
         cy.wait(1500)

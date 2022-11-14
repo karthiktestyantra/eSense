@@ -16,7 +16,8 @@ module.exports = defineConfig({
     urlPreSetupERP: "https://dhoni.staging.topschool.co.in",
     urlPostSetupERP: "https://topschool.staging.topschool.co.in/",
     urlBhsSchool: 'https://bhs.staging.topschool.co.in',
-    urlProd: 'https://prodautomation1.thetopschool.com/'
+    urlProd: 'https://prodautomation1.thetopschool.com/',
+    urlBhsSchool: 'https://bhs.staging.topschool.co.in'
   },
   video: false,
   defaultCommandTimeout: 20000,

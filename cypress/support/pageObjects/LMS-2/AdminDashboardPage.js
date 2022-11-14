@@ -350,5 +350,9 @@ class AdminDashboardPage {
     getGoToMySchoolButton(){
         return cy.get('[type="button"]').contains('Go to My School')
     }
+
+    getNotificationTab(){
+        return cy.get('img[src="/static/media/bellNav.79ae92ed.svg"]')
+    }
 }
 module.exports = new AdminDashboardPage() 

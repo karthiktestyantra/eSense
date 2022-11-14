@@ -312,5 +312,17 @@ class AdminCalenderHomePage {
     getCalenderPeriodsList(){
         return cy.get('div.md-custom-event-details')
     }
+
+    getUploadSchoolHolidays(){
+        return cy.get('div.calendar-popper-sub-list')
+    }
+
+    getSelectFileFromComputer(){
+        return cy.get('.BulkUpload_bulkUploadLabel__qPwFW')
+    }
+
+    getDownloadSampleFile(){
+        return cy.get('button.BulkUpload_downloadSampleTxt__1UJTp')
+    }
 }
 module.exports = new AdminCalenderHomePage()

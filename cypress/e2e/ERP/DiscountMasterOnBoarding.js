@@ -18,7 +18,7 @@ describe("Verify Discount Master OnBoarding functionalities", function () {
 
   beforeEach(function () {
     cy.restoreLocalStorage();
-    cy.fixture("ERP/PenaltyMasterCredentials").as("PenaltyMaster")
+    cy.fixture("ERP/DiscountMasterOnBoarding").as("discountMasterOnBoarding")
     cy.viewport(1920,1080)
   })
 

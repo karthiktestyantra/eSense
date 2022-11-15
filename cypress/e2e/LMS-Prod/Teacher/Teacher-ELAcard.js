@@ -3,13 +3,16 @@ const teacherELAPage = require("../../../support/pageObjects/LMS-2/TeacherELAPag
 describe("Verify Teacher ELA Page functionalities - Sprint 16(EL-4203,EL-4220,EL-4046,EL-3976)", function () {
 
     before(function () {
+        cy.clearLocalStorageSnapshot();
         cy.visit(Cypress.env('urlProd'))
         cy.fixture("LMS/TeacherLoginCredentials").then(function (validAdminLoginData) {
             cy.TeacherPostSetupLogin(validAdminLoginData.teacher3, validAdminLoginData.password)
         })
+        cy.saveLocalStorage();
     })
 
     beforeEach(function () {
+        cy.restoreLocalStorage();
         cy.fixture("LMS/TeacherELACredentials").as("teacherELA")
     })
 
